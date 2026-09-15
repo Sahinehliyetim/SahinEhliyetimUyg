@@ -1567,6 +1567,257 @@ const questionBank = [
     options: { A: "Duyu organları uyarılır.", B: "Vücut sıcaklığının düşürülür.", C: "Soğuk içecek verilir.", D: "Hastahaneye götürülür." },
     answer: "A"
   },
+    {
+    id: 151,
+    question: "Göz muayenesine ilişkin esaslara göre hangi rahatsızlığı olanlar, herhangi bir koşul aranmadan sürücü belgesi alabilirler?",
+    image: null,
+    options: { A: "Gece körlüğü", B: "Renk körlüğü", C: "İki gözü görmeyen", D: "Monoküler (tek gözü gören)" },
+    answer: "B"
+  },
+      {
+    id: 152,
+    question: "Motorlar soğutma sistemine göre nasıl sınıflandırılırlar?",
+    image: null,
+    options: { A: "Su ve yağ soğutmalı", B: "Su ve hava soğutmalı", C: "Yağ ve motorin soğutmalı", D: "Hava ve benzin soğutmalı" },
+    answer: "B"
+  },
+
+ {
+    id: 153,
+    question: "Araç lastiği değiştirilirken, aracın kriko ile kaldırılması durumunda aşağıdakilerden hangisi yapılır?",
+    image: null,
+    options: { A: "El freni çekilir.", B: "El freni bırakılır.", C: "Debriyaja basılır.", D: "Vites boşa alınır." },
+    answer: "A"
+  },
+
+   {
+    id: 154,
+    question: "Aşağıdakilerden hangisi hayat kurtarma zinciri içinde yer almaz?",
+    image: null,
+    options: { A: "Kazaya karışan araçların hasar durumlarının tespit edilmesi", B: "Ambulans ekiplerince müdahaleler yapılması", C: "Olay yerinde Temel Yaşam Desteği yapılması", D: "Sağlık kuruluşuna haber verilmesi" },
+    answer: "A"
+  },
+
+   {
+    id: 155,
+    question: "Akünün bakımında aşağıdakilerden hangisine dikkat edilir?",
+    image: null,
+    options: { A: "Yağ seviyesine", B: "Antifriz seviyesine", C: "Hidrolik seviyesine", D: "Elektrolit seviyesine" },
+    answer: "D"
+  },
+
+   {
+    id: 156,
+    question: "Şekildeki taşıt yolu üzerinde bulunan yazı neyi bildirmektedir?",
+    image: "gunluksoruresimler/26.jpg",
+    options: { A: "Işıklara 50 m kaldığını", B: "Asgari (en az) hız sınırını", C: "Azami (en yüksek) hız sınırını", D: "Öndeki araca 50 m´den fazla yaklaşılmamasını" },
+    answer: "C"
+  },
+
+     {
+    id: 157,
+    question: "Şekildeki trafik tanzim işaretine göre hangi numaralı araçlar geçme yasağına uymamıştır?",
+    image: "gunluksoruresimler/27.gif",
+    options: { A: "Yalnız 3", B: "1 ve 2", C: "2 ve 3", D: "2, 3 ve 4" },
+    answer: "A"
+  },
+     {
+    id: 158,
+    question: "Sıkıştırılmış yakıt-hava karışımının buji ile ateşlenmesi sonucu çalışan motor hangisidir?",
+    image: null,
+    options: { A: "Dizel motor", B: "Marş motoru", C: "Benzinli motor", D: "Buhar makinesi" },
+    answer: "C"
+  },
+     {
+    id: 159,
+    question: "Taşıt yolunun her iki yöndeki taşıt trafiği için kullanıldığı kara yoluna ne ad verilir?",
+    image: null,
+    options: { A: "İki yönlü kara yolu", B: "Tek yönlü kara yolu", C: "Bölünmüş kara yolu", D: "Erişme kontrollü kara yolu" },
+    answer: "A"
+  },
+     {
+    id: 160,
+    question: "Aşağıdakilerden hangisi motorda hararetin yükselmesine sebep olabilir?",
+    image: null,
+    options: { A: "Soğutma suyunda antifrizin olması", B: "Distribütör kapağının çatlak olması", C: "Vantilatör kayışının çok gergin olması", D: "Aracın uygun vites ve devirde kullanılmaması" },
+    answer: "D"
+  },
+     {
+    id: 161,
+    question: "Eğimli iki yönlü dar yollarda karşılaşan araç sürücüleri için aşağıdakilerden hangisi doğrudur?",
+    image: null,
+    options: { A: "Çıkan araç sürücüsünün inen araç sürücüsüne yol vermesi", B: "İnen araç sürücüsünün çıkan araç sürücüsüne yol vermesi", C: "İnen araç sürücüsünün çıkan araç sürücüsünü ikaz edip durdurması", D: "İnen araç sürücüsünün aracın motorunu durdurup, vitesi boşa alması" },
+    answer: "B"
+  },
+     {
+    id: 162,
+    question: "Haritaların sol kenar çizgisi hangi ana yönü gösterir?",
+    image: null,
+    options: { A: "Kuzey", B: "Güney", C: "Doğu", D: "Batı" },
+    answer: "D"
+  },
+     {
+    id: 163,
+    question: "Aracın, kısa farları kaç metrelik mesafeyi aydınlatmalıdır?",
+    image: null,
+    options: { A: "25", B: "35", C: "45", D: "50" },
+    answer: "A"
+  },
+     {
+    id: 164,
+    question: "Çıkık nedir?",
+    image: null,
+    options: { A: "Eklem yüzeylerinin kalıcı olarak ayrılmasıdır.", B: "Kemik bütünlüğünün bozulmasıdır.", C: "Eklem bağlarının zedelenmesidir.", D: "Kas yırtılmasıdır." },
+    answer: "A"
+  },
+     {
+    id: 165,
+    question: "Aşağıdakilerin hangisinde balanssızlık olması, düz yolda belli bir hızdan sonra araçta titreşimlere neden olabilir?",
+    image: null,
+    options: { A: "Lastiklerde", B: "Pistonlarda", C: "Alternatörde", D: "Eksantrik milinde" },
+    answer: "A"
+  },
+     {
+    id: 166,
+    question: "Egzoz gazı zehirlenmesi ile bayılan hastaya aşağıdakilerden hangisi uygulanır?",
+    image: null,
+    options: { A: "Açık havaya çıkarılır.", B: "Yoğurt yedirilir.", C: "Tuzlu su içirilir.", D: "Kusturulur." },
+    answer: "A"
+  },
+     {
+    id: 167,
+    question: "Şekildeki trafik işareti neyi bildirir?",
+    image: "gunluksoruresimler/28.gif",
+    options: { A: "Kasisli yola girileceğini", B: "Yolda çalışma olduğunu", C: "Yolun trafiğe kapalı olduğunu", D: "Motorlu taşıtların giremeyeceğini" },
+    answer: "A"
+  },
+     {
+    id: 168,
+    question: "Aşağıdakilerden hangisi araçtaki ilk yardım çantasında bulundurulmalıdır?",
+    image: null,
+    options: { A: "Ağrı kesici ilaç", B: "Yara merhemi", C: "Üçgen sargı bezi", D: "Serum" },
+    answer: "C"
+  },
+     {
+    id: 169,
+    question: "Motor çalışır durumda iken yağlamanın olup olmadığı aşağıdakilerin hangisinden anlaşılır?",
+    image: null,
+    options: { A: "Yağ karterinden", B: "Yağ filtresinden", C: "Yağ çubuğundan", D: "Yağ göstergesinden" },
+    answer: "D"
+  },
+     {
+    id: 170,
+    question: "Normal yetişkin bir insan, kanama sonucu vücudundaki kanın % kaçını kaybederse hayati tehlike oluşur?",
+    image: null,
+    options: { A: "5", B: "10", C: "15", D: "20" },
+    answer: "D"
+  },
+     {
+    id: 171,
+    question: "Aşağıdakilerden hangisinin aşınması araçta direksiyon boşluğunun fazlalaşmasına neden olur?",
+    image: null,
+    options: { A: "Vites kutusunun", B: "Pistonların", C: "Krank milinin", D: "Rot başlarının" },
+    answer: "D"
+  },
+     {
+    id: 172,
+    question: "Tehlikeli madde taşıyan araçların, boş olarak seyretmesi sırasındaki azamî hızı için aşağıdakilerden hangisi söylenebilir?",
+    image: null,
+    options: { A: "Tehlikeli madde yüklü araçlar için belirlenen hızla gitmelidirler.", B: "Tehlikeli maddenin cinsine göre belirlenen hızla gitmelidirler.", C: "Kendi sınıflarındaki araçlar için belirlenen hızla gitmelidirler.", D: "Aracın teknik özelliklerine uygun bir hız tespit etmelidirler." },
+    answer: "C"
+  },
+     {
+    id: 173,
+    question: "I- İtfaiye araçları  II- Toplu taşıma araçları  III- Yaralı ve acil hasta taşıyan araçlar   Verilenlerden hangileri geçiş üstünlüğüne sahip araçlardandır?",
+    image: null,
+    options: { A: "Yalnız I", B: "I ve II", C: "I ve III", D: "I, II ve III" },
+    answer: "C"
+  },
+     {
+    id: 174,
+    question: "Debriyaj bilyasının sık sık bozulmasının sebebi aşağıdakilerden hangisidir?",
+    image: null,
+    options: { A: "Taşıt hareket hâlinde iken debriyaj pedalına yarım basılıyordur.", B: "Debriyaj pedalına hiç basılmıyordur.", C: "Debriyaj pedal boşluğu fazladır.", D: "Debriyaj teli kopmuştur." },
+    answer: "A"
+  },
+     {
+    id: 175,
+    question: "Araçların bir mülke girip çıkması için yapılmış olan yolun, kara yoluna bağlanan ve kara yolu sınır çizgisi içinde kalan kısmına ne ad verilir?",
+    image: null,
+    options: { A: "Şerit", B: "Banket", C: "Geçiş yolu", D: "Bağlantı yolu" },
+    answer: "C"
+  },
+     {
+    id: 176,
+    question: "Geceleyin, görüşün yeterli olmadığı kavşağa yaklaşan sürücü gelişini nasıl haber vermelidir?",
+    image: null,
+    options: { A: "Birkaç defa selektör yaparak", B: "Acil uyarı ışıklarını yakarak", C: "Birkaç defa korna çalarak", D: "Dönüş ışıklarını yakarak" },
+    answer: "A"
+  },
+     {
+    id: 177,
+    question: "Şekildeki trafik görevlisinin yapmış olduğu işaretin sürücüler için anlamı nedir?",
+    image: "gunluksoruresimler/29.png",
+    options: { A: "Dur", B: "Hızlan", C: "Yavaşla", D: "Sağa yanaş" },
+    answer: "C"
+  },
+     {
+    id: 178,
+    question: "Frenleme esnasında aracın bir tarafa savrulması, aşağıdakilerden hangisinin bozulmasından kaynaklanır?",
+    image: null,
+    options: { A: "Fren ayarının", B: "Supap ayarının", C: "Diferansiyel ayarının", D: "Vites kutusu ayarının" },
+    answer: "A"
+  },
+     {
+    id: 179,
+    question: "Aşağıdakilerden hangisi araçlarda kirli yakıt kullanılmasının bir sonucudur?",
+    image: null,
+    options: { A: "Motor rölanti devrinin yüksek olması", B: "Yağlama sisteminin görev yapamaması", C: "Motorun düzensiz ve tekleyerek çalışması", D: "Marş yapıldığında, marş motorunun yavaş dönmesi" },
+    answer: "C"
+  },
+     {
+    id: 180,
+    question: "Trafik uygun olsa bile şekildeki kavşakta hangi numaralı araçların ok yönündeki hareketi kesinlikle yasaktır?",
+    image: "gunluksoruresimler/30.jpg",
+    options: { A: "Yalnız 1", B: "Yalnız 3", C: "1 ve 3", D: "2 ve 4" },
+    answer: "D"
+  },
+     {
+    id: 181,
+    question: "Dört zamanlı dizel motorlarda, zamanların oluşum sırası aşağıdaki gibidir.Buna göre, hangi zamanda sadece hava pistonla sıkıştırılır?",
+    image: "gunluksoruresimler/31.gif",
+    options: { A: "Emme zamanı", B: "Sıkıştırma zamanı", C: "Ateşleme zamanı", D: "Egzoz zamanı" },
+    answer: "B"
+  },
+     {
+    id: 182,
+    question: "Köprücük kemiği kırığında hangi sargı kullanılır?",
+    image: null,
+    options: { A: "Atel.", B: "Üçgen bandaj (kol askısı).", C: "Alçı.", D: "Boyunluk." },
+    answer: "B"
+  },
+     {
+    id: 183,
+    question: "Sürücüler dönüşlerde aşağıdakilerden hangisini yapmak zorundadır?",
+    image: null,
+    options: { A: "Niyetini dönüş lambasıyla önceden bildirmek", B: "İşaret verdiği anda aniden şerit değiştirmek", C: "Dönmeye başladıktan sonra işaret vermek", D: "Arkadan gelen araçlara yol vermek" },
+    answer: "A"
+  },
+     {
+    id: 184,
+    question: "Aşağıdaki durumların hangisinde kazazedeye baş-çene pozisyonu verilmesi uygundur?",
+    image: null,
+    options: { A: "Burun kanaması olan", B: "Bulantı ve kusması olan", C: "Solunum yolu tıkalı olan", D: "Boyun omurunda zedelenme olan" },
+    answer: "C"
+  },
+     {
+    id: 185,
+    question: "Aşağıdaki hâllerin hangisinde araçların teknik muayenelerinin yaptırılması zorunludur?",
+    image: null,
+    options: { A: "Sahibi değiştiğinde", B: "Sigorta süresi bittiğinde", C: "Tescil belgesi değiştirildiğinde", D: "Üzerinde teknik değişiklik yapıldığında" },
+    answer: "D"
+  },
+  
 
 
 
