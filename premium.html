@@ -1,275 +1,1156 @@
-<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"><style>
-:root{--bg:#f8fafc;--card:#fff;--text:#171717;--muted:#77766f;--line:#e8e6dd;--yellow:#f4c430;--yellow-strong:#c18f00;--yellow-soft:#fff4c9;--shadow:0 14px 36px rgba(28,27,20,.08)}body.dark{--bg:#11110f;--card:#191916;--text:#f7f6ef;--muted:#aaa89e;--line:#302f29;--yellow-soft:#332d16}*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--text)}body{padding-top:env(safe-area-inset-top)}button{font:inherit}.page{width:min(100%,760px);margin:auto;padding:0 14px 20px}.header{margin-top:12px;padding:17px 18px;border-radius:24px;background:linear-gradient(135deg,var(--card),var(--yellow-soft));border:1px solid var(--line);box-shadow:var(--shadow);display:flex;justify-content:space-between;align-items:center}.header-left{display:flex;gap:12px;align-items:center}.mark{width:42px;height:42px;border-radius:14px;background:#242421;padding:5px}.header h1{margin:0;font-size:20px}.header p{margin:2px 0 0;font-size:10px;color:var(--muted)}.theme{width:42px;height:42px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--text)}.hero,.active{margin-top:12px;padding:23px 19px;border-radius:27px;background:linear-gradient(135deg,var(--card),var(--yellow-soft));border:1px solid rgba(244,196,48,.4);box-shadow:var(--shadow)}.hero-icon,.status-icon{width:55px;height:55px;border-radius:17px;background:var(--yellow);display:grid;place-items:center;color:#27220f;font-size:21px}.eyebrow{display:block;margin-top:14px;font-size:9px;font-weight:800;letter-spacing:1.4px;color:var(--yellow-strong)}.hero h2{margin:5px 0;font-size:25px;line-height:1.2}.hero p,.active p{font-size:10.5px;line-height:1.7;color:var(--muted);margin:8px 0}.price{margin-top:12px;padding:18px;border-radius:22px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);text-align:center}.price small{font-size:9px;color:var(--muted);font-weight:800}.price-row{display:flex;justify-content:center;align-items:baseline;gap:9px}.old{text-decoration:line-through;color:#9b756d}.new{font-size:35px;font-weight:800;color:var(--yellow-strong)}.month{font-size:11px;color:var(--muted)}.title{margin:20px 2px 10px;font-size:14px}.features,.grid{display:grid;gap:9px}.feature,.content{padding:14px;border-radius:19px;background:var(--card);border:1px solid var(--line);box-shadow:0 8px 22px rgba(28,27,20,.045)}.feature{display:flex;gap:12px}.fi{width:40px;height:40px;flex:0 0 40px;border-radius:13px;background:var(--yellow-soft);color:var(--yellow-strong);display:grid;place-items:center}.feature strong,.content strong{font-size:10.5px}.feature span,.content span{display:block;margin-top:4px;font-size:9px;line-height:1.55;color:var(--muted)}.grid{grid-template-columns:repeat(2,1fr)}.content i{color:var(--yellow-strong)}.content strong{display:block;margin-top:7px}.buy{margin-top:14px;padding:15px;border-radius:21px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}.buy button{width:100%;padding:14px;border:0;border-radius:15px;background:var(--yellow);font-weight:800;color:#27220f}.note{text-align:center;font-size:8.5px;color:var(--muted);margin-top:8px}.status-top{display:flex;align-items:center;gap:11px}.status-top h2{margin:0;font-size:17px}.checks{display:grid;gap:7px;margin:12px 0 0;padding:0;list-style:none}.checks li{padding:9px;border-radius:12px;background:rgba(0,0,0,.04);font-size:9.5px}.checks i{color:var(--yellow-strong)}@media(max-width:480px){.hero h2{font-size:22px}}
-/* ================= MODERN BOTTOM NAVIGATION ================= */
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --text:#171717;
+  --muted:#77766f;
+  --line:#e8e6dd;
+  --yellow:#f4c430;
+  --yellow-light:#ffd84d;
+  --yellow-strong:#b88600;
+  --yellow-soft:#fff4c9;
+  --green:#238636;
+  --shadow:0 12px 30px rgba(28,27,20,.07);
+}
+
+body.dark{
+  --bg:#11110f;
+  --card:#191916;
+  --text:#f7f6ef;
+  --muted:#aaa89e;
+  --line:#302f29;
+  --yellow-soft:#332d16;
+  --shadow:0 12px 30px rgba(0,0,0,.25);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html,
 body{
+  margin:0;
+  min-height:100%;
+  font-family:Poppins,system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+html{
+  background:var(--bg);
+}
+
+body{
+  padding-top:env(safe-area-inset-top);
   padding-bottom:102px !important;
+  min-height:100vh;
+  overflow-x:hidden;
+  background:var(--bg);
 }
+
+body.dark{
+  background:#11110f !important;
+}
+
+button{
+  font:inherit;
+}
+
+.page{
+  width:min(100%,720px);
+  margin:auto;
+  padding:14px 14px 25px;
+}
+
+/* =========================
+   ANA PREMIUM ALANI
+========================= */
+
+.premium-main{
+  margin-top:2px;
+  padding:24px 18px 20px;
+  border-radius:26px;
+  background:linear-gradient(
+    135deg,
+    var(--card),
+    var(--yellow-soft)
+  );
+  border:1px solid rgba(244,196,48,.45);
+  box-shadow:var(--shadow);
+  text-align:center;
+}
+
+.premium-icon{
+  width:58px;
+  height:58px;
+  margin:0 auto 13px;
+  border-radius:18px;
+  display:grid;
+  place-items:center;
+  background:var(--yellow);
+  color:#27220f;
+  font-size:22px;
+  box-shadow:0 8px 20px rgba(244,196,48,.22);
+}
+
+.eyebrow{
+  display:block;
+  color:var(--yellow-strong);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1.5px;
+  margin-bottom:7px;
+}
+
+.premium-main h1{
+  margin:0;
+  font-size:22px;
+  line-height:1.25;
+  font-weight:800;
+}
+
+.premium-slogan{
+  margin:10px auto 0;
+  max-width:570px;
+  font-size:20px;
+  line-height:1.6;
+  font-weight:700;
+  color:var(--text);
+}
+
+.premium-slogan strong{
+  color:var(--yellow-strong);
+}
+
+/* =========================
+   FIRSAT / FİYAT
+========================= */
+
+.offer{
+  margin-top:12px;
+  padding:18px 16px;
+  border-radius:23px;
+  background:var(--card);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  text-align:center;
+}
+
+.offer-label{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 11px;
+  border-radius:999px;
+  background:var(--yellow);
+  color:#27220f;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.4px;
+}
+
+.offer-label i{
+  font-size:9px;
+}
+
+.price{
+  display:flex;
+  justify-content:center;
+  align-items:baseline;
+  gap:9px;
+  margin-top:10px;
+}
+
+.old-price{
+  font-size:17px;
+  color:#9b756d;
+  text-decoration:line-through;
+  font-weight:600;
+}
+
+.new-price{
+  font-size:39px;
+  line-height:1;
+  color:var(--yellow-strong);
+  font-weight:800;
+}
+
+.price-month{
+  font-size:11px;
+  color:var(--muted);
+}
+
+.offer-message{
+  margin:8px 0 0;
+  font-size:10px;
+  line-height:1.55;
+  color:var(--muted);
+}
+
+.offer-message strong{
+  color:var(--text);
+}
+
+/* =========================
+   SATIN AL BUTONU
+========================= */
+
+.buy-box{
+  margin-top:12px;
+}
+
+.buy-button{
+  width:100%;
+  min-height:54px;
+  border:0;
+  border-radius:17px;
+  background:linear-gradient(
+    135deg,
+    var(--yellow-light),
+    var(--yellow)
+  );
+  color:#27220f;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 10px 24px rgba(244,196,48,.25);
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.buy-button i{
+  margin-right:7px;
+}
+
+.buy-button:active{
+  transform:scale(.97);
+}
+
+.buy-button:hover{
+  box-shadow:0 13px 28px rgba(244,196,48,.32);
+}
+
+.subscription-note{
+  margin:8px 8px 0;
+  font-size:8.5px;
+  line-height:1.6;
+  color:var(--muted);
+}
+
+.subscription-note i{
+  color:var(--yellow-strong);
+  margin-right:3px;
+}
+
+/* =========================
+   AVANTAJLAR
+========================= */
+
+.section-title{
+  margin:20px 3px 9px;
+  font-size:14px;
+  font-weight:800;
+}
+
+.features{
+  display:grid;
+  gap:8px;
+}
+
+.feature{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:12px;
+  border-radius:17px;
+  background:var(--card);
+  border:1px solid var(--line);
+  box-shadow:0 7px 18px rgba(28,27,20,.04);
+}
+
+.feature-icon{
+  width:39px;
+  height:39px;
+  flex:0 0 39px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background:var(--yellow-soft);
+  color:var(--yellow-strong);
+  font-size:16px;
+}
+
+.feature-text strong{
+  display:block;
+  font-size:10.5px;
+  font-weight:700;
+}
+
+.feature-text span{
+  display:block;
+  margin-top:2px;
+  font-size:8.8px;
+  line-height:1.45;
+  color:var(--muted);
+}
+
+/* =========================
+   PREMIUM İÇERİKLER
+========================= */
+
+.content-title{
+  margin:18px 3px 9px;
+  font-size:14px;
+  font-weight:800;
+}
+
+.content-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+}
+
+.content-card{
+  min-height:92px;
+  padding:13px;
+  border-radius:17px;
+  background:var(--card);
+  border:1px solid var(--line);
+  box-shadow:0 7px 18px rgba(28,27,20,.04);
+}
+
+.content-card i{
+  color:var(--yellow-strong);
+  font-size:17px;
+}
+
+.content-card strong{
+  display:block;
+  margin-top:8px;
+  font-size:10px;
+}
+
+.content-card span{
+  display:block;
+  margin-top:3px;
+  font-size:8.5px;
+  line-height:1.45;
+  color:var(--muted);
+}
+
+/* =========================
+   PREMIUM AKTİF
+========================= */
+
+.active-premium{
+  margin-top:2px;
+  padding:22px 17px;
+  border-radius:25px;
+  background:linear-gradient(
+    135deg,
+    var(--card),
+    var(--yellow-soft)
+  );
+  border:1px solid rgba(244,196,48,.4);
+  box-shadow:var(--shadow);
+}
+
+.active-top{
+  display:flex;
+  align-items:center;
+  gap:11px;
+}
+
+.active-icon{
+  width:50px;
+  height:50px;
+  flex:0 0 50px;
+  display:grid;
+  place-items:center;
+  border-radius:16px;
+  background:var(--yellow);
+  color:#27220f;
+  font-size:20px;
+}
+
+.active-premium h2{
+  margin:0;
+  font-size:18px;
+}
+
+.active-premium p{
+  margin:10px 0 0;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.65;
+}
+
+.active-list{
+  display:grid;
+  gap:7px;
+  margin:13px 0 0;
+  padding:0;
+  list-style:none;
+}
+
+.active-list li{
+  padding:9px 10px;
+  border-radius:12px;
+  background:rgba(0,0,0,.035);
+  font-size:9px;
+}
+
+.active-list i{
+  color:var(--yellow-strong);
+  margin-right:6px;
+}
+
+body.dark .active-list li{
+  background:rgba(255,255,255,.05);
+}
+
+/* =========================
+   ALT NAVİGASYON
+========================= */
+
 .bottom-nav{
   position:fixed !important;
   left:50% !important;
   bottom:12px !important;
   transform:translateX(-50%) !important;
+
   width:min(94%,520px) !important;
   height:72px !important;
   padding:7px !important;
+
   display:flex !important;
   align-items:center !important;
   justify-content:space-around !important;
   gap:4px !important;
+
   background:rgba(255,255,255,.96) !important;
+
   border:1px solid rgba(244,196,48,.24) !important;
   border-radius:24px !important;
-  box-shadow:0 16px 38px rgba(32,27,10,.14), 0 3px 10px rgba(244,196,48,.08) !important;
+
+  box-shadow:
+    0 16px 38px rgba(32,27,10,.14),
+    0 3px 10px rgba(244,196,48,.08) !important;
+
   backdrop-filter:blur(18px) saturate(120%) !important;
   -webkit-backdrop-filter:blur(18px) saturate(120%) !important;
+
   z-index:9999 !important;
 }
+
 .bottom-nav button{
   border:0 !important;
   background:transparent !important;
+
   min-width:54px !important;
   height:56px !important;
   padding:0 8px !important;
+
   border-radius:18px !important;
+
   display:flex !important;
   flex:1 !important;
   flex-direction:column !important;
   align-items:center !important;
   justify-content:center !important;
+
   gap:4px !important;
+
   color:#8b877b !important;
+
   font:600 10.5px/1 Poppins,system-ui,sans-serif !important;
+
   cursor:pointer !important;
-  transition:transform .22s ease, background .22s ease, color .22s ease, box-shadow .22s ease !important;
+
+  transition:
+    transform .22s ease,
+    background .22s ease,
+    color .22s ease,
+    box-shadow .22s ease !important;
+
   -webkit-tap-highlight-color:transparent !important;
 }
+
 .bottom-nav button i{
   font-size:18px !important;
   line-height:1 !important;
-  transition:transform .22s ease !important;
 }
+
 .bottom-nav button span{
   display:block !important;
   white-space:nowrap !important;
 }
+
 .bottom-nav button.active{
-  background:linear-gradient(135deg,#ffd84d,#f4c430) !important;
+  background:linear-gradient(
+    135deg,
+    #ffd84d,
+    #f4c430
+  ) !important;
+
   color:#27220f !important;
-  box-shadow:0 8px 18px rgba(244,196,48,.28) !important;
+
+  box-shadow:
+    0 8px 18px rgba(244,196,48,.28) !important;
 }
+
+.bottom-nav .premium-btn{
+  color:#c18f00 !important;
+}
+
 .bottom-nav button.active i{
   transform:translateY(-1px) !important;
 }
+
 .bottom-nav button:not(.active):hover{
   color:#c18f00 !important;
   background:#fff9df !important;
 }
+
 .bottom-nav button:active{
   transform:scale(.94) !important;
 }
-.bottom-nav .premium-btn{
-  color:#c18f00 !important;
-}
-@media(max-width:390px){
-  .bottom-nav{
-    width:96% !important;
-    height:70px !important;
-    bottom:9px !important;
-  }
-  .bottom-nav button{
-    min-width:45px !important;
-    padding:0 4px !important;
-    font-size:10px !important;
-  }
-  .bottom-nav button i{
-    font-size:17px !important;
-  }
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark .premium-main,
+body.dark .active-premium{
+  background:linear-gradient(
+    135deg,
+    #191916,
+    #22221d
+  ) !important;
+
+  color:#f7f6ef !important;
+  border-color:#302f29 !important;
 }
 
-
-/* Dark mode navigation synchronization */
-body.dark .bottom-nav{background:rgba(25,25,22,.96)!important;border-color:rgba(244,196,48,.22)!important;box-shadow:0 16px 38px rgba(0,0,0,.42),0 3px 10px rgba(0,0,0,.24)!important}
-body.dark .bottom-nav button{color:#aaa89e!important}
-body.dark .bottom-nav button:not(.active):hover{color:#f4c430!important;background:#332d16!important}
-body.dark .bottom-nav .premium-btn{color:#f4c430!important}
-.premium-cta{display:flex;align-items:center;gap:13px;margin:0 0 18px;padding:15px;border:1px solid rgba(244,196,48,.5);border-radius:18px;background:linear-gradient(135deg,var(--yellow-soft),var(--surface));box-shadow:0 10px 25px rgba(244,196,48,.12)}.premium-cta-icon{width:43px;height:43px;display:grid;place-items:center;border-radius:14px;background:var(--yellow);color:#27220f;flex:0 0 43px}.premium-cta b{display:block;font-size:14px}.premium-cta p{margin:4px 0 0;color:var(--muted);font-size:11px;line-height:1.4}.premium-cta button{margin-left:auto;border:0;border-radius:13px;padding:11px 14px;background:linear-gradient(135deg,#ffd84d,#f4c430);color:#27220f;font-weight:800;white-space:nowrap;cursor:pointer}.premium-cta button i{margin-right:5px}@media(max-width:520px){.premium-cta{align-items:flex-start;flex-wrap:wrap}.premium-cta button{width:100%;margin-left:56px;margin-top:2px}}body.dark .premium-cta{background:linear-gradient(135deg,#332d16,#191916);border-color:rgba(244,196,48,.3)}
-.premium-proof{display:flex;flex-direction:column;gap:4px;margin-top:12px;padding:11px 12px;border-radius:13px;background:var(--yellow-soft);color:var(--text)}.premium-proof i{color:#a77b00}.premium-proof strong{font-size:12px}.premium-proof span{font-size:10px;color:var(--muted)}body.dark .premium-proof{background:#332d16}.premium-proof+*{margin-top:12px}
-</style>
-<style id="seh-darkmode-final">
-/* Şahin Ehliyetim — ortak dark mode */
-html,body{background:#f8fafc;color:#171717}
-body.dark,body.dark html{background:#11110f!important;color:#f7f6ef!important}
-body.dark .page,body.dark main{background:transparent!important;color:#f7f6ef}
-body.dark .header,
-body.dark .profile-hero,
-body.dark .hero,
-body.dark .active,
-body.dark .price,
-body.dark .card,
-body.dark .ask,
-body.dark .info,
-body.dark .question,
-body.dark .buy,
+body.dark .offer,
 body.dark .feature,
-body.dark .content{background:linear-gradient(135deg,#191916,#22221d)!important;color:#f7f6ef!important;border-color:#302f29!important}
-body.dark .stat,
-body.dark .quick{background:#1c1c18!important;color:#f7f6ef!important;border-color:#302f29!important}
-body.dark .test-category,
-body.dark .test-item,
-body.dark .cat-content,
-body.dark .empty{border-color:#302f29!important}
-body.dark textarea,
-body.dark input{background:#151512!important;color:#f7f6ef!important;border-color:#3a3931!important}
-body.dark .xp-track{background:#302f29!important}
-body.dark .answer{background:#182536!important;color:#8db8ff!important}
-body.dark .waiting,
-body.dark .quota{background:#332d16!important;color:#f4c430!important}
-body.dark .checks li{background:rgba(255,255,255,.05)!important}
-body.dark .theme,
-body.dark .edit-name{background:#191916!important;color:#f7f6ef!important;border-color:#302f29!important}
-body.dark .bottom-nav{background:rgba(25,25,22,.97)!important;border-color:rgba(244,196,48,.22)!important;box-shadow:0 16px 38px rgba(0,0,0,.45)!important}
-body.dark .bottom-nav button{background:transparent!important;color:#aaa89e!important}
-body.dark .bottom-nav button.active{background:linear-gradient(135deg,#ffd84d,#f4c430)!important;color:#27220f!important}
-body.dark .bottom-nav .premium-btn{color:#f4c430!important}
-body.dark .bottom-nav button:not(.active):hover{background:#332d16!important;color:#f4c430!important}
-</style>
-
-<style id="seh-dark-viewport-fix">
-html{background:#f8fafc!important;}
-html:has(body.dark){background:#11110f!important;}
-html:has(body.dark),html:has(body.dark) body{color-scheme:dark;}
-body{min-height:100vh!important;background:var(--bg)!important;}
-body.dark{background:#11110f!important;}
-body.dark::before{content:"";position:fixed;inset:0;background:#11110f;z-index:-1;pointer-events:none;}
-</style>
-
-<style id="seh-v22-home-navbar-sync">
-.bottom-nav{
-  position:fixed !important;
-  left:50% !important;
-  bottom:12px !important;
-  transform:translateX(-50%) !important;
-  width:min(94%,520px) !important;
-  height:72px !important;
-  padding:7px !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:space-around !important;
-  gap:4px !important;
-  background:rgba(255,255,255,.96) !important;
-  border:1px solid rgba(244,196,48,.24) !important;
-  border-radius:24px !important;
-  box-shadow:0 16px 38px rgba(32,27,10,.14), 0 3px 10px rgba(244,196,48,.08) !important;
-  backdrop-filter:blur(18px) saturate(120%) !important;
-  -webkit-backdrop-filter:blur(18px) saturate(120%) !important;
-  z-index:9999 !important;
+body.dark .content-card{
+  background:#191916 !important;
+  color:#f7f6ef !important;
+  border-color:#302f29 !important;
 }
-.bottom-nav button{
-  border:0 !important;
+
+body.dark .buy-button{
+  background:linear-gradient(
+    135deg,
+    #ffd84d,
+    #f4c430
+  ) !important;
+  color:#27220f !important;
+}
+
+body.dark .bottom-nav{
+  background:rgba(25,25,22,.97) !important;
+  border-color:rgba(244,196,48,.22) !important;
+
+  box-shadow:
+    0 16px 38px rgba(0,0,0,.45) !important;
+}
+
+body.dark .bottom-nav button{
   background:transparent !important;
-  min-width:54px !important;
-  height:56px !important;
-  padding:0 8px !important;
-  border-radius:18px !important;
-  display:flex !important;
-  flex:1 !important;
-  flex-direction:column !important;
-  align-items:center !important;
-  justify-content:center !important;
-  gap:4px !important;
-  color:#8b877b !important;
-  font:600 10.5px/1 Poppins,system-ui,sans-serif !important;
-  cursor:pointer !important;
-  transition:transform .22s ease, background .22s ease, color .22s ease, box-shadow .22s ease !important;
-  -webkit-tap-highlight-color:transparent !important;
+  color:#aaa89e !important;
 }
-.bottom-nav button i{
-  font-size:18px !important;
-  line-height:1 !important;
-  transition:transform .22s ease !important;
-}
-.bottom-nav button span{
-  display:block !important;
-  white-space:nowrap !important;
-}
-.bottom-nav button.active{
-  background:linear-gradient(135deg,#ffd84d,#f4c430) !important;
+
+body.dark .bottom-nav button.active{
+  background:linear-gradient(
+    135deg,
+    #ffd84d,
+    #f4c430
+  ) !important;
   color:#27220f !important;
-  box-shadow:0 8px 18px rgba(244,196,48,.28) !important;
 }
-.bottom-nav button.active i{
-  transform:translateY(-1px) !important;
+
+body.dark .bottom-nav .premium-btn{
+  color:#f4c430 !important;
 }
-.bottom-nav button:not(.active):hover{
-  color:#c18f00 !important;
-  background:#fff9df !important;
+
+body.dark .bottom-nav button:not(.active):hover{
+  background:#332d16 !important;
+  color:#f4c430 !important;
 }
-.bottom-nav button:active{
-  transform:scale(.94) !important;
+
+body.dark .feature-icon,
+body.dark .content-card{
+  background:#1c1c18 !important;
 }
-.bottom-nav .premium-btn{
-  color:#c18f00 !important;
+
+body.dark .active-list li{
+  background:rgba(255,255,255,.05) !important;
 }
+
+/* =========================
+   MOBİL
+========================= */
+
+@media(max-width:480px){
+
+  .page{
+    padding-left:12px;
+    padding-right:12px;
+  }
+
+  .premium-main{
+    padding:21px 15px 18px;
+    border-radius:23px;
+  }
+
+  .premium-main h1{
+    font-size:20px;
+  }
+
+  .premium-slogan{
+    font-size:12px;
+  }
+
+  .new-price{
+    font-size:36px;
+  }
+
+  .old-price{
+    font-size:16px;
+  }
+
+  .content-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
 @media(max-width:390px){
+
   .bottom-nav{
     width:96% !important;
     height:70px !important;
     bottom:9px !important;
   }
+
   .bottom-nav button{
     min-width:45px !important;
     padding:0 4px !important;
     font-size:10px !important;
   }
+
   .bottom-nav button i{
     font-size:17px !important;
   }
+
+  .premium-main h1{
+    font-size:19px;
+  }
+
+  .premium-slogan{
+    font-size:17px;
+  }
+
+  .new-price{
+    font-size:34px;
+  }
 }
 </style>
+</head>
 
-<style id="seh-darkmode-final">
-/* Şahin Ehliyetim — ortak dark mode */
-html,body{background:#f8fafc;color:#171717}
-body.dark,body.dark html{background:#11110f!important;color:#f7f6ef!important}
-body.dark .page,body.dark main{background:transparent!important;color:#f7f6ef}
-body.dark .header,
-body.dark .profile-hero,
-body.dark .hero,
-body.dark .active,
-body.dark .price,
-body.dark .card,
-body.dark .ask,
-body.dark .info,
-body.dark .question,
-body.dark .buy,
-body.dark .feature,
-body.dark .content{background:linear-gradient(135deg,#191916,#22221d)!important;color:#f7f6ef!important;border-color:#302f29!important}
-body.dark .stat,
-body.dark .quick{background:#1c1c18!important;color:#f7f6ef!important;border-color:#302f29!important}
-body.dark .test-category,
-body.dark .test-item,
-body.dark .cat-content,
-body.dark .empty{border-color:#302f29!important}
-body.dark textarea,
-body.dark input{background:#151512!important;color:#f7f6ef!important;border-color:#3a3931!important}
-body.dark .xp-track{background:#302f29!important}
-body.dark .answer{background:#182536!important;color:#8db8ff!important}
-body.dark .waiting,
-body.dark .quota{background:#332d16!important;color:#f4c430!important}
-body.dark .checks li{background:rgba(255,255,255,.05)!important}
-body.dark .theme,
-body.dark .edit-name{background:#191916!important;color:#f7f6ef!important;border-color:#302f29!important}
-</style>
-</head><body><main class="page"><div id="premiumPage"></div></main>
+<body>
+
+<main class="page">
+
+  <div id="premiumPage"></div>
+
+</main>
+
 <script>
-if(localStorage.getItem("theme")==="true")document.body.classList.add("dark");
-  document.documentElement.classList.add("dark");function toggleTheme(){document.body.classList.toggle("dark");
-  document.documentElement.classList.toggle("dark", document.body.classList.contains("dark"));localStorage.setItem("theme",document.body.classList.contains("dark")?"true":"false")}
-const b=[["fa-ban","Reklamsız kullanım","Test ve çalışma ekranlarında reklamlarla bölünmeden devam et."],["fa-unlock-keyhole","Tüm premium testler","Premium Trafik, Motor, İlk Yardım, Trafik Adabı ve Deneme testlerinin tamamına eriş."],["fa-circle-play","Premium soru çözüm videoları","Soru çözüm videolarına ve premium video içeriklerine eriş."],["fa-bolt","Anında test erişimi","Reklam adımını beklemeden premium testlere doğrudan geç."],["fa-infinity","Sınırsız premium deneyim","Premium üyeliğin sunduğu tüm içerik ve erişim avantajlarını kullan."]];
-const u=JSON.parse(localStorage.getItem("user")||"{}"),premium=localStorage.getItem("isPremium")==="true"||localStorage.getItem("premium")==="true"||u.isPremium===true,page=document.getElementById("premiumPage");
-if(premium){page.innerHTML='<section class="active"><div class="status-top"><div class="status-icon"><i class="fa-solid fa-crown"></i></div><div><span class="eyebrow" style="margin:0">PREMIUM ÜYELİK</span><h2>Premium üyeliğin aktif</h2></div></div><p>Premium erişimin açık. Tüm premium içerik ve avantajlarını kullanabilirsin.</p><ul class="checks">'+b.map(x=>'<li><i class="fa-solid fa-check"></i> '+x[1]+'</li>').join("")+'</ul></section>'}else{page.innerHTML='<section class="hero"><div class="hero-icon"><i class="fa-solid fa-crown"></i></div><span class="eyebrow">ŞAHİN EHLİYET PREMIUM</span><h2>Sınava daha güçlü hazırlan.</h2><p>Reklamları kaldır, tüm premium testlere ve soru çözüm videolarına eriş. Daha hızlı ve kesintisiz çalış.</p><div class="premium-proof"><i class="fa-solid fa-chart-line"></i><strong>Premium ile çalışma deneyimini bir üst seviyeye taşı.</strong><span>89 TL/ay · günlük yaklaşık 3 TL</span></div></section><section class="price"><small>AYLIK PREMIUM</small><div class="price-row"><span class="old">149 TL</span><span class="new">89 TL</span><span class="month">/ay</span></div></section><section class="premium-cta"><span class="premium-cta-icon"><i class="fa-solid fa-crown"></i></span><div><b>Premium ile sınava daha güçlü hazırlan.</b><p>89 TL/ay — günlük yaklaşık 3 TL. Reklamsız kullanım, premium testler ve soru çözüm videolarıyla çalışma deneyimini güçlendir.</p></div><button onclick="buyPremium()"><i class="fa-solid fa-crown"></i> Premiumlu ol</button></section><h2 class="title">Premium ile tüm avantajlar</h2><section class="features">'+b.map(x=>'<article class="feature"><div class="fi"><i class="fa-solid '+x[0]+'"></i></div><div><strong>'+x[1]+'</strong><span>'+x[2]+'</span></div></article>').join("")+'</section><h2 class="title">Açılan içerik paketleri</h2><section class="grid"><div class="content"><i class="fa-solid fa-road"></i><strong>Premium Trafik</strong><span>5 premium test.</span></div><div class="content"><i class="fa-solid fa-gears"></i><strong>Premium Motor</strong><span>5 premium test.</span></div><div class="content"><i class="fa-solid fa-kit-medical"></i><strong>Premium İlk Yardım</strong><span>5 premium test.</span></div><div class="content"><i class="fa-solid fa-handshake"></i><strong>Premium Trafik Adabı</strong><span>5 premium test.</span></div><div class="content"><i class="fa-solid fa-flag-checkered"></i><strong>Premium Deneme</strong><span>5 premium sınav.</span></div><div class="content"><i class="fa-solid fa-circle-play"></i><strong>Video Kütüphanesi</strong><span>Premium soru çözüm içerikleri.</span></div></section><section class="buy"><button onclick="buyPremium()"><i class="fa-solid fa-crown"></i> Premium üyeliğe geç</button><div class="note">Ödeme ve üyelik işlemleri Android uygulaması üzerinden gerçekleştirilir.</div></section>'}
-function buyPremium(){if(window.Android&&typeof window.Android.buyPremium==="function")window.Android.buyPremium();else alert("Premium satın alma işlemi Android uygulaması üzerinden kullanılabilir.")}
-window.setPremiumFromAndroid=function(){localStorage.setItem("isPremium","true");const u=JSON.parse(localStorage.getItem("user")||"{}");u.isPremium=true;localStorage.setItem("user",JSON.stringify(u));location.reload()};
-</script><nav class="bottom-nav"><button onclick="location.href='katagoriler.html'"><i class="fa-solid fa-house"></i><span>Ana</span></button><button onclick="location.href='hesabim.html'"><i class="fa-solid fa-user"></i><span>Profil</span></button><button class="active premium-btn" onclick="location.href='premium.html'"><i class="fa-solid fa-crown"></i><span>Premium</span></button><button onclick="location.href='soru.html'"><i class="fa-solid fa-circle-question"></i><span>Sor</span></button><button onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i><span>Mod</span></button></nav></body></html>
+
+/* =========================
+   DARK MODE
+========================= */
+
+if(localStorage.getItem("theme")==="true"){
+  document.body.classList.add("dark");
+}
+
+function toggleTheme(){
+
+  document.body.classList.toggle("dark");
+
+  localStorage.setItem(
+    "theme",
+    document.body.classList.contains("dark")
+      ? "true"
+      : "false"
+  );
+}
+
+
+/* =========================
+   PREMIUM BİLGİLERİ
+========================= */
+
+const benefits = [
+
+  [
+    "fa-ban",
+    "Reklamsız kullanım",
+    "Test ve çalışma ekranlarında reklamsız devam et."
+  ],
+
+  [
+    "fa-unlock-keyhole",
+    "Tüm premium testler",
+    "Trafik, Motor, İlk Yardım, Trafik Adabı ve Deneme testlerine eriş."
+  ],
+
+  [
+    "fa-circle-play",
+    "Premium soru çözüm videoları",
+    "Premium soru çözüm videolarını ve video içeriklerini izle."
+  ],
+
+  [
+    "fa-bolt",
+    "Anında test erişimi",
+    "Reklam adımını beklemeden premium testlere doğrudan geç."
+  ],
+
+  [
+    "fa-infinity",
+    "Sınırsız premium deneyim",
+    "Premium üyeliğin sunduğu tüm avantajlardan yararlan."
+  ]
+
+];
+
+
+/* =========================
+   KULLANICI / PREMIUM KONTROL
+========================= */
+
+const user = JSON.parse(
+  localStorage.getItem("user") || "{}"
+);
+
+const premium =
+  localStorage.getItem("isPremium")==="true" ||
+  localStorage.getItem("premium")==="true" ||
+  user.isPremium===true;
+
+const page =
+  document.getElementById("premiumPage");
+
+
+/* =========================
+   PREMIUM AKTİFSE
+========================= */
+
+if(premium){
+
+  page.innerHTML = `
+
+    <section class="active-premium">
+
+      <div class="active-top">
+
+        <div class="active-icon">
+          <i class="fa-solid fa-crown"></i>
+        </div>
+
+        <div>
+
+          <span class="eyebrow" style="margin:0 0 3px;">
+            PREMIUM ÜYELİK
+          </span>
+
+          <h2>
+            Premium üyeliğin aktif
+          </h2>
+
+        </div>
+
+      </div>
+
+      <p>
+        Premium erişimin açık. Tüm premium testleri,
+        soru çözüm videolarını ve reklamsız çalışma
+        deneyimini kullanabilirsin.
+      </p>
+
+      <ul class="active-list">
+
+        ${benefits.map(item => `
+
+          <li>
+            <i class="fa-solid fa-check"></i>
+            ${item[1]}
+          </li>
+
+        `).join("")}
+
+      </ul>
+
+    </section>
+
+  `;
+
+}
+
+
+/* =========================
+   PREMIUM DEĞİLSE
+========================= */
+
+else{
+
+  page.innerHTML = `
+
+    <!-- ANA PREMIUM ALANI -->
+
+    <section class="premium-main">
+
+      <div class="premium-icon">
+        <i class="fa-solid fa-crown"></i>
+      </div>
+
+      <span class="eyebrow">
+        ŞAHİN EHLİYET PREMIUM
+      </span>
+
+      <h1>
+        SINAVA TAM HAZIRLIK İÇİN
+        PREMİUMLU OL
+      </h1>
+
+      <p class="premium-slogan">
+        ÜSTELİK
+        <strong>1 BARDAK KAHVEDEN UCUZ!</strong>
+      </p>
+
+    </section>
+
+
+    <!-- FIRSAT / FİYAT -->
+
+    <section class="offer">
+
+      <div class="offer-label">
+        <i class="fa-solid fa-bolt"></i>
+        SINIRLI SÜRELİ FIRSAT
+      </div>
+
+      <div class="price">
+
+        <span class="old-price">
+          149 TL
+        </span>
+
+        <span class="new-price">
+          89 TL
+        </span>
+
+        <span class="price-month">
+          /ay
+        </span>
+
+      </div>
+
+      <p class="offer-message">
+        <strong>
+          149 TL yerine sadece 89 TL!
+        </strong>
+        Bu fırsat sınırlı süre için geçerlidir.
+        Kaçırmadan Premium'a geç.
+      </p>
+
+    </section>
+
+
+    <!-- TEK SATIN ALMA BUTONU -->
+
+    <section class="buy-box">
+
+      <button
+        class="buy-button"
+        onclick="buyPremium()"
+      >
+
+        <i class="fa-solid fa-crown"></i>
+
+        PREMIUM'U 89 TL'YE AL
+
+      </button>
+
+      <div class="subscription-note">
+
+        <i class="fa-solid fa-rotate"></i>
+
+        Her ay otomatik olarak yenilenir.
+        Dilediğin zaman Google Play Store üzerinden
+        iptal edebilirsin.
+
+      </div>
+
+    </section>
+
+
+    <!-- AVANTAJLAR -->
+
+    <h2 class="section-title">
+      Premium ile neler kazanırsın?
+    </h2>
+
+    <section class="features">
+
+      ${benefits.map(item => `
+
+        <article class="feature">
+
+          <div class="feature-icon">
+            <i class="fa-solid ${item[0]}"></i>
+          </div>
+
+          <div class="feature-text">
+
+            <strong>
+              ${item[1]}
+            </strong>
+
+            <span>
+              ${item[2]}
+            </span>
+
+          </div>
+
+        </article>
+
+      `).join("")}
+
+    </section>
+
+
+    <!-- İÇERİKLER -->
+
+    <h2 class="content-title">
+      Premium içerikler
+    </h2>
+
+    <section class="content-grid">
+
+      <div class="content-card">
+
+        <i class="fa-solid fa-road"></i>
+
+        <strong>
+          Premium Trafik
+        </strong>
+
+        <span>
+          5 premium test.
+        </span>
+
+      </div>
+
+
+      <div class="content-card">
+
+        <i class="fa-solid fa-gears"></i>
+
+        <strong>
+          Premium Motor
+        </strong>
+
+        <span>
+          5 premium test.
+        </span>
+
+      </div>
+
+
+      <div class="content-card">
+
+        <i class="fa-solid fa-kit-medical"></i>
+
+        <strong>
+          Premium İlk Yardım
+        </strong>
+
+        <span>
+          5 premium test.
+        </span>
+
+      </div>
+
+
+      <div class="content-card">
+
+        <i class="fa-solid fa-handshake"></i>
+
+        <strong>
+          Premium Trafik Adabı
+        </strong>
+
+        <span>
+          5 premium test.
+        </span>
+
+      </div>
+
+
+      <div class="content-card">
+
+        <i class="fa-solid fa-flag-checkered"></i>
+
+        <strong>
+          Premium Deneme
+        </strong>
+
+        <span>
+          5 premium sınav.
+        </span>
+
+      </div>
+
+
+      <div class="content-card">
+
+        <i class="fa-solid fa-circle-play"></i>
+
+        <strong>
+          Video Kütüphanesi
+        </strong>
+
+        <span>
+          Premium soru çözüm içerikleri.
+        </span>
+
+      </div>
+
+    </section>
+
+  `;
+
+}
+
+
+/* =========================
+   PREMIUM SATIN ALMA
+========================= */
+
+function buyPremium(){
+
+  if(
+    window.Android &&
+    typeof window.Android.buyPremium === "function"
+  ){
+
+    window.Android.buyPremium();
+
+  }else{
+
+    alert(
+      "Premium satın alma işlemi Android uygulaması üzerinden kullanılabilir."
+    );
+
+  }
+
+}
+
+
+/* =========================
+   ANDROID PREMIUM AKTİVASYONU
+========================= */
+
+window.setPremiumFromAndroid = function(){
+
+  localStorage.setItem(
+    "isPremium",
+    "true"
+  );
+
+  const u = JSON.parse(
+    localStorage.getItem("user") || "{}"
+  );
+
+  u.isPremium = true;
+
+  localStorage.setItem(
+    "user",
+    JSON.stringify(u)
+  );
+
+  location.reload();
+
+};
+
+</script>
+
+
+<!-- =========================
+     ALT NAVİGASYON
+========================= -->
+
+<nav class="bottom-nav">
+
+  <button
+    onclick="location.href='katagoriler.html'"
+  >
+    <i class="fa-solid fa-house"></i>
+    <span>Ana</span>
+  </button>
+
+
+  <button
+    onclick="location.href='hesabim.html'"
+  >
+    <i class="fa-solid fa-user"></i>
+    <span>Profil</span>
+  </button>
+
+
+  <button
+    class="active premium-btn"
+    onclick="location.href='premium.html'"
+  >
+    <i class="fa-solid fa-crown"></i>
+    <span>Premium</span>
+  </button>
+
+
+  <button
+    onclick="location.href='soru.html'"
+  >
+    <i class="fa-solid fa-circle-question"></i>
+    <span>Sor</span>
+  </button>
+
+
+  <button
+    onclick="toggleTheme()"
+  >
+    <i class="fa-solid fa-circle-half-stroke"></i>
+    <span>Mod</span>
+  </button>
+
+</nav>
+
+</body>
+</html>
