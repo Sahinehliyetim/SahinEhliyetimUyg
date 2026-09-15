@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Panel | Şahin Ehliyet</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* ================= RESET ================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,system-ui;
+}
+
+/* ================= THEME ================= */
+
+:root{
+--bg:#f4f6fb;
+--card:#fff;
+--text:#020617;
+--primary:#2563eb;
+--shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+min-height:100vh;
+}
+
+
+/* ================= LOGIN ================= */
+
+.login-box{
+
+max-width:340px;
+margin:100px auto;
+
+background:var(--card);
+padding:25px;
+
+border-radius:20px;
+box-shadow:var(--shadow);
+
+text-align:center;
+
+animation:fade .5s;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1}
+}
+
+.login-box h2{
+margin-bottom:15px;
+}
+
+.login-box input{
+
+width:100%;
+padding:12px;
+
+border-radius:14px;
+border:1px solid #cbd5f5;
+
+margin-bottom:12px;
+font-size:15px;
+}
+
+.login-box button{
+
+width:100%;
+padding:12px;
+
+background:#2563eb;
+color:white;
+
+border:none;
+border-radius:14px;
+
+font-weight:600;
+cursor:pointer;
+}
+
+
+/* ================= PANEL ================= */
+
+.panel{
+display:none;
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+.panel h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+
+/* CARD */
+
+.admin-card{
+
+background:var(--card);
+border-radius:18px;
+
+padding:18px;
+margin-bottom:15px;
+
+box-shadow:var(--shadow);
+
+animation:fade .4s;
+}
+
+.admin-card p{
+margin:6px 0;
+}
+
+
+/* TEXTAREA */
+
+.admin-card textarea{
+
+width:100%;
+min-height:80px;
+
+border-radius:14px;
+border:1px solid #cbd5f5;
+
+padding:10px;
+
+resize:none;
+
+margin-top:8px;
+font-size:14px;
+}
+
+
+/* BUTTON */
+
+.admin-card button{
+
+margin-top:8px;
+
+background:#16a34a;
+color:white;
+
+border:none;
+
+padding:8px 14px;
+
+border-radius:12px;
+
+cursor:pointer;
+
+font-size:13px;
+}
+
+.admin-card button:hover{
+opacity:.85;
+}
+
+.empty{
+text-align:center;
+opacity:.6;
+margin-top:40px;
+}
+
+</style>
+
+<style id="seh-darkmode-unified-fix">
+/* Unified Şahin Ehliyetim dark mode fixes */
+html, body { background: var(--bg, #f8fafc); }
+body.dark, body.dark html { background: #11110f !important; color: #f5f3e9 !important; }
+body.dark .bottom-nav {
+  background: rgba(25, 25, 22, .97) !important;
+  border-color: rgba(244, 196, 48, .22) !important;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, .42) !important;
+}
+body.dark .bottom-nav button { color: #aaa89e !important; background: transparent !important; }
+body.dark .bottom-nav button.active {
+  background: linear-gradient(135deg, #ffd84d, #f4c430) !important;
+  color: #27220f !important;
+}
+body.dark .bottom-nav .premium-btn { color: #f4c430 !important; }
+body.dark .bottom-nav button:not(.active):hover { color: #f4c430 !important; background: #332d16 !important; }
+body.dark .premium-modal, body.dark .premium-box-modern, body.dark .choice-card,
+body.dark .modal-content, body.dark .popup, body.dark .popup-content,
+body.dark .premium-popup, body.dark .ad-popup, body.dark .watch-ad-popup {
+  background: #191916 !important; color: #f5f3e9 !important; border-color: #32312a !important;
+}
+body.dark .premium-modal *, body.dark .premium-box-modern *, body.dark .choice-card *,
+body.dark .modal-content *, body.dark .popup *, body.dark .popup-content *,
+body.dark .premium-popup *, body.dark .ad-popup *, body.dark .watch-ad-popup * { color: inherit; }
+body.dark .premium-modal p, body.dark .premium-box-modern .desc,
+body.dark .choice-card p, body.dark .popup p, body.dark .popup-content p { color: #aaa89e !important; }
+</style>
+
+<style id="seh-premium-popup-v2">
+.premium-modal{position:fixed!important;inset:0!important;display:none;align-items:center!important;justify-content:center!important;padding:18px!important;background:rgba(9,9,7,.72)!important;backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;z-index:10001!important;}
+.premium-modal[style*="display: flex"],.premium-modal[style*="display:flex"],.premium-modal.open{display:flex!important;}
+.premium-box-modern{position:relative!important;width:min(100%,420px)!important;padding:22px!important;border:1px solid rgba(244,196,48,.38)!important;border-radius:28px!important;background:linear-gradient(145deg,#fffdf5 0%,#fff7d6 100%)!important;color:#171717!important;box-shadow:0 30px 90px rgba(0,0,0,.38),0 10px 30px rgba(244,196,48,.12)!important;overflow:hidden!important;}
+.premium-box-modern:before{content:"";position:absolute;left:-70px;top:-85px;width:190px;height:190px;border-radius:50%;background:rgba(244,196,48,.18);filter:blur(3px);pointer-events:none;}
+.premium-box-modern>*{position:relative;z-index:1;}
+.premium-modal-head{display:flex!important;align-items:center!important;gap:13px!important;margin-bottom:18px!important;}
+.premium-modal-icon{width:52px!important;height:52px!important;flex:0 0 52px!important;border-radius:17px!important;display:grid!important;place-items:center!important;background:linear-gradient(135deg,#ffd84d,#f4c430)!important;color:#27220f!important;font-size:20px!important;box-shadow:0 10px 25px rgba(244,196,48,.28)!important;}
+.premium-modal-title h3,.premium-box-modern h3{margin:0!important;color:#171717!important;font-size:19px!important;font-weight:800!important;line-height:1.2!important;}
+.premium-modal-title p,.premium-box-modern .desc{margin:4px 0 0!important;color:#77766f!important;font-size:10.5px!important;line-height:1.55!important;}
+.choice-card{position:relative!important;display:flex!important;align-items:center!important;gap:13px!important;margin:10px 0!important;padding:15px!important;border-radius:19px!important;cursor:pointer!important;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important;}
+.choice-card:hover{transform:translateY(-2px)!important;box-shadow:0 12px 25px rgba(28,27,20,.10)!important;}
+.choice-card.ad{background:linear-gradient(135deg,#fff 0%,#f5f8ff 100%)!important;border:1px solid #d6dfed!important;}
+.choice-card.premium{background:linear-gradient(135deg,#fff8d8 0%,#ffefaa 100%)!important;border:1px solid #e4b72b!important;}
+.choice-icon{width:44px!important;height:44px!important;flex:0 0 44px!important;border-radius:14px!important;display:grid!important;place-items:center!important;font-size:17px!important;}
+.choice-card.ad .choice-icon{background:#e8f1ff!important;color:#2563eb!important;}
+.choice-card.premium .choice-icon{background:#f4c430!important;color:#27220f!important;}
+.choice-copy{min-width:0!important;}
+.choice-head{font-size:12.5px!important;font-weight:800!important;color:#171717!important;}
+.choice-copy p,.choice-card p{margin:4px 0 0!important;font-size:9.5px!important;line-height:1.55!important;color:#77766f!important;}
+.choice-arrow{margin-left:auto!important;color:#a17b00!important;font-size:12px!important;}
+.cancel-btn{width:100%!important;margin-top:13px!important;padding:12px!important;border:1px solid #dedbd0!important;border-radius:15px!important;background:#f4f1e7!important;color:#55534b!important;font-size:10.5px!important;font-weight:800!important;cursor:pointer!important;}
+body.dark .premium-modal{background:rgba(0,0,0,.78)!important;}
+body.dark .premium-box-modern{background:linear-gradient(145deg,#191916 0%,#27261e 100%)!important;border-color:rgba(244,196,48,.34)!important;color:#f7f6ef!important;box-shadow:0 30px 90px rgba(0,0,0,.68)!important;}
+body.dark .premium-box-modern:before{background:rgba(244,196,48,.10)!important;}
+body.dark .premium-modal-title h3,body.dark .premium-box-modern h3,body.dark .choice-head{color:#f7f6ef!important;}
+body.dark .premium-modal-title p,body.dark .premium-box-modern .desc,body.dark .choice-copy p,body.dark .choice-card p{color:#aaa89e!important;}
+body.dark .choice-card.ad{background:linear-gradient(135deg,#1b2633,#18202a)!important;border-color:#344a61!important;}
+body.dark .choice-card.ad .choice-icon{background:#233b55!important;color:#9fc4ff!important;}
+body.dark .choice-card.premium{background:linear-gradient(135deg,#332d16,#433812)!important;border-color:#a77d08!important;}
+body.dark .choice-card.premium .choice-icon{background:#f4c430!important;color:#27220f!important;}
+body.dark .choice-arrow{color:#f4c430!important;}
+body.dark .cancel-btn{background:#24231e!important;color:#aaa89e!important;border-color:#3b392f!important;}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+
+<div class="login-box" id="loginBox">
+
+<h2>🔐 Admin Girişi</h2>
+
+<input type="password" id="pass"
+placeholder="Admin Şifresi">
+
+<button onclick="login()">Giriş</button>
+
+<p id="loginErr"
+style="color:red;font-size:13px;display:none">
+Hatalı şifre
+</p>
+
+</div>
+
+
+<!-- PANEL -->
+
+<div class="panel" id="panel">
+
+<h2>📩 Gelen Sorular</h2>
+
+<div id="adminList"></div>
+
+<p class="empty" id="empty">
+Hiç soru yok.
+</p>
+
+</div>
+
+
+
+<script>
+
+/* ==== ŞİFRE ==== */
+const ADMIN_PASS = "1234"; // BURAYI DEĞİŞTİR
+
+
+function login(){
+
+  const pass =
+    document.getElementById("pass").value;
+
+  if(pass === ADMIN_PASS){
+
+    document.getElementById("loginBox").style.display="none";
+    document.getElementById("panel").style.display="block";
+
+    loadQuestions();
+
+  }else{
+
+    document.getElementById("loginErr").style.display="block";
+  }
+}
+
+
+/* ==== LOAD ==== */
+
+function getQuestions(){
+
+  return JSON.parse(
+    localStorage.getItem("questions") || "[]"
+  );
+}
+
+
+/* ==== RENDER ==== */
+
+function loadQuestions(){
+
+  const data = getQuestions();
+
+  const box = document.getElementById("adminList");
+  const empty = document.getElementById("empty");
+
+  box.innerHTML="";
+
+  if(data.length===0){
+
+    empty.style.display="block";
+    return;
+
+  }else{
+
+    empty.style.display="none";
+  }
+
+
+  data.forEach(q=>{
+
+    let div = document.createElement("div");
+
+    div.className="admin-card";
+
+
+    div.innerHTML = `
+
+      <p><b>Soru:</b> ${q.question}</p>
+
+      <p>
+        <b>Cevap:</b>
+        ${q.answer || "<i>Henüz cevap yok</i>"}
+      </p>
+
+      <textarea
+        placeholder="Cevap yaz..."
+        id="a${q.id}"
+      >${q.answer||""}</textarea>
+
+      <button onclick="saveAnswer(${q.id})">
+        Kaydet
+      </button>
+
+    `;
+
+
+    box.appendChild(div);
+
+  });
+
+}
+
+
+/* ==== SAVE ==== */
+
+function saveAnswer(id){
+
+  let data = getQuestions();
+
+  let text =
+    document.getElementById("a"+id).value;
+
+  data = data.map(q=>{
+
+    if(q.id === id){
+
+      q.answer = text;
+    }
+
+    return q;
+  });
+
+
+  localStorage.setItem(
+    "questions",
+    JSON.stringify(data)
+    
+  );
+
+
+  alert("Kaydedildi ✔️");
+
+  loadQuestions();
+  checkAnswered();
+
+}
+
+
+
+
+</script>
+
+</body>
+</html>

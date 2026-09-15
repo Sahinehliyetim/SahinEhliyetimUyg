@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>Günün Denemesi | Şahin Ehliyet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{--yellow:#f4c430;--yellow-strong:#e7ad17;--yellow-soft:#fff4c9;--bg:#f8f8f5;--surface:#fff;--surface-2:#f4f4ef;--text:#171717;--muted:#77766f;--line:#e8e6dd;--shadow:0 12px 35px rgba(28,27,20,.08);--radius:22px}
+body.dark{--surface:#191916;--surface-2:#22221d;--text:#f7f6ef;--muted:#aaa89e;--line:#302f29;--bg:#11110f;--yellow-soft:#332d16;--shadow:0 14px 38px rgba(0,0,0,.3)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;min-height:100%;font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--text)}button{font:inherit}body{padding:0 0 30px}.page{width:min(100%,820px);margin:auto;padding:0 14px}.exam-header{position:sticky;top:0;z-index:1000;margin:0 -14px 14px;padding:10px 14px;background:color-mix(in srgb,var(--surface) 94%,transparent);border-bottom:1px solid var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}.header-inner{width:min(100%,792px);margin:auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}.header-title{font-size:13px;font-weight:800;display:flex;align-items:center;gap:9px}.header-title i{width:32px;height:32px;border-radius:11px;background:var(--yellow);display:grid;place-items:center;color:#27220f}.timer{font-size:16px;font-weight:800;min-width:86px;text-align:center;color:var(--text)}.timer.warning{color:#b45309}.header-actions{display:flex;justify-content:flex-end;gap:7px}.header-btn{border:1px solid var(--line);background:var(--surface);color:var(--text);height:36px;padding:0 11px;border-radius:11px;font-size:9px;font-weight:800;display:flex;align-items:center;gap:6px;cursor:pointer}.header-btn.finish{background:var(--yellow);border-color:var(--yellow);color:#27220f}.intro{margin-top:16px;padding:25px;border-radius:28px;background:linear-gradient(135deg,var(--surface),var(--yellow-soft));border:1px solid var(--line);box-shadow:var(--shadow)}.intro-top{display:flex;align-items:flex-start;gap:14px}.intro-icon{width:52px;height:52px;min-width:52px;border-radius:17px;background:var(--yellow);display:grid;place-items:center;color:#27220f;font-size:20px}.eyebrow{font-size:9px;font-weight:800;letter-spacing:.12em;color:var(--yellow-strong)}.intro h1{font-size:25px;line-height:1.1;margin:4px 0 7px;letter-spacing:-.7px}.intro p{font-size:10px;line-height:1.6;color:var(--muted);margin:0}.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:18px}.rule{padding:13px;border:1px solid var(--line);background:var(--surface);border-radius:16px}.rule i{color:var(--yellow-strong);font-size:15px}.rule strong{display:block;margin-top:7px;font-size:13px}.rule span{display:block;margin-top:2px;font-size:9px;color:var(--muted)}.pass-note{margin-top:12px;padding:12px 13px;border-radius:14px;background:var(--surface);border:1px dashed rgba(244,196,48,.6);font-size:9px;color:var(--muted);line-height:1.5}.start-btn{width:100%;margin-top:15px;border:0;border-radius:15px;padding:14px;background:var(--yellow);color:#27220f;font-size:11px;font-weight:800;cursor:pointer;box-shadow:0 12px 25px rgba(244,196,48,.2)}.resume{margin-top:10px;text-align:center;font-size:9px;color:var(--muted)}.question-card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:19px;margin:0 0 12px;box-shadow:var(--shadow)}.question-no{font-size:9px;font-weight:800;color:var(--yellow-strong);letter-spacing:.08em}.question-title{font-size:13px;line-height:1.55;font-weight:700;margin:7px 0 13px}.question-card img{width:100%;max-width:360px;display:block;margin:10px auto 14px;border-radius:14px;border:1px solid var(--line)}.option{border:1px solid var(--line);background:var(--surface-2);padding:12px;border-radius:14px;margin-top:8px;display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:10px;line-height:1.5}.option input{accent-color:var(--yellow-strong);margin-top:2px}.option.selected{background:var(--yellow-soft);border-color:var(--yellow);box-shadow:0 4px 12px rgba(244,196,48,.12)}.bottom-actions{padding:5px 0 20px}.wide-finish{width:100%;border:0;border-radius:15px;padding:14px;background:var(--yellow);color:#27220f;font-size:11px;font-weight:800}.result{display:none;margin-top:16px}.result-hero{padding:25px;border-radius:28px;background:linear-gradient(135deg,var(--surface),var(--yellow-soft));border:1px solid var(--line);box-shadow:var(--shadow);text-align:center}.result-icon{width:58px;height:58px;border-radius:19px;background:var(--yellow);display:grid;place-items:center;margin:0 auto 10px;font-size:22px;color:#27220f}.result h2{margin:0;font-size:22px}.result-sub{font-size:10px;color:var(--muted);margin:5px 0 17px}.result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.result-stat{padding:12px;border-radius:15px;background:var(--surface);border:1px solid var(--line)}.result-stat strong{display:block;font-size:18px}.result-stat span{font-size:8px;color:var(--muted)}.result-buttons{display:flex;gap:8px;margin-top:12px}.result-buttons button{flex:1;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:14px;padding:12px;font-size:10px;font-weight:800}.result-buttons .primary{background:var(--yellow);border-color:var(--yellow);color:#27220f}.blocked{min-height:75vh;display:grid;place-items:center;padding:30px 0}.blocked-card{text-align:center;max-width:430px;padding:30px;border-radius:28px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}.blocked-icon{width:60px;height:60px;border-radius:20px;background:var(--yellow-soft);color:var(--yellow-strong);display:grid;place-items:center;margin:0 auto 13px;font-size:22px}.blocked h2{font-size:20px;margin:0 0 7px}.blocked p{font-size:10px;line-height:1.6;color:var(--muted);margin:0}.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(7px);display:none;place-items:center;z-index:5000;padding:18px}.modal.open{display:grid}.modal-box{width:min(100%,390px);padding:22px;border-radius:25px;background:var(--surface);border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.2)}.modal-icon{width:46px;height:46px;border-radius:15px;background:var(--yellow-soft);color:var(--yellow-strong);display:grid;place-items:center;margin-bottom:10px}.modal h3{font-size:17px;margin:0 0 6px}.modal p{font-size:10px;line-height:1.6;color:var(--muted);margin:0}.modal-actions{display:flex;gap:8px;margin-top:17px}.modal-actions button{flex:1;border:0;border-radius:13px;padding:12px;font-size:10px;font-weight:800;background:var(--surface-2);color:var(--text)}.modal-actions .confirm{background:var(--yellow);color:#27220f}@media(max-width:560px){.header-inner{grid-template-columns:1fr auto}.header-title span{display:none}.header-actions{grid-column:1/-1;justify-content:stretch}.header-actions .header-btn{flex:1;justify-content:center}.timer{grid-column:2;grid-row:1}.rules{grid-template-columns:1fr}.intro{padding:20px}.intro h1{font-size:22px}}
+
+.next-day-countdown{margin-top:16px;padding:13px 15px;border-radius:16px;background:var(--surface-2);border:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left}.next-day-countdown span{font-size:9px;color:var(--muted);font-weight:700}.next-day-countdown strong{font-size:15px;letter-spacing:.06em;color:var(--yellow-strong);font-variant-numeric:tabular-nums}
+body.dark .exam-header{background:rgba(25,25,22,.96)}
+</style>
+
+<style id="seh-darkmode-unified-fix">
+/* Unified Şahin Ehliyetim dark mode fixes */
+html, body { background: var(--bg, #f8fafc); }
+body.dark, body.dark html { background: #11110f !important; color: #f5f3e9 !important; }
+body.dark .bottom-nav {
+  background: rgba(25, 25, 22, .97) !important;
+  border-color: rgba(244, 196, 48, .22) !important;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, .42) !important;
+}
+body.dark .bottom-nav button { color: #aaa89e !important; background: transparent !important; }
+body.dark .bottom-nav button.active {
+  background: linear-gradient(135deg, #ffd84d, #f4c430) !important;
+  color: #27220f !important;
+}
+body.dark .bottom-nav .premium-btn { color: #f4c430 !important; }
+body.dark .bottom-nav button:not(.active):hover { color: #f4c430 !important; background: #332d16 !important; }
+body.dark .premium-modal, body.dark .premium-box-modern, body.dark .choice-card,
+body.dark .modal-content, body.dark .popup, body.dark .popup-content,
+body.dark .premium-popup, body.dark .ad-popup, body.dark .watch-ad-popup {
+  background: #191916 !important; color: #f5f3e9 !important; border-color: #32312a !important;
+}
+body.dark .premium-modal *, body.dark .premium-box-modern *, body.dark .choice-card *,
+body.dark .modal-content *, body.dark .popup *, body.dark .popup-content *,
+body.dark .premium-popup *, body.dark .ad-popup *, body.dark .watch-ad-popup * { color: inherit; }
+body.dark .premium-modal p, body.dark .premium-box-modern .desc,
+body.dark .choice-card p, body.dark .popup p, body.dark .popup-content p { color: #aaa89e !important; }
+</style>
+
+<style id="seh-premium-popup-v2">
+.premium-modal{position:fixed!important;inset:0!important;display:none;align-items:center!important;justify-content:center!important;padding:18px!important;background:rgba(9,9,7,.72)!important;backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;z-index:10001!important;}
+.premium-modal[style*="display: flex"],.premium-modal[style*="display:flex"],.premium-modal.open{display:flex!important;}
+.premium-box-modern{position:relative!important;width:min(100%,420px)!important;padding:22px!important;border:1px solid rgba(244,196,48,.38)!important;border-radius:28px!important;background:linear-gradient(145deg,#fffdf5 0%,#fff7d6 100%)!important;color:#171717!important;box-shadow:0 30px 90px rgba(0,0,0,.38),0 10px 30px rgba(244,196,48,.12)!important;overflow:hidden!important;}
+.premium-box-modern:before{content:"";position:absolute;left:-70px;top:-85px;width:190px;height:190px;border-radius:50%;background:rgba(244,196,48,.18);filter:blur(3px);pointer-events:none;}
+.premium-box-modern>*{position:relative;z-index:1;}
+.premium-modal-head{display:flex!important;align-items:center!important;gap:13px!important;margin-bottom:18px!important;}
+.premium-modal-icon{width:52px!important;height:52px!important;flex:0 0 52px!important;border-radius:17px!important;display:grid!important;place-items:center!important;background:linear-gradient(135deg,#ffd84d,#f4c430)!important;color:#27220f!important;font-size:20px!important;box-shadow:0 10px 25px rgba(244,196,48,.28)!important;}
+.premium-modal-title h3,.premium-box-modern h3{margin:0!important;color:#171717!important;font-size:19px!important;font-weight:800!important;line-height:1.2!important;}
+.premium-modal-title p,.premium-box-modern .desc{margin:4px 0 0!important;color:#77766f!important;font-size:10.5px!important;line-height:1.55!important;}
+.choice-card{position:relative!important;display:flex!important;align-items:center!important;gap:13px!important;margin:10px 0!important;padding:15px!important;border-radius:19px!important;cursor:pointer!important;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important;}
+.choice-card:hover{transform:translateY(-2px)!important;box-shadow:0 12px 25px rgba(28,27,20,.10)!important;}
+.choice-card.ad{background:linear-gradient(135deg,#fff 0%,#f5f8ff 100%)!important;border:1px solid #d6dfed!important;}
+.choice-card.premium{background:linear-gradient(135deg,#fff8d8 0%,#ffefaa 100%)!important;border:1px solid #e4b72b!important;}
+.choice-icon{width:44px!important;height:44px!important;flex:0 0 44px!important;border-radius:14px!important;display:grid!important;place-items:center!important;font-size:17px!important;}
+.choice-card.ad .choice-icon{background:#e8f1ff!important;color:#2563eb!important;}
+.choice-card.premium .choice-icon{background:#f4c430!important;color:#27220f!important;}
+.choice-copy{min-width:0!important;}
+.choice-head{font-size:12.5px!important;font-weight:800!important;color:#171717!important;}
+.choice-copy p,.choice-card p{margin:4px 0 0!important;font-size:9.5px!important;line-height:1.55!important;color:#77766f!important;}
+.choice-arrow{margin-left:auto!important;color:#a17b00!important;font-size:12px!important;}
+.cancel-btn{width:100%!important;margin-top:13px!important;padding:12px!important;border:1px solid #dedbd0!important;border-radius:15px!important;background:#f4f1e7!important;color:#55534b!important;font-size:10.5px!important;font-weight:800!important;cursor:pointer!important;}
+body.dark .premium-modal{background:rgba(0,0,0,.78)!important;}
+body.dark .premium-box-modern{background:linear-gradient(145deg,#191916 0%,#27261e 100%)!important;border-color:rgba(244,196,48,.34)!important;color:#f7f6ef!important;box-shadow:0 30px 90px rgba(0,0,0,.68)!important;}
+body.dark .premium-box-modern:before{background:rgba(244,196,48,.10)!important;}
+body.dark .premium-modal-title h3,body.dark .premium-box-modern h3,body.dark .choice-head{color:#f7f6ef!important;}
+body.dark .premium-modal-title p,body.dark .premium-box-modern .desc,body.dark .choice-copy p,body.dark .choice-card p{color:#aaa89e!important;}
+body.dark .choice-card.ad{background:linear-gradient(135deg,#1b2633,#18202a)!important;border-color:#344a61!important;}
+body.dark .choice-card.ad .choice-icon{background:#233b55!important;color:#9fc4ff!important;}
+body.dark .choice-card.premium{background:linear-gradient(135deg,#332d16,#433812)!important;border-color:#a77d08!important;}
+body.dark .choice-card.premium .choice-icon{background:#f4c430!important;color:#27220f!important;}
+body.dark .choice-arrow{color:#f4c430!important;}
+body.dark .cancel-btn{background:#24231e!important;color:#aaa89e!important;border-color:#3b392f!important;}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="exam-header" id="examHeader" style="display:none"><div class="header-inner"><div class="header-title"><i class="fa-solid fa-clipboard-check"></i><span>Günün Denemesi</span></div><div id="timer" class="timer">50:00</div><div class="header-actions"><button class="header-btn finish" onclick="askFinish()"><i class="fa-solid fa-flag-checkered"></i> Testi bitir</button><button class="header-btn" onclick="askExit()"><i class="fa-solid fa-right-from-bracket"></i> Testten çık</button></div></div></header>
+<main id="introView" class="intro"><div class="intro-top"><div class="intro-icon"><i class="fa-solid fa-file-circle-check"></i></div><div><div class="eyebrow">HER GÜN YENİ 50 SORU</div><h1>Günün Denemesi</h1><p>Bugünün ehliyet deneme sınavını çöz. Sorular her gün yenilenir ve sonuçlandırdığın gün yeni denemeyi beklemen gerekir.</p></div></div><div class="rules"><div class="rule"><i class="fa-solid fa-list-ol"></i><strong>50 soru</strong><span>Bugüne özel soru seti</span></div><div class="rule"><i class="fa-regular fa-clock"></i><strong>50 dakika</strong><span>Süre dolunca otomatik biter</span></div><div class="rule"><i class="fa-solid fa-circle-check"></i><strong>35 doğru</strong><span>%70 ile başarılı</span></div></div><div class="pass-note"><strong>Geçme şartı:</strong> 50 sorudan en az 35 doğru yapmalısın. Testi bitirdiğinde veya süre dolduğunda sonuçların kaydedilir ve yeni günün sorularını beklemen gerekir.</div><button id="startBtn" class="start-btn" onclick="startExam()"><i class="fa-solid fa-play"></i> Deneme sınavını başlat</button><div id="resumeNote" class="resume"></div></main>
+<section id="quiz" style="display:none"></section>
+<div id="quizActions" class="bottom-actions" style="display:none"><button class="wide-finish" onclick="askFinish()"><i class="fa-solid fa-flag-checkered"></i> Testi bitir ve sonuçları gör</button></div>
+<section id="result" class="result"><div class="result-hero"><div class="result-icon"><i id="resultIcon" class="fa-solid fa-chart-column"></i></div><h2 id="resultTitle">Deneme tamamlandı</h2><div id="resultSub" class="result-sub"></div><div class="result-stats"><div class="result-stat"><strong id="correct">0</strong><span>Doğru</span></div><div class="result-stat"><strong id="wrong">0</strong><span>Yanlış</span></div><div class="result-stat"><strong id="empty">0</strong><span>Boş</span></div></div><div class="result-stats" style="margin-top:8px"><div class="result-stat" style="grid-column:span 3"><strong id="percent">0%</strong><span>Başarı oranı</span></div></div><div class="result-buttons"><button onclick="openWrongQuestions()"><i class="fa-solid fa-circle-xmark"></i> Yanlışları gör</button><button class="primary" onclick="goCategory()"><i class="fa-solid fa-house"></i> Ana sayfaya dön</button></div></div></section>
+</div>
+<div id="confirmModal" class="modal"><div class="modal-box"><div id="modalIcon" class="modal-icon"><i class="fa-solid fa-circle-question"></i></div><h3 id="modalTitle">Testi bitirmek istiyor musun?</h3><p id="modalText">Testi bitirdiğinde cevapların değerlendirilir ve bugünkü deneme tamamlanmış sayılır.</p><div class="modal-actions"><button onclick="closeModal()">Vazgeç</button><button id="modalConfirm" class="confirm">Onayla</button></div></div></div>
+<script src="sorular.js"></script>
+<script>
+if(localStorage.getItem("theme")==="true")document.body.classList.add("dark");
+const TOTAL_SECONDS=3000,PASS_SCORE=35,TODAY_KEY=()=>new Date().toDateString();
+let currentQuestions=[],answers={},remainingSeconds=TOTAL_SECONDS,countdown=null,examStarted=false,examStartedAt=0;
+const $=id=>document.getElementById(id);
+function today(){return TODAY_KEY()}
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function getTodaySet(){const savedDate=localStorage.getItem("dailyQuestionsDate"),saved=JSON.parse(localStorage.getItem("dailyQuestions")||"null");if(savedDate===today()&&Array.isArray(saved)&&saved.length===50)return saved;let used=JSON.parse(localStorage.getItem("usedQuestions")||"[]");let available=questionBank.filter(q=>!used.includes(q.id));if(available.length<50){used=[];available=[...questionBank]};const selected=shuffle(available).slice(0,50);used.push(...selected.map(q=>q.id));localStorage.setItem("usedQuestions",JSON.stringify(used));localStorage.setItem("dailyQuestionsDate",today());localStorage.setItem("dailyQuestions",JSON.stringify(selected));return selected}
+function completed(){return localStorage.getItem("dailyCompletedDate")===today()}
+function saveProgress(){localStorage.setItem("dailyExamProgress",JSON.stringify({date:today(),startedAt:examStartedAt||Date.now(),remainingSeconds,answers}))}
+function clearProgress(){localStorage.removeItem("dailyExamProgress")}
+function loadProgress(){const p=JSON.parse(localStorage.getItem("dailyExamProgress")||"null");if(!p||p.date!==today())return null;const elapsed=Math.max(0,Math.floor((Date.now()-(p.startedAt||Date.now()))/1000));const left=Math.max(0,(p.remainingSeconds??TOTAL_SECONDS)-elapsed);return {...p,remainingSeconds:left}}
+function nextMidnight(){const n=new Date();const t=new Date(n);t.setHours(24,0,0,0);return t}
+function formatCountdown(ms){let sec=Math.max(0,Math.floor(ms/1000));const h=Math.floor(sec/3600);sec%=3600;const m=Math.floor(sec/60),s=sec%60;return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
+let nextDayInterval=null;function updateNextDayCountdown(){const el=document.getElementById('nextDayTimer');if(!el)return;el.textContent=formatCountdown(nextMidnight()-Date.now());if(nextMidnight()-Date.now()<=0)location.reload()}
+function startNextDayCountdown(){clearInterval(nextDayInterval);updateNextDayCountdown();nextDayInterval=setInterval(updateNextDayCountdown,1000)}
+function renderIntro(){if(completed()){showBlocked();return}const p=loadProgress();if(p){remainingSeconds=p.remainingSeconds;answers=p.answers||{};$('startBtn').innerHTML='<i class="fa-solid fa-play"></i> Denemeye devam et';$('resumeNote').textContent='Devam eden bir denemen var. Kalan süre: '+formatTime(remainingSeconds)}else{$('resumeNote').textContent='';$('startBtn').innerHTML='<i class="fa-solid fa-play"></i> Deneme sınavını başlat'}}
+function showBlocked(){startNextDayCountdown();$('introView').outerHTML='<section class="blocked"><div class="blocked-card"><div class="blocked-icon"><i class="fa-solid fa-calendar-check"></i></div><h2>Bugünkü denemeyi tamamladın</h2><p>Testi tamamladığın için yeni sorular bir sonraki günün başlangıcında açılacak. O zamana kadar bugünkü denemeyi yeniden başlatamazsın.</p><div class="next-day-countdown"><span>Yeni denemeye kalan süre</span><strong id="nextDayTimer">00:00:00</strong></div><button class="start-btn" style="margin-top:17px" onclick="goCategory()"><i class="fa-solid fa-house"></i> Ana sayfaya dön</button></div></section>'}
+function formatTime(sec){sec=Math.max(0,sec);return String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0')}
+function renderQuiz(){const quiz=$('quiz');quiz.innerHTML='';currentQuestions.forEach((q,i)=>{const card=document.createElement('article');card.className='question-card';let html='<div class="question-no">SORU '+(i+1)+' / 50</div><div class="question-title">'+esc(q.question)+'</div>';if(q.image)html+='<img src="'+q.image+'" alt="Soru görseli">';Object.entries(q.options).forEach(([key,opt])=>{const sel=answers[i]===key;html+='<label class="option '+(sel?'selected':'')+'"><input type="radio" name="q'+i+'" value="'+key+'" '+(sel?'checked':'')+'><span><strong>'+key+'.</strong> '+esc(opt)+'</span></label>'});card.innerHTML=html;card.querySelectorAll('.option').forEach(label=>label.addEventListener('click',()=>{const input=label.querySelector('input');answers[i]=input.value;card.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));label.classList.add('selected');saveProgress()}));quiz.appendChild(card)})}
+function esc(v){return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function startExam(){if(completed()){renderIntro();return}currentQuestions=getTodaySet();const p=loadProgress();if(p){remainingSeconds=p.remainingSeconds;answers=p.answers||{};examStartedAt=p.startedAt||Date.now()}else{remainingSeconds=TOTAL_SECONDS;answers={};examStartedAt=Date.now();saveProgress()}examStarted=true;$('introView').style.display='none';$('examHeader').style.display='block';$('quiz').style.display='block';$('quizActions').style.display='block';$('result').style.display='none';renderQuiz();startTimer();window.scrollTo({top:0,behavior:'smooth'})}
+function startTimer(){clearInterval(countdown);updateTimer();countdown=setInterval(()=>{remainingSeconds--;updateTimer();if(remainingSeconds<=0){clearInterval(countdown);remainingSeconds=0;finishExam(true)}else if(remainingSeconds%5===0)saveProgress()},1000)}
+function updateTimer(){$('timer').textContent=formatTime(remainingSeconds);$('timer').classList.toggle('warning',remainingSeconds<=300)}
+function askFinish(){if(!examStarted)return;openModal('finish')}
+function askExit(){if(!examStarted)return;openModal('exit')}
+function openModal(type){$('confirmModal').classList.add('open');if(type==='finish'){$('modalIcon').innerHTML='<i class="fa-solid fa-flag-checkered"></i>';$('modalTitle').textContent='Testi bitirmek istiyor musun?';$('modalText').textContent='Testi bitirdiğinde cevapların değerlendirilir ve bugünkü deneme tamamlanmış sayılır. Sonuç ekranına geçeceksin.';$('modalConfirm').textContent='Testi bitir';$('modalConfirm').onclick=()=>{closeModal();finishExam(false)}}else{$('modalIcon').innerHTML='<i class="fa-solid fa-right-from-bracket"></i>';$('modalTitle').textContent='Testten çıkmak istiyor musun?';$('modalText').textContent='Testten çıkarsan deneme çözülmemiş olarak kalır. Cevapların ve kalan süren kaydedilir; daha sonra kaldığın yerden devam edebilirsin.';$('modalConfirm').textContent='Testten çık';$('modalConfirm').onclick=()=>{closeModal();exitExam()}}}
+function closeModal(){$('confirmModal').classList.remove('open')}
+function exitExam(){saveProgress();clearInterval(countdown);examStarted=false;window.location.href='katagoriler.html'}
+function finishExam(timeUp){if(!examStarted&& !timeUp)return;clearInterval(countdown);let correct=0,wrong=0,empty=0,wrongQuestions=[];currentQuestions.forEach((q,i)=>{const selected=answers[i];if(!selected){empty++;return}if(selected===q.answer)correct++;else{wrong++;wrongQuestions.push({question:q.question,selected:selected,selectedText:q.options[selected]||'',correct:q.answer,correctText:q.options[q.answer],options:q.options,image:q.image||null})}});const percent=Math.round(correct/currentQuestions.length*100);localStorage.setItem('wrongQuestions',JSON.stringify(wrongQuestions));localStorage.setItem('dailyCompletedDate',today());localStorage.removeItem('dailyExamProgress');localStorage.setItem('completedTestDate',today());currentQuestions.forEach((q,i)=>{const selected=answers[i];if(selected){__smartStudyRecord(__smartStudyClassify(q.question),selected===q.answer)}});
+saveDailyScore(correct,wrong,empty,percent,timeUp);examStarted=false;$('examHeader').style.display='none';$('quiz').style.display='none';$('quizActions').style.display='none';$('result').style.display='block';$('correct').textContent=correct;$('wrong').textContent=wrong;$('empty').textContent=empty;$('percent').textContent=percent+'%';const passed=correct>=PASS_SCORE;$('resultTitle').textContent=passed?'Denemeyi başarıyla tamamladın':'Deneme tamamlandı';$('resultSub').textContent=(timeUp?'Süre dolduğu için test otomatik olarak bitirildi. ':'')+(passed?'Geçme şartını karşıladın.':'Geçme şartı için en az 35 doğru gerekiyordu.');$('resultIcon').className='fa-solid '+(passed?'fa-circle-check':'fa-chart-column');window.scrollTo({top:0,behavior:'smooth'})}
+function saveDailyScore(correct,wrong,empty,percent,timeUp){let user=JSON.parse(localStorage.getItem('user')||'{}');user.tests=user.tests||{};user.solved=Number(user.solved||0)+1;user.xp=Number(user.xp||0)+correct;user.tests['gunun-denemesi-'+today()]={correct,wrong,empty,percent,completedAt:Date.now(),timeUp:!!timeUp};localStorage.setItem('user',JSON.stringify(user))}
+function goCategory(){window.location.href='katagoriler.html'}
+function openWrongQuestions(){window.location.href='gunundenemesiyanlislar.html'}
+renderIntro();
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('copy',e=>e.preventDefault());document.addEventListener('cut',e=>e.preventDefault());document.addEventListener('paste',e=>e.preventDefault());
+</script>
+<script>
+(function(){
+ const KEY='smartStudyStats';
+ const norm=s=>String(s||'').toLocaleLowerCase('tr-TR');
+ function classify(text){const t=norm(text),sc={'İlk Yardım':0,'Motor ve Araç Tekniği':0,'Trafik Adabı':0,'Trafik ve Çevre':0};
+ const r={'İlk Yardım':['ilk yardım','kazazede','yaralı','kanama','kırık','çıkık','yanık','zehirlen','bilinç','solunum','kalp masaj','112','turnike','şok','hava yolu','boğul'],
+ 'Motor ve Araç Tekniği':['motor','soğutma','radyatör','akü','alternatör','debriyaj','şanzıman','vites','fren hidroliği','lastik','direksiyon','amortisör','egzoz','yakıt','dizel','benzin','buji','piston','silindir','triger','antifriz','hararet'],
+ 'Trafik Adabı':['trafik adabı','nezaket','saygı','empati','hoşgörü','sabır','iletişim','beden dili','sürücü davranışı','özdenetim','öfke','sakin','agresif','erdem'],
+ 'Trafik ve Çevre':['trafik işareti','trafik levhası','işaret','levha','kavşak','geçiş üstünlüğü','geçiş hakkı','hız sınırı','park','duraklama','sollama','şerit','otoyol','yaya geçidi','ışık','emniyet kemeri','takip mesafesi','plaka','ehliyet','alkol','far','karayolu','yolcu','taşıt']};
+ for(const [c,ws] of Object.entries(r))for(const w of ws)if(t.includes(w))sc[c]+=w.length>=8?2:1;let best='Trafik ve Çevre',m=0;for(const [c,v] of Object.entries(sc))if(v>m){best=c;m=v}return best}
+ function add(cat,ok){const d=JSON.parse(localStorage.getItem(KEY)||'{}');d[cat] ||= {correct:0,wrong:0,attempted:0};d[cat].attempted++;ok?d[cat].correct++:d[cat].wrong++;d.updatedAt=Date.now();localStorage.setItem(KEY,JSON.stringify(d))}
+ window.__smartStudyClassify=classify;window.__smartStudyRecord=add;
+})();
+</script>
+</body></html>

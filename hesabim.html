@@ -1,0 +1,302 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"><style>
+:root{--bg:#f8fafc;--card:#fff;--text:#171717;--muted:#77766f;--line:#e8e6dd;--yellow:#f4c430;--yellow-strong:#c18f00;--yellow-soft:#fff4c9;--shadow:0 14px 36px rgba(28,27,20,.08)}
+body.dark{--bg:#11110f;--card:#191916;--text:#f7f6ef;--muted:#aaa89e;--line:#302f29;--yellow-soft:#332d16;--shadow:0 14px 36px rgba(0,0,0,.3)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;min-height:100%;font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--text)}body{padding-top:env(safe-area-inset-top)}
+button,input{font:inherit}.page{width:min(100%,760px);margin:auto;padding:0 14px 20px}.header{margin-top:12px;padding:17px 18px;border-radius:24px;background:linear-gradient(135deg,var(--card),var(--yellow-soft));border:1px solid var(--line);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between}.header-left{display:flex;align-items:center;gap:12px}.header-mark{width:42px;height:42px;border-radius:14px;object-fit:contain;background:#242421;padding:5px}.header h1{margin:0;font-size:20px;font-weight:800}.header p{margin:2px 0 0;color:var(--muted);font-size:10px}.theme-btn{width:42px;height:42px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--text);cursor:pointer}
+.profile-hero{margin-top:12px;padding:22px;border-radius:26px;background:linear-gradient(135deg,var(--card),var(--yellow-soft));border:1px solid var(--line);box-shadow:var(--shadow)}.profile-main{display:flex;align-items:center;gap:16px}.avatar-wrap{position:relative}.avatar{width:92px;height:92px;border-radius:26px;object-fit:cover;border:3px solid var(--yellow);background:#f1f5f9;box-shadow:0 12px 25px rgba(244,196,48,.22)}.avatar-edit{position:absolute;right:-4px;bottom:-4px;width:32px;height:32px;border:3px solid var(--card);border-radius:50%;background:var(--yellow);color:#27220f;display:grid;place-items:center;cursor:pointer}.profile-copy{min-width:0}.eyebrow{font-size:9px;font-weight:800;letter-spacing:1.2px;color:var(--yellow-strong)}.nickname{margin:4px 0 2px;font-size:24px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.status{font-size:11px;font-weight:700;color:var(--yellow-strong)}.edit-name{margin-top:9px;border:1px solid var(--line);background:var(--card);color:var(--text);padding:8px 11px;border-radius:11px;font-size:10px;font-weight:700;cursor:pointer}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:18px}.stat{padding:12px;border-radius:17px;background:var(--surface,rgba(255,255,255,.7));border:1px solid var(--line)}body.dark .stat{background:rgba(255,255,255,.04)}.stat strong{display:block;font-size:18px;font-weight:800}.stat span{display:block;margin-top:2px;font-size:9px;color:var(--muted)}
+.card{margin-top:12px;padding:18px;border-radius:22px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:13px}.section-head h2{margin:0;font-size:15px;font-weight:800}.section-head span{font-size:9px;color:var(--muted)}
+.level-row{display:flex;justify-content:space-between;font-size:11px;font-weight:700;margin-bottom:9px}.xp-track{height:12px;border-radius:20px;background:#eceae1;overflow:hidden}body.dark .xp-track{background:#302f29}.xp-fill{height:100%;width:0;background:linear-gradient(90deg,#ffd84d,#f4c430);border-radius:20px;transition:width .5s}.xp-caption{display:flex;justify-content:space-between;margin-top:7px;font-size:9px;color:var(--muted)}
+.quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.quick{padding:13px;border-radius:17px;background:linear-gradient(135deg,var(--card),var(--yellow-soft));border:1px solid var(--line)}.quick i{font-size:15px;color:var(--yellow-strong)}.quick strong{display:block;margin-top:7px;font-size:11px}.quick span{display:block;margin-top:3px;font-size:9px;color:var(--muted)}
+.test-list{display:grid;gap:9px}.test-category{border:1px solid var(--line);border-radius:16px;overflow:hidden}.cat-head{padding:13px 14px;display:flex;justify-content:space-between;cursor:pointer;font-size:11px;font-weight:800}.cat-content{display:none;border-top:1px solid var(--line)}.cat-content.open{display:block}.test-item{padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line)}.test-item:last-child{border:0}.test-name{font-size:10px;font-weight:700}.test-score{font-size:9px;color:var(--muted);margin-top:2px}.retry{border:0;background:var(--yellow);color:#27220f;padding:8px 10px;border-radius:11px;font-size:9px;font-weight:800}.badges{display:flex;flex-wrap:wrap;gap:8px}.badge{padding:9px 11px;border-radius:13px;background:var(--yellow-soft);border:1px solid rgba(244,196,48,.35);font-size:9px;font-weight:700;color:#765a00}
+.avatar{display:grid;place-items:center;color:#27220f;font-size:34px}.avatar-picker{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(7px);display:none;place-items:center;z-index:10002;padding:18px}.avatar-picker.open{display:grid}.avatar-picker-box{width:min(100%,390px);background:var(--card);border:1px solid var(--line);border-radius:24px;padding:20px}.avatar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.avatar-choice{height:62px;border:1px solid var(--line);border-radius:16px;background:var(--bg);color:var(--text);display:grid;place-items:center;font-size:22px;cursor:pointer}.avatar-choice:hover,.avatar-choice.selected{background:var(--yellow);color:#27220f;border-color:var(--yellow)}.avatar-picker-note{font-size:9px;color:var(--muted);line-height:1.5;margin-top:6px}.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(7px);display:none;place-items:center;z-index:10001;padding:18px}.modal.open{display:grid}.modal-box{width:min(100%,360px);background:var(--card);border:1px solid var(--line);border-radius:24px;padding:20px}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.modal-head h3{margin:0;font-size:17px}.close{border:0;background:var(--yellow-soft);width:34px;height:34px;border-radius:11px}.name-input{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--text);padding:12px 13px;border-radius:13px;outline:none}.modal-actions{display:flex;gap:8px;margin-top:12px}.modal-actions button{flex:1;border:0;padding:11px;border-radius:13px;font-size:11px;font-weight:800}.cancel{background:var(--bg);color:var(--text)}.save{background:var(--yellow);color:#27220f}@media(max-width:480px){.profile-main{align-items:flex-start}.avatar{width:82px;height:82px}.nickname{font-size:21px}}
+/* ================= MODERN BOTTOM NAVIGATION ================= */
+body{
+  padding-bottom:102px !important;
+}
+.bottom-nav{
+  position:fixed !important;
+  left:50% !important;
+  bottom:12px !important;
+  transform:translateX(-50%) !important;
+  width:min(94%,520px) !important;
+  height:72px !important;
+  padding:7px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-around !important;
+  gap:4px !important;
+  background:rgba(255,255,255,.96) !important;
+  border:1px solid rgba(244,196,48,.24) !important;
+  border-radius:24px !important;
+  box-shadow:0 16px 38px rgba(32,27,10,.14), 0 3px 10px rgba(244,196,48,.08) !important;
+  backdrop-filter:blur(18px) saturate(120%) !important;
+  -webkit-backdrop-filter:blur(18px) saturate(120%) !important;
+  z-index:9999 !important;
+}
+.bottom-nav button{
+  border:0 !important;
+  background:transparent !important;
+  min-width:54px !important;
+  height:56px !important;
+  padding:0 8px !important;
+  border-radius:18px !important;
+  display:flex !important;
+  flex:1 !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:4px !important;
+  color:#8b877b !important;
+  font:600 10.5px/1 Poppins,system-ui,sans-serif !important;
+  cursor:pointer !important;
+  transition:transform .22s ease, background .22s ease, color .22s ease, box-shadow .22s ease !important;
+  -webkit-tap-highlight-color:transparent !important;
+}
+.bottom-nav button i{
+  font-size:18px !important;
+  line-height:1 !important;
+  transition:transform .22s ease !important;
+}
+.bottom-nav button span{
+  display:block !important;
+  white-space:nowrap !important;
+}
+.bottom-nav button.active{
+  background:linear-gradient(135deg,#ffd84d,#f4c430) !important;
+  color:#27220f !important;
+  box-shadow:0 8px 18px rgba(244,196,48,.28) !important;
+}
+.bottom-nav button.active i{
+  transform:translateY(-1px) !important;
+}
+.bottom-nav button:not(.active):hover{
+  color:#c18f00 !important;
+  background:#fff9df !important;
+}
+.bottom-nav button:active{
+  transform:scale(.94) !important;
+}
+.bottom-nav .premium-btn{
+  color:#c18f00 !important;
+}
+@media(max-width:390px){
+  .bottom-nav{
+    width:96% !important;
+    height:70px !important;
+    bottom:9px !important;
+  }
+  .bottom-nav button{
+    min-width:45px !important;
+    padding:0 4px !important;
+    font-size:10px !important;
+  }
+  .bottom-nav button i{
+    font-size:17px !important;
+  }
+}
+
+
+/* Dark mode navigation synchronization */
+body.dark .bottom-nav{background:rgba(25,25,22,.96)!important;border-color:rgba(244,196,48,.22)!important;box-shadow:0 16px 38px rgba(0,0,0,.42),0 3px 10px rgba(0,0,0,.24)!important}
+body.dark .bottom-nav button{color:#aaa89e!important}
+body.dark .bottom-nav button:not(.active):hover{color:#f4c430!important;background:#332d16!important}
+body.dark .bottom-nav .premium-btn{color:#f4c430!important}
+</style>
+<style id="seh-darkmode-final">
+/* Şahin Ehliyetim — ortak dark mode */
+html,body{background:#f8fafc;color:#171717}
+body.dark,body.dark html{background:#11110f!important;color:#f7f6ef!important}
+body.dark .page,body.dark main{background:transparent!important;color:#f7f6ef}
+body.dark .header,
+body.dark .profile-hero,
+body.dark .hero,
+body.dark .active,
+body.dark .price,
+body.dark .card,
+body.dark .ask,
+body.dark .info,
+body.dark .question,
+body.dark .buy,
+body.dark .feature,
+body.dark .content{background:linear-gradient(135deg,#191916,#22221d)!important;color:#f7f6ef!important;border-color:#302f29!important}
+body.dark .stat,
+body.dark .quick{background:#1c1c18!important;color:#f7f6ef!important;border-color:#302f29!important}
+body.dark .test-category,
+body.dark .test-item,
+body.dark .cat-content,
+body.dark .empty{border-color:#302f29!important}
+body.dark textarea,
+body.dark input{background:#151512!important;color:#f7f6ef!important;border-color:#3a3931!important}
+body.dark .xp-track{background:#302f29!important}
+body.dark .answer{background:#182536!important;color:#8db8ff!important}
+body.dark .waiting,
+body.dark .quota{background:#332d16!important;color:#f4c430!important}
+body.dark .checks li{background:rgba(255,255,255,.05)!important}
+body.dark .theme,
+body.dark .edit-name{background:#191916!important;color:#f7f6ef!important;border-color:#302f29!important}
+body.dark .bottom-nav{background:rgba(25,25,22,.97)!important;border-color:rgba(244,196,48,.22)!important;box-shadow:0 16px 38px rgba(0,0,0,.45)!important}
+body.dark .bottom-nav button{background:transparent!important;color:#aaa89e!important}
+body.dark .bottom-nav button.active{background:linear-gradient(135deg,#ffd84d,#f4c430)!important;color:#27220f!important}
+body.dark .bottom-nav .premium-btn{color:#f4c430!important}
+body.dark .bottom-nav button:not(.active):hover{background:#332d16!important;color:#f4c430!important}
+</style>
+
+<style id="seh-dark-viewport-fix">
+html{background:#f8fafc!important;}
+html:has(body.dark){background:#11110f!important;}
+html:has(body.dark),html:has(body.dark) body{color-scheme:dark;}
+body{min-height:100vh!important;background:var(--bg)!important;}
+body.dark{background:#11110f!important;}
+body.dark::before{content:"";position:fixed;inset:0;background:#11110f;z-index:-1;pointer-events:none;}
+</style>
+
+<style id="seh-v22-home-navbar-sync">
+.bottom-nav{
+  position:fixed !important;
+  left:50% !important;
+  bottom:12px !important;
+  transform:translateX(-50%) !important;
+  width:min(94%,520px) !important;
+  height:72px !important;
+  padding:7px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-around !important;
+  gap:4px !important;
+  background:rgba(255,255,255,.96) !important;
+  border:1px solid rgba(244,196,48,.24) !important;
+  border-radius:24px !important;
+  box-shadow:0 16px 38px rgba(32,27,10,.14), 0 3px 10px rgba(244,196,48,.08) !important;
+  backdrop-filter:blur(18px) saturate(120%) !important;
+  -webkit-backdrop-filter:blur(18px) saturate(120%) !important;
+  z-index:9999 !important;
+}
+.bottom-nav button{
+  border:0 !important;
+  background:transparent !important;
+  min-width:54px !important;
+  height:56px !important;
+  padding:0 8px !important;
+  border-radius:18px !important;
+  display:flex !important;
+  flex:1 !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:4px !important;
+  color:#8b877b !important;
+  font:600 10.5px/1 Poppins,system-ui,sans-serif !important;
+  cursor:pointer !important;
+  transition:transform .22s ease, background .22s ease, color .22s ease, box-shadow .22s ease !important;
+  -webkit-tap-highlight-color:transparent !important;
+}
+.bottom-nav button i{
+  font-size:18px !important;
+  line-height:1 !important;
+  transition:transform .22s ease !important;
+}
+.bottom-nav button span{
+  display:block !important;
+  white-space:nowrap !important;
+}
+.bottom-nav button.active{
+  background:linear-gradient(135deg,#ffd84d,#f4c430) !important;
+  color:#27220f !important;
+  box-shadow:0 8px 18px rgba(244,196,48,.28) !important;
+}
+.bottom-nav button.active i{
+  transform:translateY(-1px) !important;
+}
+.bottom-nav button:not(.active):hover{
+  color:#c18f00 !important;
+  background:#fff9df !important;
+}
+.bottom-nav button:active{
+  transform:scale(.94) !important;
+}
+.bottom-nav .premium-btn{
+  color:#c18f00 !important;
+}
+@media(max-width:390px){
+  .bottom-nav{
+    width:96% !important;
+    height:70px !important;
+    bottom:9px !important;
+  }
+  .bottom-nav button{
+    min-width:45px !important;
+    padding:0 4px !important;
+    font-size:10px !important;
+  }
+  .bottom-nav button i{
+    font-size:17px !important;
+  }
+}
+</style>
+
+<style id="seh-darkmode-final">
+/* Şahin Ehliyetim — ortak dark mode */
+html,body{background:#f8fafc;color:#171717}
+body.dark,body.dark html{background:#11110f!important;color:#f7f6ef!important}
+body.dark .page,body.dark main{background:transparent!important;color:#f7f6ef}
+body.dark .header,
+body.dark .profile-hero,
+body.dark .hero,
+body.dark .active,
+body.dark .price,
+body.dark .card,
+body.dark .ask,
+body.dark .info,
+body.dark .question,
+body.dark .buy,
+body.dark .feature,
+body.dark .content{background:linear-gradient(135deg,#191916,#22221d)!important;color:#f7f6ef!important;border-color:#302f29!important}
+body.dark .stat,
+body.dark .quick{background:#1c1c18!important;color:#f7f6ef!important;border-color:#302f29!important}
+body.dark .test-category,
+body.dark .test-item,
+body.dark .cat-content,
+body.dark .empty{border-color:#302f29!important}
+body.dark textarea,
+body.dark input{background:#151512!important;color:#f7f6ef!important;border-color:#3a3931!important}
+body.dark .xp-track{background:#302f29!important}
+body.dark .answer{background:#182536!important;color:#8db8ff!important}
+body.dark .waiting,
+body.dark .quota{background:#332d16!important;color:#f4c430!important}
+body.dark .checks li{background:rgba(255,255,255,.05)!important}
+body.dark .theme,
+body.dark .edit-name{background:#191916!important;color:#f7f6ef!important;border-color:#302f29!important}
+</style>
+</head><body><main class="page">
+
+<section class="profile-hero"><div class="profile-main"><div class="avatar-wrap"><div id="avatar" class="avatar" aria-label="Profil simgesi"><i id="avatarIcon" class="fa-solid fa-user"></i></div><button class="avatar-edit" onclick="openAvatarPicker()" aria-label="Profil simgesini değiştir"><i class="fa-solid fa-pen"></i></button></div><div class="profile-copy"><div class="eyebrow">PROFİL</div><div id="nickname" class="nickname">Misafir</div><div id="status" class="status">Standart Kullanıcı</div><button class="edit-name" onclick="openName()">Adı düzenle</button></div></div>
+<div class="stats"><div class="stat"><strong id="statTests">0</strong><span>Çözülen test</span></div><div class="stat"><strong id="statAvg">0%</strong><span>Ortalama başarı</span></div><div class="stat"><strong id="statXp">0</strong><span>Toplam XP</span></div></div></section>
+<section class="card"><div class="section-head"><h2>Seviye ve ilerleme</h2><span id="nextLevel">Sonraki seviyeye 100 XP</span></div><div class="level-row"><span id="levelLabel">Seviye 1</span><span id="xpLabel">0 / 100 XP</span></div><div class="xp-track"><div id="xpFill" class="xp-fill"></div></div><div class="xp-caption"><span>Başlangıç</span><span id="progressPercent">%0</span></div></section>
+<section class="card"><div class="section-head"><h2>İstatistiklerin</h2><span>Genel performans</span></div><div class="quick-grid"><div class="quick"><i class="fa-solid fa-bullseye"></i><strong id="bestScore">0%</strong><span>En yüksek başarı</span></div><div class="quick"><i class="fa-solid fa-chart-line"></i><strong id="totalSolved">0</strong><span>Toplam kayıt</span></div><div class="quick"><i class="fa-solid fa-crown"></i><strong id="premiumState">Standart</strong><span>Üyelik durumu</span></div><div class="quick"><i class="fa-solid fa-layer-group"></i><strong id="categoryCount">0</strong><span>Aktif kategori</span></div></div></section>
+<section class="card"><div class="section-head"><h2>Kazandığın rozetler</h2><span>Başarıların</span></div><div id="badges" class="badges"></div></section>
+<section class="card"><div class="section-head"><h2>Çözdüğün testler</h2><span id="testCountLabel">0 kayıt</span></div><div id="tests" class="test-list"></div></section></main>
+<div id="avatarPicker" class="avatar-picker"><div class="avatar-picker-box"><div class="modal-head"><div><h3 style="margin:0;font-size:17px">Profil simgesi seç</h3><div class="avatar-picker-note">Profil fotoğrafı yerine aşağıdaki modern simgelerden birini kullanabilirsin.</div></div><button class="close" onclick="closeAvatarPicker()"><i class="fa-solid fa-xmark"></i></button></div><div class="avatar-grid"><button class="avatar-choice" data-icon="fa-user" onclick="selectAvatar('fa-user')"><i class="fa-solid fa-user"></i></button><button class="avatar-choice" data-icon="fa-user-tie" onclick="selectAvatar('fa-user-tie')"><i class="fa-solid fa-user-tie"></i></button><button class="avatar-choice" data-icon="fa-user-astronaut" onclick="selectAvatar('fa-user-astronaut')"><i class="fa-solid fa-user-astronaut"></i></button><button class="avatar-choice" data-icon="fa-user-ninja" onclick="selectAvatar('fa-user-ninja')"><i class="fa-solid fa-user-ninja"></i></button><button class="avatar-choice" data-icon="fa-user-secret" onclick="selectAvatar('fa-user-secret')"><i class="fa-solid fa-user-secret"></i></button><button class="avatar-choice" data-icon="fa-graduation-cap" onclick="selectAvatar('fa-graduation-cap')"><i class="fa-solid fa-graduation-cap"></i></button><button class="avatar-choice" data-icon="fa-car" onclick="selectAvatar('fa-car')"><i class="fa-solid fa-car"></i></button><button class="avatar-choice" data-icon="fa-motorcycle" onclick="selectAvatar('fa-motorcycle')"><i class="fa-solid fa-motorcycle"></i></button><button class="avatar-choice" data-icon="fa-road" onclick="selectAvatar('fa-road')"><i class="fa-solid fa-road"></i></button><button class="avatar-choice" data-icon="fa-helmet-safety" onclick="selectAvatar('fa-helmet-safety')"><i class="fa-solid fa-helmet-safety"></i></button><button class="avatar-choice" data-icon="fa-star" onclick="selectAvatar('fa-star')"><i class="fa-solid fa-star"></i></button><button class="avatar-choice" data-icon="fa-bolt" onclick="selectAvatar('fa-bolt')"><i class="fa-solid fa-bolt"></i></button></div></div></div><div id="nameModal" class="modal"><div class="modal-box"><div class="modal-head"><h3>Adını düzenle</h3><button class="close" onclick="closeName()"><i class="fa-solid fa-xmark"></i></button></div><input id="nameInput" class="name-input" maxlength="20" placeholder="Kullanıcı adı"><div class="modal-actions"><button class="cancel" onclick="closeName()">Vazgeç</button><button class="save" onclick="saveName()">Kaydet</button></div></div></div><script>
+if(localStorage.getItem("theme")==="true")document.body.classList.add("dark");
+  document.documentElement.classList.add("dark");
+function toggleTheme(){document.body.classList.toggle("dark");
+  document.documentElement.classList.toggle("dark", document.body.classList.contains("dark"));localStorage.setItem("theme",document.body.classList.contains("dark")?"true":"false")}
+const u=JSON.parse(localStorage.getItem("user")||"{}"),user=Object.assign({nickname:"Misafir",tests:{},xp:0,level:1,isPremium:false,gender:"male"},u),tests=user.tests||{};
+const avatar=document.getElementById("avatar"),avatarIcon=document.getElementById("avatarIcon");
+function renderAvatar(){const chosen=user.avatarIcon||"fa-user";avatarIcon.className="fa-solid "+chosen}
+function openAvatarPicker(){document.getElementById("avatarPicker").classList.add("open");document.querySelectorAll(".avatar-choice").forEach(b=>b.classList.toggle("selected",b.dataset.icon===(user.avatarIcon||"fa-user")))}
+function closeAvatarPicker(){document.getElementById("avatarPicker").classList.remove("open")}
+function selectAvatar(icon){user.avatarIcon=icon;delete user.avatar;localStorage.setItem("user",JSON.stringify(user));renderAvatar();closeAvatarPicker()}
+renderAvatar();
+function openName(){document.getElementById("nameInput").value=user.nickname||"";document.getElementById("nameModal").classList.add("open")}function closeName(){document.getElementById("nameModal").classList.remove("open")}function saveName(){const n=document.getElementById("nameInput").value.trim();if(n.length<3||n.length>20)return;user.nickname=n;localStorage.setItem("user",JSON.stringify(user));document.getElementById("nickname").textContent=n;closeName()}
+const keys=Object.keys(tests),valid=keys.map(k=>tests[k]).filter(t=>t&&typeof t.percent==="number"),count=keys.length,avg=valid.length?Math.round(valid.reduce((s,t)=>s+Math.max(0,Math.min(100,t.percent)),0)/valid.length):0,best=valid.length?Math.max(...valid.map(t=>Math.max(0,Math.min(100,t.percent)))):0;
+document.getElementById("nickname").textContent=user.nickname||"Misafir";document.getElementById("status").textContent=user.isPremium?"Premium Kullanıcı":"Standart Kullanıcı";document.getElementById("premiumState").textContent=user.isPremium?"Aktif":"Standart";document.getElementById("statTests").textContent=count;document.getElementById("statAvg").textContent=avg+"%";document.getElementById("statXp").textContent=user.xp||0;document.getElementById("bestScore").textContent=best+"%";document.getElementById("totalSolved").textContent=count;
+const categories={trafik:"Trafik",motor:"Motor",ilkyardim:"İlk Yardım",trafikadabi:"Trafik Adabı",deneme:"Deneme",premiumtrafik:"Premium Trafik",premiummotor:"Premium Motor",premiumilkyardim:"Premium İlk Yardım",premiumtrafikadabi:"Premium Trafik Adabı",premiumdeneme:"Premium Deneme"},groups={};keys.forEach(k=>{let found="Diğer";for(const p in categories)if(k.startsWith(p+"-test")){found=categories[p];break}(groups[found]??=[]).push(k)});document.getElementById("categoryCount").textContent=Object.keys(groups).length;
+const map={"trafik-test-1":"trafiktest1.html","trafik-test-2":"trafiktest2.html","trafik-test-3":"trafiktest3.html","trafik-test-4":"trafiktest4.html","trafik-test-5":"trafiktest5.html","trafik-test-6":"trafiktest6.html","trafik-test-7":"trafiktest7.html","trafik-test-8":"trafiktest8.html","motor-test-1":"motortest1.html","motor-test-2":"motortest2.html","motor-test-3":"motortest3.html","motor-test-4":"motortest4.html","motor-test-5":"motortest5.html","motor-test-6":"motortest6.html","motor-test-7":"motortest7.html","motor-test-8":"motortest8.html","ilkyardim-test-1":"ilkyardimtest1.html","ilkyardim-test-2":"ilkyardimtest2.html","ilkyardim-test-3":"ilkyardimtest3.html","ilkyardim-test-4":"ilkyardimtest4.html","ilkyardim-test-5":"ilkyardimtest5.html","ilkyardim-test-6":"ilkyardimtest6.html","ilkyardim-test-7":"ilkyardimtest7.html","ilkyardim-test-8":"ilkyardimtest8.html","trafikadabi-test-1":"trafikadabitest1.html","trafikadabi-test-2":"trafikadabitest2.html","trafikadabi-test-3":"trafikadabitest3.html","trafikadabi-test-4":"trafikadabitest4.html","trafikadabi-test-5":"trafikadabitest5.html","trafikadabi-test-6":"trafikadabitest6.html","trafikadabi-test-7":"trafikadabitest7.html","trafikadabi-test-8":"trafikadabitest8.html","deneme-test-1":"deneme1.html","deneme-test-2":"deneme2.html","deneme-test-3":"deneme3.html","deneme-test-4":"deneme4.html","deneme-test-5":"deneme5.html","deneme-test-6":"deneme6.html","deneme-test-7":"deneme7.html","deneme-test-8":"deneme8.html","premium-deneme-test-1":"premiumdenemetest1.html","premium-deneme-test-2":"premiumdenemetest2.html","premium-deneme-test-3":"premiumdenemetest3.html","premium-deneme-test-4":"premiumdenemetest4.html","premium-deneme-test-5":"premiumdenemetest5.html","premium-trafik-test-1":"premiumtrafiktest1.html","premium-trafik-test-2":"premiumtrafiktest2.html","premium-trafik-test-3":"premiumtrafiktest3.html","premium-trafik-test-4":"premiumtrafiktest4.html","premium-trafik-test-5":"premiumtrafiktest5.html","premium-ilkyardim-test-1":"premiumyardimtest1.html","premium-ilkyardim-test-2":"premiumyardimtest2.html","premium-ilkyardim-test-3":"premiumyardimtest3.html","premium-ilkyardim-test-4":"premiumyardimtest4.html","premium-ilkyardim-test-5":"premiumyardimtest5.html","premium-motor-test-1":"premiummotortest1.html","premium-motor-test-2":"premiummotortest2.html","premium-motor-test-3":"premiummotortest3.html","premium-motor-test-4":"premiummotortest4.html","premium-motor-test-5":"premiummotortest5.html","premium-trafikadabi-test-1":"premiumadaptest1.html","premium-trafikadabi-test-2":"premiumadaptest2.html","premium-trafikadabi-test-3":"premiumadaptest3.html","premium-trafikadabi-test-4":"premiumadaptest4.html","premium-trafikadabi-test-5":"premiumadaptest5.html"};
+function retry(k){if(map[k])location.href=map[k]}
+function renderTests(){const box=document.getElementById("tests");if(!count){box.innerHTML='<div style="padding:20px;text-align:center;color:var(--muted);font-size:11px">Henüz test çözülmedi.</div>';return}Object.entries(groups).forEach(([name,list])=>{const wrap=document.createElement("div");wrap.className="test-category";const h=document.createElement("div");h.className="cat-head";h.innerHTML="<span>"+name+" ("+list.length+")</span><i class='fa-solid fa-chevron-down'></i>";const c=document.createElement("div");c.className="cat-content";h.onclick=()=>{c.classList.toggle("open");h.querySelector("i").style.transform=c.classList.contains("open")?"rotate(180deg)":""};list.sort().forEach(k=>{const t=tests[k]||{},item=document.createElement("div");item.className="test-item";item.innerHTML='<div><div class="test-name">'+k.replace(/-/g," ")+'</div><div class="test-score">Başarı: %'+(Number(t.percent)||0)+'</div></div><button class="retry">Tekrar çöz</button>';item.querySelector(".retry").onclick=()=>retry(k);c.appendChild(item)});wrap.append(h,c);box.appendChild(wrap)})}renderTests();
+const xp=Number(user.xp)||0,level=Math.floor(xp/100)+1,current=xp%100;document.getElementById("levelLabel").textContent="Seviye "+level;document.getElementById("xpLabel").textContent=current+" / 100 XP";document.getElementById("xpFill").style.width=current+"%";document.getElementById("progressPercent").textContent="%"+current;document.getElementById("nextLevel").textContent=(100-current)+" XP kaldı";
+const b=[];if(count>=1)b.push("İlk test");if(best>=80)b.push("Yüksek başarı");if(count>=3)b.push("3 test");if(user.isPremium)b.push("Premium üye");document.getElementById("badges").innerHTML=b.length?b.map(x=>'<span class="badge">'+x+"</span>").join(""):'<span style="font-size:10px;color:var(--muted)">Henüz rozet kazanılmadı.</span>';document.getElementById("testCountLabel").textContent=count+" kayıt";
+</script><nav class="bottom-nav"><button onclick="location.href='katagoriler.html'"><i class="fa-solid fa-house"></i><span>Ana</span></button><button class="active" onclick="location.href='hesabim.html'"><i class="fa-solid fa-user"></i><span>Profil</span></button><button class="premium-btn" onclick="location.href='premium.html'"><i class="fa-solid fa-crown"></i><span>Premium</span></button><button onclick="location.href='soru.html'"><i class="fa-solid fa-circle-question"></i><span>Sor</span></button><button onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i><span>Mod</span></button></nav></body></html>

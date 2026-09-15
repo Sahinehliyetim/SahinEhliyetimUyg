@@ -1,0 +1,275 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"><title>Soru Sor | Şahin Ehliyet</title><script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script><style>
+:root{--bg:#f8fafc;--card:#fff;--text:#171717;--muted:#77766f;--line:#e8e6dd;--yellow:#f4c430;--yellow-strong:#c18f00;--yellow-soft:#fff4c9;--shadow:0 14px 36px rgba(28,27,20,.08)}body.dark{--bg:#11110f;--card:#191916;--text:#f7f6ef;--muted:#aaa89e;--line:#302f29;--yellow-soft:#332d16}*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--text)}body{padding-top:env(safe-area-inset-top)}button,textarea{font:inherit}.page{width:min(100%,760px);margin:auto;padding:0 14px 20px}.header{margin-top:12px;padding:17px 18px;border-radius:24px;background:linear-gradient(135deg,var(--card),var(--yellow-soft));border:1px solid var(--line);box-shadow:var(--shadow);display:flex;justify-content:space-between;align-items:center}.header-left{display:flex;gap:12px;align-items:center}.mark{width:42px;height:42px;border-radius:14px;background:#242421;padding:5px}.header h1{margin:0;font-size:20px}.header p{margin:2px 0 0;font-size:10px;color:var(--muted)}.theme{width:42px;height:42px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--text)}.ask,.info,.question{margin-top:12px;padding:19px;border-radius:24px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}.ask-head{display:flex;gap:12px;align-items:center}.ask-icon{width:46px;height:46px;border-radius:15px;background:var(--yellow-soft);color:var(--yellow-strong);display:grid;place-items:center}.ask h2{margin:0;font-size:17px}.ask p{margin:3px 0 0;font-size:9.5px;color:var(--muted);line-height:1.5}.quota{margin:15px 0 8px;padding:9px 11px;border-radius:12px;background:var(--yellow-soft);font-size:9px;color:#765a00;font-weight:700}textarea{width:100%;min-height:135px;resize:none;border:1px solid var(--line);border-radius:17px;background:var(--bg);color:var(--text);padding:14px;outline:0;font-size:12px;line-height:1.6}.send{width:100%;margin-top:10px;border:0;border-radius:15px;padding:13px;background:var(--yellow);color:#27220f;font-size:11px;font-weight:800}.send:disabled{opacity:.5}.info{background:linear-gradient(135deg,var(--card),var(--yellow-soft))}.info h3{margin:0;font-size:12px}.info p{margin:5px 0 0;font-size:9.5px;line-height:1.6;color:var(--muted)}.questions{margin-top:20px}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:10px}.section-head h2{margin:0;font-size:15px}.section-head span{font-size:9px;color:var(--muted)}.question{position:relative;margin-top:9px;padding:15px}.label{font-size:8px;font-weight:800;letter-spacing:1px;color:var(--yellow-strong)}.qtext{margin-top:5px;font-size:11px;line-height:1.6}.answer{margin-top:10px;padding:11px;border-radius:13px;background:#f1f8ff;color:#1d4ed8;font-size:10px;line-height:1.55}.waiting{margin-top:10px;padding:9px;border-radius:12px;background:var(--yellow-soft);color:#765a00;font-size:9px}.delete{position:absolute;right:12px;top:11px;border:0;background:transparent;color:#9b756d;font-size:9px;font-weight:700}.empty{padding:22px;text-align:center;border:1px dashed var(--line);border-radius:18px;color:var(--muted);font-size:10px}.toast{position:fixed;left:50%;bottom:96px;transform:translate(-50%,15px);opacity:0;padding:11px 15px;border-radius:14px;background:#171717;color:#fff;font-size:10px;z-index:10002;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}
+/* ================= MODERN BOTTOM NAVIGATION ================= */
+body{
+  padding-bottom:102px !important;
+}
+.bottom-nav{
+  position:fixed !important;
+  left:50% !important;
+  bottom:12px !important;
+  transform:translateX(-50%) !important;
+  width:min(94%,520px) !important;
+  height:72px !important;
+  padding:7px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-around !important;
+  gap:4px !important;
+  background:rgba(255,255,255,.96) !important;
+  border:1px solid rgba(244,196,48,.24) !important;
+  border-radius:24px !important;
+  box-shadow:0 16px 38px rgba(32,27,10,.14), 0 3px 10px rgba(244,196,48,.08) !important;
+  backdrop-filter:blur(18px) saturate(120%) !important;
+  -webkit-backdrop-filter:blur(18px) saturate(120%) !important;
+  z-index:9999 !important;
+}
+.bottom-nav button{
+  border:0 !important;
+  background:transparent !important;
+  min-width:54px !important;
+  height:56px !important;
+  padding:0 8px !important;
+  border-radius:18px !important;
+  display:flex !important;
+  flex:1 !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:4px !important;
+  color:#8b877b !important;
+  font:600 10.5px/1 Poppins,system-ui,sans-serif !important;
+  cursor:pointer !important;
+  transition:transform .22s ease, background .22s ease, color .22s ease, box-shadow .22s ease !important;
+  -webkit-tap-highlight-color:transparent !important;
+}
+.bottom-nav button i{
+  font-size:18px !important;
+  line-height:1 !important;
+  transition:transform .22s ease !important;
+}
+.bottom-nav button span{
+  display:block !important;
+  white-space:nowrap !important;
+}
+.bottom-nav button.active{
+  background:linear-gradient(135deg,#ffd84d,#f4c430) !important;
+  color:#27220f !important;
+  box-shadow:0 8px 18px rgba(244,196,48,.28) !important;
+}
+.bottom-nav button.active i{
+  transform:translateY(-1px) !important;
+}
+.bottom-nav button:not(.active):hover{
+  color:#c18f00 !important;
+  background:#fff9df !important;
+}
+.bottom-nav button:active{
+  transform:scale(.94) !important;
+}
+.bottom-nav .premium-btn{
+  color:#c18f00 !important;
+}
+@media(max-width:390px){
+  .bottom-nav{
+    width:96% !important;
+    height:70px !important;
+    bottom:9px !important;
+  }
+  .bottom-nav button{
+    min-width:45px !important;
+    padding:0 4px !important;
+    font-size:10px !important;
+  }
+  .bottom-nav button i{
+    font-size:17px !important;
+  }
+}
+
+
+/* Dark mode navigation synchronization */
+body.dark .bottom-nav{background:rgba(25,25,22,.96)!important;border-color:rgba(244,196,48,.22)!important;box-shadow:0 16px 38px rgba(0,0,0,.42),0 3px 10px rgba(0,0,0,.24)!important}
+body.dark .bottom-nav button{color:#aaa89e!important}
+body.dark .bottom-nav button:not(.active):hover{color:#f4c430!important;background:#332d16!important}
+body.dark .bottom-nav .premium-btn{color:#f4c430!important}
+</style>
+<style id="seh-darkmode-final">
+/* Şahin Ehliyetim — ortak dark mode */
+html,body{background:#f8fafc;color:#171717}
+body.dark,body.dark html{background:#11110f!important;color:#f7f6ef!important}
+body.dark .page,body.dark main{background:transparent!important;color:#f7f6ef}
+body.dark .header,
+body.dark .profile-hero,
+body.dark .hero,
+body.dark .active,
+body.dark .price,
+body.dark .card,
+body.dark .ask,
+body.dark .info,
+body.dark .question,
+body.dark .buy,
+body.dark .feature,
+body.dark .content{background:linear-gradient(135deg,#191916,#22221d)!important;color:#f7f6ef!important;border-color:#302f29!important}
+body.dark .stat,
+body.dark .quick{background:#1c1c18!important;color:#f7f6ef!important;border-color:#302f29!important}
+body.dark .test-category,
+body.dark .test-item,
+body.dark .cat-content,
+body.dark .empty{border-color:#302f29!important}
+body.dark textarea,
+body.dark input{background:#151512!important;color:#f7f6ef!important;border-color:#3a3931!important}
+body.dark .xp-track{background:#302f29!important}
+body.dark .answer{background:#182536!important;color:#8db8ff!important}
+body.dark .waiting,
+body.dark .quota{background:#332d16!important;color:#f4c430!important}
+body.dark .checks li{background:rgba(255,255,255,.05)!important}
+body.dark .theme,
+body.dark .edit-name{background:#191916!important;color:#f7f6ef!important;border-color:#302f29!important}
+body.dark .bottom-nav{background:rgba(25,25,22,.97)!important;border-color:rgba(244,196,48,.22)!important;box-shadow:0 16px 38px rgba(0,0,0,.45)!important}
+body.dark .bottom-nav button{background:transparent!important;color:#aaa89e!important}
+body.dark .bottom-nav button.active{background:linear-gradient(135deg,#ffd84d,#f4c430)!important;color:#27220f!important}
+body.dark .bottom-nav .premium-btn{color:#f4c430!important}
+body.dark .bottom-nav button:not(.active):hover{background:#332d16!important;color:#f4c430!important}
+</style>
+
+<style id="seh-dark-viewport-fix">
+html{background:#f8fafc!important;}
+html:has(body.dark){background:#11110f!important;}
+html:has(body.dark),html:has(body.dark) body{color-scheme:dark;}
+body{min-height:100vh!important;background:var(--bg)!important;}
+body.dark{background:#11110f!important;}
+body.dark::before{content:"";position:fixed;inset:0;background:#11110f;z-index:-1;pointer-events:none;}
+</style>
+
+<style id="seh-v22-home-navbar-sync">
+.bottom-nav{
+  position:fixed !important;
+  left:50% !important;
+  bottom:12px !important;
+  transform:translateX(-50%) !important;
+  width:min(94%,520px) !important;
+  height:72px !important;
+  padding:7px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-around !important;
+  gap:4px !important;
+  background:rgba(255,255,255,.96) !important;
+  border:1px solid rgba(244,196,48,.24) !important;
+  border-radius:24px !important;
+  box-shadow:0 16px 38px rgba(32,27,10,.14), 0 3px 10px rgba(244,196,48,.08) !important;
+  backdrop-filter:blur(18px) saturate(120%) !important;
+  -webkit-backdrop-filter:blur(18px) saturate(120%) !important;
+  z-index:9999 !important;
+}
+.bottom-nav button{
+  border:0 !important;
+  background:transparent !important;
+  min-width:54px !important;
+  height:56px !important;
+  padding:0 8px !important;
+  border-radius:18px !important;
+  display:flex !important;
+  flex:1 !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:4px !important;
+  color:#8b877b !important;
+  font:600 10.5px/1 Poppins,system-ui,sans-serif !important;
+  cursor:pointer !important;
+  transition:transform .22s ease, background .22s ease, color .22s ease, box-shadow .22s ease !important;
+  -webkit-tap-highlight-color:transparent !important;
+}
+.bottom-nav button i{
+  font-size:18px !important;
+  line-height:1 !important;
+  transition:transform .22s ease !important;
+}
+.bottom-nav button span{
+  display:block !important;
+  white-space:nowrap !important;
+}
+.bottom-nav button.active{
+  background:linear-gradient(135deg,#ffd84d,#f4c430) !important;
+  color:#27220f !important;
+  box-shadow:0 8px 18px rgba(244,196,48,.28) !important;
+}
+.bottom-nav button.active i{
+  transform:translateY(-1px) !important;
+}
+.bottom-nav button:not(.active):hover{
+  color:#c18f00 !important;
+  background:#fff9df !important;
+}
+.bottom-nav button:active{
+  transform:scale(.94) !important;
+}
+.bottom-nav .premium-btn{
+  color:#c18f00 !important;
+}
+@media(max-width:390px){
+  .bottom-nav{
+    width:96% !important;
+    height:70px !important;
+    bottom:9px !important;
+  }
+  .bottom-nav button{
+    min-width:45px !important;
+    padding:0 4px !important;
+    font-size:10px !important;
+  }
+  .bottom-nav button i{
+    font-size:17px !important;
+  }
+}
+</style>
+
+<style id="seh-darkmode-final">
+/* Şahin Ehliyetim — ortak dark mode */
+html,body{background:#f8fafc;color:#171717}
+body.dark,body.dark html{background:#11110f!important;color:#f7f6ef!important}
+body.dark .page,body.dark main{background:transparent!important;color:#f7f6ef}
+body.dark .header,
+body.dark .profile-hero,
+body.dark .hero,
+body.dark .active,
+body.dark .price,
+body.dark .card,
+body.dark .ask,
+body.dark .info,
+body.dark .question,
+body.dark .buy,
+body.dark .feature,
+body.dark .content{background:linear-gradient(135deg,#191916,#22221d)!important;color:#f7f6ef!important;border-color:#302f29!important}
+body.dark .stat,
+body.dark .quick{background:#1c1c18!important;color:#f7f6ef!important;border-color:#302f29!important}
+body.dark .test-category,
+body.dark .test-item,
+body.dark .cat-content,
+body.dark .empty{border-color:#302f29!important}
+body.dark textarea,
+body.dark input{background:#151512!important;color:#f7f6ef!important;border-color:#3a3931!important}
+body.dark .xp-track{background:#302f29!important}
+body.dark .answer{background:#182536!important;color:#8db8ff!important}
+body.dark .waiting,
+body.dark .quota{background:#332d16!important;color:#f4c430!important}
+body.dark .checks li{background:rgba(255,255,255,.05)!important}
+body.dark .theme,
+body.dark .edit-name{background:#191916!important;color:#f7f6ef!important;border-color:#302f29!important}
+</style>
+</head><body><main class="page">
+<section class="ask"><div class="ask-head"><div class="ask-icon"><i class="fa-solid fa-circle-question"></i></div><div><h2>Bir konuda yardıma mı ihtiyacın var?</h2><p>Sorunu açık ve anlaşılır şekilde yaz. Yanıtlandığında burada görüntüleyebilirsin.</p></div></div><div id="quota" class="quota">Yanıtsız 2 soru hakkın var</div><textarea id="input" maxlength="500" placeholder="Sorunu buraya yaz..."></textarea><button id="sendBtn" class="send" onclick="send()"><i class="fa-solid fa-paper-plane"></i> Soruyu gönder</button></section><section class="info"><h3>Soru gönderirken</h3><p>Tek bir konuya odaklanman ve mümkün olduğunca ayrıntı vermen daha anlaşılır bir yanıt almana yardımcı olur.</p></section><section class="questions"><div class="section-head"><h2>Sorularım</h2><span>Yanıtlarını burada takip et</span></div><div id="list"><div class="empty">Soruların yükleniyor.</div></div></section></main><div id="toast" class="toast"></div>
+<script>
+if(localStorage.getItem("theme")==="true")document.body.classList.add("dark");
+  document.documentElement.classList.add("dark");function toggleTheme(){document.body.classList.toggle("dark");
+  document.documentElement.classList.toggle("dark", document.body.classList.contains("dark"));localStorage.setItem("theme",document.body.classList.contains("dark")?"true":"false")}
+const firebaseConfig={apiKey:"AIzaSyADUE7MKvWQLKh3kU4RgF2Xn_CFGV0bXN4",authDomain:"sahinehliyetsoru.firebaseapp.com",projectId:"sahinehliyetsoru",storageBucket:"sahinehliyetsoru.appspot.com",messagingSenderId:"239399083549",appId:"1:239399083549:web:bc00cb1671802fccbb70f4"};if(!firebase.apps.length)firebase.initializeApp(firebaseConfig);const db=firebase.firestore(),MAX=2,input=document.getElementById("input"),list=document.getElementById("list"),quota=document.getElementById("quota"),btn=document.getElementById("sendBtn"),toast=document.getElementById("toast");let uid=localStorage.getItem("uid");if(!uid){uid="user_"+Date.now();localStorage.setItem("uid",uid)}let rows=[];
+function esc(v){return String(v).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}function toastMsg(t){toast.textContent=t;toast.className="toast show";setTimeout(()=>toast.className="toast",2500)}
+function render(){list.innerHTML="";rows.sort((a,b)=>(b.d.time||0)-(a.d.time||0));let active=0;if(!rows.length)list.innerHTML='<div class="empty">Henüz soru göndermedin.</div>';rows.forEach(({id,d})=>{if(!d.answer)active++;const e=document.createElement("article");e.className="question";e.innerHTML='<button class="delete" onclick="del(\''+id+'\')">Sil</button><div class="label">SORU</div><div class="qtext">'+esc(d.question||"")+'</div>'+(d.answer?'<div class="answer"><strong>Yanıt</strong><br>'+esc(d.answer)+'</div>':'<div class="waiting"><i class="fa-regular fa-clock"></i> Yanıt bekleniyor</div>');list.appendChild(e)});quota.textContent=Math.max(0,MAX-active)+" yanıtsız soru hakkın var";btn.disabled=active>=MAX;btn.innerHTML=active>=MAX?"Soru hakkın doldu":'<i class="fa-solid fa-paper-plane"></i> Soruyu gönder'}
+async function load(){try{const s=await db.collection("questions").where("userId","==",uid).get();rows=[];s.forEach(d=>rows.push({id:d.id,d:d.data()}));render()}catch(e){list.innerHTML='<div class="empty">Sorular şu anda yüklenemiyor. İnternet bağlantını kontrol et.</div>';toastMsg("Sorular yüklenemedi")}}
+async function send(){const text=input.value.trim();if(text.length<10){toastMsg("En az 10 karakter yazmalısın");return}btn.disabled=true;try{const active=rows.reduce((n,r)=>n+(r.d.answer?0:1),0);if(active>=MAX){toastMsg("Soru hakkın doldu");return}const time=Date.now(),ref=await db.collection("questions").add({question:text,answer:"",userId:uid,time});rows.unshift({id:ref.id,d:{question:text,answer:"",userId:uid,time}});input.value="";toastMsg("Sorun gönderildi");render()}catch(e){toastMsg("Soru gönderilemedi")}finally{render()}}
+async function del(id){try{await db.collection("questions").doc(id).delete();rows=rows.filter(r=>r.id!==id);render();toastMsg("Soru silindi")}catch(e){toastMsg("Soru silinemedi")}}load();
+</script><nav class="bottom-nav"><button onclick="location.href='katagoriler.html'"><i class="fa-solid fa-house"></i><span>Ana</span></button><button onclick="location.href='hesabim.html'"><i class="fa-solid fa-user"></i><span>Profil</span></button><button class="premium-btn" onclick="location.href='premium.html'"><i class="fa-solid fa-crown"></i><span>Premium</span></button><button class="active" onclick="location.href='soru.html'"><i class="fa-solid fa-circle-question"></i><span>Sor</span></button><button onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i><span>Mod</span></button></nav></body></html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gizlilik Politikası - Şahin Ehliyet</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+       <!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --bg:#0f172a;
+  --card:#111827;
+  --card2:#1e293b;
+  --primary:#3b82f6;
+  --primary2:#60a5fa;
+  --text:#f8fafc;
+  --muted:#cbd5e1;
+  --border:rgba(255,255,255,0.08);
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:
+    radial-gradient(circle at top left,#1d4ed8 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#2563eb 0%,transparent 30%),
+    var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+}
+
+.header{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.badge{
+  display:inline-block;
+  padding:10px 18px;
+  background:rgba(59,130,246,0.15);
+  border:1px solid rgba(96,165,250,0.3);
+  color:#93c5fd;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:20px;
+  backdrop-filter:blur(10px);
+}
+
+.header h1{
+  font-size:clamp(32px,5vw,52px);
+  font-weight:800;
+  margin-bottom:14px;
+  line-height:1.1;
+}
+
+.header p{
+  color:var(--muted);
+  font-size:17px;
+  max-width:650px;
+  margin:auto;
+  line-height:1.7;
+}
+
+.card{
+  background:rgba(17,24,39,0.78);
+  border:1px solid var(--border);
+  border-radius:28px;
+  padding:35px;
+  backdrop-filter:blur(18px);
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.section{
+  background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.015));
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:22px;
+  padding:24px;
+  margin-bottom:18px;
+  transition:0.3s ease;
+}
+
+.section:hover{
+  transform:translateY(-3px);
+  border-color:rgba(96,165,250,0.25);
+}
+
+.section h2{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-size:22px;
+  margin-bottom:14px;
+}
+
+.icon{
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  font-size:18px;
+  flex-shrink:0;
+}
+
+.section p{
+  color:var(--muted);
+  line-height:1.8;
+  font-size:15.8px;
+}
+
+.contact-box{
+  margin-top:10px;
+  padding:18px;
+  background:rgba(59,130,246,0.1);
+  border:1px solid rgba(96,165,250,0.2);
+  border-radius:18px;
+}
+
+.contact-box a{
+  color:#93c5fd;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.footer{
+  margin-top:30px;
+  text-align:center;
+  color:#94a3b8;
+  font-size:14px;
+}
+
+@media(max-width:768px){
+
+  body{
+    padding:20px 14px;
+  }
+
+  .card{
+    padding:20px;
+    border-radius:22px;
+  }
+
+  .section{
+    padding:18px;
+    border-radius:18px;
+  }
+
+  .section h2{
+    font-size:19px;
+  }
+
+  .icon{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+    font-size:16px;
+  }
+
+  .header p{
+    font-size:15px;
+  }
+}
+
+a{
+-webkit-touch-callout:none;
+}
+
+/* ŞAHİN HEADER */
+
+.seh-header-wrap{
+
+    position:sticky;
+    top:0;
+    z-index:99999;
+
+    width:100%;
+    height:78px;
+
+    display:flex;
+    align-items:flex-start;
+
+    padding:12px 18px;
+
+    background:linear-gradient(
+        135deg,
+        #050505 0%,
+        #101010 45%,
+        #1a1a1a 75%,
+        #f4b400 220%
+    );
+
+    border-bottom-left-radius:26px;
+    border-bottom-right-radius:26px;
+
+    border-bottom:2px solid rgba(255,200,0,.22);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.30),
+        inset 0 -1px rgba(255,215,0,.10);
+
+    overflow:hidden;
+}
+
+.seh-header-wrap::before{
+
+    content:'';
+
+    position:absolute;
+    inset:0;
+
+    background:radial-gradient(
+        circle at top right,
+        rgba(255,200,0,.15),
+        transparent 40%
+    );
+
+    pointer-events:none;
+}
+
+/* GERİ BUTONU */
+
+.seh-back-button{
+
+    width:50px;
+    height:50px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.05);
+
+    color:#facc15;
+
+    font-size:19px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    position:relative;
+    z-index:2;
+
+    outline:none;
+
+    -webkit-tap-highlight-color:transparent;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.05),
+        0 4px 12px rgba(0,0,0,.18);
+}
+
+.seh-back-button:active{
+    transform:scale(.96);
+}
+
+html,
+body{
+    margin:0 !important;
+    padding:0 !important;
+    overflow-x:hidden;
+}
+
+/* Kamera boşluğunu sıfırla */
+
+body{
+    padding-top:0 !important;
+}
+
+/* HEADER */
+
+.seh-header-wrap{
+    margin-top:0 !important;
+    top:0 !important;
+}
+</style>
+
+<style id="seh-darkmode-unified-fix">
+/* Unified Şahin Ehliyetim dark mode fixes */
+html, body { background: var(--bg, #f8fafc); }
+body.dark, body.dark html { background: #11110f !important; color: #f5f3e9 !important; }
+body.dark .bottom-nav {
+  background: rgba(25, 25, 22, .97) !important;
+  border-color: rgba(244, 196, 48, .22) !important;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, .42) !important;
+}
+body.dark .bottom-nav button { color: #aaa89e !important; background: transparent !important; }
+body.dark .bottom-nav button.active {
+  background: linear-gradient(135deg, #ffd84d, #f4c430) !important;
+  color: #27220f !important;
+}
+body.dark .bottom-nav .premium-btn { color: #f4c430 !important; }
+body.dark .bottom-nav button:not(.active):hover { color: #f4c430 !important; background: #332d16 !important; }
+body.dark .premium-modal, body.dark .premium-box-modern, body.dark .choice-card,
+body.dark .modal-content, body.dark .popup, body.dark .popup-content,
+body.dark .premium-popup, body.dark .ad-popup, body.dark .watch-ad-popup {
+  background: #191916 !important; color: #f5f3e9 !important; border-color: #32312a !important;
+}
+body.dark .premium-modal *, body.dark .premium-box-modern *, body.dark .choice-card *,
+body.dark .modal-content *, body.dark .popup *, body.dark .popup-content *,
+body.dark .premium-popup *, body.dark .ad-popup *, body.dark .watch-ad-popup * { color: inherit; }
+body.dark .premium-modal p, body.dark .premium-box-modern .desc,
+body.dark .choice-card p, body.dark .popup p, body.dark .popup-content p { color: #aaa89e !important; }
+</style>
+
+<style id="seh-premium-popup-v2">
+.premium-modal{position:fixed!important;inset:0!important;display:none;align-items:center!important;justify-content:center!important;padding:18px!important;background:rgba(9,9,7,.72)!important;backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;z-index:10001!important;}
+.premium-modal[style*="display: flex"],.premium-modal[style*="display:flex"],.premium-modal.open{display:flex!important;}
+.premium-box-modern{position:relative!important;width:min(100%,420px)!important;padding:22px!important;border:1px solid rgba(244,196,48,.38)!important;border-radius:28px!important;background:linear-gradient(145deg,#fffdf5 0%,#fff7d6 100%)!important;color:#171717!important;box-shadow:0 30px 90px rgba(0,0,0,.38),0 10px 30px rgba(244,196,48,.12)!important;overflow:hidden!important;}
+.premium-box-modern:before{content:"";position:absolute;left:-70px;top:-85px;width:190px;height:190px;border-radius:50%;background:rgba(244,196,48,.18);filter:blur(3px);pointer-events:none;}
+.premium-box-modern>*{position:relative;z-index:1;}
+.premium-modal-head{display:flex!important;align-items:center!important;gap:13px!important;margin-bottom:18px!important;}
+.premium-modal-icon{width:52px!important;height:52px!important;flex:0 0 52px!important;border-radius:17px!important;display:grid!important;place-items:center!important;background:linear-gradient(135deg,#ffd84d,#f4c430)!important;color:#27220f!important;font-size:20px!important;box-shadow:0 10px 25px rgba(244,196,48,.28)!important;}
+.premium-modal-title h3,.premium-box-modern h3{margin:0!important;color:#171717!important;font-size:19px!important;font-weight:800!important;line-height:1.2!important;}
+.premium-modal-title p,.premium-box-modern .desc{margin:4px 0 0!important;color:#77766f!important;font-size:10.5px!important;line-height:1.55!important;}
+.choice-card{position:relative!important;display:flex!important;align-items:center!important;gap:13px!important;margin:10px 0!important;padding:15px!important;border-radius:19px!important;cursor:pointer!important;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important;}
+.choice-card:hover{transform:translateY(-2px)!important;box-shadow:0 12px 25px rgba(28,27,20,.10)!important;}
+.choice-card.ad{background:linear-gradient(135deg,#fff 0%,#f5f8ff 100%)!important;border:1px solid #d6dfed!important;}
+.choice-card.premium{background:linear-gradient(135deg,#fff8d8 0%,#ffefaa 100%)!important;border:1px solid #e4b72b!important;}
+.choice-icon{width:44px!important;height:44px!important;flex:0 0 44px!important;border-radius:14px!important;display:grid!important;place-items:center!important;font-size:17px!important;}
+.choice-card.ad .choice-icon{background:#e8f1ff!important;color:#2563eb!important;}
+.choice-card.premium .choice-icon{background:#f4c430!important;color:#27220f!important;}
+.choice-copy{min-width:0!important;}
+.choice-head{font-size:12.5px!important;font-weight:800!important;color:#171717!important;}
+.choice-copy p,.choice-card p{margin:4px 0 0!important;font-size:9.5px!important;line-height:1.55!important;color:#77766f!important;}
+.choice-arrow{margin-left:auto!important;color:#a17b00!important;font-size:12px!important;}
+.cancel-btn{width:100%!important;margin-top:13px!important;padding:12px!important;border:1px solid #dedbd0!important;border-radius:15px!important;background:#f4f1e7!important;color:#55534b!important;font-size:10.5px!important;font-weight:800!important;cursor:pointer!important;}
+body.dark .premium-modal{background:rgba(0,0,0,.78)!important;}
+body.dark .premium-box-modern{background:linear-gradient(145deg,#191916 0%,#27261e 100%)!important;border-color:rgba(244,196,48,.34)!important;color:#f7f6ef!important;box-shadow:0 30px 90px rgba(0,0,0,.68)!important;}
+body.dark .premium-box-modern:before{background:rgba(244,196,48,.10)!important;}
+body.dark .premium-modal-title h3,body.dark .premium-box-modern h3,body.dark .choice-head{color:#f7f6ef!important;}
+body.dark .premium-modal-title p,body.dark .premium-box-modern .desc,body.dark .choice-copy p,body.dark .choice-card p{color:#aaa89e!important;}
+body.dark .choice-card.ad{background:linear-gradient(135deg,#1b2633,#18202a)!important;border-color:#344a61!important;}
+body.dark .choice-card.ad .choice-icon{background:#233b55!important;color:#9fc4ff!important;}
+body.dark .choice-card.premium{background:linear-gradient(135deg,#332d16,#433812)!important;border-color:#a77d08!important;}
+body.dark .choice-card.premium .choice-icon{background:#f4c430!important;color:#27220f!important;}
+body.dark .choice-arrow{color:#f4c430!important;}
+body.dark .cancel-btn{background:#24231e!important;color:#aaa89e!important;border-color:#3b392f!important;}
+</style>
+</head>
+
+<body>
+
+<div class="seh-header-wrap">
+
+    <button class="seh-back-button" onclick="history.back()">
+        <i class="fa-solid fa-arrow-left"></i>
+    </button>
+
+</div>
+
+<div class="container">
+
+  <div class="header">
+    <div class="badge">Şahin Ehliyet</div>
+    <h1>Gizlilik Politikası</h1>
+    <p>
+      Kullanıcı gizliliğini önemsiyoruz. Bu sayfa, uygulamamızı kullanırken
+      verilerinizin nasıl işlendiğini ve korunduğunu açıklamaktadır.
+    </p>
+  </div>
+
+  <div class="card">
+
+    <div class="section">
+      <h2>
+        <div class="icon">🔒</div>
+        Toplanan Veriler
+      </h2>
+      <p>
+        Uygulamamız kullanıcıdan isim, telefon numarası veya e-posta gibi
+        kişisel veriler toplamaz. Uygulama içerisindeki ilerleme ve görev
+        bilgileri yalnızca kullanıcının kendi cihazında saklanır.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>
+        <div class="icon">💳</div>
+        Google Play Ödemeleri
+      </h2>
+      <p>
+        Premium satın alma işlemleri Google Play altyapısı üzerinden
+        gerçekleştirilmektedir. Ödeme sırasında girilen bilgiler Google
+        tarafından işlenir ve uygulamamız bu verilere erişim sağlamaz.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>
+        <div class="icon">📢</div>
+        Reklamlar
+      </h2>
+      <p>
+        Uygulama içerisinde reklam gösterilebilir. Reklam sağlayıcıları kendi
+        gizlilik politikalarını uygulayabilir ve kendi veri işleme süreçlerinden
+        sorumludur.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>
+        <div class="icon">🛡️</div>
+        Veri Güvenliği
+      </h2>
+      <p>
+        Kullanıcı verileri üçüncü kişilerle paylaşılmaz. Güvenlik ve gizlilik
+        standartlarını korumak için gerekli önlemler alınmaktadır.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>
+        <div class="icon">👶</div>
+        Çocukların Gizliliği
+      </h2>
+      <p>
+        Uygulamamız özellikle 13 yaş altındaki çocuklara yönelik olarak
+        tasarlanmamıştır.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>
+        <div class="icon">🔄</div>
+        Değişiklikler
+      </h2>
+      <p>
+        Gizlilik politikamız gerektiğinde güncellenebilir. Yapılan değişiklikler
+        bu sayfa üzerinden yayınlanır.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>
+        <div class="icon">📩</div>
+        İletişim
+      </h2>
+
+      <p>
+        Sorularınız veya geri bildirimleriniz için bizimle iletişime
+        geçebilirsiniz.
+      </p>
+
+      <div class="contact-box">
+        <strong>E-posta:</strong><br><br>
+        <a draggable="false" onclick="openMail()">sahinehliyet@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      Son güncelleme • 2026
+    </div>
+
+  </div>
+
+</div>
+<script>
+  function openMail(){
+
+  const mail =
+  "mailto:sahinehliyet@gmail.com";
+
+  if(window.Android){
+
+    window.Android.openExternal(mail);
+
+  }else{
+
+    window.location.href = mail;
+
+  }
+}
+</script>
+</body>
+</html>

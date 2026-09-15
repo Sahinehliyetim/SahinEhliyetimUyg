@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="tr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Konu Anlatımları | Şahin Ehliyet</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{--yellow:#f3c742;--yellow-strong:#dcae19;--yellow-soft:#fff6d8;--bg:#f8f8f5;--card:#fff;--text:#181815;--muted:#76766f;--line:#e7e5dc;--shadow:0 12px 34px rgba(28,27,20,.07)}
+body.dark{--bg:#11110f;--card:#191916;--text:#f5f3e9;--muted:#aaa89e;--line:#32312a;--yellow-soft:#332d16;--shadow:0 14px 38px rgba(0,0,0,.32)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,system-ui,sans-serif;padding-bottom:30px}
+.seh-header-wrap{position:sticky;top:0;z-index:100;background:var(--bg);height:56px;width:min(100%,760px);margin:0 auto;padding:0 15px;display:grid;grid-template-columns:36px 1fr 36px;align-items:center;gap:9px}.seh-back-button{width:36px;height:36px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text);display:grid;place-items:center;font-size:12px;box-shadow:0 5px 14px rgba(28,27,20,.06)}.seh-back-button:active{transform:scale(.94)}.seh-header-title{display:flex;justify-content:center;align-items:center;gap:7px;font-size:14px;font-weight:800}.seh-title-icon{width:28px;height:28px;border-radius:9px;background:var(--yellow-soft);color:var(--yellow-strong);display:grid;place-items:center;font-size:11px}
+.topic-page{width:min(100%,760px);margin:0 auto;padding:8px 15px 30px}.topic-intro{display:flex;gap:13px;align-items:center;padding:18px;margin-bottom:14px;background:linear-gradient(135deg,var(--card),var(--yellow-soft));border:1px solid var(--line);border-radius:23px;box-shadow:var(--shadow)}.topic-intro-icon{width:47px;height:47px;flex:0 0 47px;border-radius:15px;background:var(--yellow);color:#181815;display:grid;place-items:center;font-size:18px}.topic-eyebrow{font-size:9px;font-weight:800;letter-spacing:.13em;color:var(--muted)}.topic-intro h1{margin:3px 0 5px;font-size:20px;letter-spacing:-.5px}.topic-intro p{margin:0;font-size:10.5px;line-height:1.5;color:var(--muted)}
+.topic-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.topic-card{position:relative;min-height:168px;padding:15px;text-decoration:none;color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:21px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:flex-end}.topic-card:active{transform:scale(.975)}.topic-icon{position:absolute;top:15px;left:15px;width:42px;height:42px;border-radius:13px;background:var(--yellow-soft);color:var(--yellow-strong);display:grid;place-items:center;font-size:16px}.topic-copy strong{display:block;font-size:13px;line-height:1.3;font-weight:800}.topic-copy small{display:block;margin-top:5px;color:var(--muted);font-size:9.5px;line-height:1.5}.topic-arrow{position:absolute;right:14px;top:16px;width:27px;height:27px;border:1px solid var(--line);border-radius:9px;background:var(--bg);display:grid;place-items:center;font-size:9px;color:var(--muted)}.scroll-top-v6{position:fixed;right:14px;bottom:18px;width:40px;height:40px;border:1px solid var(--line);border-radius:13px;background:var(--card);color:var(--text);display:grid;place-items:center;z-index:99;box-shadow:0 10px 24px rgba(0,0,0,.14);opacity:0;visibility:hidden;transform:translateY(12px) scale(.92);transition:.25s}.scroll-top-v6.show{opacity:1;visibility:visible;transform:translateY(0) scale(1)}.scroll-top-v6:active{background:var(--yellow);color:#181815;transform:scale(.92)}
+@media(max-width:390px){.topic-list{gap:9px}.topic-card{min-height:153px;padding:13px}.topic-copy strong{font-size:12px}.topic-copy small{font-size:9px}.topic-intro{padding:15px}.topic-intro h1{font-size:18px}}
+</style>
+<style id="seh-darkmode-unified-fix">
+/* Unified Şahin Ehliyetim dark mode fixes */
+html, body { background: var(--bg, #f8fafc); }
+body.dark, body.dark html { background: #11110f !important; color: #f5f3e9 !important; }
+body.dark .bottom-nav {
+  background: rgba(25, 25, 22, .97) !important;
+  border-color: rgba(244, 196, 48, .22) !important;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, .42) !important;
+}
+body.dark .bottom-nav button { color: #aaa89e !important; background: transparent !important; }
+body.dark .bottom-nav button.active {
+  background: linear-gradient(135deg, #ffd84d, #f4c430) !important;
+  color: #27220f !important;
+}
+body.dark .bottom-nav .premium-btn { color: #f4c430 !important; }
+body.dark .bottom-nav button:not(.active):hover { color: #f4c430 !important; background: #332d16 !important; }
+body.dark .premium-modal, body.dark .premium-box-modern, body.dark .choice-card,
+body.dark .modal-content, body.dark .popup, body.dark .popup-content,
+body.dark .premium-popup, body.dark .ad-popup, body.dark .watch-ad-popup {
+  background: #191916 !important; color: #f5f3e9 !important; border-color: #32312a !important;
+}
+body.dark .premium-modal *, body.dark .premium-box-modern *, body.dark .choice-card *,
+body.dark .modal-content *, body.dark .popup *, body.dark .popup-content *,
+body.dark .premium-popup *, body.dark .ad-popup *, body.dark .watch-ad-popup * { color: inherit; }
+body.dark .premium-modal p, body.dark .premium-box-modern .desc,
+body.dark .choice-card p, body.dark .popup p, body.dark .popup-content p { color: #aaa89e !important; }
+</style>
+
+<style id="seh-premium-popup-v2">
+.premium-modal{position:fixed!important;inset:0!important;display:none;align-items:center!important;justify-content:center!important;padding:18px!important;background:rgba(9,9,7,.72)!important;backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;z-index:10001!important;}
+.premium-modal[style*="display: flex"],.premium-modal[style*="display:flex"],.premium-modal.open{display:flex!important;}
+.premium-box-modern{position:relative!important;width:min(100%,420px)!important;padding:22px!important;border:1px solid rgba(244,196,48,.38)!important;border-radius:28px!important;background:linear-gradient(145deg,#fffdf5 0%,#fff7d6 100%)!important;color:#171717!important;box-shadow:0 30px 90px rgba(0,0,0,.38),0 10px 30px rgba(244,196,48,.12)!important;overflow:hidden!important;}
+.premium-box-modern:before{content:"";position:absolute;left:-70px;top:-85px;width:190px;height:190px;border-radius:50%;background:rgba(244,196,48,.18);filter:blur(3px);pointer-events:none;}
+.premium-box-modern>*{position:relative;z-index:1;}
+.premium-modal-head{display:flex!important;align-items:center!important;gap:13px!important;margin-bottom:18px!important;}
+.premium-modal-icon{width:52px!important;height:52px!important;flex:0 0 52px!important;border-radius:17px!important;display:grid!important;place-items:center!important;background:linear-gradient(135deg,#ffd84d,#f4c430)!important;color:#27220f!important;font-size:20px!important;box-shadow:0 10px 25px rgba(244,196,48,.28)!important;}
+.premium-modal-title h3,.premium-box-modern h3{margin:0!important;color:#171717!important;font-size:19px!important;font-weight:800!important;line-height:1.2!important;}
+.premium-modal-title p,.premium-box-modern .desc{margin:4px 0 0!important;color:#77766f!important;font-size:10.5px!important;line-height:1.55!important;}
+.choice-card{position:relative!important;display:flex!important;align-items:center!important;gap:13px!important;margin:10px 0!important;padding:15px!important;border-radius:19px!important;cursor:pointer!important;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important;}
+.choice-card:hover{transform:translateY(-2px)!important;box-shadow:0 12px 25px rgba(28,27,20,.10)!important;}
+.choice-card.ad{background:linear-gradient(135deg,#fff 0%,#f5f8ff 100%)!important;border:1px solid #d6dfed!important;}
+.choice-card.premium{background:linear-gradient(135deg,#fff8d8 0%,#ffefaa 100%)!important;border:1px solid #e4b72b!important;}
+.choice-icon{width:44px!important;height:44px!important;flex:0 0 44px!important;border-radius:14px!important;display:grid!important;place-items:center!important;font-size:17px!important;}
+.choice-card.ad .choice-icon{background:#e8f1ff!important;color:#2563eb!important;}
+.choice-card.premium .choice-icon{background:#f4c430!important;color:#27220f!important;}
+.choice-copy{min-width:0!important;}
+.choice-head{font-size:12.5px!important;font-weight:800!important;color:#171717!important;}
+.choice-copy p,.choice-card p{margin:4px 0 0!important;font-size:9.5px!important;line-height:1.55!important;color:#77766f!important;}
+.choice-arrow{margin-left:auto!important;color:#a17b00!important;font-size:12px!important;}
+.cancel-btn{width:100%!important;margin-top:13px!important;padding:12px!important;border:1px solid #dedbd0!important;border-radius:15px!important;background:#f4f1e7!important;color:#55534b!important;font-size:10.5px!important;font-weight:800!important;cursor:pointer!important;}
+body.dark .premium-modal{background:rgba(0,0,0,.78)!important;}
+body.dark .premium-box-modern{background:linear-gradient(145deg,#191916 0%,#27261e 100%)!important;border-color:rgba(244,196,48,.34)!important;color:#f7f6ef!important;box-shadow:0 30px 90px rgba(0,0,0,.68)!important;}
+body.dark .premium-box-modern:before{background:rgba(244,196,48,.10)!important;}
+body.dark .premium-modal-title h3,body.dark .premium-box-modern h3,body.dark .choice-head{color:#f7f6ef!important;}
+body.dark .premium-modal-title p,body.dark .premium-box-modern .desc,body.dark .choice-copy p,body.dark .choice-card p{color:#aaa89e!important;}
+body.dark .choice-card.ad{background:linear-gradient(135deg,#1b2633,#18202a)!important;border-color:#344a61!important;}
+body.dark .choice-card.ad .choice-icon{background:#233b55!important;color:#9fc4ff!important;}
+body.dark .choice-card.premium{background:linear-gradient(135deg,#332d16,#433812)!important;border-color:#a77d08!important;}
+body.dark .choice-card.premium .choice-icon{background:#f4c430!important;color:#27220f!important;}
+body.dark .choice-arrow{color:#f4c430!important;}
+body.dark .cancel-btn{background:#24231e!important;color:#aaa89e!important;border-color:#3b392f!important;}
+</style>
+<style id="seh-topic-dark-bottom-fix">
+html:has(body.dark){background:#11110f!important;color-scheme:dark!important;}
+html:has(body.dark) body{background:#11110f!important;min-height:100vh!important;}
+body.dark .seh-header-wrap,body.dark .topic-page{background:transparent!important;}
+</style>
+
+<style id="seh-v22-topic-root-dark-fix">
+html{background:#f8fafc!important;}
+html.dark{background:#11110f!important;color-scheme:dark!important;}
+html.dark body{background:#11110f!important;}
+</style>
+</head><body>
+<header class="seh-header-wrap"><button class="seh-back-button" onclick="history.back()" aria-label="Geri"><i class="fa-solid fa-arrow-left"></i></button><div class="seh-header-title"><span class="seh-title-icon"><i class="fa-solid fa-book-open"></i></span>Konu Anlatımları</div><div></div></header>
+<main class="topic-page"><section class="topic-intro"><div class="topic-intro-icon"><i class="fa-solid fa-book-open-reader"></i></div><div><span class="topic-eyebrow">SINAV HAZIRLIĞI</span><h1>Konu Anlatımları</h1><p>Ehliyet sınavındaki konuları sade, anlaşılır ve sınav odaklı şekilde öğren.</p></div></section><section class="topic-list">
+<a href="trafikkonuanlatimi.html" class="topic-card"><span class="topic-icon"><i class="fa-solid fa-road"></i></span><span class="topic-copy"><strong>Trafik</strong><small>Trafik kuralları, işaretler ve geçiş önceliği</small></span><span class="topic-arrow"><i class="fa-solid fa-arrow-right"></i></span></a>
+<a href="ilkyardimkonuanlatimi.html" class="topic-card"><span class="topic-icon"><i class="fa-solid fa-kit-medical"></i></span><span class="topic-copy"><strong>İlk Yardım</strong><small>Temel ilk yardım bilgileri ve uygulamaları</small></span><span class="topic-arrow"><i class="fa-solid fa-arrow-right"></i></span></a>
+<a href="motorkonuanlatimi.html" class="topic-card"><span class="topic-icon"><i class="fa-solid fa-gears"></i></span><span class="topic-copy"><strong>Motor</strong><small>Motorun yapısı, çalışması ve bakımı</small></span><span class="topic-arrow"><i class="fa-solid fa-arrow-right"></i></span></a>
+<a href="trafikadabikonuanlatimi.html" class="topic-card"><span class="topic-icon"><i class="fa-solid fa-handshake"></i></span><span class="topic-copy"><strong>Trafik Adabı</strong><small>Saygılı ve güvenli sürüş kuralları</small></span><span class="topic-arrow"><i class="fa-solid fa-arrow-right"></i></span></a>
+</section></main><button class="scroll-top-v6" id="scrollTop" aria-label="Yukarı çık"><i class="fa-solid fa-arrow-up"></i></button>
+<script>if(localStorage.getItem('theme')==='true'){document.body.classList.add('dark');document.documentElement.classList.add('dark');}try{let d=JSON.parse(localStorage.getItem('dailyTasks'));if(d&&!d.konu){d.konu=true;localStorage.setItem('dailyTasks',JSON.stringify(d));}}catch(e){};const b=document.getElementById('scrollTop');const t=()=>b.classList.toggle('show',scrollY>280);addEventListener('scroll',t,{passive:true});t();b.onclick=()=>scrollTo({top:0,behavior:'smooth'});</script></body></html>

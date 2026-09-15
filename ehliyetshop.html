@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ehliyet Shop</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+/* Arkaplan */
+body{
+  background:#f2f6fa;
+  min-height:100vh;
+}
+
+/* HEADER */
+.shop-header{
+  background:linear-gradient(135deg,#1ea7d7,#0f6f96);
+  color:#fff;
+  padding:20px;
+  text-align:center;
+  border-bottom-left-radius:25px;
+  border-bottom-right-radius:25px;
+  animation:slideDown 0.6s ease;
+}
+
+@keyframes slideDown{
+  from{transform:translateY(-50px);opacity:0;}
+  to{transform:translateY(0);opacity:1;}
+}
+
+.shop-header h1{
+  font-size:24px;
+}
+
+.shop-header p{
+  font-size:13px;
+  opacity:0.9;
+  margin-top:5px;
+}
+
+/* CONTAINER */
+.container{
+  padding:20px;
+  max-width:500px;
+  margin:auto;
+}
+
+/* ÜRÜN GRID */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+/* ÜRÜN KART */
+.product-card{
+  background:#fff;
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+  text-align:center;
+  animation:fadeUp 0.7s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* PDF ikon */
+.product-icon{
+  font-size:45px;
+  color:#e74c3c;
+  margin-bottom:10px;
+}
+
+/* Ürün adı */
+.product-card h3{
+  font-size:17px;
+  margin-bottom:8px;
+}
+
+/* Açıklama */
+.product-desc{
+  font-size:13px;
+  color:#666;
+  margin-bottom:12px;
+}
+
+/* Özellikler */
+.product-features{
+  text-align:left;
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+.product-features li{
+  list-style:none;
+  margin-bottom:5px;
+}
+
+.product-features i{
+  color:#27ae60;
+  margin-right:5px;
+}
+
+/* Fiyat */
+.price{
+  background:#fff3cd;
+  border:1px solid #ffeeba;
+  border-radius:10px;
+  padding:10px;
+  margin-bottom:12px;
+}
+
+.old{
+  text-decoration:line-through;
+  color:#888;
+  font-size:12px;
+}
+
+.new{
+  color:#e74c3c;
+  font-size:22px;
+  font-weight:600;
+}
+
+/* Satın Al */
+.buy-btn{
+  display:block;
+  background:linear-gradient(135deg,#1ea7d7,#0f6f96);
+  color:#fff;
+  padding:10px;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:14px;
+  transition:0.3s;
+}
+
+.buy-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 5px 15px rgba(30,167,215,0.4);
+}
+
+/* Footer güven */
+.shop-footer{
+  text-align:center;
+  font-size:12px;
+  color:#666;
+  padding:20px;
+}
+
+.shop-footer i{
+  color:#27ae60;
+}
+
+
+
+/* ================= MODERN HEADER ================= */
+
+.app-header{
+
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:14px 18px;
+
+  background:linear-gradient(
+    135deg,
+    #2563eb,
+    #3b82f6,
+    #06b6d4
+  );
+
+  border-radius:0 0 22px 22px;
+
+  box-shadow:0 8px 25px rgba(0,0,0,.18);
+
+  backdrop-filter: blur(10px);
+}
+
+
+/* SOL TARAF */
+
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.app-logo{
+  font-size:22px;
+}
+
+.app-title{
+  font-size:18px;
+  font-weight:700;
+  color:white;
+  letter-spacing:.5px;
+}
+
+
+/* SAĞ TARAF */
+
+.header-right{
+  display:flex;
+  gap:8px;
+}
+
+.header-btn{
+  width:34px;
+  height:34px;
+
+  border:none;
+  border-radius:50%;
+
+  background:rgba(255,255,255,.18);
+  color:white;
+
+  font-size:16px;
+  cursor:pointer;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  transition:.25s;
+}
+
+.header-btn:hover{
+  background:rgba(255,255,255,.35);
+  transform:scale(1.1);
+}
+
+
+/* DARK MODE */
+
+body.dark .app-header{
+  background:linear-gradient(
+    135deg,
+    #020617,
+    #020b2a,
+    #020f3a
+  );
+}
+
+
+.app-header{
+  position: relative;
+}
+
+.app-title{
+  margin-left: 45px; /* Ok kadar boşluk bırakır */
+  font-weight: 600;
+  font-size: 17px;
+}
+
+
+.back-btn{
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: rgba(255,255,255,0.18);
+  border: none;
+  color: white;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+  cursor: pointer;
+
+  transition: .25s;
+  backdrop-filter: blur(6px);
+}
+
+.back-btn:hover{
+  background: rgba(255,255,255,0.28);
+}
+
+.back-btn:active{
+  transform: translateY(-50%) scale(.9);
+}
+
+
+/* DARK MODE */
+
+body.dark .shop-header{
+  background:linear-gradient(
+    135deg,
+    #020617,
+    #020b2a,
+    #020f3a
+  );
+}
+
+body.dark .product-card{
+  background:linear-gradient(
+    135deg,
+    #020617,
+    #020b2a,
+    #020f3a
+  );
+  color: white;
+}
+
+body.dark .price{
+  background:linear-gradient(
+    135deg,
+    #020617,
+    #020b2a,
+    #020f3a
+  );
+  color: white;
+}
+
+body.dark{
+  background:linear-gradient(
+    135deg,
+    #020617,
+    #020b2a,
+    #020f3a
+  );
+}
+
+  .app-header{
+    position: sticky;
+    z-index: 999;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 18px 16px;
+
+    background:linear-gradient(
+        135deg,
+        #050505 0%,
+        #101010 40%,
+        #1a1a1a 70%,
+        #f4b400 180%
+    );
+
+    border-bottom-left-radius:24px;
+    border-bottom-right-radius:24px;
+
+    border-bottom:2px solid rgba(255,200,0,.35);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.35),
+        inset 0 -1px rgba(255,215,0,.18);
+
+    backdrop-filter: blur(18px);
+}
+
+.app-header::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:radial-gradient(
+        circle at top right,
+        rgba(255,200,0,.18),
+        transparent 35%
+    );
+    pointer-events:none;
+}
+
+.app-title{
+    font-size:24px;
+    font-weight:900;
+    color:#fff;
+    letter-spacing:.5px;
+    text-shadow:0 0 16px rgba(255,200,0,.25);
+}
+
+.app-title::first-letter{
+    color:#f4b400;
+}
+
+.back-btn{
+    width:46px;
+    height:46px;
+    border:none;
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(12px);
+
+    color:#f4b400;
+    font-size:20px;
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition:.25s ease;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.12),
+        0 4px 14px rgba(0,0,0,.25);
+}
+
+.back-btn:hover{
+    transform:translateY(-2px) scale(1.05);
+    background:#f4b400;
+    color:#000;
+    box-shadow:0 8px 20px rgba(255,200,0,.35);
+}
+
+/* TÜM KOPYALAMA / SEÇMEYİ KAPAT */
+
+*{
+  -webkit-user-select:none !important;
+  -moz-user-select:none !important;
+  -ms-user-select:none !important;
+  user-select:none !important;
+
+  -webkit-touch-callout:none !important;
+  -webkit-tap-highlight-color:transparent !important;
+}
+
+a{
+-webkit-touch-callout:none;
+}
+
+/* ŞAHİN HEADER */
+
+.seh-header-wrap{
+
+    position:sticky;
+    top:0;
+    z-index:99999;
+
+    width:100%;
+    height:78px;
+
+    display:flex;
+    align-items:flex-start;
+
+    padding:12px 18px;
+
+    background:linear-gradient(
+        135deg,
+        #050505 0%,
+        #101010 45%,
+        #1a1a1a 75%,
+        #f4b400 220%
+    );
+
+    border-bottom-left-radius:26px;
+    border-bottom-right-radius:26px;
+
+    border-bottom:2px solid rgba(255,200,0,.22);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.30),
+        inset 0 -1px rgba(255,215,0,.10);
+
+    overflow:hidden;
+}
+
+.seh-header-wrap::before{
+
+    content:'';
+
+    position:absolute;
+    inset:0;
+
+    background:radial-gradient(
+        circle at top right,
+        rgba(255,200,0,.15),
+        transparent 40%
+    );
+
+    pointer-events:none;
+}
+
+/* GERİ BUTONU */
+
+.seh-back-button{
+
+    width:50px;
+    height:50px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.05);
+
+    color:#facc15;
+
+    font-size:19px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    position:relative;
+    z-index:2;
+
+    outline:none;
+
+    -webkit-tap-highlight-color:transparent;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.05),
+        0 4px 12px rgba(0,0,0,.18);
+}
+
+.seh-back-button:active{
+    transform:scale(.96);
+}
+
+html,
+body{
+    margin:0 !important;
+    padding:0 !important;
+    overflow-x:hidden;
+}
+
+/* Kamera boşluğunu sıfırla */
+
+body{
+    padding-top:0 !important;
+}
+
+/* HEADER */
+
+.seh-header-wrap{
+    margin-top:0 !important;
+    top:0 !important;
+}
+</style>
+
+<style id="sh-shop-final">
+:root{--yellow:#f3c742;--yellow-strong:#dcae19;--yellow-soft:#fff6d8;--bg:#f8f8f5;--card:#fff;--text:#181815;--muted:#76766f;--line:#e7e5dc;--shadow:0 12px 34px rgba(28,27,20,.07)}
+body.dark{--bg:#11110f;--card:#191916;--text:#f5f3e9;--muted:#aaa89e;--line:#32312a;--shadow:0 14px 38px rgba(0,0,0,.32);--yellow-soft:#332d16}
+html,body{background:var(--bg)!important;color:var(--text)!important}
+body{font-family:Manrope,Poppins,system-ui,sans-serif!important;padding:0 0 24px!important}
+.seh-header-wrap{position:sticky!important;top:0!important;z-index:9999!important;width:min(100%,760px)!important;height:56px!important;margin:0 auto!important;padding:0 15px!important;display:grid!important;grid-template-columns:38px 1fr 38px!important;align-items:center!important;gap:9px!important;background:var(--bg)!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important}
+.seh-header-wrap::before{display:none!important}
+.seh-back-button{width:36px!important;height:36px!important;border:1px solid var(--line)!important;border-radius:12px!important;background:var(--card)!important;color:var(--text)!important;font-size:12px!important;display:grid!important;place-items:center!important;box-shadow:0 5px 14px rgba(28,27,20,.06)!important}
+.seh-back-button:hover{transform:none!important;background:var(--card)!important;color:var(--text)!important}.seh-back-button:active{transform:scale(.94)!important}
+.seh-header-title{display:flex;align-items:center;justify-content:center;gap:7px;font-size:14px;font-weight:800;letter-spacing:-.2px;color:var(--text)}
+.seh-title-icon{width:28px;height:28px;border-radius:9px;background:var(--yellow-soft);color:var(--yellow-strong);display:grid;place-items:center;font-size:11px}.seh-header-spacer{width:36px;height:36px}
+.container{width:min(100%,760px)!important;margin:0 auto!important;padding:10px 15px 28px!important}
+.shop-intro{display:flex;align-items:center;gap:12px;width:min(100%,760px);margin:4px auto 14px;padding:0 15px}.shop-intro-icon{width:42px;height:42px;flex:0 0 42px;border-radius:14px;background:var(--yellow-soft);color:var(--yellow-strong);display:grid;place-items:center;font-size:16px}.shop-intro h1{margin:0;color:var(--text);font-size:19px;line-height:1.2;font-weight:850;letter-spacing:-.45px}.shop-intro p{margin:4px 0 0;color:var(--muted);font-size:10.5px;line-height:1.45}
+.products{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:12px!important;max-width:560px!important;margin:0 auto!important}.product-card{background:var(--card)!important;color:var(--text)!important;border:1px solid var(--line)!important;border-radius:24px!important;padding:17px!important;box-shadow:var(--shadow)!important;text-align:left!important;animation:fadeUp .35s ease both!important}.product-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.product-icon{width:52px;height:52px;margin:0!important;border-radius:16px;background:var(--yellow-soft)!important;color:var(--yellow-strong)!important;display:grid!important;place-items:center!important;font-size:20px!important}.product-badge{display:inline-flex;align-items:center;gap:5px;padding:7px 9px;border-radius:10px;background:var(--yellow-soft);color:var(--yellow-strong);font-size:9px;font-weight:850;white-space:nowrap}.product-copy{padding-top:14px}.product-card h3{margin:0 0 5px!important;color:var(--text)!important;font-size:17px!important;font-weight:850!important;letter-spacing:-.3px}.product-desc{margin:0!important;color:var(--muted)!important;font-size:10.5px!important;line-height:1.6!important}.digital-note{display:flex;align-items:flex-start;gap:9px;margin:13px 0;padding:11px 12px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(135deg,var(--card),var(--yellow-soft));color:var(--text)}.digital-note>i{margin-top:2px;color:var(--yellow-strong);font-size:14px}.digital-note div{display:flex;flex-direction:column;gap:2px}.digital-note strong{font-size:10px;font-weight:850}.digital-note span{font-size:9.5px;line-height:1.5;color:var(--muted)}.product-features{display:grid!important;grid-template-columns:1fr 1fr;gap:7px 10px;margin:0 0 15px!important;padding:0!important;font-size:10px!important}.product-features li{list-style:none!important;display:flex;align-items:center;gap:6px;margin:0!important;color:var(--text)}.product-features i{width:19px;height:19px;border-radius:7px;background:var(--yellow-soft);color:var(--yellow-strong)!important;display:grid;place-items:center;font-size:8px;margin:0!important;flex:0 0 19px}.price-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:12px;border-top:1px solid var(--line)}.price{display:flex!important;align-items:baseline;gap:8px;background:none!important;border:0!important;border-radius:0!important;padding:0!important;margin:0!important}.old{font-size:10px!important;color:var(--muted)!important}.new{font-size:23px!important;line-height:1;color:var(--text)!important;font-weight:900!important}.discount-text{display:inline-flex!important;align-items:center;gap:5px;color:var(--yellow-strong)!important;font-size:9px!important;font-weight:850!important;white-space:nowrap}.buy-btn{width:100%;height:42px;margin-top:13px!important;display:flex!important;align-items:center;justify-content:center;gap:8px;background:var(--yellow)!important;color:#181815!important;border:0!important;border-radius:13px!important;text-decoration:none!important;font:850 11px Manrope,sans-serif!important;box-shadow:none!important;transition:transform .16s ease,background .16s ease!important}.buy-btn:hover{transform:none!important;box-shadow:none!important}.buy-btn:active{transform:scale(.97)!important;background:var(--yellow-strong)!important}.shop-footer{padding:5px 15px 0!important;text-align:center;color:var(--muted)!important;font-size:9px!important}.shop-footer i{color:var(--yellow-strong)!important;margin-right:3px}
+@media(max-width:420px){.product-card{padding:15px!important;border-radius:21px!important}.product-features{grid-template-columns:1fr!important}.shop-intro h1{font-size:17px!important}.shop-intro p{font-size:9.5px!important}}
+</style>
+
+<style id="sh-v5-scroll">
+.scroll-top-v5{position:fixed!important;right:15px!important;bottom:18px!important;width:42px!important;height:42px!important;border:1px solid var(--line)!important;border-radius:14px!important;background:var(--card)!important;color:var(--text)!important;display:grid!important;place-items:center!important;z-index:9998!important;box-shadow:0 10px 24px rgba(0,0,0,.14)!important;opacity:0!important;visibility:hidden!important;transform:translateY(12px) scale(.92)!important;transition:opacity .25s ease,transform .25s ease,visibility .25s ease,background .18s ease!important;}
+.scroll-top-v5.show{opacity:1!important;visibility:visible!important;transform:translateY(0) scale(1)!important;}
+.scroll-top-v5:active{transform:scale(.92)!important;background:var(--yellow)!important;color:#171717!important;}
+@media(max-width:520px){.scroll-top-v5{right:12px!important;bottom:16px!important;width:40px!important;height:40px!important;border-radius:13px!important;font-size:12px!important;}}
+</style>
+
+<style id="seh-darkmode-unified-fix">
+/* Unified Şahin Ehliyetim dark mode fixes */
+html, body { background: var(--bg, #f8fafc); }
+body.dark, body.dark html { background: #11110f !important; color: #f5f3e9 !important; }
+body.dark .bottom-nav {
+  background: rgba(25, 25, 22, .97) !important;
+  border-color: rgba(244, 196, 48, .22) !important;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, .42) !important;
+}
+body.dark .bottom-nav button { color: #aaa89e !important; background: transparent !important; }
+body.dark .bottom-nav button.active {
+  background: linear-gradient(135deg, #ffd84d, #f4c430) !important;
+  color: #27220f !important;
+}
+body.dark .bottom-nav .premium-btn { color: #f4c430 !important; }
+body.dark .bottom-nav button:not(.active):hover { color: #f4c430 !important; background: #332d16 !important; }
+body.dark .premium-modal, body.dark .premium-box-modern, body.dark .choice-card,
+body.dark .modal-content, body.dark .popup, body.dark .popup-content,
+body.dark .premium-popup, body.dark .ad-popup, body.dark .watch-ad-popup {
+  background: #191916 !important; color: #f5f3e9 !important; border-color: #32312a !important;
+}
+body.dark .premium-modal *, body.dark .premium-box-modern *, body.dark .choice-card *,
+body.dark .modal-content *, body.dark .popup *, body.dark .popup-content *,
+body.dark .premium-popup *, body.dark .ad-popup *, body.dark .watch-ad-popup * { color: inherit; }
+body.dark .premium-modal p, body.dark .premium-box-modern .desc,
+body.dark .choice-card p, body.dark .popup p, body.dark .popup-content p { color: #aaa89e !important; }
+</style>
+
+<style id="seh-premium-popup-v2">
+.premium-modal{position:fixed!important;inset:0!important;display:none;align-items:center!important;justify-content:center!important;padding:18px!important;background:rgba(9,9,7,.72)!important;backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;z-index:10001!important;}
+.premium-modal[style*="display: flex"],.premium-modal[style*="display:flex"],.premium-modal.open{display:flex!important;}
+.premium-box-modern{position:relative!important;width:min(100%,420px)!important;padding:22px!important;border:1px solid rgba(244,196,48,.38)!important;border-radius:28px!important;background:linear-gradient(145deg,#fffdf5 0%,#fff7d6 100%)!important;color:#171717!important;box-shadow:0 30px 90px rgba(0,0,0,.38),0 10px 30px rgba(244,196,48,.12)!important;overflow:hidden!important;}
+.premium-box-modern:before{content:"";position:absolute;left:-70px;top:-85px;width:190px;height:190px;border-radius:50%;background:rgba(244,196,48,.18);filter:blur(3px);pointer-events:none;}
+.premium-box-modern>*{position:relative;z-index:1;}
+.premium-modal-head{display:flex!important;align-items:center!important;gap:13px!important;margin-bottom:18px!important;}
+.premium-modal-icon{width:52px!important;height:52px!important;flex:0 0 52px!important;border-radius:17px!important;display:grid!important;place-items:center!important;background:linear-gradient(135deg,#ffd84d,#f4c430)!important;color:#27220f!important;font-size:20px!important;box-shadow:0 10px 25px rgba(244,196,48,.28)!important;}
+.premium-modal-title h3,.premium-box-modern h3{margin:0!important;color:#171717!important;font-size:19px!important;font-weight:800!important;line-height:1.2!important;}
+.premium-modal-title p,.premium-box-modern .desc{margin:4px 0 0!important;color:#77766f!important;font-size:10.5px!important;line-height:1.55!important;}
+.choice-card{position:relative!important;display:flex!important;align-items:center!important;gap:13px!important;margin:10px 0!important;padding:15px!important;border-radius:19px!important;cursor:pointer!important;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important;}
+.choice-card:hover{transform:translateY(-2px)!important;box-shadow:0 12px 25px rgba(28,27,20,.10)!important;}
+.choice-card.ad{background:linear-gradient(135deg,#fff 0%,#f5f8ff 100%)!important;border:1px solid #d6dfed!important;}
+.choice-card.premium{background:linear-gradient(135deg,#fff8d8 0%,#ffefaa 100%)!important;border:1px solid #e4b72b!important;}
+.choice-icon{width:44px!important;height:44px!important;flex:0 0 44px!important;border-radius:14px!important;display:grid!important;place-items:center!important;font-size:17px!important;}
+.choice-card.ad .choice-icon{background:#e8f1ff!important;color:#2563eb!important;}
+.choice-card.premium .choice-icon{background:#f4c430!important;color:#27220f!important;}
+.choice-copy{min-width:0!important;}
+.choice-head{font-size:12.5px!important;font-weight:800!important;color:#171717!important;}
+.choice-copy p,.choice-card p{margin:4px 0 0!important;font-size:9.5px!important;line-height:1.55!important;color:#77766f!important;}
+.choice-arrow{margin-left:auto!important;color:#a17b00!important;font-size:12px!important;}
+.cancel-btn{width:100%!important;margin-top:13px!important;padding:12px!important;border:1px solid #dedbd0!important;border-radius:15px!important;background:#f4f1e7!important;color:#55534b!important;font-size:10.5px!important;font-weight:800!important;cursor:pointer!important;}
+body.dark .premium-modal{background:rgba(0,0,0,.78)!important;}
+body.dark .premium-box-modern{background:linear-gradient(145deg,#191916 0%,#27261e 100%)!important;border-color:rgba(244,196,48,.34)!important;color:#f7f6ef!important;box-shadow:0 30px 90px rgba(0,0,0,.68)!important;}
+body.dark .premium-box-modern:before{background:rgba(244,196,48,.10)!important;}
+body.dark .premium-modal-title h3,body.dark .premium-box-modern h3,body.dark .choice-head{color:#f7f6ef!important;}
+body.dark .premium-modal-title p,body.dark .premium-box-modern .desc,body.dark .choice-copy p,body.dark .choice-card p{color:#aaa89e!important;}
+body.dark .choice-card.ad{background:linear-gradient(135deg,#1b2633,#18202a)!important;border-color:#344a61!important;}
+body.dark .choice-card.ad .choice-icon{background:#233b55!important;color:#9fc4ff!important;}
+body.dark .choice-card.premium{background:linear-gradient(135deg,#332d16,#433812)!important;border-color:#a77d08!important;}
+body.dark .choice-card.premium .choice-icon{background:#f4c430!important;color:#27220f!important;}
+body.dark .choice-arrow{color:#f4c430!important;}
+body.dark .cancel-btn{background:#24231e!important;color:#aaa89e!important;border-color:#3b392f!important;}
+</style>
+</head>
+
+<body>
+
+<header class="seh-header-wrap">
+  <button class="seh-back-button" onclick="history.back()" aria-label="Geri"><i class="fa-solid fa-arrow-left"></i></button>
+  <div class="seh-header-title"><span class="seh-title-icon"><i class="fa-solid fa-bag-shopping"></i></span>Shop</div>
+  <div class="seh-header-spacer"></div>
+</header>
+
+<!-- HEADER -->
+<section class="shop-intro">
+  <div class="shop-intro-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+  <div>
+    <h1>Şahin Ehliyet Shop</h1>
+    <p>Sınava hazırlanmanı destekleyen dijital eğitim ürünleri.</p>
+  </div>
+</section>
+
+
+<!-- İÇERİK -->
+<div class="container">
+
+  <div class="products">
+
+    <!-- ÜRÜN 1 -->
+    <article class="product-card">
+      <div class="product-top">
+        <div class="product-icon"><i class="fa-solid fa-file-lines"></i></div>
+        <span class="product-badge"><i class="fa-solid fa-bolt"></i> Dijital Ürün</span>
+      </div>
+
+      <div class="product-copy">
+        <h3>Ehliyet Sınav PDF Paketi</h3>
+        <p class="product-desc">Ehliyet sınavına hazırlanırken kullanabileceğin, konu anlatımı ve özgün sorulardan oluşan pratik çalışma paketi.</p>
+      </div>
+
+      <div class="digital-note">
+        <i class="fa-solid fa-cloud-arrow-down"></i>
+        <div><strong>Fiziksel ürün değildir</strong><span>Satın aldıktan sonra telefon, tablet ve bilgisayardan erişebilirsin.</span></div>
+      </div>
+
+      <ul class="product-features">
+        <li><i class="fa-solid fa-check"></i><span>25 özgün soru</span></li>
+        <li><i class="fa-solid fa-check"></i><span>Konu anlatımı</span></li>
+        <li><i class="fa-solid fa-check"></i><span>Çözüm teknikleri</span></li>
+        <li><i class="fa-solid fa-check"></i><span>Güncel çalışma içeriği</span></li>
+      </ul>
+
+      <div class="price-row">
+        <div class="price">
+          <span class="old">129 TL</span>
+          <strong class="new">59 TL</strong>
+        </div>
+        <span class="discount-text"><i class="fa-solid fa-tag"></i> Sınırlı süre</span>
+      </div>
+
+      <a href="https://www.shopier.com/sahinehliyet/44680460" target="_blank" class="buy-btn" draggable="false">
+        <span>Ürünü İncele</span><i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </article>
+
+
+    <!-- YENİ ÜRÜN BURAYA EKLENECEK -->
+
+
+  </div>
+
+</div>
+
+
+<!-- FOOTER -->
+<div class="shop-footer">
+
+  <p>
+    <i class="fa-solid fa-shield-halved"></i>
+    Güvenli ödeme • Dijital erişim
+  </p>
+
+</div>
+
+
+<script>
+  /* DARK MODE AUTO LOAD */
+
+(function(){
+
+if(localStorage.getItem("theme") === "true"){
+  document.body.classList.add("dark");
+}
+
+})();
+
+
+/* SAĞ TIK KAPAT */
+document.addEventListener("contextmenu", e => e.preventDefault());
+
+/* UZUN BASMA MENÜSÜ KAPAT */
+document.addEventListener("selectstart", e => e.preventDefault());
+
+/* KOPYALA / KES / YAPIŞTIR KISAYOLLARI KAPAT */
+document.addEventListener("copy", e => e.preventDefault());
+document.addEventListener("cut", e => e.preventDefault());
+document.addEventListener("paste", e => e.preventDefault());
+
+/* MOBİL UZUN BASMA */
+document.addEventListener("touchstart", function(){}, {passive:true});
+
+</script>
+
+<button class="scroll-top-v5" id="scrollTopV5" aria-label="Yukarı çık"><i class="fa-solid fa-arrow-up"></i></button>
+<script>
+(function(){
+  const btn=document.getElementById('scrollTopV5'); if(!btn) return;
+  const toggle=()=>btn.classList.toggle('show',window.scrollY>280);
+  window.addEventListener('scroll',toggle,{passive:true}); toggle();
+  btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+})();
+</script>
+</body>
+</html>

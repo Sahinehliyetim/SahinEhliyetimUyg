@@ -1,0 +1,275 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"><style>
+:root{--bg:#f8fafc;--card:#fff;--text:#171717;--muted:#77766f;--line:#e8e6dd;--yellow:#f4c430;--yellow-strong:#c18f00;--yellow-soft:#fff4c9;--shadow:0 14px 36px rgba(28,27,20,.08)}body.dark{--bg:#11110f;--card:#191916;--text:#f7f6ef;--muted:#aaa89e;--line:#302f29;--yellow-soft:#332d16}*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--text)}body{padding-top:env(safe-area-inset-top)}button{font:inherit}.page{width:min(100%,760px);margin:auto;padding:0 14px 20px}.header{margin-top:12px;padding:17px 18px;border-radius:24px;background:linear-gradient(135deg,var(--card),var(--yellow-soft));border:1px solid var(--line);box-shadow:var(--shadow);display:flex;justify-content:space-between;align-items:center}.header-left{display:flex;gap:12px;align-items:center}.mark{width:42px;height:42px;border-radius:14px;background:#242421;padding:5px}.header h1{margin:0;font-size:20px}.header p{margin:2px 0 0;font-size:10px;color:var(--muted)}.theme{width:42px;height:42px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--text)}.hero,.active{margin-top:12px;padding:23px 19px;border-radius:27px;background:linear-gradient(135deg,var(--card),var(--yellow-soft));border:1px solid rgba(244,196,48,.4);box-shadow:var(--shadow)}.hero-icon,.status-icon{width:55px;height:55px;border-radius:17px;background:var(--yellow);display:grid;place-items:center;color:#27220f;font-size:21px}.eyebrow{display:block;margin-top:14px;font-size:9px;font-weight:800;letter-spacing:1.4px;color:var(--yellow-strong)}.hero h2{margin:5px 0;font-size:25px;line-height:1.2}.hero p,.active p{font-size:10.5px;line-height:1.7;color:var(--muted);margin:8px 0}.price{margin-top:12px;padding:18px;border-radius:22px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);text-align:center}.price small{font-size:9px;color:var(--muted);font-weight:800}.price-row{display:flex;justify-content:center;align-items:baseline;gap:9px}.old{text-decoration:line-through;color:#9b756d}.new{font-size:35px;font-weight:800;color:var(--yellow-strong)}.month{font-size:11px;color:var(--muted)}.title{margin:20px 2px 10px;font-size:14px}.features,.grid{display:grid;gap:9px}.feature,.content{padding:14px;border-radius:19px;background:var(--card);border:1px solid var(--line);box-shadow:0 8px 22px rgba(28,27,20,.045)}.feature{display:flex;gap:12px}.fi{width:40px;height:40px;flex:0 0 40px;border-radius:13px;background:var(--yellow-soft);color:var(--yellow-strong);display:grid;place-items:center}.feature strong,.content strong{font-size:10.5px}.feature span,.content span{display:block;margin-top:4px;font-size:9px;line-height:1.55;color:var(--muted)}.grid{grid-template-columns:repeat(2,1fr)}.content i{color:var(--yellow-strong)}.content strong{display:block;margin-top:7px}.buy{margin-top:14px;padding:15px;border-radius:21px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}.buy button{width:100%;padding:14px;border:0;border-radius:15px;background:var(--yellow);font-weight:800;color:#27220f}.note{text-align:center;font-size:8.5px;color:var(--muted);margin-top:8px}.status-top{display:flex;align-items:center;gap:11px}.status-top h2{margin:0;font-size:17px}.checks{display:grid;gap:7px;margin:12px 0 0;padding:0;list-style:none}.checks li{padding:9px;border-radius:12px;background:rgba(0,0,0,.04);font-size:9.5px}.checks i{color:var(--yellow-strong)}@media(max-width:480px){.hero h2{font-size:22px}}
+/* ================= MODERN BOTTOM NAVIGATION ================= */
+body{
+  padding-bottom:102px !important;
+}
+.bottom-nav{
+  position:fixed !important;
+  left:50% !important;
+  bottom:12px !important;
+  transform:translateX(-50%) !important;
+  width:min(94%,520px) !important;
+  height:72px !important;
+  padding:7px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-around !important;
+  gap:4px !important;
+  background:rgba(255,255,255,.96) !important;
+  border:1px solid rgba(244,196,48,.24) !important;
+  border-radius:24px !important;
+  box-shadow:0 16px 38px rgba(32,27,10,.14), 0 3px 10px rgba(244,196,48,.08) !important;
+  backdrop-filter:blur(18px) saturate(120%) !important;
+  -webkit-backdrop-filter:blur(18px) saturate(120%) !important;
+  z-index:9999 !important;
+}
+.bottom-nav button{
+  border:0 !important;
+  background:transparent !important;
+  min-width:54px !important;
+  height:56px !important;
+  padding:0 8px !important;
+  border-radius:18px !important;
+  display:flex !important;
+  flex:1 !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:4px !important;
+  color:#8b877b !important;
+  font:600 10.5px/1 Poppins,system-ui,sans-serif !important;
+  cursor:pointer !important;
+  transition:transform .22s ease, background .22s ease, color .22s ease, box-shadow .22s ease !important;
+  -webkit-tap-highlight-color:transparent !important;
+}
+.bottom-nav button i{
+  font-size:18px !important;
+  line-height:1 !important;
+  transition:transform .22s ease !important;
+}
+.bottom-nav button span{
+  display:block !important;
+  white-space:nowrap !important;
+}
+.bottom-nav button.active{
+  background:linear-gradient(135deg,#ffd84d,#f4c430) !important;
+  color:#27220f !important;
+  box-shadow:0 8px 18px rgba(244,196,48,.28) !important;
+}
+.bottom-nav button.active i{
+  transform:translateY(-1px) !important;
+}
+.bottom-nav button:not(.active):hover{
+  color:#c18f00 !important;
+  background:#fff9df !important;
+}
+.bottom-nav button:active{
+  transform:scale(.94) !important;
+}
+.bottom-nav .premium-btn{
+  color:#c18f00 !important;
+}
+@media(max-width:390px){
+  .bottom-nav{
+    width:96% !important;
+    height:70px !important;
+    bottom:9px !important;
+  }
+  .bottom-nav button{
+    min-width:45px !important;
+    padding:0 4px !important;
+    font-size:10px !important;
+  }
+  .bottom-nav button i{
+    font-size:17px !important;
+  }
+}
+
+
+/* Dark mode navigation synchronization */
+body.dark .bottom-nav{background:rgba(25,25,22,.96)!important;border-color:rgba(244,196,48,.22)!important;box-shadow:0 16px 38px rgba(0,0,0,.42),0 3px 10px rgba(0,0,0,.24)!important}
+body.dark .bottom-nav button{color:#aaa89e!important}
+body.dark .bottom-nav button:not(.active):hover{color:#f4c430!important;background:#332d16!important}
+body.dark .bottom-nav .premium-btn{color:#f4c430!important}
+.premium-cta{display:flex;align-items:center;gap:13px;margin:0 0 18px;padding:15px;border:1px solid rgba(244,196,48,.5);border-radius:18px;background:linear-gradient(135deg,var(--yellow-soft),var(--surface));box-shadow:0 10px 25px rgba(244,196,48,.12)}.premium-cta-icon{width:43px;height:43px;display:grid;place-items:center;border-radius:14px;background:var(--yellow);color:#27220f;flex:0 0 43px}.premium-cta b{display:block;font-size:14px}.premium-cta p{margin:4px 0 0;color:var(--muted);font-size:11px;line-height:1.4}.premium-cta button{margin-left:auto;border:0;border-radius:13px;padding:11px 14px;background:linear-gradient(135deg,#ffd84d,#f4c430);color:#27220f;font-weight:800;white-space:nowrap;cursor:pointer}.premium-cta button i{margin-right:5px}@media(max-width:520px){.premium-cta{align-items:flex-start;flex-wrap:wrap}.premium-cta button{width:100%;margin-left:56px;margin-top:2px}}body.dark .premium-cta{background:linear-gradient(135deg,#332d16,#191916);border-color:rgba(244,196,48,.3)}
+.premium-proof{display:flex;flex-direction:column;gap:4px;margin-top:12px;padding:11px 12px;border-radius:13px;background:var(--yellow-soft);color:var(--text)}.premium-proof i{color:#a77b00}.premium-proof strong{font-size:12px}.premium-proof span{font-size:10px;color:var(--muted)}body.dark .premium-proof{background:#332d16}.premium-proof+*{margin-top:12px}
+</style>
+<style id="seh-darkmode-final">
+/* Şahin Ehliyetim — ortak dark mode */
+html,body{background:#f8fafc;color:#171717}
+body.dark,body.dark html{background:#11110f!important;color:#f7f6ef!important}
+body.dark .page,body.dark main{background:transparent!important;color:#f7f6ef}
+body.dark .header,
+body.dark .profile-hero,
+body.dark .hero,
+body.dark .active,
+body.dark .price,
+body.dark .card,
+body.dark .ask,
+body.dark .info,
+body.dark .question,
+body.dark .buy,
+body.dark .feature,
+body.dark .content{background:linear-gradient(135deg,#191916,#22221d)!important;color:#f7f6ef!important;border-color:#302f29!important}
+body.dark .stat,
+body.dark .quick{background:#1c1c18!important;color:#f7f6ef!important;border-color:#302f29!important}
+body.dark .test-category,
+body.dark .test-item,
+body.dark .cat-content,
+body.dark .empty{border-color:#302f29!important}
+body.dark textarea,
+body.dark input{background:#151512!important;color:#f7f6ef!important;border-color:#3a3931!important}
+body.dark .xp-track{background:#302f29!important}
+body.dark .answer{background:#182536!important;color:#8db8ff!important}
+body.dark .waiting,
+body.dark .quota{background:#332d16!important;color:#f4c430!important}
+body.dark .checks li{background:rgba(255,255,255,.05)!important}
+body.dark .theme,
+body.dark .edit-name{background:#191916!important;color:#f7f6ef!important;border-color:#302f29!important}
+body.dark .bottom-nav{background:rgba(25,25,22,.97)!important;border-color:rgba(244,196,48,.22)!important;box-shadow:0 16px 38px rgba(0,0,0,.45)!important}
+body.dark .bottom-nav button{background:transparent!important;color:#aaa89e!important}
+body.dark .bottom-nav button.active{background:linear-gradient(135deg,#ffd84d,#f4c430)!important;color:#27220f!important}
+body.dark .bottom-nav .premium-btn{color:#f4c430!important}
+body.dark .bottom-nav button:not(.active):hover{background:#332d16!important;color:#f4c430!important}
+</style>
+
+<style id="seh-dark-viewport-fix">
+html{background:#f8fafc!important;}
+html:has(body.dark){background:#11110f!important;}
+html:has(body.dark),html:has(body.dark) body{color-scheme:dark;}
+body{min-height:100vh!important;background:var(--bg)!important;}
+body.dark{background:#11110f!important;}
+body.dark::before{content:"";position:fixed;inset:0;background:#11110f;z-index:-1;pointer-events:none;}
+</style>
+
+<style id="seh-v22-home-navbar-sync">
+.bottom-nav{
+  position:fixed !important;
+  left:50% !important;
+  bottom:12px !important;
+  transform:translateX(-50%) !important;
+  width:min(94%,520px) !important;
+  height:72px !important;
+  padding:7px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-around !important;
+  gap:4px !important;
+  background:rgba(255,255,255,.96) !important;
+  border:1px solid rgba(244,196,48,.24) !important;
+  border-radius:24px !important;
+  box-shadow:0 16px 38px rgba(32,27,10,.14), 0 3px 10px rgba(244,196,48,.08) !important;
+  backdrop-filter:blur(18px) saturate(120%) !important;
+  -webkit-backdrop-filter:blur(18px) saturate(120%) !important;
+  z-index:9999 !important;
+}
+.bottom-nav button{
+  border:0 !important;
+  background:transparent !important;
+  min-width:54px !important;
+  height:56px !important;
+  padding:0 8px !important;
+  border-radius:18px !important;
+  display:flex !important;
+  flex:1 !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:4px !important;
+  color:#8b877b !important;
+  font:600 10.5px/1 Poppins,system-ui,sans-serif !important;
+  cursor:pointer !important;
+  transition:transform .22s ease, background .22s ease, color .22s ease, box-shadow .22s ease !important;
+  -webkit-tap-highlight-color:transparent !important;
+}
+.bottom-nav button i{
+  font-size:18px !important;
+  line-height:1 !important;
+  transition:transform .22s ease !important;
+}
+.bottom-nav button span{
+  display:block !important;
+  white-space:nowrap !important;
+}
+.bottom-nav button.active{
+  background:linear-gradient(135deg,#ffd84d,#f4c430) !important;
+  color:#27220f !important;
+  box-shadow:0 8px 18px rgba(244,196,48,.28) !important;
+}
+.bottom-nav button.active i{
+  transform:translateY(-1px) !important;
+}
+.bottom-nav button:not(.active):hover{
+  color:#c18f00 !important;
+  background:#fff9df !important;
+}
+.bottom-nav button:active{
+  transform:scale(.94) !important;
+}
+.bottom-nav .premium-btn{
+  color:#c18f00 !important;
+}
+@media(max-width:390px){
+  .bottom-nav{
+    width:96% !important;
+    height:70px !important;
+    bottom:9px !important;
+  }
+  .bottom-nav button{
+    min-width:45px !important;
+    padding:0 4px !important;
+    font-size:10px !important;
+  }
+  .bottom-nav button i{
+    font-size:17px !important;
+  }
+}
+</style>
+
+<style id="seh-darkmode-final">
+/* Şahin Ehliyetim — ortak dark mode */
+html,body{background:#f8fafc;color:#171717}
+body.dark,body.dark html{background:#11110f!important;color:#f7f6ef!important}
+body.dark .page,body.dark main{background:transparent!important;color:#f7f6ef}
+body.dark .header,
+body.dark .profile-hero,
+body.dark .hero,
+body.dark .active,
+body.dark .price,
+body.dark .card,
+body.dark .ask,
+body.dark .info,
+body.dark .question,
+body.dark .buy,
+body.dark .feature,
+body.dark .content{background:linear-gradient(135deg,#191916,#22221d)!important;color:#f7f6ef!important;border-color:#302f29!important}
+body.dark .stat,
+body.dark .quick{background:#1c1c18!important;color:#f7f6ef!important;border-color:#302f29!important}
+body.dark .test-category,
+body.dark .test-item,
+body.dark .cat-content,
+body.dark .empty{border-color:#302f29!important}
+body.dark textarea,
+body.dark input{background:#151512!important;color:#f7f6ef!important;border-color:#3a3931!important}
+body.dark .xp-track{background:#302f29!important}
+body.dark .answer{background:#182536!important;color:#8db8ff!important}
+body.dark .waiting,
+body.dark .quota{background:#332d16!important;color:#f4c430!important}
+body.dark .checks li{background:rgba(255,255,255,.05)!important}
+body.dark .theme,
+body.dark .edit-name{background:#191916!important;color:#f7f6ef!important;border-color:#302f29!important}
+</style>
+</head><body><main class="page"><div id="premiumPage"></div></main>
+<script>
+if(localStorage.getItem("theme")==="true")document.body.classList.add("dark");
+  document.documentElement.classList.add("dark");function toggleTheme(){document.body.classList.toggle("dark");
+  document.documentElement.classList.toggle("dark", document.body.classList.contains("dark"));localStorage.setItem("theme",document.body.classList.contains("dark")?"true":"false")}
+const b=[["fa-ban","Reklamsız kullanım","Test ve çalışma ekranlarında reklamlarla bölünmeden devam et."],["fa-unlock-keyhole","Tüm premium testler","Premium Trafik, Motor, İlk Yardım, Trafik Adabı ve Deneme testlerinin tamamına eriş."],["fa-circle-play","Premium soru çözüm videoları","Soru çözüm videolarına ve premium video içeriklerine eriş."],["fa-bolt","Anında test erişimi","Reklam adımını beklemeden premium testlere doğrudan geç."],["fa-infinity","Sınırsız premium deneyim","Premium üyeliğin sunduğu tüm içerik ve erişim avantajlarını kullan."]];
+const u=JSON.parse(localStorage.getItem("user")||"{}"),premium=localStorage.getItem("isPremium")==="true"||localStorage.getItem("premium")==="true"||u.isPremium===true,page=document.getElementById("premiumPage");
+if(premium){page.innerHTML='<section class="active"><div class="status-top"><div class="status-icon"><i class="fa-solid fa-crown"></i></div><div><span class="eyebrow" style="margin:0">PREMIUM ÜYELİK</span><h2>Premium üyeliğin aktif</h2></div></div><p>Premium erişimin açık. Tüm premium içerik ve avantajlarını kullanabilirsin.</p><ul class="checks">'+b.map(x=>'<li><i class="fa-solid fa-check"></i> '+x[1]+'</li>').join("")+'</ul></section>'}else{page.innerHTML='<section class="hero"><div class="hero-icon"><i class="fa-solid fa-crown"></i></div><span class="eyebrow">ŞAHİN EHLİYET PREMIUM</span><h2>Sınava daha güçlü hazırlan.</h2><p>Reklamları kaldır, tüm premium testlere ve soru çözüm videolarına eriş. Daha hızlı ve kesintisiz çalış.</p><div class="premium-proof"><i class="fa-solid fa-chart-line"></i><strong>Premium ile çalışma deneyimini bir üst seviyeye taşı.</strong><span>89 TL/ay · günlük yaklaşık 3 TL</span></div></section><section class="price"><small>AYLIK PREMIUM</small><div class="price-row"><span class="old">149 TL</span><span class="new">89 TL</span><span class="month">/ay</span></div></section><section class="premium-cta"><span class="premium-cta-icon"><i class="fa-solid fa-crown"></i></span><div><b>Premium ile sınava daha güçlü hazırlan.</b><p>89 TL/ay — günlük yaklaşık 3 TL. Reklamsız kullanım, premium testler ve soru çözüm videolarıyla çalışma deneyimini güçlendir.</p></div><button onclick="buyPremium()"><i class="fa-solid fa-crown"></i> Premiumlu ol</button></section><h2 class="title">Premium ile tüm avantajlar</h2><section class="features">'+b.map(x=>'<article class="feature"><div class="fi"><i class="fa-solid '+x[0]+'"></i></div><div><strong>'+x[1]+'</strong><span>'+x[2]+'</span></div></article>').join("")+'</section><h2 class="title">Açılan içerik paketleri</h2><section class="grid"><div class="content"><i class="fa-solid fa-road"></i><strong>Premium Trafik</strong><span>5 premium test.</span></div><div class="content"><i class="fa-solid fa-gears"></i><strong>Premium Motor</strong><span>5 premium test.</span></div><div class="content"><i class="fa-solid fa-kit-medical"></i><strong>Premium İlk Yardım</strong><span>5 premium test.</span></div><div class="content"><i class="fa-solid fa-handshake"></i><strong>Premium Trafik Adabı</strong><span>5 premium test.</span></div><div class="content"><i class="fa-solid fa-flag-checkered"></i><strong>Premium Deneme</strong><span>5 premium sınav.</span></div><div class="content"><i class="fa-solid fa-circle-play"></i><strong>Video Kütüphanesi</strong><span>Premium soru çözüm içerikleri.</span></div></section><section class="buy"><button onclick="buyPremium()"><i class="fa-solid fa-crown"></i> Premium üyeliğe geç</button><div class="note">Ödeme ve üyelik işlemleri Android uygulaması üzerinden gerçekleştirilir.</div></section>'}
+function buyPremium(){if(window.Android&&typeof window.Android.buyPremium==="function")window.Android.buyPremium();else alert("Premium satın alma işlemi Android uygulaması üzerinden kullanılabilir.")}
+window.setPremiumFromAndroid=function(){localStorage.setItem("isPremium","true");const u=JSON.parse(localStorage.getItem("user")||"{}");u.isPremium=true;localStorage.setItem("user",JSON.stringify(u));location.reload()};
+</script><nav class="bottom-nav"><button onclick="location.href='katagoriler.html'"><i class="fa-solid fa-house"></i><span>Ana</span></button><button onclick="location.href='hesabim.html'"><i class="fa-solid fa-user"></i><span>Profil</span></button><button class="active premium-btn" onclick="location.href='premium.html'"><i class="fa-solid fa-crown"></i><span>Premium</span></button><button onclick="location.href='soru.html'"><i class="fa-solid fa-circle-question"></i><span>Sor</span></button><button onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i><span>Mod</span></button></nav></body></html>

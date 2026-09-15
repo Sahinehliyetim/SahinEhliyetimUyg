@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ehliyet Haberleri | Şahin Ehliyet</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== THEME ===== */
+
+:root{
+--bg:#f4f6fb;
+--card:#fff;
+--text:#000000;
+--primary:#2563eb;
+--shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+body.dark{
+--bg:#020617;
+--card:#020617;
+--text:#413788;
+--shadow:0 10px 25px rgba(0,0,0,.5);
+}
+
+/* ===== RESET ===== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,system-ui;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  transition: .3s;
+padding-top: 20px;
+  padding-top: env(safe-area-inset-top);
+
+
+}
+
+/* ===== HEADER ===== */
+
+.app-header{
+background:linear-gradient(135deg,#2563eb,#3b82f6);
+color:white;
+
+padding:16px 18px;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+border-radius:0 0 25px 25px;
+box-shadow:var(--shadow);
+}
+
+.app-title{
+font-size:18px;
+font-weight:600;
+}
+
+.back-btn{
+background:none;
+border:none;
+color:white;
+font-size:20px;
+cursor:pointer;
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+padding:18px;
+max-width:720px;
+margin:auto;
+}
+
+/* ===== INFO BOX ===== */
+
+.info-box{
+background:linear-gradient(135deg,#2563eb,#3b82f6);
+color:white;
+padding:16px;
+border-radius:20px;
+text-align:center;
+font-weight:600;
+margin-bottom:18px;
+box-shadow:0 6px 18px rgba(37,99,235,.4);
+
+animation:float 3s infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-6px)}
+}
+
+/* ===== NEWS CARD ===== */
+
+.news-card{
+background:var(--card);
+border-radius:20px;
+padding:16px;
+margin-bottom:16px;
+
+box-shadow:var(--shadow);
+
+cursor:pointer;
+
+transition:.3s;
+
+animation:fadeUp .5s;
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(15px)}
+to{opacity:1;transform:none}
+}
+
+.news-card:hover{
+transform:scale(1.02);
+}
+
+.news-title{
+font-size:16px;
+font-weight:600;
+margin-bottom:6px;
+}
+
+.news-date{
+font-size:12px;
+opacity:.6;
+margin-bottom:6px;
+}
+
+.news-desc{
+font-size:13px;
+line-height:1.5;
+opacity:.9;
+}
+
+/* ===== MODAL ===== */
+
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.6);
+
+display:none;
+justify-content:center;
+align-items:center;
+
+z-index:999;
+}
+
+.modal.active{
+display:flex;
+}
+
+.modal-box{
+background:var(--card);
+padding:22px;
+border-radius:22px;
+width:90%;
+max-width:360px;
+
+animation:pop .3s;
+}
+
+@keyframes pop{
+from{transform:scale(.7);opacity:0}
+to{transform:scale(1);opacity:1}
+}
+
+.modal-box h3{
+margin-bottom:8px;
+}
+
+.modal-box p{
+font-size:14px;
+line-height:1.6;
+opacity:.9;
+margin-bottom:12px;
+}
+
+.modal-box button{
+width:100%;
+background:#2563eb;
+color:white;
+border:none;
+
+padding:10px;
+border-radius:14px;
+font-weight:600;
+cursor:pointer;
+}
+
+/* ===== EMPTY ===== */
+
+.empty{
+text-align:center;
+opacity:.6;
+padding:30px;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:600px){
+
+.app-title{
+font-size:17px;
+}
+
+}
+
+.news-section {
+  display: grid;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.news-card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,.1);
+  transition: 0.4s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0,0,0,.15);
+}
+
+.news-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.news-content {
+  padding: 14px 18px;
+}
+
+.news-content h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #1b2faf;
+}
+
+.news-content small {
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.news-content p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #374151;
+  margin-bottom: 10px;
+}
+
+.news-content a {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.news-content a:hover {
+  text-decoration: underline;
+  color: #1b2faf;
+}
+
+.highlight-card {
+  transform: scale(1.02);
+  border: 2px solid #06b6d4;
+}
+
+@media (min-width: 720px) {
+  .news-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ================= NEWS ================= */
+
+.news-section{
+  display:grid;
+  gap:18px;
+  margin:20px;
+}
+
+.news-card{
+  background:white;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 8px 25px rgba(0,0,0,.1);
+  transition:.4s;
+}
+
+.news-card:hover{
+  transform:translateY(-4px);
+}
+
+.news-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.news-content{
+  padding:15px 18px;
+}
+
+.news-content h3{
+  font-size:17px;
+  color:#1e3a8a;
+  margin-bottom:5px;
+}
+
+.news-content small{
+  color:#64748b;
+  font-size:12px;
+}
+
+.news-content p{
+  font-size:14px;
+  margin:8px 0;
+  line-height:1.5;
+}
+
+.news-content button{
+  border:none;
+  background:#2563eb;
+  color:white;
+  padding:7px 14px;
+  border-radius:20px;
+  font-size:13px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.news-content button:hover{
+  background:#1d4ed8;
+}
+
+/* ================= MODAL ================= */
+
+.news-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.news-modal.active{
+  display:flex;
+}
+
+.news-modal-box{
+  background:white;
+  width:90%;
+  max-width:500px;
+  border-radius:18px;
+  overflow:hidden;
+  animation:pop .3s;
+}
+
+.news-modal-box img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.news-modal-box h2{
+  padding:12px;
+  font-size:20px;
+}
+
+.news-modal-box p{
+  padding:0 12px;
+  font-size:12px;
+  color:#64748b;
+}
+
+.news-modal-box div{
+  padding:12px;
+  font-size:14px;
+  line-height:1.6;
+}
+
+.close-btn{
+  position:absolute;
+  top:12px;
+  right:18px;
+  font-size:20px;
+  cursor:pointer;
+}
+
+@keyframes pop{
+  from{transform:scale(.8);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+@media(min-width:700px){
+  .news-section{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+
+
+/* ===== NEWS BUTTON ===== */
+
+.read-btn{
+  margin-top:10px;
+  width:100%;
+
+  background:linear-gradient(135deg,#2563eb,#3b82f6);
+  color:white;
+
+  border:none;
+  padding:10px;
+
+  border-radius:14px;
+
+  font-size:14px;
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.read-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 18px rgba(37,99,235,.5);
+}
+
+
+/* ===== NEWS MODAL ===== */
+
+.news-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;        /* aktif değilken gizle */
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.news-modal.active{
+  display:flex;        /* aktifken göster */
+  animation:fade .3s;
+}
+
+
+
+.news-modal-box h2{
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.news-modal-box p{
+  font-size:14px;
+  line-height:1.6;
+  opacity:.9;
+}
+
+
+
+.close-btn:hover{
+  opacity:1;
+}
+
+
+
+.close-btn:hover{
+  opacity:1;
+  color:#ff3b3b; /* kırmızı hover */
+}
+
+
+
+.news-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.news-modal.active{
+  display:flex;
+}
+
+
+.news-modal-box{
+  background:var(--card);
+  width:90%;
+  max-width:500px;
+  max-height:80vh;
+  overflow-y:auto; /* sadece içerik scroll olsun, overflow:hidden değil */
+  padding:22px;
+  border-radius:25px;
+  animation:pop .4s ease;
+  position:relative; /* close-btn için gerekli */
+}
+
+.close-btn{
+  position:absolute;
+  top:12px;
+  right:12px;
+  font-size:28px;
+  font-weight:bold;
+  color:#2563eb; /* kontrastlı renk */
+  cursor:pointer;
+  z-index:1000;  /* modal-box içinde üstte kalır */
+}
+
+
+/* ================= MODERN HEADER ================= */
+
+.app-header{
+
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:14px 18px;
+
+  background:linear-gradient(
+    135deg,
+    #2563eb,
+    #3b82f6,
+    #06b6d4
+  );
+
+  border-radius:0 0 22px 22px;
+
+  box-shadow:0 8px 25px rgba(0,0,0,.18);
+
+  backdrop-filter: blur(10px);
+}
+
+
+/* SOL TARAF */
+
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.app-logo{
+  font-size:22px;
+}
+
+.app-title{
+  font-size:18px;
+  font-weight:700;
+  color:white;
+  letter-spacing:.5px;
+}
+
+
+/* SAĞ TARAF */
+
+.header-right{
+  display:flex;
+  gap:8px;
+}
+
+.header-btn{
+  width:34px;
+  height:34px;
+
+  border:none;
+  border-radius:50%;
+
+  background:rgba(255,255,255,.18);
+  color:white;
+
+  font-size:16px;
+  cursor:pointer;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  transition:.25s;
+}
+
+.header-btn:hover{
+  background:rgba(255,255,255,.35);
+  transform:scale(1.1);
+}
+
+
+/* DARK MODE */
+
+body.dark .app-header{
+  background:linear-gradient(
+    135deg,
+    #020617,
+    #020b2a,
+    #020f3a
+  );
+}
+
+
+.app-header{
+  position: relative;
+}
+
+.app-title{
+  margin-left: 45px; /* Ok kadar boşluk bırakır */
+  font-weight: 600;
+  font-size: 17px;
+}
+
+
+.back-btn{
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: rgba(255,255,255,0.18);
+  border: none;
+  color: white;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+  cursor: pointer;
+
+  transition: .25s;
+  backdrop-filter: blur(6px);
+}
+
+.back-btn:hover{
+  background: rgba(255,255,255,0.28);
+}
+
+.back-btn:active{
+  transform: translateY(-50%) scale(.9);
+}
+
+
+/* DARK MODE */
+
+body.dark .info-box{
+  background:linear-gradient(
+    135deg,
+    #020617,
+    #020b2a,
+    #020f3a
+  );
+}
+
+  .app-header{
+    position: sticky;
+    z-index: 999;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 18px 16px;
+
+    background:linear-gradient(
+        135deg,
+        #050505 0%,
+        #101010 40%,
+        #1a1a1a 70%,
+        #f4b400 180%
+    );
+
+    border-bottom-left-radius:24px;
+    border-bottom-right-radius:24px;
+
+    border-bottom:2px solid rgba(255,200,0,.35);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.35),
+        inset 0 -1px rgba(255,215,0,.18);
+
+    backdrop-filter: blur(18px);
+}
+
+.app-header::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:radial-gradient(
+        circle at top right,
+        rgba(255,200,0,.18),
+        transparent 35%
+    );
+    pointer-events:none;
+}
+
+.app-title{
+    font-size:24px;
+    font-weight:900;
+    color:#fff;
+    letter-spacing:.5px;
+    text-shadow:0 0 16px rgba(255,200,0,.25);
+}
+
+.app-title::first-letter{
+    color:#f4b400;
+}
+
+.back-btn{
+    width:46px;
+    height:46px;
+    border:none;
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(12px);
+
+    color:#f4b400;
+    font-size:20px;
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition:.25s ease;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.12),
+        0 4px 14px rgba(0,0,0,.25);
+}
+
+.back-btn:hover{
+    transform:translateY(-2px) scale(1.05);
+    background:#f4b400;
+    color:#000;
+    box-shadow:0 8px 20px rgba(255,200,0,.35);
+}
+
+/* TÜM KOPYALAMA / SEÇMEYİ KAPAT */
+
+*{
+  -webkit-user-select:none !important;
+  -moz-user-select:none !important;
+  -ms-user-select:none !important;
+  user-select:none !important;
+
+  -webkit-touch-callout:none !important;
+  -webkit-tap-highlight-color:transparent !important;
+}
+
+
+/* ŞAHİN HEADER */
+
+.seh-header-wrap{
+
+    position:sticky;
+    top:0;
+    z-index:99999;
+
+    width:100%;
+    height:78px;
+
+    display:flex;
+    align-items:flex-start;
+
+    padding:12px 18px;
+
+    background:linear-gradient(
+        135deg,
+        #050505 0%,
+        #101010 45%,
+        #1a1a1a 75%,
+        #f4b400 220%
+    );
+
+    border-bottom-left-radius:26px;
+    border-bottom-right-radius:26px;
+
+    border-bottom:2px solid rgba(255,200,0,.22);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.30),
+        inset 0 -1px rgba(255,215,0,.10);
+
+    overflow:hidden;
+}
+
+.seh-header-wrap::before{
+
+    content:'';
+
+    position:absolute;
+    inset:0;
+
+    background:radial-gradient(
+        circle at top right,
+        rgba(255,200,0,.15),
+        transparent 40%
+    );
+
+    pointer-events:none;
+}
+
+/* GERİ BUTONU */
+
+.seh-back-button{
+
+    width:50px;
+    height:50px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.05);
+
+    color:#facc15;
+
+    font-size:19px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    position:relative;
+    z-index:2;
+
+    outline:none;
+
+    -webkit-tap-highlight-color:transparent;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.05),
+        0 4px 12px rgba(0,0,0,.18);
+}
+
+.seh-back-button:active{
+    transform:scale(.96);
+}
+
+html,
+body{
+    margin:0 !important;
+    padding:0 !important;
+    overflow-x:hidden;
+}
+
+/* Kamera boşluğunu sıfırla */
+
+body{
+    padding-top:0 !important;
+}
+
+/* HEADER */
+
+.seh-header-wrap{
+    margin-top:0 !important;
+    top:0 !important;
+}
+</style>
+
+<style id="sh-news-page-final">
+:root{--yellow:#f3c742;--yellow-strong:#dcae19;--yellow-soft:#fff6d8;--bg:#f8f8f5;--card:#fff;--text:#181815;--muted:#76766f;--line:#e7e5dc;--shadow:0 12px 34px rgba(28,27,20,.07)}
+body.dark{--bg:#11110f;--card:#191916;--text:#f5f3e9;--muted:#aaa89e;--line:#32312a;--shadow:0 14px 38px rgba(0,0,0,.32);--yellow-soft:#332d16}
+html,body{background:var(--bg)!important;color:var(--text)!important}
+body{font-family:Manrope,Poppins,system-ui,sans-serif!important;padding-top:0!important;padding-bottom:24px!important}
+.seh-header-wrap{position:sticky!important;top:0!important;z-index:9999!important;width:min(100%,760px)!important;height:56px!important;margin:0 auto!important;padding:0 15px!important;display:grid!important;grid-template-columns:38px 1fr 38px!important;align-items:center!important;gap:9px!important;background:var(--bg)!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important}
+.seh-header-wrap::before{display:none!important}
+.seh-back-button{width:36px!important;height:36px!important;border:1px solid var(--line)!important;border-radius:12px!important;background:var(--card)!important;color:var(--text)!important;font-size:12px!important;display:grid!important;place-items:center!important;box-shadow:0 5px 14px rgba(28,27,20,.06)!important;backdrop-filter:none!important}
+.seh-back-button:hover{transform:none!important;background:var(--card)!important;color:var(--text)!important}
+.seh-back-button:active{transform:scale(.94)!important}
+.seh-header-title{display:flex;align-items:center;justify-content:center;gap:7px;font-size:14px;font-weight:800;letter-spacing:-.2px;color:var(--text)}
+.seh-title-icon{width:28px;height:28px;border-radius:9px;background:var(--yellow-soft);color:var(--yellow-strong);display:grid;place-items:center;font-size:11px}
+.seh-header-spacer{width:36px;height:36px}
+.container{width:min(100%,760px)!important;margin:0 auto!important;padding:10px 15px 28px!important}
+.info-box{margin:0 0 14px!important;padding:14px 15px!important;border-radius:19px!important;background:linear-gradient(135deg,var(--surface,var(--card)),var(--yellow-soft))!important;border:1px solid var(--line)!important;color:var(--text)!important;box-shadow:none!important;text-align:left!important;font-size:11px!important;font-weight:700!important;animation:none!important}
+.news-section{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:11px!important;margin:0!important}
+.news-card{background:var(--card)!important;border:1px solid var(--line)!important;border-radius:20px!important;box-shadow:var(--shadow)!important;overflow:hidden!important;transition:transform .16s ease,box-shadow .18s ease!important;animation:fadeUp .35s ease both!important}
+.news-card:hover{transform:none!important;box-shadow:var(--shadow)!important}
+.news-card img{width:100%!important;height:145px!important;object-fit:cover!important;display:block!important}
+.news-content{padding:14px!important}
+.news-content h3{font-size:14px!important;line-height:1.3!important;letter-spacing:-.25px!important;font-weight:800!important;color:var(--text)!important;margin:0 0 5px!important}
+.news-content small{display:block!important;color:var(--muted)!important;font-size:9px!important;margin-bottom:7px!important}
+.news-content p{font-size:10px!important;line-height:1.55!important;color:var(--muted)!important;margin:0!important}
+.read-btn{width:108px!important;min-width:108px!important;height:32px!important;margin-top:10px!important;padding:0 10px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:6px!important;border:1px solid var(--line)!important;border-radius:10px!important;background:var(--yellow-soft)!important;color:var(--text)!important;font:800 9.5px Manrope,sans-serif!important;line-height:1!important;white-space:nowrap!important;overflow:hidden!important;box-shadow:none!important;transition:transform .16s ease,background .18s ease!important}
+.read-btn i{font-size:9px!important;color:var(--yellow-strong)!important;flex:0 0 auto!important}.read-btn span{overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}.read-btn:hover{transform:none!important;box-shadow:none!important}.read-btn:active{transform:scale(.95)!important;background:var(--yellow)!important;color:#181815!important}
+.news-modal-box{background:var(--card)!important;color:var(--text)!important;border:1px solid var(--line)!important;border-radius:24px!important;box-shadow:0 20px 60px rgba(0,0,0,.25)!important}.news-modal-box h2{color:var(--text)!important}.news-modal-box p,.news-modal-box .news-date{color:var(--muted)!important}.close-btn{color:var(--text)!important;background:var(--surface-2,var(--yellow-soft));width:34px;height:34px;border-radius:11px;display:grid;place-items:center;font-size:20px!important}.close-btn:hover{color:var(--text)!important}
+@media(max-width:600px){.news-section{grid-template-columns:1fr!important;gap:10px!important}.news-card{display:grid!important;grid-template-columns:38% 62%!important;min-height:142px!important}.news-card img{height:100%!important;min-height:142px!important}.news-content{display:flex!important;flex-direction:column!important;justify-content:center!important;padding:13px!important}.news-content h3{font-size:14px!important}.news-content p{font-size:9.5px!important}.read-btn{width:108px!important;min-width:108px!important;height:31px!important;margin-top:9px!important;padding:0 9px!important}}
+</style>
+
+<style id="sh-v5-scroll">
+.scroll-top-v5{position:fixed!important;right:15px!important;bottom:18px!important;width:42px!important;height:42px!important;border:1px solid var(--line)!important;border-radius:14px!important;background:var(--card)!important;color:var(--text)!important;display:grid!important;place-items:center!important;z-index:9998!important;box-shadow:0 10px 24px rgba(0,0,0,.14)!important;opacity:0!important;visibility:hidden!important;transform:translateY(12px) scale(.92)!important;transition:opacity .25s ease,transform .25s ease,visibility .25s ease,background .18s ease!important;}
+.scroll-top-v5.show{opacity:1!important;visibility:visible!important;transform:translateY(0) scale(1)!important;}
+.scroll-top-v5:active{transform:scale(.92)!important;background:var(--yellow)!important;color:#171717!important;}
+@media(max-width:520px){.scroll-top-v5{right:12px!important;bottom:16px!important;width:40px!important;height:40px!important;border-radius:13px!important;font-size:12px!important;}}
+</style>
+
+<style id="seh-darkmode-unified-fix">
+/* Unified Şahin Ehliyetim dark mode fixes */
+html, body { background: var(--bg, #f8fafc); }
+body.dark, body.dark html { background: #11110f !important; color: #f5f3e9 !important; }
+body.dark .bottom-nav {
+  background: rgba(25, 25, 22, .97) !important;
+  border-color: rgba(244, 196, 48, .22) !important;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, .42) !important;
+}
+body.dark .bottom-nav button { color: #aaa89e !important; background: transparent !important; }
+body.dark .bottom-nav button.active {
+  background: linear-gradient(135deg, #ffd84d, #f4c430) !important;
+  color: #27220f !important;
+}
+body.dark .bottom-nav .premium-btn { color: #f4c430 !important; }
+body.dark .bottom-nav button:not(.active):hover { color: #f4c430 !important; background: #332d16 !important; }
+body.dark .premium-modal, body.dark .premium-box-modern, body.dark .choice-card,
+body.dark .modal-content, body.dark .popup, body.dark .popup-content,
+body.dark .premium-popup, body.dark .ad-popup, body.dark .watch-ad-popup {
+  background: #191916 !important; color: #f5f3e9 !important; border-color: #32312a !important;
+}
+body.dark .premium-modal *, body.dark .premium-box-modern *, body.dark .choice-card *,
+body.dark .modal-content *, body.dark .popup *, body.dark .popup-content *,
+body.dark .premium-popup *, body.dark .ad-popup *, body.dark .watch-ad-popup * { color: inherit; }
+body.dark .premium-modal p, body.dark .premium-box-modern .desc,
+body.dark .choice-card p, body.dark .popup p, body.dark .popup-content p { color: #aaa89e !important; }
+</style>
+
+<style id="seh-premium-popup-v2">
+.premium-modal{position:fixed!important;inset:0!important;display:none;align-items:center!important;justify-content:center!important;padding:18px!important;background:rgba(9,9,7,.72)!important;backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;z-index:10001!important;}
+.premium-modal[style*="display: flex"],.premium-modal[style*="display:flex"],.premium-modal.open{display:flex!important;}
+.premium-box-modern{position:relative!important;width:min(100%,420px)!important;padding:22px!important;border:1px solid rgba(244,196,48,.38)!important;border-radius:28px!important;background:linear-gradient(145deg,#fffdf5 0%,#fff7d6 100%)!important;color:#171717!important;box-shadow:0 30px 90px rgba(0,0,0,.38),0 10px 30px rgba(244,196,48,.12)!important;overflow:hidden!important;}
+.premium-box-modern:before{content:"";position:absolute;left:-70px;top:-85px;width:190px;height:190px;border-radius:50%;background:rgba(244,196,48,.18);filter:blur(3px);pointer-events:none;}
+.premium-box-modern>*{position:relative;z-index:1;}
+.premium-modal-head{display:flex!important;align-items:center!important;gap:13px!important;margin-bottom:18px!important;}
+.premium-modal-icon{width:52px!important;height:52px!important;flex:0 0 52px!important;border-radius:17px!important;display:grid!important;place-items:center!important;background:linear-gradient(135deg,#ffd84d,#f4c430)!important;color:#27220f!important;font-size:20px!important;box-shadow:0 10px 25px rgba(244,196,48,.28)!important;}
+.premium-modal-title h3,.premium-box-modern h3{margin:0!important;color:#171717!important;font-size:19px!important;font-weight:800!important;line-height:1.2!important;}
+.premium-modal-title p,.premium-box-modern .desc{margin:4px 0 0!important;color:#77766f!important;font-size:10.5px!important;line-height:1.55!important;}
+.choice-card{position:relative!important;display:flex!important;align-items:center!important;gap:13px!important;margin:10px 0!important;padding:15px!important;border-radius:19px!important;cursor:pointer!important;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important;}
+.choice-card:hover{transform:translateY(-2px)!important;box-shadow:0 12px 25px rgba(28,27,20,.10)!important;}
+.choice-card.ad{background:linear-gradient(135deg,#fff 0%,#f5f8ff 100%)!important;border:1px solid #d6dfed!important;}
+.choice-card.premium{background:linear-gradient(135deg,#fff8d8 0%,#ffefaa 100%)!important;border:1px solid #e4b72b!important;}
+.choice-icon{width:44px!important;height:44px!important;flex:0 0 44px!important;border-radius:14px!important;display:grid!important;place-items:center!important;font-size:17px!important;}
+.choice-card.ad .choice-icon{background:#e8f1ff!important;color:#2563eb!important;}
+.choice-card.premium .choice-icon{background:#f4c430!important;color:#27220f!important;}
+.choice-copy{min-width:0!important;}
+.choice-head{font-size:12.5px!important;font-weight:800!important;color:#171717!important;}
+.choice-copy p,.choice-card p{margin:4px 0 0!important;font-size:9.5px!important;line-height:1.55!important;color:#77766f!important;}
+.choice-arrow{margin-left:auto!important;color:#a17b00!important;font-size:12px!important;}
+.cancel-btn{width:100%!important;margin-top:13px!important;padding:12px!important;border:1px solid #dedbd0!important;border-radius:15px!important;background:#f4f1e7!important;color:#55534b!important;font-size:10.5px!important;font-weight:800!important;cursor:pointer!important;}
+body.dark .premium-modal{background:rgba(0,0,0,.78)!important;}
+body.dark .premium-box-modern{background:linear-gradient(145deg,#191916 0%,#27261e 100%)!important;border-color:rgba(244,196,48,.34)!important;color:#f7f6ef!important;box-shadow:0 30px 90px rgba(0,0,0,.68)!important;}
+body.dark .premium-box-modern:before{background:rgba(244,196,48,.10)!important;}
+body.dark .premium-modal-title h3,body.dark .premium-box-modern h3,body.dark .choice-head{color:#f7f6ef!important;}
+body.dark .premium-modal-title p,body.dark .premium-box-modern .desc,body.dark .choice-copy p,body.dark .choice-card p{color:#aaa89e!important;}
+body.dark .choice-card.ad{background:linear-gradient(135deg,#1b2633,#18202a)!important;border-color:#344a61!important;}
+body.dark .choice-card.ad .choice-icon{background:#233b55!important;color:#9fc4ff!important;}
+body.dark .choice-card.premium{background:linear-gradient(135deg,#332d16,#433812)!important;border-color:#a77d08!important;}
+body.dark .choice-card.premium .choice-icon{background:#f4c430!important;color:#27220f!important;}
+body.dark .choice-arrow{color:#f4c430!important;}
+body.dark .cancel-btn{background:#24231e!important;color:#aaa89e!important;border-color:#3b392f!important;}
+</style>
+</head>
+
+<body>
+
+<header class="seh-header-wrap">
+  <button class="seh-back-button" onclick="history.back()" aria-label="Geri"><i class="fa-solid fa-arrow-left"></i></button>
+  <div class="seh-header-title"><span class="seh-title-icon"><i class="fa-solid fa-newspaper"></i></span>Haberler</div>
+  <div class="seh-header-spacer"></div>
+</header>
+
+
+
+<!-- INFO -->
+
+<div class="container">
+
+  <!-- INFO -->
+  <div class="info-box">
+    Ehliyetle ilgili güncel gelişmeler
+  </div>
+
+  <!-- HABERLER BURAYA GELECEK -->
+  <div class="news-section" id="newsList"></div>
+
+  <!-- HABER DETAY MODAL -->
+<div class="news-modal" id="newsModal">
+  <div class="news-modal-box">
+    <span class="close-btn" onclick="closeModal()">×</span>
+    <h2 id="mTitle"></h2>
+    <div class="news-date" id="mDate"></div>
+    <p id="mText"></p>
+  </div>
+</div>
+
+
+
+</div>
+
+
+
+
+<script>
+
+/* DARK MODE */
+
+if(localStorage.getItem("theme")==="true"){
+document.body.classList.add("dark");
+}
+
+const newsData = [
+
+{
+  id:1,
+  title:"B Sınıfı Ehliyette Geçme Puanı Tartışması Sürüyor",
+  date:"2026-01-12",
+  image:"resimler/h1.jpg",
+  summary:"SRC sınavlarında baraj düşerken B sınıfı ehliyette 70 puan şartı devam ediyor.",
+  content:`2026 yılında yapılan düzenlemelerle SRC sınavlarında geçme puanı 60’a düşürüldi. 
+Ancak B sınıfı ehliyet adayları için baraj hâlâ 70 puan olarak uygulanıyor.
+
+Uzmanlara göre bu durum, ticari sürücüler için kolaylık sağlarken bireysel adayların daha disiplinli çalışmasını gerektiriyor.
+
+Adaylar özellikle trafik ve ilk yardım konularında daha dikkatli hazırlanmak zorunda kalıyor.`
+},
+
+{
+  id:2,
+  title:"Video Sınavı Resmen Kaldırıldı",
+  date:"2026-02-03",
+  image:"resimler/h2.jpg",
+  summary:"Trafik senaryosu videoları artık sınavda sorulmuyor.",
+  content:`Daha önce adaylara trafik videoları izletilip yorum yapmaları isteniyordu.
+
+2026 itibarıyla bu uygulama tamamen kaldırıldı. 
+Bu değişiklik sınav süresini kısalttı ve adayların stres seviyesini düşürdü.
+
+Yetkililer, yeni sistemin daha adil olduğunu belirtiyor.`
+},
+
+{
+  id:3,
+  title:"Ehliyet Yenileme Yönetmeliği Güncellendi",
+  date:"2026-01-29",
+  image:"resimler/h3.webp",
+  summary:"Resmi Gazete’de yayımlanan yeni düzenleme yürürlüğe girdi.",
+  content:`29 Ocak 2026’da yayımlanan yönetmelikle ehliyetlerin geçerlilik süresi güncellendi.
+
+Yeni sistemle birlikte belgeler dijital ortamda takip edilebiliyor.
+Vatandaşlar artık e-Devlet üzerinden yenileme durumlarını görebiliyor.
+
+Bu sayede yoğunluk büyük ölçüde azaldı.`
+},
+
+{
+  id:4,
+  title:"SRC Barajının Düşmesi Ticari Sürücüleri Rahatlattı",
+  date:"2026-02-10",
+  image:"resimler/h4.jpg",
+  summary:"Otobüs ve kamyon şoförleri için büyük kolaylık.",
+  content:`SRC sınavındaki puan düşüşü özellikle şehirlerarası taşımacılık yapan sürücülere yaradı.
+
+Firmalar artık daha hızlı personel bulabiliyor.
+Şoför adayları da kısa sürede belge alabiliyor.
+
+Sektör temsilcileri düzenlemeyi olumlu karşıladı.`
+},
+
+{
+  id:5,
+  title:"Ehliyet Kurslarında Yanlış Bilgi Sorunu",
+  date:"2026-01-20",
+  image:"resimler/h5.jpg",
+  summary:"Bazı kurslar adayları yanlış yönlendiriyor.",
+  content:`Bazı sürücü kurslarının “herkes için baraj düştü” şeklinde yanlış bilgi verdiği tespit edildi.
+
+Bu durum adayların hazırlıksız sınava girmesine neden oluyor.
+Yetkililer kurslara denetimlerin artırılacağını açıkladı.`
+},
+
+{
+  id:6,
+  title:"Paralel Park Hâlâ Zorunlu",
+  date:"2026-02-18",
+  image:"resimler/h6.jpg",
+  summary:"Sosyal medya iddiaları gerçeği yansıtmıyor.",
+  content:`Sosyal medyada “paralel park kaldırıldı” iddiaları yayılmıştı.
+
+Ancak yönetmelikte paralel park hâlâ kırmızı hata olarak geçiyor.
+Adaylar bu manevrayı yapmadan sınavı geçemiyor.
+
+Uzmanlar park çalışmasının ihmal edilmemesini öneriyor.`
+},
+
+{
+  id:7,
+  title:"Direksiyon Sınavlarında Sabit Parkur Kalktı",
+  date:"2026-03-02",
+  image:"resimler/h7.webp",
+  summary:"Sınavlar artık gerçek trafikte yapılıyor.",
+  content:`2026 itibarıyla sabit parkur uygulaması sona erdi.
+
+Sınavlar gerçek trafik ortamında gerçekleştiriliyor.
+Bu sayede adayların günlük hayata daha iyi hazırlanması hedefleniyor.
+
+Yeni sistem daha gerçekçi bulunuyor.`
+},
+
+{
+  id:8,
+  title:"Esnek Güzergâh Uygulaması Başladı",
+  date:"2026-02-25",
+  image:"resimler/h8.jpg",
+  summary:"Sınav yoğunluğu azalıyor.",
+  content:`İl ve ilçelerde farklı güzergâhlar kullanılmaya başlandı.
+
+Bu uygulama sayesinde sınav bekleme süresi kısaldı.
+Adaylar daha hızlı direksiyon sınavına girebiliyor.`
+},
+
+{
+  id:9,
+  title:"Direksiyon Sınavlarında Kamera Sistemi Gündemde",
+  date:"2026-01-15",
+  image:"resimler/h9.jpg",
+  summary:"Haksız değerlendirmeler için çözüm olabilir.",
+  content:`Kamu Denetçiliği Kurumu, sınavların kamera ile kaydedilmesini önerdi.
+
+Uygulama hayata geçerse adaylar görüntülerle itiraz edebilecek.
+Bu sistem şeffaflığı artırmayı hedefliyor.`
+},
+
+{
+  id:10,
+  title:"Aday Mağduriyetleri Artıyor",
+  date:"2026-02-28",
+  image:"resimler/h10.webp",
+  summary:"Başarısız sayılan adaylar tepkili.",
+  content:`Bazı adaylar ciddi hata yapmadıkları halde başarısız sayıldıklarını iddia ediyor.
+
+Bu durum tekrar sınav ücreti ve zaman kaybına yol açıyor.
+Yetkililer şikâyetleri incelemeye aldı.`
+}
+
+,
+{
+  id:11,
+  title:"2026 MTSK e-Sınav Kılavuzu Ağustos'ta Güncellendi",
+  date:"2026-08-05",
+  image:"resimler/h8.jpg",
+  summary:"Millî Eğitim Bakanlığı'nın 2026 MTSK e-Sınav kılavuzu Ağustos ayında güncellendi.",
+  content:`Millî Eğitim Bakanlığı tarafından yayımlanan 2026 Motorlu Taşıt Sürücü Kursiyerleri e-Sınav Başvuru ve Uygulama Kılavuzu Ağustos 2026'da güncellendi.
+
+Sürücü adaylarının başvuru ve sınav uygulama süreçlerinde güncel kılavuzu esas alması önem taşıyor. Sınavla ilgili güncel kurallar ve uygulama ayrıntıları için MEB'in yayımladığı kılavuz takip edilmelidir.
+
+Kaynak: Millî Eğitim Bakanlığı.`
+},
+{
+  id:12,
+  title:"MTSK e-Sınavında 50 Soru ve 45 Dakika Uygulaması",
+  date:"2026-08-06",
+  image:"resimler/h6.jpg",
+  summary:"MEB'in güncel bilgilendirmesine göre teorik e-sınav 50 sorudan oluşuyor ve 45 dakika sürüyor.",
+  content:`Millî Eğitim Bakanlığı'nın güncel Sıkça Sorulan Sorular sayfasında MTSK e-Sınavının bütün sertifika sınıflarında toplam 50 sorudan oluştuğu ve sınav süresinin 45 dakika olduğu belirtiliyor.
+
+Soru dağılımı; ilk yardım 12, trafik ve çevre 23, araç tekniği 9 ve trafik adabı 6 soru şeklinde. Başarılı olmak için en az 70 puan almak gerekiyor.
+
+Kaynak: Millî Eğitim Bakanlığı.`
+},
+{
+  id:13,
+  title:"Direksiyon Sınavı Değerlendirmeleri Tablet Üzerinden Yapılıyor",
+  date:"2026-08-07",
+  image:"resimler/h7.webp",
+  summary:"MEB, direksiyon uygulama sınavı değerlendirmelerinin tablet üzerinden yapıldığını belirtiyor.",
+  content:`Millî Eğitim Bakanlığı'nın güncel bilgilendirmesine göre direksiyon uygulama sınavlarının değerlendirmeleri, Özel Motorlu Taşıt Sürücüleri Kursu Yönetmeliği'ndeki kriterlere göre tablet üzerinden yapılıyor.
+
+Adayların sınava hazırlanırken yalnızca park manevralarına değil, değerlendirme kriterlerinin tamamına çalışması önem taşıyor.
+
+Kaynak: Millî Eğitim Bakanlığı.`
+}
+
+];
+
+const listBox = document.getElementById("newsList");
+const modal = document.getElementById("newsModal");
+
+function renderNews(){
+
+  listBox.innerHTML = "";
+
+  newsData.forEach(item=>{
+
+    const div = document.createElement("div");
+
+    div.className = "news-card";
+
+    div.innerHTML = `
+      <img src="${item.image}" alt="${item.title}">
+      <div class="news-content">
+        <h3>${item.title}</h3>
+        <small>${item.date}</small>
+        <p>${item.summary}</p>
+        <button class="read-btn" onclick="openNews(${item.id})">
+          <i class="fa-solid fa-arrow-right"></i><span>Devamını Oku</span>
+        </button>
+      </div>
+    `;
+
+    listBox.appendChild(div);
+
+  });
+
+}
+
+
+function openNews(id){
+
+  const data = newsData.find(n=>n.id===id);
+
+  document.getElementById("mTitle").textContent = data.title;
+  document.getElementById("mDate").textContent = data.date;
+  document.getElementById("mText").textContent = data.content;
+
+  document.getElementById("newsModal")
+    .classList.add("active");
+}
+
+function closeModal(){
+
+  document.getElementById("newsModal")
+    .classList.remove("active");
+}
+renderNews();
+
+// Modal kutusu dışında tıklayınca kapanma
+modal.addEventListener("click", function(e){
+  if(e.target === modal){
+    closeModal();
+  }
+});
+function closeModal(){
+  modal.classList.remove("active");
+}
+
+
+  /* DARK MODE AUTO LOAD */
+
+(function(){
+
+if(localStorage.getItem("theme") === "true"){
+  document.body.classList.add("dark");
+}
+
+})();
+
+
+/* SAĞ TIK KAPAT */
+document.addEventListener("contextmenu", e => e.preventDefault());
+
+/* UZUN BASMA MENÜSÜ KAPAT */
+document.addEventListener("selectstart", e => e.preventDefault());
+
+/* KOPYALA / KES / YAPIŞTIR KISAYOLLARI KAPAT */
+document.addEventListener("copy", e => e.preventDefault());
+document.addEventListener("cut", e => e.preventDefault());
+document.addEventListener("paste", e => e.preventDefault());
+
+/* MOBİL UZUN BASMA */
+document.addEventListener("touchstart", function(){}, {passive:true});
+
+</script>
+
+
+</div>
+
+<button class="scroll-top-v5" id="scrollTopV5" aria-label="Yukarı çık"><i class="fa-solid fa-arrow-up"></i></button>
+<script>
+(function(){
+  const btn=document.getElementById('scrollTopV5'); if(!btn) return;
+  const toggle=()=>btn.classList.toggle('show',window.scrollY>280);
+  window.addEventListener('scroll',toggle,{passive:true}); toggle();
+  btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+})();
+</script>
+</body>
+</html>

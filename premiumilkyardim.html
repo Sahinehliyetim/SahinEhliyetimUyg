@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Premium İlk Yardım Testleri</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#050505,#111,#1a1a1a);
+color:white;
+min-height:100vh;
+}
+
+/* HEADER */
+
+.app-header{
+position:sticky;
+top:0;
+z-index:999;
+padding:18px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:linear-gradient(135deg,#000,#151515,#2a2a2a);
+border-bottom:1px solid rgba(255,215,0,.25);
+box-shadow:0 8px 30px rgba(0,0,0,.5);
+}
+
+.app-title{
+font-size:24px;
+font-weight:800;
+color:#facc15;
+}
+
+.back-btn{
+width:46px;
+height:46px;
+border:none;
+border-radius:50%;
+background:rgba(255,255,255,.08);
+color:#facc15;
+font-size:18px;
+cursor:pointer;
+transition:.25s;
+}
+
+.back-btn:hover{
+background:#facc15;
+color:black;
+transform:scale(1.08);
+}
+
+/* CONTAINER */
+
+.container{
+max-width:540px;
+margin:auto;
+padding:18px;
+}
+
+/* HEADER BOX */
+
+.header{
+background:linear-gradient(135deg,#111,#1a1a1a);
+padding:22px;
+border-radius:24px;
+border:1px solid rgba(250,204,21,.15);
+box-shadow:0 10px 30px rgba(0,0,0,.45);
+margin-bottom:18px;
+}
+
+.header h2{
+text-align:center;
+color:#facc15;
+margin-bottom:12px;
+}
+
+.header p{
+text-align:center;
+color:#d1d5db;
+line-height:1.7;
+font-size:14px;
+}
+
+/* TESTLER */
+
+.test-list{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.test-btn{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 20px;
+border-radius:20px;
+text-decoration:none;
+font-weight:700;
+font-size:17px;
+color:white;
+background:linear-gradient(135deg,#121212,#222,#333);
+border:1px solid rgba(250,204,21,.12);
+box-shadow:0 8px 25px rgba(0,0,0,.35);
+transition:.35s;
+cursor:pointer;
+position:relative;
+overflow:hidden;
+}
+
+.test-btn::before{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(135deg,transparent,rgba(250,204,21,.15));
+opacity:0;
+transition:.3s;
+}
+
+.test-btn:hover::before{
+opacity:1;
+}
+
+.test-btn:hover{
+transform:translateY(-5px);
+box-shadow:0 18px 35px rgba(250,204,21,.18);
+}
+
+.test-btn i{
+color:#facc15;
+font-size:20px;
+}
+
+/* PREMIUM BADGE */
+
+.badge{
+background:#facc15;
+color:black;
+font-size:12px;
+font-weight:700;
+padding:5px 12px;
+border-radius:30px;
+}
+
+/* COMPLETED */
+
+.completed{
+border:2px solid #22c55e;
+}
+
+/* LOCK SCREEN */
+
+.lock-screen{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.9);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:99999;
+}
+
+.lock-box{
+background:#111;
+padding:30px;
+border-radius:24px;
+text-align:center;
+max-width:350px;
+border:1px solid rgba(250,204,21,.2);
+}
+
+.lock-box h2{
+color:#facc15;
+margin-bottom:10px;
+}
+
+.lock-box p{
+color:#ddd;
+margin-bottom:18px;
+}
+
+.lock-btn{
+background:#facc15;
+color:black;
+padding:14px 28px;
+border:none;
+border-radius:14px;
+font-weight:700;
+cursor:pointer;
+}
+
+.test-btn.completed {
+        background: #e9f7ec;
+        border: 2px solid #2ecc71;
+        color: #1b5e20;
+        pointer-events: none;
+      }
+
+      .test-btn.completed::after {
+        content: "✓ ÇÖZÜLDÜ";
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #2ecc71;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 12px;
+        animation: pulse 1.5s infinite;
+      }
+
+/* TÜM KOPYALAMA / SEÇMEYİ KAPAT */
+
+*{
+  -webkit-user-select:none !important;
+  -moz-user-select:none !important;
+  -ms-user-select:none !important;
+  user-select:none !important;
+
+  -webkit-touch-callout:none !important;
+  -webkit-tap-highlight-color:transparent !important;
+}
+
+a{
+-webkit-touch-callout:none;
+}
+</style>
+<style id="seh-premium-list-v17">
+:root{--yellow:#f4c430;--yellow-strong:#e7ad17;--yellow-soft:#fff4c9;--bg:#f8f8f5;--card:#fff;--text:#171717;--muted:#77766f;--line:#e8e6dd;--shadow:0 12px 30px rgba(28,27,20,.08)}
+html,body{background:var(--bg)!important;color:var(--text)!important}
+body{font-family:Poppins,sans-serif!important}
+.app-header{
+ padding:14px 18px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;
+ background:linear-gradient(135deg,#f4c430,#e7ad17)!important;
+ border:0!important;border-radius:0 0 22px 22px!important;box-shadow:0 8px 25px rgba(28,27,20,.14)!important;
+}
+.app-title{font-size:18px!important;font-weight:800!important;color:#171717!important}
+.back-btn{
+ width:38px!important;height:38px!important;border-radius:12px!important;
+ background:rgba(255,255,255,.34)!important;color:#171717!important;font-size:15px!important;
+ box-shadow:none!important;
+}
+.back-btn:hover{background:#fff!important;color:#171717!important;transform:none!important}
+.container{max-width:760px!important;padding:18px 14px 34px!important}
+.header{
+ background:var(--card)!important;border:1px solid var(--line)!important;border-radius:22px!important;
+ box-shadow:var(--shadow)!important;padding:19px!important;
+}
+.header h2{color:var(--text)!important;font-size:19px!important}
+.header p{color:var(--muted)!important;font-size:11px!important}
+.test-list{gap:10px!important}
+.test-btn{
+ padding:15px 16px!important;border-radius:18px!important;background:var(--card)!important;
+ border:1px solid var(--line)!important;color:var(--text)!important;box-shadow:var(--shadow)!important;
+ font-size:13px!important;
+}
+.test-btn::before{background:linear-gradient(135deg,transparent,var(--yellow-soft))!important}
+.test-btn:hover{transform:translateY(-2px)!important;box-shadow:0 14px 28px rgba(28,27,20,.11)!important}
+.test-btn i{color:var(--yellow-strong)!important}
+.badge{background:var(--yellow)!important;color:#171717!important}
+</style>
+<style id="seh-darkmode-unified-fix">
+/* Unified Şahin Ehliyetim dark mode fixes */
+html, body { background: var(--bg, #f8fafc); }
+body.dark, body.dark html { background: #11110f !important; color: #f5f3e9 !important; }
+body.dark .bottom-nav {
+  background: rgba(25, 25, 22, .97) !important;
+  border-color: rgba(244, 196, 48, .22) !important;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, .42) !important;
+}
+body.dark .bottom-nav button { color: #aaa89e !important; background: transparent !important; }
+body.dark .bottom-nav button.active {
+  background: linear-gradient(135deg, #ffd84d, #f4c430) !important;
+  color: #27220f !important;
+}
+body.dark .bottom-nav .premium-btn { color: #f4c430 !important; }
+body.dark .bottom-nav button:not(.active):hover { color: #f4c430 !important; background: #332d16 !important; }
+body.dark .premium-modal, body.dark .premium-box-modern, body.dark .choice-card,
+body.dark .modal-content, body.dark .popup, body.dark .popup-content,
+body.dark .premium-popup, body.dark .ad-popup, body.dark .watch-ad-popup {
+  background: #191916 !important; color: #f5f3e9 !important; border-color: #32312a !important;
+}
+body.dark .premium-modal *, body.dark .premium-box-modern *, body.dark .choice-card *,
+body.dark .modal-content *, body.dark .popup *, body.dark .popup-content *,
+body.dark .premium-popup *, body.dark .ad-popup *, body.dark .watch-ad-popup * { color: inherit; }
+body.dark .premium-modal p, body.dark .premium-box-modern .desc,
+body.dark .choice-card p, body.dark .popup p, body.dark .popup-content p { color: #aaa89e !important; }
+</style>
+
+<style id="seh-premium-popup-v2">
+.premium-modal{position:fixed!important;inset:0!important;display:none;align-items:center!important;justify-content:center!important;padding:18px!important;background:rgba(9,9,7,.72)!important;backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;z-index:10001!important;}
+.premium-modal[style*="display: flex"],.premium-modal[style*="display:flex"],.premium-modal.open{display:flex!important;}
+.premium-box-modern{position:relative!important;width:min(100%,420px)!important;padding:22px!important;border:1px solid rgba(244,196,48,.38)!important;border-radius:28px!important;background:linear-gradient(145deg,#fffdf5 0%,#fff7d6 100%)!important;color:#171717!important;box-shadow:0 30px 90px rgba(0,0,0,.38),0 10px 30px rgba(244,196,48,.12)!important;overflow:hidden!important;}
+.premium-box-modern:before{content:"";position:absolute;left:-70px;top:-85px;width:190px;height:190px;border-radius:50%;background:rgba(244,196,48,.18);filter:blur(3px);pointer-events:none;}
+.premium-box-modern>*{position:relative;z-index:1;}
+.premium-modal-head{display:flex!important;align-items:center!important;gap:13px!important;margin-bottom:18px!important;}
+.premium-modal-icon{width:52px!important;height:52px!important;flex:0 0 52px!important;border-radius:17px!important;display:grid!important;place-items:center!important;background:linear-gradient(135deg,#ffd84d,#f4c430)!important;color:#27220f!important;font-size:20px!important;box-shadow:0 10px 25px rgba(244,196,48,.28)!important;}
+.premium-modal-title h3,.premium-box-modern h3{margin:0!important;color:#171717!important;font-size:19px!important;font-weight:800!important;line-height:1.2!important;}
+.premium-modal-title p,.premium-box-modern .desc{margin:4px 0 0!important;color:#77766f!important;font-size:10.5px!important;line-height:1.55!important;}
+.choice-card{position:relative!important;display:flex!important;align-items:center!important;gap:13px!important;margin:10px 0!important;padding:15px!important;border-radius:19px!important;cursor:pointer!important;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important;}
+.choice-card:hover{transform:translateY(-2px)!important;box-shadow:0 12px 25px rgba(28,27,20,.10)!important;}
+.choice-card.ad{background:linear-gradient(135deg,#fff 0%,#f5f8ff 100%)!important;border:1px solid #d6dfed!important;}
+.choice-card.premium{background:linear-gradient(135deg,#fff8d8 0%,#ffefaa 100%)!important;border:1px solid #e4b72b!important;}
+.choice-icon{width:44px!important;height:44px!important;flex:0 0 44px!important;border-radius:14px!important;display:grid!important;place-items:center!important;font-size:17px!important;}
+.choice-card.ad .choice-icon{background:#e8f1ff!important;color:#2563eb!important;}
+.choice-card.premium .choice-icon{background:#f4c430!important;color:#27220f!important;}
+.choice-copy{min-width:0!important;}
+.choice-head{font-size:12.5px!important;font-weight:800!important;color:#171717!important;}
+.choice-copy p,.choice-card p{margin:4px 0 0!important;font-size:9.5px!important;line-height:1.55!important;color:#77766f!important;}
+.choice-arrow{margin-left:auto!important;color:#a17b00!important;font-size:12px!important;}
+.cancel-btn{width:100%!important;margin-top:13px!important;padding:12px!important;border:1px solid #dedbd0!important;border-radius:15px!important;background:#f4f1e7!important;color:#55534b!important;font-size:10.5px!important;font-weight:800!important;cursor:pointer!important;}
+body.dark .premium-modal{background:rgba(0,0,0,.78)!important;}
+body.dark .premium-box-modern{background:linear-gradient(145deg,#191916 0%,#27261e 100%)!important;border-color:rgba(244,196,48,.34)!important;color:#f7f6ef!important;box-shadow:0 30px 90px rgba(0,0,0,.68)!important;}
+body.dark .premium-box-modern:before{background:rgba(244,196,48,.10)!important;}
+body.dark .premium-modal-title h3,body.dark .premium-box-modern h3,body.dark .choice-head{color:#f7f6ef!important;}
+body.dark .premium-modal-title p,body.dark .premium-box-modern .desc,body.dark .choice-copy p,body.dark .choice-card p{color:#aaa89e!important;}
+body.dark .choice-card.ad{background:linear-gradient(135deg,#1b2633,#18202a)!important;border-color:#344a61!important;}
+body.dark .choice-card.ad .choice-icon{background:#233b55!important;color:#9fc4ff!important;}
+body.dark .choice-card.premium{background:linear-gradient(135deg,#332d16,#433812)!important;border-color:#a77d08!important;}
+body.dark .choice-card.premium .choice-icon{background:#f4c430!important;color:#27220f!important;}
+body.dark .choice-arrow{color:#f4c430!important;}
+body.dark .cancel-btn{background:#24231e!important;color:#aaa89e!important;border-color:#3b392f!important;}
+</style>
+</head>
+<body>
+
+<header class="app-header">
+<button class="back-btn" onclick="history.back()">
+<i class="fa-solid fa-chevron-left"></i>
+</button>
+
+<div class="app-title">👑 Premium</div>
+</header>
+
+<div class="container">
+
+<div class="header">
+<h2>👑 Premium İlk Yardım Testleri</h2>
+<p>
+Sadece premium üyeler için hazırlanmış gelişmiş İlk Yardım testleri.
+</p>
+</div>
+
+<div class="test-list">
+
+<a  class="test-btn" draggable="false" href="premiumyardimtest1.html" id="premium-ilkyardim-test-1">
+Premium Test 1
+<i class="fa-solid fa-crown"></i>
+</a>
+
+<a  class="test-btn" draggable="false" href="premiumyardimtest2.html" id="premium-ilkyardim-test-2">
+Premium Test 2
+<i class="fa-solid fa-crown"></i>
+</a>
+
+<a  class="test-btn" draggable="false" href="premiumyardimtest3.html" id="premium-ilkyardim-test-3">
+Premium Test 3
+<i class="fa-solid fa-crown"></i>
+</a>
+
+<a  class="test-btn" draggable="false" href="premiumyardimtest4.html" id="premium-ilkyardim-test-4">
+Premium Test 4
+<i class="fa-solid fa-crown"></i>
+</a>
+
+<a  class="test-btn" draggable="false" href="premiumyardimtest5.html" id="premium-ilkyardim-test-5">
+Premium Test 5
+<i class="fa-solid fa-crown"></i>
+</a>
+
+</div>
+</div>
+
+
+
+<script>
+
+    let user = JSON.parse(localStorage.getItem("user")) || { tests: {} };
+
+    function loadStatus() {
+      if (!user.tests) return;
+
+      Object.keys(user.tests).forEach((key) => {
+        const btn = document.getElementById(key);
+
+        if (btn) {
+          btn.classList.add("completed");
+        }
+      });
+    }
+    loadStatus();
+
+
+
+/* PREMIUM SAYFASI */
+
+function goPremium(){
+location.href="premium.html";
+}
+
+
+/* SAĞ TIK KAPAT */
+document.addEventListener("contextmenu", e => e.preventDefault());
+
+/* UZUN BASMA MENÜSÜ KAPAT */
+document.addEventListener("selectstart", e => e.preventDefault());
+
+/* KOPYALA / KES / YAPIŞTIR KISAYOLLARI KAPAT */
+document.addEventListener("copy", e => e.preventDefault());
+document.addEventListener("cut", e => e.preventDefault());
+document.addEventListener("paste", e => e.preventDefault());
+
+/* MOBİL UZUN BASMA */
+document.addEventListener("touchstart", function(){}, {passive:true});
+
+
+</script>
+
+</body>
+</html>

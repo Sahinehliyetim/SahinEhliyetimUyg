@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Ehliyet Topluluğu</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<link rel="stylesheet" href="style.css">
+
+<style id="seh-darkmode-unified-fix">
+/* Unified Şahin Ehliyetim dark mode fixes */
+html, body { background: var(--bg, #f8fafc); }
+body.dark, body.dark html { background: #11110f !important; color: #f5f3e9 !important; }
+body.dark .bottom-nav {
+  background: rgba(25, 25, 22, .97) !important;
+  border-color: rgba(244, 196, 48, .22) !important;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, .42) !important;
+}
+body.dark .bottom-nav button { color: #aaa89e !important; background: transparent !important; }
+body.dark .bottom-nav button.active {
+  background: linear-gradient(135deg, #ffd84d, #f4c430) !important;
+  color: #27220f !important;
+}
+body.dark .bottom-nav .premium-btn { color: #f4c430 !important; }
+body.dark .bottom-nav button:not(.active):hover { color: #f4c430 !important; background: #332d16 !important; }
+body.dark .premium-modal, body.dark .premium-box-modern, body.dark .choice-card,
+body.dark .modal-content, body.dark .popup, body.dark .popup-content,
+body.dark .premium-popup, body.dark .ad-popup, body.dark .watch-ad-popup {
+  background: #191916 !important; color: #f5f3e9 !important; border-color: #32312a !important;
+}
+body.dark .premium-modal *, body.dark .premium-box-modern *, body.dark .choice-card *,
+body.dark .modal-content *, body.dark .popup *, body.dark .popup-content *,
+body.dark .premium-popup *, body.dark .ad-popup *, body.dark .watch-ad-popup * { color: inherit; }
+body.dark .premium-modal p, body.dark .premium-box-modern .desc,
+body.dark .choice-card p, body.dark .popup p, body.dark .popup-content p { color: #aaa89e !important; }
+</style>
+
+<style id="seh-premium-popup-v2">
+.premium-modal{position:fixed!important;inset:0!important;display:none;align-items:center!important;justify-content:center!important;padding:18px!important;background:rgba(9,9,7,.72)!important;backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;z-index:10001!important;}
+.premium-modal[style*="display: flex"],.premium-modal[style*="display:flex"],.premium-modal.open{display:flex!important;}
+.premium-box-modern{position:relative!important;width:min(100%,420px)!important;padding:22px!important;border:1px solid rgba(244,196,48,.38)!important;border-radius:28px!important;background:linear-gradient(145deg,#fffdf5 0%,#fff7d6 100%)!important;color:#171717!important;box-shadow:0 30px 90px rgba(0,0,0,.38),0 10px 30px rgba(244,196,48,.12)!important;overflow:hidden!important;}
+.premium-box-modern:before{content:"";position:absolute;left:-70px;top:-85px;width:190px;height:190px;border-radius:50%;background:rgba(244,196,48,.18);filter:blur(3px);pointer-events:none;}
+.premium-box-modern>*{position:relative;z-index:1;}
+.premium-modal-head{display:flex!important;align-items:center!important;gap:13px!important;margin-bottom:18px!important;}
+.premium-modal-icon{width:52px!important;height:52px!important;flex:0 0 52px!important;border-radius:17px!important;display:grid!important;place-items:center!important;background:linear-gradient(135deg,#ffd84d,#f4c430)!important;color:#27220f!important;font-size:20px!important;box-shadow:0 10px 25px rgba(244,196,48,.28)!important;}
+.premium-modal-title h3,.premium-box-modern h3{margin:0!important;color:#171717!important;font-size:19px!important;font-weight:800!important;line-height:1.2!important;}
+.premium-modal-title p,.premium-box-modern .desc{margin:4px 0 0!important;color:#77766f!important;font-size:10.5px!important;line-height:1.55!important;}
+.choice-card{position:relative!important;display:flex!important;align-items:center!important;gap:13px!important;margin:10px 0!important;padding:15px!important;border-radius:19px!important;cursor:pointer!important;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important;}
+.choice-card:hover{transform:translateY(-2px)!important;box-shadow:0 12px 25px rgba(28,27,20,.10)!important;}
+.choice-card.ad{background:linear-gradient(135deg,#fff 0%,#f5f8ff 100%)!important;border:1px solid #d6dfed!important;}
+.choice-card.premium{background:linear-gradient(135deg,#fff8d8 0%,#ffefaa 100%)!important;border:1px solid #e4b72b!important;}
+.choice-icon{width:44px!important;height:44px!important;flex:0 0 44px!important;border-radius:14px!important;display:grid!important;place-items:center!important;font-size:17px!important;}
+.choice-card.ad .choice-icon{background:#e8f1ff!important;color:#2563eb!important;}
+.choice-card.premium .choice-icon{background:#f4c430!important;color:#27220f!important;}
+.choice-copy{min-width:0!important;}
+.choice-head{font-size:12.5px!important;font-weight:800!important;color:#171717!important;}
+.choice-copy p,.choice-card p{margin:4px 0 0!important;font-size:9.5px!important;line-height:1.55!important;color:#77766f!important;}
+.choice-arrow{margin-left:auto!important;color:#a17b00!important;font-size:12px!important;}
+.cancel-btn{width:100%!important;margin-top:13px!important;padding:12px!important;border:1px solid #dedbd0!important;border-radius:15px!important;background:#f4f1e7!important;color:#55534b!important;font-size:10.5px!important;font-weight:800!important;cursor:pointer!important;}
+body.dark .premium-modal{background:rgba(0,0,0,.78)!important;}
+body.dark .premium-box-modern{background:linear-gradient(145deg,#191916 0%,#27261e 100%)!important;border-color:rgba(244,196,48,.34)!important;color:#f7f6ef!important;box-shadow:0 30px 90px rgba(0,0,0,.68)!important;}
+body.dark .premium-box-modern:before{background:rgba(244,196,48,.10)!important;}
+body.dark .premium-modal-title h3,body.dark .premium-box-modern h3,body.dark .choice-head{color:#f7f6ef!important;}
+body.dark .premium-modal-title p,body.dark .premium-box-modern .desc,body.dark .choice-copy p,body.dark .choice-card p{color:#aaa89e!important;}
+body.dark .choice-card.ad{background:linear-gradient(135deg,#1b2633,#18202a)!important;border-color:#344a61!important;}
+body.dark .choice-card.ad .choice-icon{background:#233b55!important;color:#9fc4ff!important;}
+body.dark .choice-card.premium{background:linear-gradient(135deg,#332d16,#433812)!important;border-color:#a77d08!important;}
+body.dark .choice-card.premium .choice-icon{background:#f4c430!important;color:#27220f!important;}
+body.dark .choice-arrow{color:#f4c430!important;}
+body.dark .cancel-btn{background:#24231e!important;color:#aaa89e!important;border-color:#3b392f!important;}
+</style>
+</head>
+<body style="display:none;">
+
+<style>
+    *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0f1117;
+height:100vh;
+overflow:hidden;
+color:white;
+}
+
+.app{
+height:100vh;
+display:flex;
+flex-direction:column;
+}
+
+header{
+height:70px;
+background:#161a23;
+display:flex;
+align-items:center;
+padding:15px;
+border-bottom:1px solid #232936;
+}
+
+.logo{
+width:45px;
+height:45px;
+background:#2f6df6;
+border-radius:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:18px;
+margin-right:12px;
+}
+
+header h3{
+font-size:16px;
+}
+
+header span{
+font-size:12px;
+color:#8f97a8;
+}
+
+.chatArea{
+flex:1;
+overflow-y:auto;
+min-height:0; /* 🔥 KRİTİK FIX */
+padding:15px;
+}
+
+.message{
+display:flex;
+margin-bottom:15px;
+}
+
+.avatar{
+width:40px;
+height:40px;
+border-radius:50%;
+background:#2f6df6;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+margin-right:10px;
+flex-shrink:0;
+}
+
+.bubble{
+background:#1b202b;
+padding:12px;
+border-radius:14px;
+max-width:80%;
+}
+
+.name{
+font-size:13px;
+font-weight:bold;
+color:#5c8dff;
+margin-bottom:5px;
+}
+
+.text{
+font-size:14px;
+line-height:1.4;
+}
+
+.bottomBar{
+padding:10px;
+display:flex;
+gap:10px;
+background:#161a23;
+border-top:1px solid #232936;
+}
+
+.bottomBar input{
+flex:1;
+height:50px;
+border:none;
+outline:none;
+background:#1d2330;
+border-radius:15px;
+padding:0 15px;
+color:white;
+font-size:15px;
+}
+
+.bottomBar button{
+width:50px;
+height:50px;
+border:none;
+border-radius:15px;
+background:#2f6df6;
+color:white;
+font-size:18px;
+}
+
+#replyBox{
+display:none;
+padding:10px 15px;
+background:#1d2330;
+border-top:1px solid #2c3444;
+font-size:13px;
+color:#9db7ff;
+}
+
+#usernameModal{
+position:fixed;
+inset:0;
+background:#000000d9;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+.modalBox{
+width:90%;
+max-width:350px;
+background:#161a23;
+padding:25px;
+border-radius:20px;
+}
+
+.modalBox h2{
+margin-bottom:10px;
+}
+
+.modalBox p{
+color:#a6afc0;
+margin-bottom:15px;
+}
+
+.modalBox input{
+width:100%;
+height:50px;
+background:#1d2330;
+border:none;
+border-radius:12px;
+padding:0 15px;
+color:white;
+margin-bottom:15px;
+}
+
+.modalBox button{
+width:100%;
+height:50px;
+background:#2f6df6;
+border:none;
+border-radius:12px;
+color:white;
+font-size:15px;
+font-weight:bold;
+}
+
+.communityInfo{
+padding:10px 15px;
+font-size:13px;
+color:#9aa3b2;
+background:#131821;
+border-top:1px solid #232936;
+}
+
+#rulesModal{
+position:fixed;
+inset:0;
+background:#000000d8;
+display:none;
+justify-content:center;
+align-items:center;
+z-index:1000;
+}
+
+.rulesBox{
+width:90%;
+max-width:380px;
+background:#161a23;
+padding:25px;
+border-radius:20px;
+}
+
+.rulesBox h2{
+margin-bottom:15px;
+}
+
+.rulesBox ul{
+padding-left:20px;
+margin-bottom:20px;
+}
+
+.rulesBox li{
+margin-bottom:10px;
+color:#b7c0d0;
+font-size:14px;
+}
+
+.rulesBox button{
+width:100%;
+height:50px;
+border:none;
+border-radius:12px;
+background:#2f6df6;
+color:white;
+font-weight:bold;
+}
+
+#replyBox{
+display:none;
+align-items:center;
+justify-content:space-between;
+padding:10px 15px;
+background:#1d2330;
+border-top:1px solid #2c3444;
+}
+
+#replyText{
+font-size:13px;
+color:#9db7ff;
+}
+
+#cancelReply{
+background:none;
+border:none;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+.replyBtn{
+width:34px;
+height:34px;
+border:none;
+background:#1d2330;
+color:#9db7ff;
+border-radius:10px;
+margin-left:8px;
+cursor:pointer;
+flex-shrink:0;
+}
+
+#roomPage{
+position:fixed;
+inset:0;
+background:#0f1117;
+color:white;
+display:flex;
+flex-direction:column;
+padding:20px;
+overflow:hidden; /* 🔥 değişti */
+}
+
+.roomHeader{
+text-align:left;
+margin-top:10px;
+margin-bottom:20px;
+}
+
+.roomHeader h2{
+font-size:22px;
+margin-bottom:5px;
+}
+
+.roomHeader p{
+color:#8f97a8;
+font-size:13px;
+}
+
+.roomCard{
+width:100%;
+display:flex;
+align-items:center;
+gap:15px;
+padding:15px;
+background:#161a23;
+border-radius:15px;
+cursor:pointer;
+border:1px solid #232936;
+transition:0.2s;
+margin-bottom:10px;
+}
+
+.roomCard:hover{
+transform:scale(1.02);
+}
+
+.roomCard i{
+font-size:20px;
+color:#2f6df6;
+}
+
+.roomCard h3{
+font-size:15px;
+}
+
+.roomCard span{
+font-size:12px;
+color:#8f97a8;
+}
+.exitBtn{
+width:40px;
+height:40px;
+border:none;
+background:#1d2330;
+color:white;
+border-radius:10px;
+margin-right:10px;
+}
+
+#toast{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+background:#1d2330;
+color:white;
+padding:12px 18px;
+border-radius:12px;
+font-size:14px;
+opacity:0;
+pointer-events:none;
+transition:0.3s;
+z-index:9999;
+}
+
+#toast.show{
+opacity:1;
+transform:translateX(-50%) translateY(-10px);
+}
+
+.profileBtn{
+width:40px;
+height:40px;
+border:none;
+background:#1d2330;
+color:white;
+border-radius:10px;
+margin-left:auto;
+cursor:pointer;
+}
+
+#profileModal{
+position:fixed;
+inset:0;
+background:#000000cc;
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.profileBox{
+width:90%;
+max-width:350px;
+background:#161a23;
+padding:20px;
+border-radius:20px;
+text-align:center;
+color:white;
+}
+
+.avatarBig{
+width:80px;
+height:80px;
+border-radius:50%;
+background:#2f6df6;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+margin:10px auto;
+}
+
+.avatarList{
+display:flex;
+justify-content:center;
+gap:10px;
+margin:15px 0;
+}
+
+.avatarList div{
+width:40px;
+height:40px;
+border-radius:50%;
+background:#1d2330;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+}
+.avatarList{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+margin:15px 0;
+}
+
+.avatarList div{
+width:45px;
+height:45px;
+border-radius:50%;
+background:#1d2330;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:20px;
+cursor:pointer;
+transition:0.2s;
+}
+
+.avatarList div:hover{
+transform:scale(1.1);
+background:#2f6df6;
+}
+
+.avatar{
+width:35px;
+height:35px;
+border-radius:50%;
+background:#2f6df6;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:16px;
+color:white;
+flex-shrink:0;
+}
+
+.profileBox button{
+width:100%;
+height:45px;
+border:none;
+border-radius:12px;
+background:#1d2330;
+color:#9db7ff;
+font-size:14px;
+font-weight:500;
+cursor:pointer;
+margin-top:10px;
+transition:0.2s;
+}
+
+.pinnedNotice{
+position:sticky;
+top:0;
+z-index:10;
+background:#1d2330;
+border:1px solid #2f6df6;
+color:#cfe1ff;
+padding:12px 14px;
+border-radius:12px;
+font-size:12.5px;
+line-height:1.4;
+margin-bottom:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+body{
+background:#0f1117;
+height:100vh;
+overflow:hidden; /* 🔥 kritik */
+color:white;
+}
+#chatApp{
+height:100vh;
+display:flex;
+flex-direction:column;
+overflow:hidden;
+}
+html, body{
+height:100%;
+overflow:hidden;
+}
+
+*{
+-webkit-user-select:none;
+-ms-user-select:none;
+user-select:none;
+-webkit-touch-callout:none; /* mobil uzun basma menüsü */
+}
+
+#sendBtn{
+background:#2f6df6;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:18px;
+transition:0.2s;
+}
+
+#sendBtn:active{
+transform:scale(0.92);
+}
+
+.avatarBig i,
+.avatar i{
+font-size:18px;
+color:white;
+}
+</style>
+
+<div id="usernameModal">
+
+    <div class="modalBox">
+        <h2>Topluluğa Katıl</h2>
+
+        <p>Kullanıcı adını belirle</p>
+
+        <input type="text" id="usernameInput" placeholder="Kullanıcı Adı">
+
+        <button onclick="saveUsername()">
+            Sohbete Katıl
+        </button>
+    </div>
+
+</div>
+
+<div id="rulesModal">
+
+    <div class="rulesBox">
+
+        <h2>Topluluk Kuralları</h2>
+
+        <ul>
+            <li>Saygılı olun.</li>
+            <li>Küfür ve hakaret yasaktır.</li>
+            <li>Reklam yapmak yasaktır.</li>
+            <li>Kişisel bilgilerinizi paylaşmayın.</li>
+            <li>Konu dışı spam mesaj göndermeyin.</li>
+        </ul>
+
+        <button id="acceptRules">
+            Kuralları Kabul Ediyorum
+        </button>
+
+    </div>
+
+</div>
+
+<div id="roomPage">
+ <button class="profileBtn" onclick="openProfile()">
+<i class="fa-solid fa-user"></i>
+</button>   
+<button class="exitBtn" onclick="exitRoom2()">
+<i class="fa-solid fa-arrow-left"></i>
+</button>
+
+    <div class="roomHeader">
+        <h2>Topluluk Odaları</h2>
+        <p>Sohbete katılmak için bir oda seç</p>
+    </div>
+
+    <div class="roomCard" onclick="enterRoom('ehliyet')">
+        <i class="fa-solid fa-comments"></i>
+        <div>
+            <h3>Ehliyet Topluluğu</h3>
+            <span>Genel sohbet odası</span>
+        </div>
+    </div>
+
+    <div style="margin-top:auto;text-align:center;padding:15px;">
+    <button onclick="openAdminLogin()" 
+        style="background:none;border:none;color:#8f97a8;font-size:12px;">
+        Moderatör Girişi
+    </button>
+</div>
+</div>
+
+<div class="app" id="chatApp" style="display:none;">
+
+    <header style="margin-top:30px;">
+<button class="exitBtn" onclick="exitRoom()">
+<i class="fa-solid fa-arrow-left"></i>
+</button>
+        <div class="logo">
+            <i class="fa-solid fa-comments"></i>
+        </div>
+
+        <div>
+            <h3>Ehliyet Topluluğu</h3>
+            <span>Canlı Sohbet</span>
+            <span id="onlineCount">
+    Sohbette: 0 kişi
+</span>
+        </div>
+<button id="adminClearBtn" onclick="clearAllMessages()"
+style="display:none;background:red;color:white;border:none;padding:5px 10px;border-radius:8px;margin-left:10px;">
+Tümünü Sil
+</button>
+    </header>
+
+
+    <div class="chatArea" id="chatArea">
+<div class="pinnedNotice">
+⚠️ Lütfen sohbet kurallarına uyun. Küfür, argo, hakaret ve reklam içerikli mesajlar yasaktır.  
+İhlaller yasal sonuçlara yol açabilir.
+</div>
+        <div class="message">
+
+            <div class="avatar">
+           <p>A</p>
+          </div>
+
+            <div class="bubble">
+                <div class="name">Admin</div>
+                <div class="text">
+                    Hoş geldiniz 🚗
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div id="replyBox">
+
+    <div id="replyText"></div>
+
+    <button id="cancelReply">
+        ✕
+    </button>
+
+</div>
+
+<div class="communityInfo">
+🚗 Sorularınızı sorabilir ve diğer ehliyet adaylarına yardımcı olabilirsiniz.
+</div>
+    <div class="bottomBar">
+
+        <input
+        type="text"
+        id="messageInput"
+        placeholder="Mesaj yaz...">
+
+        <button id="sendBtn">
+     <i class="fa-solid fa-comment-dots"></i>
+</button>
+
+    </div>
+
+</div>
+<div id="profileModal">
+
+    <div class="profileBox">
+
+        <h2>Profil</h2>
+
+        <div class="avatarBig" id="avatarBig">A</div>
+
+        <p id="profileName"></p>
+
+        <h3>Profil Seç</h3>
+
+<div class="avatarList">
+
+    <div onclick="setAvatar('user')">
+<i class="fa-solid fa-user"></i>
+</div>
+
+<div onclick="setAvatar('user-tie')">
+<i class="fa-solid fa-user-tie"></i>
+</div>
+
+<div onclick="setAvatar('user-graduate')">
+<i class="fa-solid fa-user-graduate"></i>
+</div>
+
+<div onclick="setAvatar('user-astronaut')">
+<i class="fa-solid fa-user-astronaut"></i>
+</div>
+
+<div onclick="setAvatar('user-shield')">
+<i class="fa-solid fa-user-shield"></i>
+</div>
+
+<div onclick="setAvatar('car')">
+<i class="fa-solid fa-car"></i>
+</div>
+
+</div>
+
+        <button onclick="closeProfile()">Kapat</button>
+
+    </div>
+
+</div>
+<div id="toast"></div>
+<div id="adminLoginModal" style="display:none;position:fixed;inset:0;background:#000000cc;z-index:99999;justify-content:center;align-items:center;">
+    <div style="background:#161a23;padding:20px;border-radius:15px;width:90%;max-width:300px;">
+        <h3>Moderatör Girişi</h3>
+
+        <input id="adminPass" placeholder="Şifre" 
+        style="width:100%;padding:10px;margin-top:10px;">
+
+        <button onclick="adminLogin()" 
+        style="width:100%;margin-top:10px;padding:10px;background:#2f6df6;color:white;border:none;border-radius:10px;">
+            Giriş
+        </button>
+
+        <button onclick="closeAdminLogin()" 
+        style="width:100%;margin-top:10px;padding:10px;background:#1d2330;color:white;border:none;border-radius:10px;">
+            Kapat
+        </button>
+    </div>
+</div>
+
+<div id="adminPanel" style="display:none; position:fixed; inset:0; background:#0f1117; color:white; z-index:999999; padding:15px; overflow:auto;">
+
+    <h2>👑 Admin Panel</h2>
+
+    <input id="adminPass" placeholder="Admin şifre" style="width:100%;padding:10px;">
+    <button onclick="adminLogin()" style="width:100%;margin-top:10px;">Giriş</button>
+
+    <hr>
+
+    <button onclick="clearAllMessages()" style="width:100%;background:red;color:white;padding:10px;">
+        🧹 Tüm Mesajları Sil
+    </button>
+
+    <hr>
+
+    <h3>Mesaj Yönetimi</h3>
+    <div id="adminMessages"></div>
+
+    <hr>
+
+    <h3>👑 Admin Mesaj Gönder</h3>
+    <textarea id="adminText" style="width:100%;height:80px;"></textarea>
+    <button onclick="sendAdminMessage()" style="width:100%;margin-top:10px;">
+        Gönder
+    </button>
+
+    <br><br>
+    <button onclick="document.getElementById('adminPanel').style.display='none'">Kapat</button>
+
+</div>
+<script>
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBWQSAvtjgPW1k6K6y-drTKDhPpy2OwQII",
+  authDomain: "chat-a67f7.firebaseapp.com",
+  projectId: "chat-a67f7",
+  storageBucket: "chat-a67f7.firebasestorage.app",
+  messagingSenderId: "820154293996",
+  appId: "1:820154293996:web:34834d76e6885a4d844fc9",
+  measurementId: "G-J1MCTGPMP0"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+let userRole = "user";
+let avatar = "user";
+const modal = document.getElementById("usernameModal");
+const usernameInput = document.getElementById("usernameInput");
+history.replaceState({page:"rooms"}, "", "#rooms");
+const rulesModal =
+document.getElementById("rulesModal");
+const acceptRules =
+document.getElementById("acceptRules");
+const replyBox =
+document.getElementById("replyBox");
+const replyText =
+document.getElementById("replyText");
+const cancelReply =
+document.getElementById("cancelReply");
+   cancelReply.addEventListener("click", () => {
+    replyMessage = null;
+    replyBox.style.display = "none";
+    replyText.innerHTML = "";
+});
+window.onload = function(){
+    initApp();
+};
+let replyMessage = null;
+let lastMessageTime = 0;
+let username = localStorage.getItem("username");
+let userId = localStorage.getItem("userId");
+
+if(!userId){
+    userId = Math.random().toString(36).substring(2);
+    localStorage.setItem("userId", userId);
+}
+
+function checkEntry(){
+
+    username = localStorage.getItem("username");
+    const rulesAccepted = localStorage.getItem("rulesAccepted");
+
+    // username yoksa
+    if(!username){
+        modal.style.display = "flex";
+        document.getElementById("roomPage").style.display = "none";
+        document.getElementById("chatApp").style.display = "none";
+        return;
+    }
+
+    // kurallar yoksa
+    if(!rulesAccepted){
+        rulesModal.style.display = "flex";
+        document.getElementById("roomPage").style.display = "none";
+        document.getElementById("chatApp").style.display = "none";
+        return;
+    }
+
+    // giriş tamam ama oda seçilmemişse
+    const room = localStorage.getItem("room");
+
+    if(!room){
+        document.getElementById("roomPage").style.display = "flex";
+        history.pushState({page:"rooms"}, "", "#rooms");
+        document.getElementById("chatApp").style.display = "none";
+        return;
+    }
+
+    // her şey tamam
+    modal.style.display = "none";
+    rulesModal.style.display = "none";
+    document.getElementById("roomPage").style.display = "none";
+    document.getElementById("chatApp").style.display = "flex";
+}
+
+function saveUsername(){
+
+    let value = usernameInput.value.trim();
+
+    if(value.includes(" ")){
+    showToast("Kullanıcı adında boşluk olamaz!");
+    return;
+    }
+    const forbidden = [
+    "şahin",
+    "ehliyet",
+    "sahin",
+    "sahinehliyet",
+    "şahinehliyet",
+    "admin",
+    "mod",
+    "moderator",
+    "👑"
+];
+
+let lower = value.toLowerCase();
+
+for(let word of forbidden){
+    if(lower.includes(word)){
+        showToast("Bu kullanıcı adı kullanılamaz!");
+        return;
+    }
+}
+    if(value.length < 3){
+        showToast("Kullanıcı adı en az 3 karakter olmalı");
+        return;
+    }
+     if(value.length > 20){
+        showToast("Kullanıcı adı en fazla 20 karakter olabilir");
+        return;
+    }
+
+    // özel karakter kontrolü
+   const regex = /^[a-zA-Z0-9ğüşöçıİĞÜŞÖÇ]+$/;
+
+    if(!regex.test(value)){
+        showToast("Özel karakter kullanamazsın. Boşluk da dahil.");
+        return;
+    }
+
+let cleanName = value
+.toLowerCase()
+.trim()
+.replace(/\s+/g,'')
+db.collection("users")
+.where("usernameLower","==", cleanName)
+.get()
+.then(snapshot => {
+
+    if(!snapshot.empty){
+        showToast("Bu kullanıcı adı zaten alınmış!");
+        return;
+    }
+
+db.collection("users").add({
+    username: value,
+    usernameLower: cleanName,
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+});
+
+    localStorage.setItem("username", value);
+    username = value;
+
+    modal.style.display = "none";
+    checkEntry();
+});
+}
+
+const sendBtn = document.getElementById("sendBtn");
+const messageInput = document.getElementById("messageInput");
+const chatArea = document.getElementById("chatArea");
+
+sendBtn.addEventListener("click", sendMessage);
+
+function sendMessage(){
+
+    let text = messageInput.value.trim();
+    if(!text) return;
+
+    const now = Date.now();
+
+    if(now - lastMessageTime < 3000){
+        showToast("Çok hızlı mesaj gönderemezsin!");
+        return;
+    }
+
+    lastMessageTime = now;
+
+    const room = localStorage.getItem("room") || "ehliyet";
+
+    // 🔥 FIREBASE'E GÖNDER
+    db.collection("rooms")
+      .doc(room)
+      .collection("messages")
+      .add({
+          text: text,
+          username: userRole === "admin" ? "Şahin Ehliyet" : username,
+          isAdmin: userRole === "admin",
+          avatar: userRole === "admin" ? "user-shield" : avatar,
+          avatar: avatar || "user",
+          reply: replyMessage || null,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+
+    messageInput.value = "";
+    replyMessage = null;
+    replyBox.style.display = "none";
+    replyText.innerHTML = "";
+
+    chatArea.scrollTop = chatArea.scrollHeight;
+
+    // 🔥 25 mesaj limiti
+    limitMessages(room);
+}
+
+function listenMessages(){
+
+    const room = localStorage.getItem("room") || "ehliyet";
+
+    db.collection("rooms")
+      .doc(room)
+      .collection("messages")
+      .orderBy("createdAt")
+      .onSnapshot(snapshot => {
+
+        let html = `
+        <div class="pinnedNotice">
+        ⚠️ Lütfen sohbet kurallarına uyun. Küfür, argo, hakaret, spam mesajlar ve reklam yasaktır. gerektiğinde yasal işlem başlatılabilir.
+        </div>
+        `;
+
+        snapshot.forEach(doc => {
+            const msg = doc.data();
+
+            html += `
+            <div class="message">
+                <div class="avatar">
+                    ${getAvatarIcon(msg.avatar)}
+                </div>
+
+               <div class="bubble" style="${
+    msg.isAdmin 
+    ? 'background:linear-gradient(135deg,#d4af37,#f1c40f);color:#111;border:1px solid #fff;box-shadow:0 0 10px rgba(212,175,55,0.6)'
+    : ''
+}">
+                   <div class="name" style="${
+    msg.isAdmin 
+    ? 'color:black !important;font-weight:bold;text-shadow:0 0 6px rgba(212,175,55,0.8)'
+    : ''
+}">
+${msg.isAdmin ? " Şahin Ehliyet" : msg.username}
+</div>
+
+                    ${msg.reply ? `
+                    <div style="font-size:12px;background:#111722;padding:6px;border-left:3px solid #2f6df6;margin-bottom:6px;color:#9db7ff;border-radius:6px;">
+                        ↩ ${msg.reply}
+                    </div>` : ""}
+
+                    <div class="text">${msg.text}</div>
+                </div>
+
+                ${userRole === "admin" ? `
+               <button onclick="deleteMessage('${doc.id}')"
+               style="margin-left:10px;background:red;color:white;border:none;padding:5px;border-radius:5px;">
+            Sil
+            </button>` : ""}
+
+                <button class="replyBtn" onclick="replyToMessage(this)">
+                    ↩
+                </button>
+            </div>
+            `;
+        });
+
+        chatArea.innerHTML = html;
+
+        setTimeout(()=>{
+            chatArea.scrollTop = chatArea.scrollHeight;
+        }, 50);
+
+      });
+}
+
+function limitMessages(room){
+
+    db.collection("rooms")
+      .doc(room)
+      .collection("messages")
+      .orderBy("createdAt")
+      .get()
+      .then(snapshot => {
+
+          if(snapshot.size > 25){
+
+              const extra = snapshot.size - 25;
+
+              let batch = db.batch();
+
+              snapshot.docs.slice(0, extra).forEach(doc => {
+                  batch.delete(doc.ref);
+              });
+
+              batch.commit();
+          }
+      });
+}
+
+
+acceptRules.onclick = () => {
+
+    localStorage.setItem("rulesAccepted","true");
+
+    rulesModal.style.display = "none";
+
+    // giriş kontrolünü tekrar çalıştır
+    checkEntry();
+};
+
+
+function replyToMessage(btn){
+
+    const msg = btn.parentElement;
+
+    const text = msg.querySelector(".text").innerText;
+    const name = msg.querySelector(".name").innerText;
+
+    replyMessage = `${name}: ${text}`;
+
+    replyText.innerHTML = "↩ " + replyMessage;
+    replyBox.style.display = "flex";
+}
+
+function enterRoom(roomName){
+
+    localStorage.setItem("room", roomName);
+
+    document.getElementById("roomPage").style.display = "none";
+    document.getElementById("chatApp").style.display = "flex";
+
+    // 🔥 BACK BUTTON STATE EKLE
+    history.pushState({page:"chat"}, "", "#chat");
+    listenMessages();
+    listenOnlineUsers();
+    setOnline();
+}
+window.onpopstate = function(event){
+
+    const room = document.getElementById("roomPage");
+    const chat = document.getElementById("chatApp");
+
+    if(room.style.display === "none" && chat.style.display === "flex"){
+        // CHAT → ROOMS
+        chat.style.display = "none";
+        room.style.display = "flex";
+        localStorage.removeItem("room");
+        return;
+    }
+
+    if(room.style.display === "flex"){
+        // ROOMS → CATEGORIES
+        window.location.href = "katagoriler.html";
+    }
+};
+function exitRoom(){
+
+    document.getElementById("chatApp").style.display = "none";
+    document.getElementById("roomPage").style.display = "flex";
+
+    localStorage.removeItem("room");
+
+    history.pushState({page:"rooms"}, "", "#rooms");
+}
+function exitRoom2(){
+
+    window.location.href = "katagoriler.html";
+
+}
+
+function initApp(){
+
+    avatar = localStorage.getItem("avatar") || "user";
+    userRole = localStorage.getItem("role") || "user";
+    document.body.style.display = "block";
+    username = localStorage.getItem("username");
+    const rulesAccepted = localStorage.getItem("rulesAccepted");
+    const room = localStorage.getItem("room");
+
+    // HEPSİNİ SIFIRLA
+    modal.style.display = "none";
+    rulesModal.style.display = "none";
+    document.getElementById("roomPage").style.display = "none";
+    document.getElementById("chatApp").style.display = "none";
+
+    // 1. username yoksa
+    if(!username){
+        modal.style.display = "flex";
+        return;
+    }
+
+    // 2. kurallar yoksa
+    if(!rulesAccepted){
+        rulesModal.style.display = "flex";
+        return;
+    }
+
+    // 3. oda seçilmemişse
+    if(!room){
+        document.getElementById("roomPage").style.display = "flex";
+        return;
+    }
+
+    // 4. her şey tamam → chat
+    document.getElementById("chatApp").style.display = "flex";
+    listenMessages();
+    updateAdminUI();
+}
+
+function showToast(message){
+
+    const toast = document.getElementById("toast");
+
+    toast.innerText = message;
+    toast.classList.add("show");
+
+    setTimeout(()=>{
+        toast.classList.remove("show");
+    },2000);
+}
+
+
+function closeProfile(){
+    document.getElementById("profileModal").style.display = "none";
+}
+// avatar seçme
+function setAvatar(value){
+    avatar = value;
+    localStorage.setItem("avatar", avatar);
+
+    document.getElementById("avatarBig").innerHTML =
+    getAvatarIcon(value);
+}
+function openProfile(){
+
+    document.getElementById("profileModal").style.display = "flex";
+
+    document.getElementById("profileName").innerText = username;
+
+    document.getElementById("avatarBig").innerHTML =
+    getAvatarIcon(avatar);
+}
+function getAvatarIcon(type){
+
+    switch(type){
+
+        case "user":
+            return '<i class="fa-solid fa-user"></i>';
+
+        case "user-tie":
+            return '<i class="fa-solid fa-user-tie"></i>';
+
+        case "user-graduate":
+            return '<i class="fa-solid fa-user-graduate"></i>';
+
+        case "user-astronaut":
+            return '<i class="fa-solid fa-user-astronaut"></i>';
+
+        case "user-shield":
+            return '<i class="fa-solid fa-user-shield"></i>';
+
+        case "car":
+            return '<i class="fa-solid fa-car"></i>';
+
+        default:
+            return '<i class="fa-solid fa-user"></i>';
+    }
+}
+
+document.addEventListener("contextmenu", function(e){
+    e.preventDefault();
+});
+document.addEventListener("copy", function(e){
+    e.preventDefault();
+});
+document.addEventListener("keydown", function(e){
+
+    if(
+        e.ctrlKey && 
+        (e.key === "c" || e.key === "u" || e.key === "s")
+    ){
+        e.preventDefault();
+    }
+
+    if(e.key === "F12"){
+        e.preventDefault();
+    }
+});
+
+
+
+function setOnline(){
+
+    const room = localStorage.getItem("room") || "ehliyet";
+
+    db.collection("presence").doc(userId).set({
+        username,
+        room,
+        lastSeen: Date.now()
+    });
+}
+setInterval(()=>{
+    if(username){
+        setOnline();
+    }
+}, 5000);
+setInterval(()=>{
+
+    const now = Date.now();
+
+    db.collection("presence")
+      .where("room","==", localStorage.getItem("room") || "ehliyet")
+      .get()
+      .then(snapshot => {
+
+          let count = 0;
+
+          snapshot.forEach(doc => {
+              const data = doc.data();
+
+              if(now - data.lastSeen < 15000){
+                  count++;
+              }
+          });
+
+          document.getElementById("onlineCount").innerText =
+          `Sohbette: ${count} kişi`;
+
+      });
+
+}, 5000);
+function listenOnlineUsers(){
+
+    const room = localStorage.getItem("room") || "ehliyet";
+
+    db.collection("presence")
+      .where("room","==",room)
+      .onSnapshot(snapshot => {
+
+        document.getElementById("onlineCount").innerText =
+        `Sohbette: ${snapshot.size} kişi`;
+
+    });
+}
+
+checkEntry();
+
+
+// ADMİN PANELİ SCRİPT KODLARI
+
+    let isAdmin = false;
+
+function openAdminPanel(){
+    document.getElementById("adminPanel").style.display = "block";
+}
+
+function adminLogin(){
+
+    const pass = document.getElementById("adminPass").value;
+
+    if(pass === "1234"){ // şifreyi değiştir
+        isAdmin = true;
+        alert("Admin giriş başarılı");
+        listenAdminMessages();
+    } else {
+        alert("Hatalı şifre");
+    }
+}
+function deleteMessage(msgId){
+
+    const room = localStorage.getItem("room") || "ehliyet";
+
+    db.collection("rooms")
+      .doc(room)
+      .collection("messages")
+      .doc(msgId)
+      .delete();
+}
+function clearAllMessages(){
+
+    const room = localStorage.getItem("room") || "ehliyet";
+
+    db.collection("rooms")
+      .doc(room)
+      .collection("messages")
+      .get()
+      .then(snapshot => {
+
+          let batch = db.batch();
+
+          snapshot.forEach(doc => {
+              batch.delete(doc.ref);
+          });
+
+          return batch.commit();
+      });
+
+    alert("Tüm mesajlar silindi");
+}
+function sendAdminMessage(){
+
+    const text = document.getElementById("adminText").value;
+
+    if(!text) return;
+
+    const room = localStorage.getItem("room") || "ehliyet";
+
+    db.collection("rooms")
+      .doc(room)
+      .collection("messages")
+      .add({
+          text: text,
+          username: "👑 Şahin Ehliyet",
+          avatar: "user-shield",
+          isAdmin: true,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+
+    document.getElementById("adminText").value = "";
+}
+
+function openAdminLogin(){
+    document.getElementById("adminLoginModal").style.display = "flex";
+}
+
+function closeAdminLogin(){
+    document.getElementById("adminLoginModal").style.display = "none";
+}
+
+function adminLogin(){
+
+    const pass = document.getElementById("adminPass").value;
+
+    if(pass === "sahnehlyt58605834!"){
+
+        userRole = "admin";
+        localStorage.setItem("role","admin");
+
+        document.getElementById("adminLoginModal").style.display = "none";
+
+        showToast("👑 Moderatör aktif!");
+
+        listenMessages();
+        updateAdminUI();
+
+    } else {
+        alert("Hatalı şifre");
+    }
+}
+function updateAdminUI(){
+
+    const btn = document.getElementById("adminClearBtn");
+
+    if(userRole === "admin"){
+        btn.style.display = "inline-block";
+    } else {
+        btn.style.display = "none";
+    }
+}
+</script>
+</body>
+</html>
