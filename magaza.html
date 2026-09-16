@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Mağaza - Kim Ehliyetli Olmak İster?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--soft:#f1f2f4;--text:#191a1c;--muted:#777b82;--yellow:#f4c430;--yellow-dark:#b98b00;--black:#0b0c0e;--green:#19a463;--border:rgba(0,0,0,.08);--shadow:0 12px 35px rgba(0,0,0,.10)}
+html.dark,body.dark{--bg:#08090b;--card:#111316;--soft:#191c20;--text:#f4f5f6;--muted:#969aa1;--border:rgba(255,255,255,.09);--shadow:0 15px 40px rgba(0,0,0,.45)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;width:100%;min-height:100%;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:Montserrat,sans-serif}
+button{font:inherit}
+.page{width:min(100%,760px);margin:auto;padding:18px 14px 35px}
+.topbar{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.back-button,.theme-button{width:42px;height:42px;flex:0 0 42px;border:1px solid var(--border);border-radius:13px;background:var(--card);color:var(--text);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);cursor:pointer}
+.back-button i,.theme-button i{color:var(--yellow-dark)}
+body.dark .back-button i,body.dark .theme-button i{color:var(--yellow)}
+.brand{flex:1;text-align:center}.brand-small{font-size:7px;letter-spacing:2.5px;font-weight:600;color:var(--yellow-dark);margin-bottom:3px}.brand-title{margin:0;font:400 clamp(22px,6vw,34px)/1 'Black Ops One',Impact,sans-serif;letter-spacing:.7px}.brand-line{width:95px;height:3px;margin:7px auto 0;border-radius:10px;background:var(--yellow)}
+body.dark .brand-small{color:var(--yellow)}
+.balance-card{position:relative;overflow:hidden;background:var(--black);color:#fff;border-radius:20px;padding:18px;margin-bottom:16px;box-shadow:var(--shadow)}
+.balance-card:after{content:"";position:absolute;width:130px;height:130px;border:1px solid rgba(244,196,48,.22);border-radius:50%;right:-55px;top:-55px}
+.balance-label{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;opacity:.72}.balance-row{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-top:4px}.balance-value{font:400 clamp(28px,8vw,42px)/1 'Black Ops One',Impact,sans-serif;color:var(--yellow)}.balance-icon{width:42px;height:42px;border-radius:13px;background:rgba(244,196,48,.13);border:1px solid rgba(244,196,48,.28);display:flex;align-items:center;justify-content:center;color:var(--yellow)}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin:20px 2px 10px}.section-title h2{margin:0;font:400 19px 'Black Ops One',Impact,sans-serif;letter-spacing:.4px}.section-title span{color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.7px}
+.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.category{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:15px;padding:13px 8px;min-height:76px;cursor:pointer;box-shadow:var(--shadow)}.category i{display:block;color:var(--yellow-dark);font-size:19px;margin-bottom:7px}.category span{font-size:10px;font-weight:800}.category.active{background:var(--yellow);color:var(--black);border-color:var(--yellow)}.category.active i{color:var(--black)}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.product{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:14px;box-shadow:var(--shadow);min-width:0}.product-icon{width:50px;height:50px;border-radius:15px;background:var(--soft);display:flex;align-items:center;justify-content:center;color:var(--yellow-dark);font-size:22px;margin-bottom:12px}.product h3{margin:0;font-size:14px;line-height:1.25;font-weight:800}.product-category{margin-top:4px;color:var(--muted);font-size:9px;font-weight:600}.product-price{margin-top:12px;color:var(--yellow-dark);font:400 18px 'Black Ops One',Impact,sans-serif}.buy-button{width:100%;margin-top:10px;min-height:40px;border:0;border-radius:12px;background:var(--yellow);color:var(--black);font-size:10px;font-weight:800;cursor:pointer}.buy-button.owned{background:var(--soft);color:var(--muted);cursor:default}
+.assets{display:grid;gap:9px}.asset-empty,.asset-item{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow)}.asset-empty{padding:20px 14px;text-align:center;color:var(--muted)}.asset-empty i{font-size:25px;margin-bottom:8px;color:var(--yellow-dark)}.asset-empty strong{display:block;color:var(--text);font-size:12px;margin-bottom:4px}.asset-empty span{font-size:10px}.asset-item{display:flex;align-items:center;gap:11px;padding:11px}.asset-icon{width:43px;height:43px;border-radius:13px;background:var(--soft);display:flex;align-items:center;justify-content:center;color:var(--yellow-dark)}.asset-info{flex:1;min-width:0}.asset-info strong{display:block;font-size:11px;font-weight:800}.asset-info span{display:block;color:var(--muted);font-size:9px;margin-top:3px}.asset-check{color:var(--green)}
+.notice{margin-top:17px;padding:12px 13px;border-radius:14px;background:var(--soft);border:1px solid var(--border);color:var(--muted);font-size:9px;line-height:1.55;text-align:center}.notice i{color:var(--yellow-dark);margin-right:4px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,20px);width:min(calc(100% - 28px),420px);background:var(--black);color:#fff;border:1px solid rgba(244,196,48,.25);border-radius:15px;padding:13px 15px;display:flex;align-items:center;gap:10px;box-shadow:0 15px 40px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:.2s;z-index:50;font-size:10px;font-weight:700}.toast.show{opacity:1;transform:translate(-50%,0)}.toast i{color:var(--yellow);font-size:17px}
+@media(max-width:480px){.page{padding-left:11px;padding-right:11px}.categories{gap:7px}.category{min-height:70px;padding:11px 6px}.products{gap:9px}.product{padding:12px}}
+@media(max-width:360px){.products{grid-template-columns:1fr}.categories{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="topbar">
+<button class="back-button" onclick="goBack()" aria-label="Geri"><i class="fa-solid fa-arrow-left"></i></button>
+<div class="brand"><div class="brand-small">KİM EHLİYETLİ OLMAK İSTER?</div><h1 class="brand-title">MAĞAZA</h1><div class="brand-line"></div></div>
+</div>
+
+<section class="balance-card"><div class="balance-label">Oyun Bakiyen</div><div class="balance-row"><div id="balanceValue" class="balance-value">₺0</div><div class="balance-icon"><i class="fa-solid fa-wallet"></i></div></div></section>
+
+<div class="section-title"><h2>KATEGORİLER</h2><span>Mağazayı keşfet</span></div>
+<div class="categories" id="categories">
+<button class="category active" data-category="Tümü"><i class="fa-solid fa-store"></i><span>Tümü</span></button>
+<button class="category" data-category="Evler"><i class="fa-solid fa-house"></i><span>Evler</span></button>
+<button class="category" data-category="Arabalar"><i class="fa-solid fa-car"></i><span>Arabalar</span></button>
+<button class="category" data-category="Telefonlar"><i class="fa-solid fa-mobile-screen-button"></i><span>Telefonlar</span></button>
+<button class="category" data-category="Teknoloji"><i class="fa-solid fa-laptop"></i><span>Teknoloji</span></button>
+<button class="category" data-category="Motosikletler"><i class="fa-solid fa-motorcycle"></i><span>Motosikletler</span></button>
+<button class="category" data-category="Eğlence"><i class="fa-solid fa-gamepad"></i><span>Eğlence</span></button>
+</div>
+
+<div class="section-title"><h2>ÜRÜNLER</h2><span id="productCount"></span></div>
+<div class="products" id="products"></div>
+
+<div class="section-title"><h2>VARLIKLARIM</h2><span id="assetCount"></span></div>
+<div class="assets" id="assets"></div>
+
+<div class="notice"><i class="fa-solid fa-circle-info"></i> Buradaki tüm ürünler oyun içi sanal varlıklardır. Harcadığın para gerçek para değildir.</div>
+</div>
+
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastText"></span></div>
+
+<script>
+(function(){
+function applyTheme(){
+const dark=localStorage.getItem("theme")==="true";
+document.documentElement.classList.toggle("dark",dark);
+document.body.classList.toggle("dark",dark);
+}
+applyTheme();
+window.addEventListener("storage",e=>{if(e.key==="theme")applyTheme()});
+window.addEventListener("pageshow",applyTheme);
+})();
+function toggleTheme(){
+const dark=localStorage.getItem("theme")==="true";
+localStorage.setItem("theme",dark?"false":"true");
+document.documentElement.classList.toggle("dark",!dark);
+document.body.classList.toggle("dark",!dark);
+}
+
+const PRODUCTS=[
+["house_small","Küçük Ev","Evler",150000,"fa-house"],
+["house_apartment","Apartman Dairesi","Evler",500000,"fa-building"],
+["house_villa","Villa","Evler",1500000,"fa-house-chimney"],
+["house_luxury","Lüks Villa","Evler",5000000,"fa-house-chimney-window"],
+["house_mansion","Malikâne","Evler",15000000,"fa-landmark"],
+["car_sahin","Tofaş Şahin","Arabalar",50000,"fa-car-side"],
+["car_clio","Renault Clio","Arabalar",150000,"fa-car"],
+["car_bmw","BMW","Arabalar",500000,"fa-car"],
+["car_mercedes","Mercedes","Arabalar",1000000,"fa-car-side"],
+["car_porsche","Porsche","Arabalar",3000000,"fa-car"],
+["car_lamborghini","Lamborghini","Arabalar",8000000,"fa-car-side"],
+["phone_entry","Giriş Seviye Telefon","Telefonlar",10000,"fa-mobile-screen-button"],
+["phone_mid","Orta Segment Telefon","Telefonlar",25000,"fa-mobile-screen-button"],
+["phone_premium","Premium Telefon","Telefonlar",50000,"fa-mobile-screen-button"],
+["phone_ultra","Ultra Telefon","Telefonlar",100000,"fa-mobile-screen-button"],
+["tech_tablet","Tablet","Teknoloji",30000,"fa-tablet-screen-button"],
+["tech_laptop","Laptop","Teknoloji",60000,"fa-laptop"],
+["tech_gaming_pc","Gaming PC","Teknoloji",100000,"fa-computer"],
+["tech_pro_pc","Profesyonel PC","Teknoloji",200000,"fa-desktop"],
+["bike_scooter","Scooter","Motosikletler",75000,"fa-motorcycle"],
+["bike_standard","Standart Motosiklet","Motosikletler",150000,"fa-motorcycle"],
+["bike_sport","Sport Motosiklet","Motosikletler",400000,"fa-motorcycle"],
+["bike_superbike","Superbike","Motosikletler",1000000,"fa-motorcycle"],
+["fun_console","Oyun Konsolu","Eğlence",30000,"fa-gamepad"],
+["fun_vr","VR Seti","Eğlence",50000,"fa-vr-cardboard"],
+["fun_gaming","Profesyonel Oyun Seti","Eğlence",100000,"fa-headset"]
+].map(x=>({id:x[0],name:x[1],category:x[2],price:x[3],icon:x[4]}));
+
+const ASSETS_KEY="ke_shop_assets_v1";
+let activeCategory="Tümü";
+
+function getUser(){try{return JSON.parse(localStorage.getItem("user")||"{}")||{}}catch(e){return {}}}
+function saveUser(u){localStorage.setItem("user",JSON.stringify(u))}
+function getBalance(){return Number(getUser().gameBalance||0)}
+function money(v){return "₺"+Number(v||0).toLocaleString("tr-TR")}
+function updateBalance(){document.getElementById("balanceValue").textContent=money(getBalance())}
+function getAssets(){try{const a=JSON.parse(localStorage.getItem(ASSETS_KEY)||"[]");return Array.isArray(a)?a:[]}catch(e){return []}}
+function saveAssets(a){localStorage.setItem(ASSETS_KEY,JSON.stringify(a))}
+
+function renderProducts(){
+const assets=getAssets(),owned=new Set(assets.map(a=>a.id));
+const visible=PRODUCTS.filter(p=>activeCategory==="Tümü"||p.category===activeCategory);
+document.getElementById("products").innerHTML=visible.map(p=>{
+const own=owned.has(p.id);
+return `<article class="product"><div class="product-icon"><i class="fa-solid ${p.icon}"></i></div><h3>${p.name}</h3><div class="product-category">${p.category}</div><div class="product-price">${money(p.price)}</div><button class="buy-button ${own?"owned":""}" ${own?"disabled":""} onclick="buyProduct('${p.id}')">${own?'<i class="fa-solid fa-check"></i> SATIN ALINDI':'<i class="fa-solid fa-cart-shopping"></i> SATIN AL'}</button></article>`;
+}).join("");
+document.getElementById("productCount").textContent=visible.length+" ÜRÜN";
+}
+
+function renderAssets(){
+const assets=getAssets(),box=document.getElementById("assets");
+document.getElementById("assetCount").textContent=assets.length+" VARLIK";
+if(!assets.length){box.innerHTML=`<div class="asset-empty"><i class="fa-solid fa-box-open"></i><strong>Henüz bir varlığın yok</strong><span>Oyunlardan kazandığın parayı kullanarak mağazadan ilk varlığını satın al.</span></div>`;return}
+box.innerHTML=assets.map(a=>`<div class="asset-item"><div class="asset-icon"><i class="fa-solid ${a.icon}"></i></div><div class="asset-info"><strong>${a.name}</strong><span>${a.category} · ${money(a.price)}</span></div><div class="asset-check"><i class="fa-solid fa-circle-check"></i></div></div>`).join("");
+}
+
+function buyProduct(id){
+const p=PRODUCTS.find(x=>x.id===id);if(!p)return;
+const assets=getAssets();
+if(assets.some(a=>a.id===id)){showToast("Bu ürüne zaten sahipsin.");return}
+const balance=getBalance();
+if(balance<p.price){showToast("Bakiyen yetersiz. "+money(p.price-balance)+" daha kazanmalısın.");return}
+const user=getUser();
+user.gameBalance=balance-p.price;
+saveUser(user);
+assets.push({id:p.id,name:p.name,category:p.category,price:p.price,icon:p.icon,purchasedAt:Date.now()});
+saveAssets(assets);
+updateBalance();renderProducts();renderAssets();
+showToast(p.name+" satın alındı!");
+}
+
+document.getElementById("categories").addEventListener("click",e=>{
+const b=e.target.closest(".category");if(!b)return;
+activeCategory=b.dataset.category;
+document.querySelectorAll(".category").forEach(x=>x.classList.toggle("active",x===b));
+renderProducts();
+});
+
+let toastTimer;
+function showToast(message){
+const t=document.getElementById("toast");
+document.getElementById("toastText").textContent=message;
+t.classList.add("show");clearTimeout(toastTimer);
+toastTimer=setTimeout(()=>t.classList.remove("show"),2600);
+}
+function goBack(){
+if(document.referrer&&document.referrer.indexOf("kimehliyetliolmakister.html")!==-1)history.back();
+else location.href="kimehliyetliolmakister.html";
+}
+updateBalance();renderProducts();renderAssets();
+window.addEventListener("pageshow",()=>{updateBalance();renderProducts();renderAssets()});
+</script>
+</body>
+</html>
