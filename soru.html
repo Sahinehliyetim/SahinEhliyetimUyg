@@ -260,6 +260,27 @@ body.dark .checks li{background:rgba(255,255,255,.05)!important}
 body.dark .theme,
 body.dark .edit-name{background:#191916!important;color:#f7f6ef!important;border-color:#302f29!important}
 </style>
+
+
+<style>
+/* Kopyalama ve metin seçmeyi engelle */
+body {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* Link ve butonlarda uzun basma/sürükleme davranışını engelle */
+a,
+button,
+[role="button"] {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+</style>
 </head><body><main class="page">
 <section class="ask"><div class="ask-head"><div class="ask-icon"><i class="fa-solid fa-circle-question"></i></div><div><h2>Bir konuda yardıma mı ihtiyacın var?</h2><p>Sorunu açık ve anlaşılır şekilde yaz. Yanıtlandığında burada görüntüleyebilirsin.</p></div></div><div id="quota" class="quota">Yanıtsız 2 soru hakkın var</div><textarea id="input" maxlength="500" placeholder="Sorunu buraya yaz..."></textarea><button id="sendBtn" class="send" onclick="send()"><i class="fa-solid fa-paper-plane"></i> Soruyu gönder</button></section><section class="info"><h3>Soru gönderirken</h3><p>Tek bir konuya odaklanman ve mümkün olduğunca ayrıntı vermen daha anlaşılır bir yanıt almana yardımcı olur.</p></section><section class="questions"><div class="section-head"><h2>Sorularım</h2><span>Yanıtlarını burada takip et</span></div><div id="list"><div class="empty">Soruların yükleniyor.</div></div></section></main><div id="toast" class="toast"></div>
 <script>
@@ -272,4 +293,30 @@ function render(){list.innerHTML="";rows.sort((a,b)=>(b.d.time||0)-(a.d.time||0)
 async function load(){try{const s=await db.collection("questions").where("userId","==",uid).get();rows=[];s.forEach(d=>rows.push({id:d.id,d:d.data()}));render()}catch(e){list.innerHTML='<div class="empty">Sorular şu anda yüklenemiyor. İnternet bağlantını kontrol et.</div>';toastMsg("Sorular yüklenemedi")}}
 async function send(){const text=input.value.trim();if(text.length<10){toastMsg("En az 10 karakter yazmalısın");return}btn.disabled=true;try{const active=rows.reduce((n,r)=>n+(r.d.answer?0:1),0);if(active>=MAX){toastMsg("Soru hakkın doldu");return}const time=Date.now(),ref=await db.collection("questions").add({question:text,answer:"",userId:uid,time});rows.unshift({id:ref.id,d:{question:text,answer:"",userId:uid,time}});input.value="";toastMsg("Sorun gönderildi");render()}catch(e){toastMsg("Soru gönderilemedi")}finally{render()}}
 async function del(id){try{await db.collection("questions").doc(id).delete();rows=rows.filter(r=>r.id!==id);render();toastMsg("Soru silindi")}catch(e){toastMsg("Soru silinemedi")}}load();
-</script><nav class="bottom-nav"><button onclick="location.href='katagoriler.html'"><i class="fa-solid fa-house"></i><span>Ana</span></button><button onclick="location.href='hesabim.html'"><i class="fa-solid fa-user"></i><span>Profil</span></button><button class="premium-btn" onclick="location.href='premium.html'"><i class="fa-solid fa-crown"></i><span>Premium</span></button><button class="active" onclick="location.href='soru.html'"><i class="fa-solid fa-circle-question"></i><span>Sor</span></button><button onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i><span>Mod</span></button></nav></body></html>
+</script><nav class="bottom-nav"><button onclick="location.href='katagoriler.html'"><i class="fa-solid fa-house"></i><span>Ana</span></button><button onclick="location.href='hesabim.html'"><i class="fa-solid fa-user"></i><span>Profil</span></button><button class="premium-btn" onclick="location.href='premium.html'"><i class="fa-solid fa-crown"></i><span>Premium</span></button><button class="active" onclick="location.href='soru.html'"><i class="fa-solid fa-circle-question"></i><span>Sor</span></button><button onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i><span>Mod</span></button></nav>
+
+
+<script>
+document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener("selectstart", function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener("dragstart", function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener("copy", function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener("cut", function(e) {
+    e.preventDefault();
+});
+</script>
+
+
+</body></html>

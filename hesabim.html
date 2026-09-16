@@ -306,6 +306,26 @@ body.dark .choice-card.premium .choice-icon{background:#f4c430!important;color:#
 body.dark .choice-arrow{color:#f4c430!important;}
 body.dark .cancel-btn{background:#24231e!important;color:#aaa89e!important;border-color:#3b392f!important;}
 </style>
+
+<style>
+/* Kopyalama ve metin seçmeyi engelle */
+body {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* Link ve butonlarda uzun basma/sürükleme davranışını engelle */
+a,
+button,
+[role="button"] {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+</style>
 </head><body><main class="page">
 
 <section class="profile-hero"><div class="profile-main"><div class="avatar-wrap"><div id="avatar" class="avatar" aria-label="Profil simgesi"><i id="avatarIcon" class="fa-solid fa-user"></i></div><button class="avatar-edit" onclick="openAvatarPicker()" aria-label="Profil simgesini değiştir"><i class="fa-solid fa-pen"></i></button></div><div class="profile-copy"><div class="eyebrow">PROFİL</div><div id="nickname" class="nickname">Misafir</div><div id="status" class="status">Standart Kullanıcı</div><button class="edit-name" onclick="openName()">Adı düzenle</button></div></div>
@@ -407,6 +427,27 @@ function adCompleted(url){
 
 </script>
 
+<script>
+document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener("selectstart", function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener("dragstart", function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener("copy", function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener("cut", function(e) {
+    e.preventDefault();
+});
+</script>
 
 <nav class="bottom-nav"><button onclick="location.href='katagoriler.html'"><i class="fa-solid fa-house"></i><span>Ana</span></button><button class="active" onclick="location.href='hesabim.html'"><i class="fa-solid fa-user"></i><span>Profil</span></button><button class="premium-btn" onclick="location.href='premium.html'"><i class="fa-solid fa-crown"></i><span>Premium</span></button><button onclick="location.href='soru.html'"><i class="fa-solid fa-circle-question"></i><span>Sor</span></button><button onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i><span>Mod</span></button></nav>
 

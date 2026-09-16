@@ -33,6 +33,25 @@ body.dark .bottom-nav{background:rgba(25,25,22,.97);border-color:rgba(244,196,48
 @media(max-width:390px){.container{padding-left:13px;padding-right:13px}.bottom-nav{width:96%}.hero{padding:17px}}
 .study-guidance{display:grid;gap:8px;margin-top:14px}.guide-item{display:flex;align-items:center;gap:10px;padding:11px 12px;border:1px solid var(--line);border-radius:14px;background:var(--surface-2)}.guide-item>span{width:31px;height:31px;display:grid;place-items:center;border-radius:10px;background:var(--yellow-soft);color:#9a7400;flex:0 0 31px}.guide-item b{display:block;font-size:12px}.guide-item small{display:block;margin-top:2px;color:var(--muted);font-size:10px;line-height:1.35}body.dark .guide-item{background:#1c1c18;border-color:#302f29}body.dark .guide-item>span{color:#f4c430}
 </style>
+<style>
+/* Kopyalama ve metin seçmeyi engelle */
+body {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* Link ve butonlarda uzun basma/sürükleme davranışını engelle */
+a,
+button,
+[role="button"] {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+</style>
 </head>
 <body>
 <header class="seh-header-wrap">
@@ -47,7 +66,7 @@ body.dark .bottom-nav{background:rgba(25,25,22,.97);border-color:rgba(244,196,48
 <section class="analysis-card"><div class="card-head"><h2>Çalışma durumun</h2><span class="status" id="recommendStatus">ANALİZ</span></div><div class="recommendation"><span class="recommendation-icon" id="recommendIcon"><i class="fa-solid fa-rotate"></i></span><div><b id="recommendTitle">Verilerin hazırlanıyor</b><p id="recommendText">Her konunun başarı oranına göre çalışma önceliğini otomatik belirliyoruz.</p></div></div><div class="study-guidance" id="studyGuidance"></div></section>
 <section class="analysis-card"><div class="card-head"><h2>Gelişimin</h2><span class="status"><i class="fa-solid fa-arrow-trend-up"></i> TAKİP</span></div><div class="recommendation"><span class="recommendation-icon"><i class="fa-solid fa-bullseye"></i></span><div><b id="progressTitle">Veri bekleniyor</b><p id="progressText">Test çözdükçe bu bölüm konu bazında doğru, yanlış ve toplam soru sayılarını kullanarak başarı oranını güncelleyecek.</p></div></div></section>
 </main>
-<nav class="bottom-nav"><button onclick="location.href='katagoriler.html'"><i class="fa-solid fa-house"></i><span>Ana</span></button><button onclick="location.href='hesabim.html'"><i class="fa-solid fa-user"></i><span>Profil</span></button><button class="premium-btn" onclick="location.href='premium.html'"><i class="fa-solid fa-crown"></i><span>Premium</span></button><button onclick="location.href='soru.html'"><i class="fa-solid fa-circle-question"></i><span>Sor</span></button><button onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i><span>Mod</span></button></nav>
+
 <script>
 (function(){
  const cats=[['Trafik ve Çevre','fa-road'],['İlk Yardım','fa-kit-medical'],['Motor ve Araç Tekniği','fa-gears'],['Trafik Adabı','fa-handshake']];
@@ -91,4 +110,27 @@ body.dark .bottom-nav{background:rgba(25,25,22,.97);border-color:rgba(244,196,48
 (function(){if(localStorage.getItem('theme')==='true')document.body.classList.add('dark');})();
 function toggleTheme(){document.body.classList.toggle('dark');localStorage.setItem('theme',document.body.classList.contains('dark')?'true':'false');}
 </script>
+
+<script>
+document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener("selectstart", function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener("dragstart", function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener("copy", function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener("cut", function(e) {
+    e.preventDefault();
+});
+</script>
+
 </body></html>

@@ -86,6 +86,28 @@ html{background:#f8fafc!important;}
 html.dark{background:#11110f!important;color-scheme:dark!important;}
 html.dark body{background:#11110f!important;}
 </style>
+
+
+
+<style>
+/* Kopyalama ve metin seçmeyi engelle */
+body {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* Link ve butonlarda uzun basma/sürükleme davranışını engelle */
+a,
+button,
+[role="button"] {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+</style>
 </head><body>
 <header class="seh-header-wrap"><button class="seh-back-button" onclick="history.back()" aria-label="Geri"><i class="fa-solid fa-arrow-left"></i></button><div class="seh-header-title"><span class="seh-title-icon"><i class="fa-solid fa-book-open"></i></span>Konu Anlatımları</div><div></div></header>
 <main class="topic-page"><section class="topic-intro"><div class="topic-intro-icon"><i class="fa-solid fa-book-open-reader"></i></div><div><span class="topic-eyebrow">SINAV HAZIRLIĞI</span><h1>Konu Anlatımları</h1><p>Ehliyet sınavındaki konuları sade, anlaşılır ve sınav odaklı şekilde öğren.</p></div></section><section class="topic-list">
@@ -94,4 +116,28 @@ html.dark body{background:#11110f!important;}
 <a href="motorkonuanlatimi.html" class="topic-card"><span class="topic-icon"><i class="fa-solid fa-gears"></i></span><span class="topic-copy"><strong>Motor</strong><small>Motorun yapısı, çalışması ve bakımı</small></span><span class="topic-arrow"><i class="fa-solid fa-arrow-right"></i></span></a>
 <a href="trafikadabikonuanlatimi.html" class="topic-card"><span class="topic-icon"><i class="fa-solid fa-handshake"></i></span><span class="topic-copy"><strong>Trafik Adabı</strong><small>Saygılı ve güvenli sürüş kuralları</small></span><span class="topic-arrow"><i class="fa-solid fa-arrow-right"></i></span></a>
 </section></main><button class="scroll-top-v6" id="scrollTop" aria-label="Yukarı çık"><i class="fa-solid fa-arrow-up"></i></button>
-<script>if(localStorage.getItem('theme')==='true'){document.body.classList.add('dark');document.documentElement.classList.add('dark');}try{let d=JSON.parse(localStorage.getItem('dailyTasks'));if(d&&!d.konu){d.konu=true;localStorage.setItem('dailyTasks',JSON.stringify(d));}}catch(e){};const b=document.getElementById('scrollTop');const t=()=>b.classList.toggle('show',scrollY>280);addEventListener('scroll',t,{passive:true});t();b.onclick=()=>scrollTo({top:0,behavior:'smooth'});</script></body></html>
+<script>if(localStorage.getItem('theme')==='true'){document.body.classList.add('dark');document.documentElement.classList.add('dark');}try{let d=JSON.parse(localStorage.getItem('dailyTasks'));if(d&&!d.konu){d.konu=true;localStorage.setItem('dailyTasks',JSON.stringify(d));}}catch(e){};const b=document.getElementById('scrollTop');const t=()=>b.classList.toggle('show',scrollY>280);addEventListener('scroll',t,{passive:true});t();b.onclick=()=>scrollTo({top:0,behavior:'smooth'});</script>
+
+<script>
+document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener("selectstart", function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener("dragstart", function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener("copy", function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener("cut", function(e) {
+    e.preventDefault();
+});
+</script>
+
+</body></html>
