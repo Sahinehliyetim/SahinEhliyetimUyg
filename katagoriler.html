@@ -1676,6 +1676,285 @@ body:not(.dark) .daily-exam .exam-visual span{color:#f4c430!important;}
 .smart-study-copy small{font-size:10px;line-height:1.45;color:var(--muted);}
 .smart-study-arrow{margin-left:auto;width:31px;height:31px;border-radius:11px;background:var(--surface-2);color:var(--yellow-strong);display:grid;place-items:center;font-size:10px;flex:0 0 31px;}
 </style>
+
+<style>
+/* =========================================================
+   KİM EHLİYETLİ OLMAK İSTER
+   ========================================================= */
+
+.kim-ehliyetli-card {
+    position: relative;
+    width: 100%;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 12px 0;
+
+    padding: 10px 13px;
+
+    overflow: hidden;
+
+    text-decoration: none;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(244, 196, 48, 0.45);
+
+    background:
+        radial-gradient(
+            circle at 90% -20%,
+            rgba(244, 196, 48, 0.22),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #111111 0%,
+            #1b190f 55%,
+            #0b0b0b 100%
+        );
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Hafif altın ışık */
+
+.kim-ehliyetli-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    right: -50px;
+    top: -50px;
+
+    border-radius: 50%;
+
+    background: rgba(244, 196, 48, 0.13);
+
+    filter: blur(20px);
+
+    pointer-events: none;
+}
+
+
+/* Tıklama */
+
+.kim-ehliyetli-card:active {
+    transform: scale(0.985);
+}
+
+
+/* Sol taraf */
+
+.kim-ehliyetli-left {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+
+    gap: 11px;
+}
+
+
+/* Kupa */
+
+.kim-ehliyetli-icon {
+    width: 46px;
+    height: 46px;
+
+    flex: 0 0 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    color: #17130a;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffe783,
+            #f4c430
+        );
+
+    box-shadow:
+        0 6px 15px rgba(244, 196, 48, 0.22);
+
+    font-size: 19px;
+}
+
+
+/* Yazılar */
+
+.kim-ehliyetli-text {
+    min-width: 0;
+}
+
+
+.kim-ehliyetli-small {
+    margin-bottom: 2px;
+
+    color: #f4c430;
+
+    font-size: 8px;
+    font-weight: 800;
+
+    letter-spacing: 0.8px;
+
+    white-space: nowrap;
+}
+
+
+.kim-ehliyetli-title {
+    color: #ffffff;
+
+    font-size: 15px;
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    letter-spacing: -0.2px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.kim-ehliyetli-subtitle {
+    margin-top: 3px;
+
+    color: rgba(255,255,255,0.63);
+
+    font-size: 9px;
+    line-height: 1.2;
+
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+
+/* Sağ taraf */
+
+.kim-ehliyetli-right {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    margin-left: 8px;
+}
+
+
+.kim-ehliyetli-right span {
+    color: #f4c430;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    white-space: nowrap;
+}
+
+
+.kim-ehliyetli-right i {
+    color: #ffe37a;
+
+    font-size: 11px;
+}
+
+
+/* DARK MODE */
+
+body.dark .kim-ehliyetli-card {
+    background:
+        radial-gradient(
+            circle at 90% -20%,
+            rgba(244, 196, 48, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #080808 0%,
+            #15140c 55%,
+            #050505 100%
+        );
+
+    border-color: rgba(244, 196, 48, 0.38);
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,0.30),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+
+/* MOBİL */
+
+@media (max-width: 430px) {
+
+    .kim-ehliyetli-card {
+        height: 60px;
+
+        padding: 9px 11px;
+
+        border-radius: 17px;
+    }
+
+    .kim-ehliyetli-icon {
+        width: 43px;
+        height: 43px;
+
+        flex-basis: 43px;
+
+        border-radius: 13px;
+
+        font-size: 17px;
+    }
+
+    .kim-ehliyetli-title {
+        font-size: 14px;
+    }
+
+    .kim-ehliyetli-small {
+        font-size: 7px;
+    }
+
+    .kim-ehliyetli-subtitle {
+        font-size: 8px;
+    }
+
+    .kim-ehliyetli-right span {
+        font-size: 10px;
+    }
+
+    .kim-ehliyetli-right i {
+        font-size: 9px;
+    }
+}
+
+</style>
 </head>
   <body>
 <main class="modern-page home-page">
@@ -1708,6 +1987,28 @@ body:not(.dark) .daily-exam .exam-visual span{color:#f4c430!important;}
   <div class="daily-exam-copy"><span class="eyebrow">Bugünün önerisi</span><h2>Günün Denemesi</h2><p>Gerçek sınav temposunda kendini test et. Her gün sorular değişir.</p><span class="exam-cta">Denemeye başla <i class="fa-solid fa-arrow-right"></i></span></div>
   <div class="exam-visual"><i class="fa-solid fa-road"></i><span>DENEME</span></div>
 </section>
+<!-- KİM EHLİYETLİ OLMAK İSTER -->
+<a href="kimehliyetliolmakister.html" class="kim-ehliyetli-card">
+    <div class="kim-ehliyetli-left">
+        <div class="kim-ehliyetli-icon">
+            <i class="fa-solid fa-trophy"></i>
+        </div>
+        <div class="kim-ehliyetli-text">
+            <div class="kim-ehliyetli-small">
+                10 SORU • JOKERLİ YARIŞMA
+            </div>
+            <div class="kim-ehliyetli-title">
+                Kim Ehliyetli Olmak İster?
+            </div>
+            <div class="kim-ehliyetli-subtitle">
+                Bil, ödül basamaklarını tırman!
+            </div>
+        </div>
+    </div>
+    <div class="kim-ehliyetli-right">
+        <i class="fa-solid fa-chevron-right"></i>
+    </div>
+</a>
 <section class="section-block">
   <div class="section-head"><span class="eyebrow">Çalışma merkezi</span><h2>Hazırlık alanları</h2></div>
   <div class="study-grid">

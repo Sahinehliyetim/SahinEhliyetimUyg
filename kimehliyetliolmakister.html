@@ -1,0 +1,5067 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<title>Kim Ehliyetli Olmak İster?</title>
+
+
+<!-- FONTLAR -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+
+<!-- FONT AWESOME -->
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+<style>
+
+/* =========================================================
+   TEMEL RENKLER
+========================================================= */
+
+:root{
+
+    --bg:#f4f5f7;
+
+    --card:#ffffff;
+
+    --card-soft:#f1f2f4;
+
+    --text:#191a1c;
+
+    --muted:#777b82;
+
+    --yellow:#f4c430;
+
+    --yellow-dark:#b98b00;
+
+    --black:#0b0c0e;
+
+    --black-soft:#17191c;
+
+    --green:#19a463;
+
+    --red:#e53935;
+
+    --border:rgba(0,0,0,.08);
+
+    --shadow:0 12px 35px rgba(0,0,0,.10);
+
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+html.dark,
+body.dark{
+
+    --bg:#08090b;
+
+    --card:#111316;
+
+    --card-soft:#191c20;
+
+    --text:#f4f5f6;
+
+    --muted:#969aa1;
+
+    --border:rgba(255,255,255,.09);
+
+    --shadow:0 15px 40px rgba(0,0,0,.45);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+
+    box-sizing:border-box;
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+
+html,
+body{
+
+    width:100%;
+
+    min-height:100%;
+
+    margin:0;
+
+    padding:0;
+
+    overflow-x:hidden !important;
+
+}
+
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    font-family:'Montserrat',sans-serif;
+
+    font-weight:500;
+
+    user-select:none;
+
+    -webkit-user-select:none;
+
+    overscroll-behavior-x:none;
+
+}
+
+
+/* =========================================================
+   ANA SAYFA
+========================================================= */
+
+.page{
+
+    width:100%;
+
+    min-height:100vh;
+
+    min-height:100dvh;
+
+    overflow:hidden;
+
+}
+
+
+.container{
+
+    width:100%;
+
+    max-width:700px;
+
+    min-height:100vh;
+
+    min-height:100dvh;
+
+    margin:auto;
+
+    padding:
+
+        max(7px,env(safe-area-inset-top))
+
+        13px
+
+        max(10px,env(safe-area-inset-bottom));
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+}
+
+
+/* =========================================================
+   GERİ BUTONU
+========================================================= */
+
+.back-button{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    width:max-content;
+
+    border:1px solid var(--border);
+
+    background:var(--card);
+
+    color:var(--text);
+
+    border-radius:10px;
+
+    padding:7px 11px;
+
+    margin-bottom:5px;
+
+    cursor:pointer;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:9px;
+
+    font-weight:500;
+
+    box-shadow:0 4px 13px rgba(0,0,0,.05);
+
+}
+
+
+.back-button i{
+
+    font-size:10px;
+
+    color:var(--yellow-dark);
+
+}
+
+
+body.dark .back-button i{
+
+    color:var(--yellow);
+
+}
+
+
+.back-button:active{
+
+    transform:scale(.96);
+
+}
+
+
+/* =========================================================
+   ÜST BAŞLIK
+========================================================= */
+
+.brand{
+
+    flex:0 0 auto;
+
+    text-align:center;
+
+}
+
+
+.brand-small{
+
+    font-size:7px;
+
+    letter-spacing:2.5px;
+
+    font-weight:600;
+
+    color:var(--yellow-dark);
+
+    margin-bottom:3px;
+
+}
+
+
+body.dark .brand-small{
+
+    color:var(--yellow);
+
+}
+
+
+.brand-title{
+
+    margin:0;
+
+    font-family:'Black Ops One',Impact,sans-serif;
+
+    font-size:clamp(21px,6vw,35px);
+
+    line-height:1;
+
+    letter-spacing:.7px;
+
+    text-transform:uppercase;
+
+    font-weight:400;
+
+}
+
+
+.brand-line{
+
+    width:95px;
+
+    height:3px;
+
+    margin:7px auto 0;
+
+    border-radius:10px;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            var(--yellow),
+
+            transparent
+
+        );
+
+}
+
+
+/* =========================================================
+   GİRİŞ EKRANI
+========================================================= */
+
+.intro{
+
+    flex:1;
+
+    min-height:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+
+.trophy{
+
+    width:72px;
+
+    height:72px;
+
+    margin:0 auto 9px;
+
+    border-radius:50%;
+
+    display:grid;
+
+    place-items:center;
+
+    background:
+
+        radial-gradient(
+
+            circle at 35% 25%,
+
+            #fff1a4,
+
+            var(--yellow) 50%,
+
+            #b58a00
+
+        );
+
+    color:#1a1608;
+
+    font-size:29px;
+
+    border:4px solid rgba(244,196,48,.15);
+
+    box-shadow:
+
+        0 0 0 7px rgba(244,196,48,.06),
+
+        0 12px 30px rgba(244,196,48,.20);
+
+}
+
+
+.card{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    padding:15px;
+
+    box-shadow:var(--shadow);
+
+    text-align:center;
+
+}
+
+
+.card-title{
+
+    margin:0;
+
+    font-family:'Black Ops One',Impact,sans-serif;
+
+    font-size:21px;
+
+    line-height:1.08;
+
+    font-weight:400;
+
+}
+
+
+.card-description{
+
+    margin:6px auto 12px;
+
+    max-width:420px;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    line-height:1.45;
+
+    font-weight:500;
+
+}
+
+
+/* =========================================================
+   KULLANICI ALANI
+========================================================= */
+
+.user-panel{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    padding:10px 11px;
+
+    margin-bottom:10px;
+
+    background:var(--card-soft);
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+}
+
+
+.user-left{
+
+    min-width:0;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+}
+
+
+.user-icon{
+
+    width:36px;
+
+    height:36px;
+
+    flex:0 0 36px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:10px;
+
+    background:var(--yellow);
+
+    color:#17130a;
+
+    font-size:14px;
+
+}
+
+
+.user-details{
+
+    min-width:0;
+
+    text-align:left;
+
+}
+
+
+.user-label{
+
+    color:var(--muted);
+
+    font-size:7px;
+
+    font-weight:500;
+
+    letter-spacing:.8px;
+
+}
+
+
+.user-name{
+
+    margin-top:2px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    max-width:190px;
+
+}
+
+
+.balance{
+
+    text-align:right;
+
+}
+
+
+.balance-label{
+
+    color:var(--muted);
+
+    font-size:7px;
+
+    font-weight:500;
+
+}
+
+
+.balance-value{
+
+    margin-top:2px;
+
+    color:var(--yellow-dark);
+
+    font-family:'Black Ops One',Impact,sans-serif;
+
+    font-size:14px;
+
+    font-weight:400;
+
+}
+
+
+body.dark .balance-value{
+
+    color:var(--yellow);
+
+}
+
+
+/* =========================================================
+   BAŞLAT BUTONU
+========================================================= */
+
+.start-button{
+
+    width:100%;
+
+    border:0;
+
+    border-radius:14px;
+
+    padding:14px 12px;
+
+    cursor:pointer;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #ffe88a,
+
+            var(--yellow),
+
+            #d5a900
+
+        );
+
+    color:#19150a;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:.2px;
+
+    box-shadow:
+
+        0 6px 0 #9e7800,
+
+        0 12px 25px rgba(244,196,48,.20);
+
+}
+
+
+.start-button i{
+
+    margin-left:6px;
+
+    font-size:11px;
+
+}
+
+
+.start-button:active{
+
+    transform:translateY(4px);
+
+    box-shadow:
+
+        0 2px 0 #9e7800,
+
+        0 7px 15px rgba(244,196,48,.15);
+
+}
+
+
+/* =========================================================
+   YÜKLEME EKRANI
+========================================================= */
+
+.loading{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:1000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+
+        radial-gradient(
+
+            circle at center,
+
+            #292c30,
+
+            #0c0d0f 55%,
+
+            #050506
+
+        );
+
+    color:white;
+
+}
+
+
+.loading.active{
+
+    display:flex;
+
+}
+
+
+.loading-inner{
+
+    width:min(90%,420px);
+
+    text-align:center;
+
+}
+
+
+.loading-title{
+
+    font-family:'Black Ops One',Impact,sans-serif;
+
+    font-size:clamp(27px,8vw,46px);
+
+    line-height:1.05;
+
+    color:var(--yellow);
+
+    font-weight:400;
+
+}
+
+
+.loading-text{
+
+    height:45px;
+
+    margin-top:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:11px;
+
+    font-weight:500;
+
+    letter-spacing:1px;
+
+    color:#fff;
+
+}
+
+
+.loading-progress{
+
+    width:100%;
+
+    height:4px;
+
+    margin-top:20px;
+
+    background:rgba(255,255,255,.12);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+
+.loading-progress-bar{
+
+    height:100%;
+
+    width:0;
+
+    background:var(--yellow);
+
+    box-shadow:0 0 12px rgba(244,196,48,.7);
+
+    transition:width .7s ease;
+
+}
+
+
+.countdown{
+
+    display:none;
+
+    margin-top:20px;
+
+    font-family:'Black Ops One',Impact,sans-serif;
+
+    font-size:100px;
+
+    line-height:1;
+
+    color:var(--yellow);
+
+}
+
+
+.countdown.active{
+
+    display:block;
+
+    animation:countdown .7s ease;
+
+}
+
+
+@keyframes countdown{
+
+    0%{
+
+        opacity:0;
+
+        transform:scale(1.5);
+
+    }
+
+    60%{
+
+        opacity:1;
+
+        transform:scale(.95);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+/* =========================================================
+   OYUN EKRANI
+========================================================= */
+
+.game{
+
+    display:none;
+
+    flex:1;
+
+    min-height:0;
+
+    flex-direction:column;
+
+}
+
+
+.game.active{
+
+    display:flex;
+
+}
+
+
+/* =========================================================
+   OYUN ÜST BİLGİ
+========================================================= */
+
+.game-top{
+
+    flex:0 0 auto;
+
+    display:grid;
+
+    grid-template-columns:1fr auto 1fr;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding:4px 0 7px;
+
+}
+
+
+.question-number{
+
+    color:var(--muted);
+
+    font-size:8px;
+
+    font-weight:600;
+
+}
+
+
+.game-money{
+
+    padding:6px 11px;
+
+    border-radius:10px;
+
+    background:var(--black);
+
+    color:var(--yellow);
+
+    font-family:'Black Ops One',Impact,sans-serif;
+
+    font-size:12px;
+
+    font-weight:400;
+
+    text-align:center;
+
+}
+
+
+.timer{
+
+    justify-self:end;
+
+    width:42px;
+
+    height:42px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:50%;
+
+    background:var(--black);
+
+    color:#fff;
+
+    border:3px solid var(--yellow);
+
+    font-family:'Black Ops One',Impact,sans-serif;
+
+    font-size:13px;
+
+}
+
+
+.timer.warning{
+
+    border-color:#ff9800;
+
+}
+
+
+.timer.danger{
+
+    border-color:#ef4444;
+
+    animation:timerPulse .55s infinite;
+
+}
+
+
+@keyframes timerPulse{
+
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
+}
+
+
+/* =========================================================
+   ÖDÜL MERDİVENİ
+========================================================= */
+
+.prizes{
+
+    flex:0 0 auto;
+
+    display:flex;
+
+    gap:3px;
+
+    width:100%;
+
+    margin-bottom:6px;
+
+    overflow:hidden;
+
+}
+
+
+.prize{
+
+    flex:1;
+
+    min-width:0;
+
+    padding:5px 1px;
+
+    border-radius:6px;
+
+    background:var(--card-soft);
+
+    border:1px solid var(--border);
+
+    color:var(--muted);
+
+    text-align:center;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:6px;
+
+    font-weight:600;
+
+}
+
+
+.prize.safe{
+
+    color:var(--yellow-dark);
+
+    border-color:var(--yellow);
+
+}
+
+
+body.dark .prize.safe{
+
+    color:var(--yellow);
+
+}
+
+
+.prize.current{
+
+    background:var(--yellow);
+
+    color:#1a1609;
+
+    border-color:var(--yellow);
+
+}
+
+
+/* =========================================================
+   JOKERLER
+========================================================= */
+
+.jokers{
+
+    flex:0 0 auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:6px;
+
+    margin-bottom:6px;
+
+}
+
+
+.joker{
+
+    border:1px solid var(--border);
+
+    background:var(--card);
+
+    color:var(--text);
+
+    border-radius:10px;
+
+    padding:7px;
+
+    cursor:pointer;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:8px;
+
+    font-weight:600;
+
+}
+
+
+.joker i{
+
+    color:var(--yellow-dark);
+
+    margin-right:5px;
+
+}
+
+
+body.dark .joker i{
+
+    color:var(--yellow);
+
+}
+
+
+.joker:disabled{
+
+    opacity:.35;
+
+}
+
+
+/* =========================================================
+   SORU KARTI
+========================================================= */
+
+.question-card{
+
+    flex:1;
+
+    min-height:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:10px;
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+
+}
+
+
+.question-header{
+
+    flex:0 0 auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+.question-label{
+
+    color:var(--yellow-dark);
+
+    font-size:7px;
+
+    font-weight:700;
+
+    letter-spacing:.8px;
+
+}
+
+
+body.dark .question-label{
+
+    color:var(--yellow);
+
+}
+
+
+.question-value{
+
+    color:var(--muted);
+
+    font-size:7px;
+
+    font-weight:600;
+
+}
+
+
+.question-text{
+
+    flex:0 0 auto;
+
+    min-height:60px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:5px 3px;
+
+    font-size:clamp(11px,3.2vw,15px);
+
+    line-height:1.35;
+
+    font-weight:600;
+
+}
+
+
+.question-image{
+
+    width:100%;
+
+    max-height:105px;
+
+    object-fit:contain;
+
+    border-radius:9px;
+
+    background:var(--card-soft);
+
+    margin:2px auto 6px;
+
+}
+
+
+.question-image.hidden{
+
+    display:none;
+
+}
+
+
+/* =========================================================
+   CEVAPLAR
+========================================================= */
+
+.answers{
+
+    flex:1;
+
+    min-height:0;
+
+    display:grid;
+
+    grid-template-rows:repeat(4,1fr);
+
+    gap:5px;
+
+}
+
+
+.answer{
+
+    width:100%;
+
+    min-height:0;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    background:var(--card-soft);
+
+    color:var(--text);
+
+    padding:6px 8px;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:clamp(8px,2.6vw,11px);
+
+    line-height:1.25;
+
+    font-weight:500;
+
+}
+
+
+.answer-letter{
+
+    width:24px;
+
+    height:24px;
+
+    flex:0 0 24px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:7px;
+
+    background:var(--black);
+
+    color:var(--yellow);
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:8px;
+
+    font-weight:700;
+
+}
+
+
+.answer.correct{
+
+    background:rgba(25,164,99,.13);
+
+    border-color:var(--green);
+
+    color:var(--green);
+
+}
+
+
+.answer.correct .answer-letter{
+
+    background:var(--green);
+
+    color:#fff;
+
+}
+
+
+.answer.wrong{
+
+    background:rgba(229,57,53,.13);
+
+    border-color:var(--red);
+
+    color:var(--red);
+
+}
+
+
+.answer.wrong .answer-letter{
+
+    background:var(--red);
+
+    color:#fff;
+
+}
+
+
+.answer.hidden{
+
+    visibility:hidden;
+
+}
+
+
+/* =========================================================
+   SEYİRCİ
+========================================================= */
+
+.audience{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:14px;
+
+    transform:translateX(-50%);
+
+    width:min(90%,350px);
+
+    padding:12px;
+
+    display:none;
+
+    background:var(--card);
+
+    color:var(--text);
+
+    border:1px solid var(--yellow);
+
+    border-radius:15px;
+
+    box-shadow:var(--shadow);
+
+    z-index:200;
+
+}
+
+
+.audience.active{
+
+    display:block;
+
+}
+
+
+.audience-title{
+
+    text-align:center;
+
+    font-size:8px;
+
+    font-weight:700;
+
+    margin-bottom:7px;
+
+}
+
+
+.audience-row{
+
+    display:grid;
+
+    grid-template-columns:20px 1fr 32px;
+
+    gap:5px;
+
+    align-items:center;
+
+    margin:4px 0;
+
+    font-size:7px;
+
+    font-weight:600;
+
+}
+
+
+.audience-bar{
+
+    height:6px;
+
+    background:var(--card-soft);
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+}
+
+
+.audience-bar span{
+
+    display:block;
+
+    height:100%;
+
+    width:0;
+
+    background:var(--yellow);
+
+}
+
+
+/* =========================================================
+   BARAJ
+========================================================= */
+
+.barrier{
+
+    position:fixed;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%) scale(.8);
+
+    width:min(88%,350px);
+
+    padding:17px;
+
+    background:var(--black);
+
+    color:#fff;
+
+    border:2px solid var(--yellow);
+
+    border-radius:18px;
+
+    text-align:center;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:300;
+
+    transition:.25s;
+
+}
+
+
+.barrier.active{
+
+    opacity:1;
+
+    transform:translate(-50%,-50%) scale(1);
+
+}
+
+
+.barrier i{
+
+    color:var(--yellow);
+
+    font-size:23px;
+
+    margin-bottom:6px;
+
+}
+
+
+.barrier strong{
+
+    display:block;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:15px;
+
+    font-weight:700;
+
+}
+
+
+.barrier span{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:#bbb;
+
+    font-size:8px;
+
+}
+
+
+/* =========================================================
+   SONUÇ
+========================================================= */
+
+.result{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:900;
+
+    display:none;
+
+    place-items:center;
+
+    padding:15px;
+
+    background:
+
+        radial-gradient(
+
+            circle at center,
+
+            #303236,
+
+            #08090b 65%
+
+        );
+
+}
+
+
+.result.active{
+
+    display:grid;
+
+}
+
+
+.result-card{
+
+    width:min(100%,420px);
+
+    padding:22px 17px;
+
+    background:var(--card);
+
+    border:1px solid rgba(244,196,48,.35);
+
+    border-radius:22px;
+
+    text-align:center;
+
+    box-shadow:0 25px 70px rgba(0,0,0,.45);
+
+}
+
+
+.result-icon{
+
+    width:65px;
+
+    height:65px;
+
+    margin:0 auto 9px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:50%;
+
+    background:var(--yellow);
+
+    color:#19150a;
+
+    font-size:25px;
+
+}
+
+
+.result-title{
+
+    margin:0;
+
+    font-family:'Black Ops One',Impact,sans-serif;
+
+    font-size:23px;
+
+    font-weight:400;
+
+}
+
+
+.result-description{
+
+    margin:6px 0 11px;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    line-height:1.45;
+
+    font-weight:500;
+
+}
+
+
+.result-money{
+
+    color:var(--yellow-dark);
+
+    font-family:'Black Ops One',Impact,sans-serif;
+
+    font-size:30px;
+
+    font-weight:400;
+
+}
+
+
+body.dark .result-money{
+
+    color:var(--yellow);
+
+}
+
+
+.result-total{
+
+    margin-top:4px;
+
+    color:var(--muted);
+
+    font-size:8px;
+
+    font-weight:500;
+
+}
+
+
+.return-text{
+
+    margin-top:14px;
+
+    color:var(--muted);
+
+    font-size:8px;
+
+    font-weight:500;
+
+}
+
+
+.return-line{
+
+    width:100%;
+
+    height:4px;
+
+    margin-top:7px;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    background:var(--card-soft);
+
+}
+
+
+.return-line span{
+
+    display:block;
+
+    width:0;
+
+    height:100%;
+
+    background:var(--yellow);
+
+    animation:returnLine 3s linear forwards;
+
+}
+
+
+@keyframes returnLine{
+
+    to{
+
+        width:100%;
+
+    }
+
+}
+
+
+/* =========================================================
+   KISA EKRANLAR
+========================================================= */
+
+@media(max-height:700px){
+
+    .container{
+
+        padding-top:4px;
+
+    }
+
+
+    .back-button{
+
+        padding:5px 9px;
+
+        margin-bottom:3px;
+
+    }
+
+
+    .brand-small{
+
+        font-size:6px;
+
+    }
+
+
+    .brand-title{
+
+        font-size:20px;
+
+    }
+
+
+    .brand-line{
+
+        margin-top:5px;
+
+    }
+
+
+    .trophy{
+
+        width:57px;
+
+        height:57px;
+
+        font-size:23px;
+
+        margin-bottom:6px;
+
+    }
+
+
+    .card{
+
+        padding:11px;
+
+    }
+
+
+    .card-description{
+
+        margin-bottom:8px;
+
+    }
+
+
+    .user-panel{
+
+        padding:8px 9px;
+
+        margin-bottom:7px;
+
+    }
+
+
+    .start-button{
+
+        padding:11px;
+
+    }
+
+
+    .question-text{
+
+        min-height:52px;
+
+    }
+
+
+    .question-image{
+
+        max-height:85px;
+
+    }
+
+
+    .answer-letter{
+
+        width:21px;
+
+        height:21px;
+
+        flex-basis:21px;
+
+    }
+
+}
+
+
+/* =========================================================
+   ÇOK KÜÇÜK TELEFONLAR
+========================================================= */
+
+@media(max-width:360px){
+
+    .container{
+
+        padding-left:9px;
+
+        padding-right:9px;
+
+    }
+
+
+    .brand-title{
+
+        font-size:18px;
+
+    }
+
+
+    .card-title{
+
+        font-size:18px;
+
+    }
+
+
+    .question-text{
+
+        font-size:10px;
+
+    }
+
+
+    .answer{
+
+        font-size:8px;
+
+    }
+
+
+    .answer-letter{
+
+        width:20px;
+
+        height:20px;
+
+        flex-basis:20px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+<div class="container">
+
+
+<!-- =====================================================
+     GERİ + BAŞLIK
+===================================================== -->
+
+<header class="brand">
+
+
+    <button
+        class="back-button"
+        type="button"
+        onclick="goBack()">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        <span>Geri</span>
+
+    </button>
+
+
+    <div class="brand-small">
+        ŞAHİN EHLİYETİM
+    </div>
+
+
+    <h1 class="brand-title">
+        KİM EHLİYETLİ<br>
+        OLMAK İSTER?
+    </h1>
+
+
+    <div class="brand-line"></div>
+
+
+</header>
+
+
+<!-- =====================================================
+     GİRİŞ
+===================================================== -->
+
+<section
+    id="intro"
+    class="intro">
+
+
+    <div class="trophy">
+
+        <i class="fa-solid fa-trophy"></i>
+
+    </div>
+
+
+    <div class="card">
+
+
+        <h2 class="card-title">
+
+            KİM EHLİYETLİ<br>
+            OLMAK İSTER?
+
+        </h2>
+
+
+        <p class="card-description">
+
+            Bilgini test et, doğru cevaplarla
+            ödül basamaklarını tırman!
+
+        </p>
+
+
+        <!-- KULLANICI -->
+
+        <div class="user-panel">
+
+
+            <div class="user-left">
+
+
+                <div class="user-icon">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+
+                <div class="user-details">
+
+                    <div class="user-label">
+                        YARIŞMACI
+                    </div>
+
+                    <div
+                        id="userName"
+                        class="user-name">
+
+                        Misafir
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="balance">
+
+
+                <div class="balance-label">
+                    OYUN BAKİYESİ
+                </div>
+
+
+                <div
+                    id="userBalance"
+                    class="balance-value">
+
+                    ₺0
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- BAŞLAT -->
+
+        <button
+            id="startButton"
+            class="start-button"
+            type="button">
+
+            OYUNA BAŞLA!
+
+            <i class="fa-solid fa-play"></i>
+
+        </button>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     OYUN
+===================================================== -->
+
+<section
+    id="game"
+    class="game">
+
+
+    <!-- ÜST BİLGİ -->
+
+    <div class="game-top">
+
+
+        <div
+            id="questionNumber"
+            class="question-number">
+
+            SORU 1 / 10
+
+        </div>
+
+
+        <div
+            id="gameMoney"
+            class="game-money">
+
+            ₺100
+
+        </div>
+
+
+        <div
+            id="timer"
+            class="timer">
+
+            30
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ÖDÜL MERDİVENİ -->
+
+    <div
+        id="prizes"
+        class="prizes">
+
+    </div>
+
+
+    <!-- JOKERLER -->
+
+    <div class="jokers">
+
+
+        <button
+            id="fiftyButton"
+            class="joker"
+            type="button">
+
+            <i class="fa-solid fa-filter"></i>
+
+            50:50
+
+        </button>
+
+
+        <button
+            id="audienceButton"
+            class="joker"
+            type="button">
+
+            <i class="fa-solid fa-users"></i>
+
+            SEYİRCİ
+
+        </button>
+
+
+    </div>
+
+
+    <!-- SORU -->
+
+    <div class="question-card">
+
+
+        <div class="question-header">
+
+
+            <div
+                id="questionLabel"
+                class="question-label">
+
+                SORU 1
+
+            </div>
+
+
+            <div
+                id="questionValue"
+                class="question-value">
+
+                ₺100
+
+            </div>
+
+
+        </div>
+
+
+        <div
+            id="questionText"
+            class="question-text">
+
+        </div>
+
+
+        <img
+            id="questionImage"
+            class="question-image hidden"
+            alt="Soru görseli">
+
+
+        <div
+            id="answers"
+            class="answers">
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     YÜKLEME
+===================================================== -->
+
+<div
+    id="loading"
+    class="loading">
+
+
+    <div class="loading-inner">
+
+
+        <div class="loading-title">
+
+            KİM EHLİYETLİ<br>
+            OLMAK İSTER?
+
+        </div>
+
+
+        <div
+            id="loadingText"
+            class="loading-text">
+
+        </div>
+
+
+        <div
+            id="countdown"
+            class="countdown">
+
+        </div>
+
+
+        <div class="loading-progress">
+
+
+            <div
+                id="loadingBar"
+                class="loading-progress-bar">
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- =====================================================
+     SEYİRCİ JOKERİ
+===================================================== -->
+
+<div
+    id="audience"
+    class="audience">
+
+
+    <div class="audience-title">
+
+        SEYİRCİ CEVAPLARI
+
+    </div>
+
+
+    <div class="audience-row">
+
+        <b>A</b>
+
+        <div class="audience-bar">
+            <span id="barA"></span>
+        </div>
+
+        <strong id="percentA">0%</strong>
+
+    </div>
+
+
+    <div class="audience-row">
+
+        <b>B</b>
+
+        <div class="audience-bar">
+            <span id="barB"></span>
+        </div>
+
+        <strong id="percentB">0%</strong>
+
+    </div>
+
+
+    <div class="audience-row">
+
+        <b>C</b>
+
+        <div class="audience-bar">
+            <span id="barC"></span>
+        </div>
+
+        <strong id="percentC">0%</strong>
+
+    </div>
+
+
+    <div class="audience-row">
+
+        <b>D</b>
+
+        <div class="audience-bar">
+            <span id="barD"></span>
+        </div>
+
+        <strong id="percentD">0%</strong>
+
+    </div>
+
+
+</div>
+
+
+<!-- =====================================================
+     BARAJ MESAJI
+===================================================== -->
+
+<div
+    id="barrier"
+    class="barrier">
+
+
+    <i class="fa-solid fa-shield-halved"></i>
+
+
+    <strong>
+        BARAJ GEÇİLDİ!
+    </strong>
+
+
+    <span>
+        Bu ödül artık senin garantin.
+    </span>
+
+
+</div>
+
+
+<!-- =====================================================
+     SONUÇ
+===================================================== -->
+
+<div
+    id="result"
+    class="result">
+
+
+    <div class="result-card">
+
+
+        <div class="result-icon">
+
+            <i class="fa-solid fa-trophy"></i>
+
+        </div>
+
+
+        <h2
+            id="resultTitle"
+            class="result-title">
+
+            YARIŞMA BİTTİ
+
+        </h2>
+
+
+        <p
+            id="resultDescription"
+            class="result-description">
+
+        </p>
+
+
+        <div
+            id="resultMoney"
+            class="result-money">
+
+            ₺0
+
+        </div>
+
+
+        <div
+            id="resultTotal"
+            class="result-total">
+
+        </div>
+
+
+        <div class="return-text">
+
+            Ana menüye dönülüyor...
+
+        </div>
+
+
+        <div class="return-line">
+
+            <span></span>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   DARK MODE
+   ANA SAYFADAKİ THEME DEĞERİNİ OKUR
+========================================================= */
+
+(function(){
+
+    function applyTheme(){
+
+        /*
+           Ana sayfadaki Mod sistemi:
+           localStorage -> theme
+        */
+
+        const isDark =
+            localStorage.getItem("theme") === "true";
+
+
+        document.documentElement.classList.toggle(
+            "dark",
+            isDark
+        );
+
+
+        document.body.classList.toggle(
+            "dark",
+            isDark
+        );
+
+    }
+
+
+    applyTheme();
+
+
+    /*
+       Başka sekmeden theme değişirse.
+    */
+
+    window.addEventListener(
+        "storage",
+        function(event){
+
+            if(event.key === "theme"){
+
+                applyTheme();
+
+            }
+
+        }
+    );
+
+
+    /*
+       Sayfaya tekrar dönüldüğünde kontrol et.
+    */
+
+    window.addEventListener(
+        "pageshow",
+        applyTheme
+    );
+
+})();
+
+
+/* =========================================================
+   TEST SORULARI
+========================================================= */
+
+const TEST_QUESTIONS = [
+
+    {
+
+        question:
+            "Aksine bir işaret yoksa şekildeki aracın yerleşim yeri içindeki azami hızı saatte kaç kilometredir?",
+
+        image:"yarismaresimler/1.gif",
+
+        options:{
+
+            A:"30",
+
+            B:"50",
+
+            C:"70",
+
+            D:"80"
+
+        },
+
+        answer:"B"
+
+    },
+
+
+    {
+
+        question:
+            "Periyodik bakımda aşağıdakilerden hangisinin değiştirilmemesi araç motorunun çalışmasını olumsuz etkiler?",
+
+        image:"",
+
+        options:{
+
+            A:"Polen filtresinin",
+
+            B:"Yağ filtresinin",
+
+            C:"Araç lastiklerinin",
+
+            D:"Cam sileceklerinin"
+
+        },
+
+        answer:"B"
+
+    },
+
+
+    {
+
+        question:
+            "Aşağıdakilerden hangisi araçtaki soğutma sisteminin görevidir?",
+
+        image:"",
+
+        options:{
+
+            A:"Motoru çalışma sıcaklığında tutmak",
+
+            B:"Diferansiyeli çalışma sıcaklığında tutmak",
+
+            C:"Vites kutusunu çalışma sıcaklığında tutmak",
+
+            D:"Alternatörü çalışma sıcaklığında tutmak"
+
+        },
+
+        answer:"A"
+
+    },
+
+
+    {
+
+        question:
+            "Marş motoru aşağıdaki parçalardan hangisine hareket iletir?",
+
+        image:"",
+
+        options:{
+
+            A:"Volan dişlisine",
+
+            B:"Diferansiyele",
+
+            C:"Amortisöre",
+
+            D:"Fan motoruna"
+
+        },
+
+        answer:"A"
+
+    },
+
+
+    {
+
+        question:
+            "Aşağıdakilerden hangisi özel araçların gereksiz kullanılmasının sonuçlarındandır?",
+
+        image:"",
+
+        options:{
+
+            A:"Yakıt tüketiminin azalması",
+
+            B:"Gürültü kirliliğinin önlenmesi",
+
+            C:"Zararlı gaz salınımının artması",
+
+            D:"Trafik yoğunluğunun azalması"
+
+        },
+
+        answer:"C"
+
+    },
+
+
+    {
+
+        question:
+            "Araç, flaşörleri yanık olarak uzun bir süre park hâlinde bırakılırsa aşağıdakilerden hangisinin olması beklenir?",
+
+        image:"",
+
+        options:{
+
+            A:"Akünün boşalması",
+
+            B:"Benzinin bitmesi",
+
+            C:"Fren balatalarının aşınması",
+
+            D:"Lastik hava basıncının düşmesi"
+
+        },
+
+        answer:"A"
+
+    },
+
+
+    {
+
+        question:
+            "Akaryakıt istasyonundan yola çıkmak isteyen şekildeki 2 numaralı araç sürücüsü ne yapmalıdır?",
+
+        image:"yarismaresimler/2.gif",
+
+        options:{
+
+            A:"Selektör yaparak 1 numaralı aracı durdurmalıdır.",
+
+            B:"Korna çalıp 1 numaralı aracı yavaşlatmalıdır.",
+
+            C:"1 numaralı aracın geçmesini beklemelidir.",
+
+            D:"Geçiş hakkını kendi kullanmalıdır."
+
+        },
+
+        answer:"C"
+
+    },
+
+
+    {
+
+        question:
+            "Tehlikeli madde taşıyan araçlarda yangın söndürme cihazları aracın neresinde bulundurulmalıdır?",
+
+        image:"",
+
+        options:{
+
+            A:"Sadece sürücünün bildiği bir yerde",
+
+            B:"Özel olarak yapılmış kilitli bir yerde",
+
+            C:"Sürücünün kolayca kullanabileceği bir yerde",
+
+            D:"Motor kaputunun altında veya yangın çıkma ihtimali olan bir yerde"
+
+        },
+
+        answer:"C"
+
+    },
+
+
+    {
+
+        question:
+            "Motorun çalışma sıcaklığına çok geç ulaşması, aşağıdakilerden hangisinin arızalı olduğunu gösterir?",
+
+        image:"",
+
+        options:{
+
+            A:"Radyatör",
+
+            B:"Termostat",
+
+            C:"Yağ filtresi",
+
+            D:"Devridaim pompası"
+
+        },
+
+        answer:"B"
+
+    },
+
+
+    {
+
+        question:
+            "Solunum yolu zehirlenmesinde (gaz kaçağı) ilk adım nedir?",
+
+        image:"",
+
+        options:{
+
+            A:"Işık açılır.",
+
+            B:"Hasta temiz havaya çıkarılır / ortam havalandırılır.",
+
+            C:"Suni solunum yapılır (ortamda).",
+
+            D:"Su içirilir."
+
+        },
+
+        answer:"B"
+
+    },
+
+
+        {
+
+        question:
+            "Taşıt yolu üzerine çizilen şekildeki çizgilerin anlamı nedir?",
+
+        image:"yarismaresimler/3.jpg",
+
+        options:{
+
+            A:"Yaya geçidi",
+
+            B:"Sağa tehlikeli viraj",
+
+            C:"Taralı alana girilmez.",
+
+            D:"Taralı alan içine park edilebilir."
+
+        },
+
+        answer:"C"
+
+    },
+
+
+        {
+
+        question:
+            "Aşağıdaki davranışlardan hangisi trafikte bireye yapılan hak ihlallerinden biri değildir?",
+
+        image:"",
+
+        options:{
+
+            A:"Trafik kurallarına riayet edilmesi",
+
+            B:"En soldaki şeridin sürekli işgal edilmesi",
+
+            C:"Hız sınırlamalarının üstünde araç kullanılması",
+
+            D:"Engelli kişiler için ayrılmış yerlere park edilmesi"
+
+        },
+
+        answer:"A"
+
+    },
+
+
+        {
+
+        question:
+            "Beyin, insan vücudundaki hangi sistemin bir parçasıdır?",
+
+        image:"",
+
+        options:{
+
+            A:"Dolaşım sisteminin",
+
+            B:"Sindirim sisteminin",
+
+            C:"Hareket sisteminin",
+
+            D:"Sinir sisteminin"
+
+        },
+
+        answer:"D"
+
+    },
+
+
+        {
+
+        question:
+            "Aşağıdakilerden hangisi tedbirsiz ve saygısız araç sürmeye örnek değildir?",
+
+        image:"",
+
+        options:{
+
+            A:"Hız kurallarına uyulması",
+
+            B:"Yayalara su sıçratılması",
+
+            C:"Diğer sürücülerin korkutulması",
+
+            D:"Seyir hâlinde iken sürücünün elindeki cep telefonunu kullanması"
+
+        },
+
+        answer:"A"
+
+    },
+
+
+        {
+
+        question:
+            "Aksine bir işaret bulunmadıkça otoyolda minibüs ve otobüsler için azami hız saatte kaç kilometredir?",
+
+        image:"",
+
+        options:{
+
+            A:"80",
+
+            B:"90",
+
+            C:"100",
+
+            D:"110"
+
+        },
+
+        answer:"C"
+
+    },
+
+
+        {
+
+        question:
+            "Şekildeki trafik işaretinin anlamı nedir?",
+
+        image:"yarismaresimler/4.png",
+
+        options:{
+
+            A:"Bütün yasaklama ve kısıtlamaların sonu",
+
+            B:"Anayol sonu",
+
+            C:"Hız sınırlaması sonu",
+
+            D:"Park etmeye kapalı yol"
+
+        },
+
+        answer:"B"
+
+    },
+
+
+        {
+
+        question:
+            "Şekildeki otoyolda numaralanmış şeritlerden hangisi ayrılma (yavaşlama) şerididir?",
+
+        image:"yarismaresimler/5.gif",
+
+        options:{
+
+            A:"1",
+
+            B:"2",
+
+            C:"3",
+
+            D:"4"
+
+        },
+
+        answer:"A"
+
+    },
+
+
+        {
+
+        question:
+            "Aşağıdakilerden hangisi bujilerin ayarsız veya aşınmasına bağlı olarak meydana gelir?",
+
+        image:"",
+
+        options:{
+
+            A:"Yakıt sarfiyatının artması",
+
+            B:"Motorun gücünün artması",
+
+            C:"Motorun hararet yapması",
+
+            D:"Motorun yağ yakması"
+
+        },
+
+        answer:"A"
+
+    },
+
+
+        {
+
+        question:
+            "Aşağıdakilerden hangisi trafik kazalarının topluma verdiği zararlardan biri değildir?",
+
+        image:"",
+
+        options:{
+
+            A:"Üretim ve refah kayıplarının yaşanması",
+
+            B:"Kara yollarının zamanından önce yıpranması",
+
+            C:"Uzun vadede kalkınmaya olumlu etki yapması",
+
+            D:"Açılan çok sayıda dava ile yargı sisteminde iş yükünün artması"
+
+        },
+
+        answer:"C"
+
+    },
+
+
+        {
+
+        question:
+            "Şekildeki karşılaşmada hangi araç öncellikle geçiş hakkını kullanmalıdır?",
+
+        image:"yarismaresimler/6.gif",
+
+        options:{
+
+            A:"Kamyonet",
+
+            B:"Motosiklet",
+
+            C:"Traktör",
+
+            D:"Otomobil"
+
+        },
+
+        answer:"B"
+
+    },
+
+
+        {
+
+        question:
+            "Lastik hava basınçlarının çok düşük veya çok yüksek olması aşağıdakilerden hangisine neden olur?",
+
+        image:"",
+
+        options:{
+
+            A:"El freninin arızalanmasına",
+
+            B:"Sürüş güvenliğinin artmasına",
+
+            C:"Bijon somunlarının gevşemesine",
+
+            D:"Lastiklerin kullanım ömrünün kısalmasına"
+
+        },
+
+        answer:"D"
+
+    },
+
+
+        {
+
+        question:
+            "Hasta veya yaralının ikinci değerlendirmesi (geçmişi öğrenme) yapılırken aşağıdakilerden hangisi sorulur?",
+
+        image:"",
+
+        options:{
+
+            A:"Kullandığı ilaçlar ve alerjileri.",
+
+            B:"Banka hesabı.",
+
+            C:"Kimlik numarası.",
+
+            D:"Adresi."
+
+        },
+
+        answer:"A"
+
+    },
+
+
+        {
+
+        question:
+            "Aşağıdakilerden hangisi bir insana yakışmayan tavırlara örnektir?",
+
+        image:"",
+
+        options:{
+
+            A:"şık kırmızıdan yeşile döndüğü anda korna veya selektörle hemen uyarıda bulunmak",
+
+            B:"Otoyollarda aniden trafik sıkıştığında arkadaki sürücüleri uyarmak için dörtlüleri çalıştırmak.",
+
+            C:"Trafik ortamında karşı tarafın hatalarını tolere edebilecek şekilde araç kullanmak",
+
+            D:"Sisli, yağmurlu, karlı veya görüşün yetersiz olduğu durumlarda sis lambasını açmak."
+
+        },
+
+        answer:"A"
+
+    },
+
+
+        {
+
+        question:
+            "“Kazazedenin ağız bölgesine bir cam parçası ya da ayna yaklaştırarak buharlanıp buharlanmadığına bakılması” Bak-DinleHisset yönteminde hangisinin bir göstergesidir?",
+
+        image:"",
+
+        options:{
+
+            A:"Bak",
+
+            B:"Dinle",
+
+            C:"Hisset",
+
+            D:"Dinle - Hisset"
+
+        },
+
+        answer:"A"
+
+    },
+
+
+        {
+
+        question:
+            "Şekildeki trafik işareti aşağıdakilerden hangisini bildirir?",
+
+        image:"yarismaresimler/7.jpg",
+
+        options:{
+
+            A:"Mopet yolunu",
+
+            B:"Bisiklet yolunu",
+
+            C:"Mopetin giremeyeceğini",
+
+            D:"Motosikletin giremeyeceğini"
+
+        },
+
+        answer:"C"
+
+    },
+
+
+        {
+
+        question:
+            "Şekildeki araçlardan hangileri beklemelidir?",
+
+        image:"yarismaresimler/8.jpg",
+
+        options:{
+
+            A:"Yalnız 1",
+
+            B:"Yalnız 2",
+
+            C:"1 ve 3",
+
+            D:"2 ve 4"
+
+        },
+
+        answer:"D"
+
+    },
+
+
+        {
+
+        question:
+            "Aşağıdakilerden hangisi yakıt sisteminin elemanıdır?",
+
+        image:"",
+
+        options:{
+
+            A:"Termostat",
+
+            B:"Yakıt filtresi",
+
+            C:"Marş motoru",
+
+            D:"Endüksiyon bobini"
+
+        },
+
+        answer:"B"
+
+    },
+
+
+        {
+
+        question:
+            "Aşağıdakilerden hangisi motordaki basınçlı yanmış gazların çıkarken oluşturacağı sesi azaltır?",
+
+        image:"",
+
+        options:{
+
+            A:"Egzoz supabı",
+
+            B:"Emme manifoldu",
+
+            C:"Egzoz susturucusu",
+
+            D:"Emme susturucusu"
+
+        },
+
+        answer:"C"
+
+    },
+
+
+        {
+
+        question:
+            "Kavşaklara yaklaşırken yol üzerine çizilmiş şekildeki oklar sürücülere neyi bildirir?",
+
+        image:"yarismaresimler/9.jpg",
+
+        options:{
+
+            A:"Hızın artırılması gerektiğini",
+
+            B:"Sağa ve sola dönülemeyeceğini",
+
+            C:"Seyir yönüne uygun şeridin kullanılması gerektiğini",
+
+            D:"Durma, duraklama ve park etmenin yasaklanmış olduğunu"
+
+        },
+
+        answer:"C"
+
+    },
+
+
+        {
+
+        question:
+            "Sürüş sırasında aracın gösterge panelinde bulunan şekildeki ikaz ışığının yanması sürücüye aşağıdakilerden hangisini bildirir?",
+
+        image:"yarismaresimler/10.jpg",
+
+        options:{
+
+            A:"Alternatörün şarj etmediğini",
+
+            B:"Emniyet kemerinin takılmadığını",
+
+            C:"Motor yağ basıncının düştüğünü",
+
+            D:"Motor soğutma suyu sıcaklığının yükseldiğini"
+
+        },
+
+        answer:"A"
+
+    },
+
+
+        {
+
+        question:
+            "Aşağıdakilerden hangisi hoşgörülü olma özelliği taşımayan sürücülerin özelliklerindendir?",
+
+        image:"",
+
+        options:{
+
+            A:"Öfkeli olmak",
+
+            B:"Sabırlı davranmak",
+
+            C:"Başarılı iletişim kurmak",
+
+            D:"Kural ihlalinden kaçınmak"
+
+        },
+
+        answer:"A"
+
+    },
+
+
+        {
+
+        question:
+            "Aşağıdakilerden hangisinin, normalin çok altında eksilmesi veya özelliğini kaybetmesi durumunda motor aşırı ısınarak zarar görür?",
+
+        image:"",
+
+        options:{
+
+            A:"Antifriz",
+
+            B:"Fren hidroliği",
+
+            C:"Motor yağı",
+
+            D:"Akü elektroliti"
+
+        },
+
+        answer:"C"
+
+    },
+
+
+        {
+
+        question:
+            "Öfke, kızgınlık ve hırs gibi duygular aşağıda verilenlerden hangisine neden olur?",
+
+        image:"",
+
+        options:{
+
+            A:"Sürücünün vakit kazanmasına",
+
+            B:"Kaza riskinin artmasına",
+
+            C:"Stresin azalmasına",
+
+            D:"Trafiğin yoğunluğunun azalmasına"
+
+        },
+
+        answer:"B"
+
+    },
+
+
+
+        {
+
+        question:
+            "Marşa basıldığında motor dönüyor ancak çalışmıyorsa ilk olarak aşağıdakilerden hangisi kontrol edilmelidir?",
+
+        image:"",
+
+        options:{
+
+            A:"Bujiler",
+
+            B:"Akü suyu",
+
+            C:"Motor yağ seviyesi",
+
+            D:"Depodaki yakıt seviyesi"
+
+        },
+
+        answer:"D"
+
+    },
+
+
+        {
+
+        question:
+            "Delici karın yaralanması olan bir kazazedenin bilinci yerinde ise verilecek pozisyon nasıl olmalıdır?",
+
+        image:"",
+
+        options:{
+
+            A:"Yan yatış",
+
+            B:"Baş yanda, yarı yüzüstü yatış",
+
+            C:"Bacaklar karna doğru bükülü, sırtüstü yatış",
+
+            D:"Bacaklar yerden 30 cm yüksekte, sırtüstü yatış"
+
+        },
+
+        answer:"C"
+
+    },
+
+        {
+
+        question:
+            "Aşağıdakilerden hangisi kandaki oksijen oranının düşmesine bağlı olarak meydana gelmez?",
+
+        image:"",
+
+        options:{
+
+            A:"Kansızlık",
+
+            B:"Bilinç kaybı",
+
+            C:"Baş dönmesi",
+
+            D:"Düzensiz nabız atışı"
+
+        },
+
+        answer:"A"
+
+    },
+
+];
+
+
+/* =========================================================
+   ÖDÜL BASAMAKLARI
+========================================================= */
+
+const PRIZES = [
+
+    100,
+
+    500,
+
+    1000,
+
+    2500,
+
+    5000,
+
+    10000,
+
+    25000,
+
+    50000,
+
+    100000,
+
+    250000
+
+];
+
+
+/* =========================================================
+   BARAJLAR
+========================================================= */
+
+/*
+   index 1 = 2. soru
+   index 6 = 7. soru
+*/
+
+const SAFE_LEVELS = [
+
+    1,
+
+    6
+
+];
+
+
+const QUESTION_TIME = 30;
+
+
+/* =========================================================
+   DEĞİŞKENLER
+========================================================= */
+
+let questions = [];
+
+let currentQuestion = 0;
+
+let earnedMoney = 0;
+
+// Kullanıcının gerçekten geçtiği son baraj.
+// Elenme durumunda sadece bu tutar ödenir.
+let lastSafePrize = 0;
+
+let timerInterval = null;
+
+let timeLeft = 30;
+
+let answered = false;
+
+let fiftyUsed = false;
+
+let audienceUsed = false;
+
+
+/* =========================================================
+   ELEMENTLER
+========================================================= */
+
+const intro =
+    document.getElementById("intro");
+
+const game =
+    document.getElementById("game");
+
+const startButton =
+    document.getElementById("startButton");
+
+const loading =
+    document.getElementById("loading");
+
+const loadingText =
+    document.getElementById("loadingText");
+
+const loadingBar =
+    document.getElementById("loadingBar");
+
+const countdown =
+    document.getElementById("countdown");
+
+const userName =
+    document.getElementById("userName");
+
+const userBalance =
+    document.getElementById("userBalance");
+
+const questionNumber =
+    document.getElementById("questionNumber");
+
+const gameMoney =
+    document.getElementById("gameMoney");
+
+const timerElement =
+    document.getElementById("timer");
+
+const prizes =
+    document.getElementById("prizes");
+
+const questionLabel =
+    document.getElementById("questionLabel");
+
+const questionValue =
+    document.getElementById("questionValue");
+
+const questionText =
+    document.getElementById("questionText");
+
+const questionImage =
+    document.getElementById("questionImage");
+
+const answers =
+    document.getElementById("answers");
+
+const fiftyButton =
+    document.getElementById("fiftyButton");
+
+const audienceButton =
+    document.getElementById("audienceButton");
+
+const audience =
+    document.getElementById("audience");
+
+const barrier =
+    document.getElementById("barrier");
+
+const result =
+    document.getElementById("result");
+
+const resultTitle =
+    document.getElementById("resultTitle");
+
+const resultDescription =
+    document.getElementById("resultDescription");
+
+const resultMoney =
+    document.getElementById("resultMoney");
+
+const resultTotal =
+    document.getElementById("resultTotal");
+
+
+/* =========================================================
+   KULLANICIYI AL
+========================================================= */
+
+function getUser(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem("user") || "{}"
+        ) || {};
+
+    }catch(error){
+
+        return {};
+
+    }
+
+}
+
+
+/* =========================================================
+   PARA FORMATLA
+========================================================= */
+
+function money(value){
+
+    return "₺" +
+        Number(value || 0)
+        .toLocaleString("tr-TR");
+
+}
+
+
+/* =========================================================
+   KULLANICI BİLGİLERİ
+========================================================= */
+
+function loadUser(){
+
+    const user =
+        getUser();
+
+
+    const name =
+        user.nickname ||
+        user.name ||
+        "Misafir";
+
+
+    const balance =
+        Number(
+            user.gameBalance || 0
+        );
+
+
+    userName.textContent =
+        name;
+
+
+    userBalance.textContent =
+        money(balance);
+
+}
+
+
+/* =========================================================
+   DİZİ KARIŞTIR
+========================================================= */
+
+function shuffle(array){
+
+    const copy =
+        array.slice();
+
+
+    for(
+        let i = copy.length - 1;
+        i > 0;
+        i--
+    ){
+
+        const j =
+            Math.floor(
+                Math.random() * (i + 1)
+            );
+
+
+        [
+            copy[i],
+            copy[j]
+        ] =
+        [
+            copy[j],
+            copy[i]
+        ];
+
+    }
+
+
+    return copy;
+
+}
+
+
+/* =========================================================
+   GERİ
+========================================================= */
+
+function goBack(){
+
+    location.href =
+        "katagoriler.html";
+
+}
+
+
+/* =========================================================
+   ÖDÜL MERDİVENİNİ OLUŞTUR
+========================================================= */
+
+function renderPrizes(){
+
+    prizes.innerHTML = "";
+
+
+    PRIZES.forEach(
+        function(prize,index){
+
+            const element =
+                document.createElement("div");
+
+
+            element.className =
+                "prize";
+
+
+            if(
+                SAFE_LEVELS.includes(index)
+            ){
+
+                element.classList.add(
+                    "safe"
+                );
+
+            }
+
+
+            if(
+                index === currentQuestion
+            ){
+
+                element.classList.add(
+                    "current"
+                );
+
+            }
+
+
+            element.textContent =
+                money(prize);
+
+
+            prizes.appendChild(
+                element
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   OYUNU BAŞLAT
+========================================================= */
+
+
+/* =========================================================
+   SORU HAVUZU SİSTEMİ
+   Sorular bu HTML içindeki TEST_QUESTIONS dizisinden alınır.
+   Her oyun 10 farklı soru kullanır ve kullanılan sorular
+   localStorage'da tutulur. Havuz bitince yeni tur başlar.
+========================================================= */
+
+const QUESTION_POOL_KEY =
+    "ke_question_pool_v1";
+
+function getQuestionPoolSignature(){
+    return TEST_QUESTIONS
+        .map(function(question){
+            return String(question.question || "");
+        })
+        .join("||");
+}
+
+function createQuestionPoolState(){
+    return {
+        signature: getQuestionPoolSignature(),
+        remaining: shuffle(
+            TEST_QUESTIONS.map(function(_, index){
+                return index;
+            })
+        )
+    };
+}
+
+function getQuestionPoolState(){
+    const signature =
+        getQuestionPoolSignature();
+
+    try{
+        const saved =
+            JSON.parse(
+                localStorage.getItem(
+                    QUESTION_POOL_KEY
+                ) || "null"
+            );
+
+        if(
+            saved &&
+            saved.signature === signature &&
+            Array.isArray(saved.remaining) &&
+            saved.remaining.every(function(index){
+                return Number.isInteger(index) &&
+                    index >= 0 &&
+                    index < TEST_QUESTIONS.length;
+            })
+        ){
+            return saved;
+        }
+    }catch(error){
+        // Bozuk kayıt varsa yeni havuz oluşturulur.
+    }
+
+    return createQuestionPoolState();
+}
+
+function saveQuestionPoolState(state){
+    localStorage.setItem(
+        QUESTION_POOL_KEY,
+        JSON.stringify(state)
+    );
+}
+
+function getNextQuestionBatch(){
+    if(TEST_QUESTIONS.length < 10){
+        throw new Error(
+            "Kim Ehliyetli Olmak İster? için en az 10 soru gerekli."
+        );
+    }
+
+    let state =
+        getQuestionPoolState();
+
+    /*
+       Kalan soru sayısı 10'dan azsa önce mevcut turun
+       kalan sorularını kullan, ardından yeni turdan
+       gereken kadar soru tamamla.
+    */
+    if(state.remaining.length < 10){
+        const oldRemaining =
+            state.remaining.slice();
+
+        const newCycle =
+            shuffle(
+                TEST_QUESTIONS.map(function(_, index){
+                    return index;
+                })
+            );
+
+        const excluded =
+            new Set(oldRemaining);
+
+        const additional =
+            newCycle.filter(function(index){
+                return !excluded.has(index);
+            });
+
+        state.remaining =
+            oldRemaining.concat(
+                additional
+            );
+    }
+
+    const selectedIndexes =
+        state.remaining.splice(0, 10);
+
+    saveQuestionPoolState(state);
+
+    return selectedIndexes.map(function(index){
+        return TEST_QUESTIONS[index];
+    });
+}
+
+function startGame(){
+
+    startButton.disabled = true;
+
+
+    /*
+       Her oyunda havuzdan 10 soru seçilir.
+       Kullanılan sorular sonraki oyunlarda tekrar etmez.
+    */
+
+    questions =
+        getNextQuestionBatch();
+
+
+    currentQuestion = 0;
+
+    earnedMoney = 0;
+    lastSafePrize = 0;
+
+    fiftyUsed = false;
+
+    audienceUsed = false;
+
+
+    clearInterval(
+        timerInterval
+    );
+
+
+    intro.style.display =
+        "none";
+
+
+    loading.classList.add(
+        "active"
+    );
+
+
+    runLoading();
+
+}
+
+
+/* =========================================================
+   YÜKLEME
+========================================================= */
+
+function runLoading(){
+
+    const steps = [
+
+        "YARIŞMA HAZIRLANIYOR",
+
+        "SORULAR HAZIRLANIYOR",
+
+        "ÖDÜLLER HAZIRLANIYOR",
+
+        "YARIŞMA BAŞLIYOR"
+
+    ];
+
+
+    let index = 0;
+
+
+    loadingText.textContent =
+        "";
+
+
+    loadingBar.style.width =
+        "0%";
+
+
+    function next(){
+
+        if(
+            index >= steps.length
+        ){
+
+            startCountdown();
+
+            return;
+
+        }
+
+
+        loadingText.textContent =
+            steps[index];
+
+
+        loadingBar.style.width =
+            ((index + 1) / steps.length * 75)
+            + "%";
+
+
+        index++;
+
+
+        setTimeout(
+            next,
+            700
+        );
+
+    }
+
+
+    next();
+
+}
+
+
+/* =========================================================
+   GERİ SAYIM
+========================================================= */
+
+function startCountdown(){
+
+    loadingText.textContent =
+        "";
+
+
+    loadingBar.style.width =
+        "100%";
+
+
+    countdown.style.display =
+        "block";
+
+
+    let number = 3;
+
+
+    function count(){
+
+        countdown.classList.remove(
+            "active"
+        );
+
+
+        void countdown.offsetWidth;
+
+
+        if(number > 0){
+
+            countdown.textContent =
+                number;
+
+        }else{
+
+            countdown.textContent =
+                "BAŞLA!";
+
+        }
+
+
+        countdown.classList.add(
+            "active"
+        );
+
+
+        if(number === 0){
+
+            setTimeout(
+                function(){
+
+                    loading.classList.remove(
+                        "active"
+                    );
+
+
+                    countdown.style.display =
+                        "none";
+
+
+                    game.classList.add(
+                        "active"
+                    );
+
+
+                    fiftyButton.disabled =
+                        false;
+
+
+                    audienceButton.disabled =
+                        false;
+
+
+                    renderQuestion();
+
+                },
+                600
+            );
+
+
+            return;
+
+        }
+
+
+        number--;
+
+
+        setTimeout(
+            count,
+            850
+        );
+
+    }
+
+
+    count();
+
+}
+
+
+/* =========================================================
+   SORU GÖSTER
+========================================================= */
+
+function renderQuestion(){
+
+    clearInterval(
+        timerInterval
+    );
+
+
+    answered = false;
+
+
+    audience.classList.remove(
+        "active"
+    );
+
+
+    const question =
+        questions[currentQuestion];
+
+
+    if(!question){
+
+        finishGame(
+            true
+        );
+
+        return;
+
+    }
+
+
+    questionNumber.textContent =
+        "SORU " +
+        (currentQuestion + 1) +
+        " / 10";
+
+
+    gameMoney.textContent =
+        money(
+            PRIZES[currentQuestion]
+        );
+
+
+    questionLabel.textContent =
+        "SORU " +
+        (currentQuestion + 1);
+
+
+    questionValue.textContent =
+        money(
+            PRIZES[currentQuestion]
+        );
+
+
+    questionText.textContent =
+        question.question;
+
+
+    /* Görsel */
+
+    if(question.image){
+
+        questionImage.src =
+            question.image;
+
+        questionImage.classList.remove(
+            "hidden"
+        );
+
+    }else{
+
+        questionImage.removeAttribute(
+            "src"
+        );
+
+        questionImage.classList.add(
+            "hidden"
+        );
+
+    }
+
+
+    answers.innerHTML =
+        "";
+
+
+    ["A","B","C","D"].forEach(
+        function(letter){
+
+            const button =
+                document.createElement("button");
+
+
+            button.type =
+                "button";
+
+
+            button.className =
+                "answer";
+
+
+            button.dataset.letter =
+                letter;
+
+
+            const letterElement =
+                document.createElement("span");
+
+
+            letterElement.className =
+                "answer-letter";
+
+
+            letterElement.textContent =
+                letter;
+
+
+            const text =
+                document.createElement("span");
+
+
+            text.textContent =
+                question.options[letter];
+
+
+            button.appendChild(
+                letterElement
+            );
+
+
+            button.appendChild(
+                text
+            );
+
+
+            button.addEventListener(
+                "click",
+                function(){
+
+                    answerQuestion(
+                        letter,
+                        button
+                    );
+
+                }
+            );
+
+
+            answers.appendChild(
+                button
+            );
+
+        }
+    );
+
+
+    renderPrizes();
+
+    startTimer();
+
+}
+
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+function startTimer(){
+
+    timeLeft =
+        QUESTION_TIME;
+
+
+    updateTimer();
+
+
+    timerInterval =
+        setInterval(
+            function(){
+
+                timeLeft--;
+
+                updateTimer();
+
+
+                if(
+                    timeLeft <= 0
+                ){
+
+                    clearInterval(
+                        timerInterval
+                    );
+
+
+                    timeExpired();
+
+                }
+
+            },
+            1000
+        );
+
+}
+
+
+/* =========================================================
+   TIMER GÖRÜNÜMÜ
+========================================================= */
+
+function updateTimer(){
+
+    timerElement.textContent =
+        timeLeft;
+
+
+    timerElement.classList.remove(
+        "warning",
+        "danger"
+    );
+
+
+    if(
+        timeLeft <= 10
+    ){
+
+        timerElement.classList.add(
+            "warning"
+        );
+
+    }
+
+
+    if(
+        timeLeft <= 5
+    ){
+
+        timerElement.classList.remove(
+            "warning"
+        );
+
+
+        timerElement.classList.add(
+            "danger"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   SÜRE BİTTİ
+========================================================= */
+
+function timeExpired(){
+
+    if(answered){
+
+        return;
+
+    }
+
+
+    answered = true;
+
+
+    const question =
+        questions[currentQuestion];
+
+
+    const correct =
+        String(
+            question.answer
+        ).toUpperCase();
+
+
+    document
+        .querySelectorAll(".answer")
+        .forEach(
+            function(button){
+
+                button.disabled =
+                    true;
+
+
+                if(
+                    button.dataset.letter ===
+                    correct
+                ){
+
+                    button.classList.add(
+                        "correct"
+                    );
+
+                }
+
+            }
+        );
+
+
+    setTimeout(
+        function(){
+
+            finishGame(
+                false
+            );
+
+        },
+        900
+    );
+
+}
+
+
+/* =========================================================
+   CEVAP
+========================================================= */
+
+function answerQuestion(
+    selected,
+    selectedButton
+){
+
+    if(answered){
+
+        return;
+
+    }
+
+
+    answered = true;
+
+
+    clearInterval(
+        timerInterval
+    );
+
+
+    const question =
+        questions[currentQuestion];
+
+
+    const correct =
+        String(
+            question.answer
+        ).toUpperCase();
+
+
+    document
+        .querySelectorAll(".answer")
+        .forEach(
+            function(button){
+
+                button.disabled =
+                    true;
+
+
+                if(
+                    button.dataset.letter ===
+                    correct
+                ){
+
+                    button.classList.add(
+                        "correct"
+                    );
+
+                }
+
+            }
+        );
+
+
+    /* DOĞRU */
+
+    if(
+        selected === correct
+    ){
+
+        selectedButton.classList.add(
+            "correct"
+        );
+
+
+        earnedMoney =
+            PRIZES[currentQuestion];
+
+
+        /* BARAJ */
+
+        if(
+            SAFE_LEVELS.includes(
+                currentQuestion
+            )
+        ){
+
+            // Baraj gerçekten doğru cevaplanınca kaydedilir.
+            // Böylece sonraki sorularda elenirse güncel soru
+            // ödülü değil, son geçilen baraj ödenir.
+            lastSafePrize =
+                PRIZES[currentQuestion];
+
+            showBarrier();
+
+        }
+
+
+        /* Son soru */
+
+        if(
+            currentQuestion === 9
+        ){
+
+            setTimeout(
+                function(){
+
+                    finishGame(
+                        true
+                    );
+
+                },
+                900
+            );
+
+
+            return;
+
+        }
+
+
+        setTimeout(
+            function(){
+
+                currentQuestion++;
+
+                renderQuestion();
+
+            },
+            850
+        );
+
+
+    }
+
+    /* YANLIŞ */
+
+    else{
+
+        selectedButton.classList.add(
+            "wrong"
+        );
+
+
+        setTimeout(
+            function(){
+
+                finishGame(
+                    false
+                );
+
+            },
+            1000
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   BARAJ MESAJI
+========================================================= */
+
+function showBarrier(){
+
+    barrier.classList.add(
+        "active"
+    );
+
+
+    setTimeout(
+        function(){
+
+            barrier.classList.remove(
+                "active"
+            );
+
+        },
+        1300
+    );
+
+}
+
+
+/* =========================================================
+   GARANTİLİ ÖDÜL
+========================================================= */
+
+function guaranteedPrize(){
+
+    // Sadece gerçekten geçilmiş son barajı döndürür.
+    // Örneğin 500 TL barajı geçilip 1000 TL sorusu
+    // doğru cevaplandıktan sonra 2500 TL sorusunda
+    // elenilirse ödeme 1000 TL değil, 500 TL olur.
+    return lastSafePrize;
+
+}
+
+
+/* =========================================================
+   50:50
+========================================================= */
+
+function useFifty(){
+
+    if(
+        fiftyUsed ||
+        answered
+    ){
+
+        return;
+
+    }
+
+
+    fiftyUsed = true;
+
+
+    fiftyButton.disabled =
+        true;
+
+
+    const question =
+        questions[currentQuestion];
+
+
+    const correct =
+        String(
+            question.answer
+        ).toUpperCase();
+
+
+    const wrongButtons = [];
+
+
+    document
+        .querySelectorAll(".answer")
+        .forEach(
+            function(button){
+
+                if(
+                    button.dataset.letter !==
+                    correct
+                ){
+
+                    wrongButtons.push(
+                        button
+                    );
+
+                }
+
+            }
+        );
+
+
+    shuffle(
+        wrongButtons
+    )
+    .slice(
+        0,
+        2
+    )
+    .forEach(
+        function(button){
+
+            button.classList.add(
+                "hidden"
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SEYİRCİ
+========================================================= */
+
+function useAudience(){
+
+    if(
+        audienceUsed ||
+        answered
+    ){
+
+        return;
+
+    }
+
+
+    audienceUsed = true;
+
+
+    audienceButton.disabled =
+        true;
+
+
+    const question =
+        questions[currentQuestion];
+
+
+    const correct =
+        String(
+            question.answer
+        ).toUpperCase();
+
+
+    const values = {
+
+        A:10,
+
+        B:10,
+
+        C:10,
+
+        D:10
+
+    };
+
+
+    values[correct] =
+        55;
+
+
+    const others =
+        ["A","B","C","D"]
+        .filter(
+            letter =>
+                letter !== correct
+        );
+
+
+    let remaining =
+        45;
+
+
+    others.forEach(
+        function(letter,index){
+
+            if(
+                index ===
+                others.length - 1
+            ){
+
+                values[letter] =
+                    remaining;
+
+            }else{
+
+                const value =
+                    Math.floor(
+                        Math.random() *
+                        Math.max(
+                            1,
+                            remaining -
+                            (others.length -
+                            index -
+                            1)
+                        )
+                    );
+
+
+                values[letter] =
+                    value;
+
+
+                remaining -=
+                    value;
+
+            }
+
+        }
+    );
+
+
+    ["A","B","C","D"].forEach(
+        function(letter){
+
+            document.getElementById(
+                "bar" + letter
+            ).style.width =
+                values[letter] + "%";
+
+
+            document.getElementById(
+                "percent" + letter
+            ).textContent =
+                values[letter] + "%";
+
+        }
+    );
+
+
+    audience.classList.add(
+        "active"
+    );
+
+
+    setTimeout(
+        function(){
+
+            audience.classList.remove(
+                "active"
+            );
+
+        },
+        4500
+    );
+
+}
+
+
+/* =========================================================
+   OYUNU BİTİR
+========================================================= */
+
+function finishGame(completed){
+
+    clearInterval(
+        timerInterval
+    );
+
+
+    timerInterval =
+        null;
+
+
+    answered = true;
+
+
+    let wonMoney = 0;
+
+
+    /*
+       Büyük ödül
+    */
+
+    if(completed){
+
+        wonMoney =
+            250000;
+
+    }
+
+    /*
+       Oyun tamamlanmadıysa
+       son baraj korunur.
+    */
+
+    else{
+
+        wonMoney =
+            guaranteedPrize();
+
+    }
+
+
+    /*
+       Oyun tamamlanmadıysa ödeme DAİMA son geçilen
+       barajdır. Mevcut sorunun veya son doğru yapılan
+       sorunun ödülü kesinlikle ödenmez.
+    */
+
+    if(!completed){
+
+        earnedMoney =
+            lastSafePrize;
+
+    }
+
+
+    /*
+       BAKİYEYE EKLE
+    */
+
+    addBalance(
+        earnedMoney
+    );
+
+
+    /* Sonuç ekranı */
+
+    if(completed){
+
+        resultTitle.textContent =
+            "MUHTEŞEM!";
+
+
+        resultDescription.textContent =
+            "10 sorunun tamamını doğru cevapladın ve büyük ödülü kazandın.";
+
+    }else{
+
+        resultTitle.textContent =
+            "YARIŞMA BİTTİ";
+
+
+        if(
+            earnedMoney > 0
+        ){
+
+            resultDescription.textContent =
+                "Baraj ödülünü korudun. Kazandığın sanal para bakiyene eklendi.";
+
+        }else{
+
+            resultDescription.textContent =
+                "Bu oyunda barajı geçemedin.";
+
+        }
+
+    }
+
+
+    resultMoney.textContent =
+        money(
+            earnedMoney
+        );
+
+
+    const user =
+        getUser();
+
+
+    const total =
+        Number(
+            user.gameBalance || 0
+        );
+
+
+    resultTotal.textContent =
+        "Toplam oyun bakiyen: " +
+        money(total);
+
+
+    result.classList.add(
+        "active"
+    );
+
+
+    /*
+       3 saniye sonra ana menü
+    */
+
+    setTimeout(
+        function(){
+
+            location.href =
+                "kimehliyetliolmakister.html";
+
+        },
+        3000
+    );
+
+}
+
+
+/* =========================================================
+   BAKİYEYE PARA EKLE
+========================================================= */
+
+function addBalance(amount){
+
+    const user =
+        getUser();
+
+
+    const oldBalance =
+        Number(
+            user.gameBalance || 0
+        );
+
+
+    user.gameBalance =
+        oldBalance +
+        Number(amount || 0);
+
+
+    localStorage.setItem(
+        "user",
+        JSON.stringify(user)
+    );
+
+}
+
+
+/* =========================================================
+   BUTONLAR
+========================================================= */
+
+startButton.addEventListener(
+    "click",
+    startGame
+);
+
+
+fiftyButton.addEventListener(
+    "click",
+    useFifty
+);
+
+
+audienceButton.addEventListener(
+    "click",
+    useAudience
+);
+
+
+/* =========================================================
+   SAYFA AÇILIŞI
+========================================================= */
+
+loadUser();
+
+
+/* =========================================================
+   YATAY KAYDIRMAYI ENGELLE
+========================================================= */
+
+document.documentElement.style.overflowX =
+    "hidden";
+
+
+document.body.style.overflowX =
+    "hidden";
+
+
+/*
+   Yatay touch hareketlerini engelle.
+*/
+
+let touchStartX = 0;
+
+
+document.addEventListener(
+    "touchstart",
+    function(event){
+
+        if(
+            event.touches.length === 1
+        ){
+
+            touchStartX =
+                event.touches[0].clientX;
+
+        }
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+document.addEventListener(
+    "touchmove",
+    function(event){
+
+        if(
+            event.touches.length !== 1
+        ){
+
+            return;
+
+        }
+
+
+        const currentX =
+            event.touches[0].clientX;
+
+
+        const difference =
+            currentX -
+            touchStartX;
+
+
+        /*
+           Belirgin yatay hareketi
+           engelle.
+        */
+
+        if(
+            Math.abs(difference) > 12
+        ){
+
+            event.preventDefault();
+
+        }
+
+    },
+    {
+        passive:false
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
