@@ -1954,6 +1954,22 @@ body.dark .kim-ehliyetli-card {
     }
 }
 
+
+/* Mobilde uzun basma ve sürüklemeyi azalt */
+a,
+button,
+[role="button"] {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+
 </style>
 </head>
   <body>
@@ -2752,6 +2768,19 @@ function changeAnnouncement(){
 
 // 5 saniyede bir değişsin
 setInterval(changeAnnouncement, 3000);
+
+
+document.addEventListener("dragstart", function(e) {
+    if (e.target.closest("a")) {
+        e.preventDefault();
+    }
+});
+
+document.addEventListener("contextmenu", function(e) {
+    if (e.target.closest("a, button, [role='button']")) {
+        e.preventDefault();
+    }
+});
 </script>
 
 <button class="scroll-top-v5" id="scrollTopV5" aria-label="Yukarı çık"><i class="fa-solid fa-arrow-up"></i></button>
