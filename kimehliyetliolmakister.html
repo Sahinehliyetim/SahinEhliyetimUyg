@@ -4908,15 +4908,25 @@ function finishGame(completed){
        3 saniye sonra ana menü
     */
 
-    setTimeout(
-        function(){
+setTimeout(
+    function(){
+
+        if(
+            window.Android &&
+            typeof window.Android.showGameInterstitial === "function"
+        ){
+
+            window.Android.showGameInterstitial();
+
+        }else{
 
             location.href =
                 "kimehliyetliolmakister.html";
+        }
 
-        },
-        3000
-    );
+    },
+    3000
+);
 
 }
 
