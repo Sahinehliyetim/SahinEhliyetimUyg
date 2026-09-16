@@ -270,6 +270,42 @@ body.dark .checks li{background:rgba(255,255,255,.05)!important}
 body.dark .theme,
 body.dark .edit-name{background:#191916!important;color:#f7f6ef!important;border-color:#302f29!important}
 </style>
+
+
+<style id="seh-premium-popup-v2">
+.premium-modal{position:fixed!important;inset:0!important;display:none;align-items:center!important;justify-content:center!important;padding:18px!important;background:rgba(9,9,7,.72)!important;backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;z-index:10001!important;}
+.premium-modal[style*="display: flex"],.premium-modal[style*="display:flex"],.premium-modal.open{display:flex!important;}
+.premium-box-modern{position:relative!important;width:min(100%,420px)!important;padding:22px!important;border:1px solid rgba(244,196,48,.38)!important;border-radius:28px!important;background:linear-gradient(145deg,#fffdf5 0%,#fff7d6 100%)!important;color:#171717!important;box-shadow:0 30px 90px rgba(0,0,0,.38),0 10px 30px rgba(244,196,48,.12)!important;overflow:hidden!important;}
+.premium-box-modern:before{content:"";position:absolute;left:-70px;top:-85px;width:190px;height:190px;border-radius:50%;background:rgba(244,196,48,.18);filter:blur(3px);pointer-events:none;}
+.premium-box-modern>*{position:relative;z-index:1;}
+.premium-modal-head{display:flex!important;align-items:center!important;gap:13px!important;margin-bottom:18px!important;}
+.premium-modal-icon{width:52px!important;height:52px!important;flex:0 0 52px!important;border-radius:17px!important;display:grid!important;place-items:center!important;background:linear-gradient(135deg,#ffd84d,#f4c430)!important;color:#27220f!important;font-size:20px!important;box-shadow:0 10px 25px rgba(244,196,48,.28)!important;}
+.premium-modal-title h3,.premium-box-modern h3{margin:0!important;color:#171717!important;font-size:19px!important;font-weight:800!important;line-height:1.2!important;}
+.premium-modal-title p,.premium-box-modern .desc{margin:4px 0 0!important;color:#77766f!important;font-size:10.5px!important;line-height:1.55!important;}
+.choice-card{position:relative!important;display:flex!important;align-items:center!important;gap:13px!important;margin:10px 0!important;padding:15px!important;border-radius:19px!important;cursor:pointer!important;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important;}
+.choice-card:hover{transform:translateY(-2px)!important;box-shadow:0 12px 25px rgba(28,27,20,.10)!important;}
+.choice-card.ad{background:linear-gradient(135deg,#fff 0%,#f5f8ff 100%)!important;border:1px solid #d6dfed!important;}
+.choice-card.premium{background:linear-gradient(135deg,#fff8d8 0%,#ffefaa 100%)!important;border:1px solid #e4b72b!important;}
+.choice-icon{width:44px!important;height:44px!important;flex:0 0 44px!important;border-radius:14px!important;display:grid!important;place-items:center!important;font-size:17px!important;}
+.choice-card.ad .choice-icon{background:#e8f1ff!important;color:#2563eb!important;}
+.choice-card.premium .choice-icon{background:#f4c430!important;color:#27220f!important;}
+.choice-copy{min-width:0!important;}
+.choice-head{font-size:12.5px!important;font-weight:800!important;color:#171717!important;}
+.choice-copy p,.choice-card p{margin:4px 0 0!important;font-size:9.5px!important;line-height:1.55!important;color:#77766f!important;}
+.choice-arrow{margin-left:auto!important;color:#a17b00!important;font-size:12px!important;}
+.cancel-btn{width:100%!important;margin-top:13px!important;padding:12px!important;border:1px solid #dedbd0!important;border-radius:15px!important;background:#f4f1e7!important;color:#55534b!important;font-size:10.5px!important;font-weight:800!important;cursor:pointer!important;}
+body.dark .premium-modal{background:rgba(0,0,0,.78)!important;}
+body.dark .premium-box-modern{background:linear-gradient(145deg,#191916 0%,#27261e 100%)!important;border-color:rgba(244,196,48,.34)!important;color:#f7f6ef!important;box-shadow:0 30px 90px rgba(0,0,0,.68)!important;}
+body.dark .premium-box-modern:before{background:rgba(244,196,48,.10)!important;}
+body.dark .premium-modal-title h3,body.dark .premium-box-modern h3,body.dark .choice-head{color:#f7f6ef!important;}
+body.dark .premium-modal-title p,body.dark .premium-box-modern .desc,body.dark .choice-copy p,body.dark .choice-card p{color:#aaa89e!important;}
+body.dark .choice-card.ad{background:linear-gradient(135deg,#1b2633,#18202a)!important;border-color:#344a61!important;}
+body.dark .choice-card.ad .choice-icon{background:#233b55!important;color:#9fc4ff!important;}
+body.dark .choice-card.premium{background:linear-gradient(135deg,#332d16,#433812)!important;border-color:#a77d08!important;}
+body.dark .choice-card.premium .choice-icon{background:#f4c430!important;color:#27220f!important;}
+body.dark .choice-arrow{color:#f4c430!important;}
+body.dark .cancel-btn{background:#24231e!important;color:#aaa89e!important;border-color:#3b392f!important;}
+</style>
 </head><body><main class="page">
 
 <section class="profile-hero"><div class="profile-main"><div class="avatar-wrap"><div id="avatar" class="avatar" aria-label="Profil simgesi"><i id="avatarIcon" class="fa-solid fa-user"></i></div><button class="avatar-edit" onclick="openAvatarPicker()" aria-label="Profil simgesini değiştir"><i class="fa-solid fa-pen"></i></button></div><div class="profile-copy"><div class="eyebrow">PROFİL</div><div id="nickname" class="nickname">Misafir</div><div id="status" class="status">Standart Kullanıcı</div><button class="edit-name" onclick="openName()">Adı düzenle</button></div></div>
@@ -295,8 +331,130 @@ const keys=Object.keys(tests),valid=keys.map(k=>tests[k]).filter(t=>t&&typeof t.
 document.getElementById("nickname").textContent=user.nickname||"Misafir";document.getElementById("status").textContent=user.isPremium?"Premium Kullanıcı":"Standart Kullanıcı";document.getElementById("premiumState").textContent=user.isPremium?"Aktif":"Standart";document.getElementById("statTests").textContent=count;document.getElementById("statAvg").textContent=avg+"%";document.getElementById("statXp").textContent=user.xp||0;document.getElementById("bestScore").textContent=best+"%";document.getElementById("totalSolved").textContent=count;
 const categories={trafik:"Trafik",motor:"Motor",ilkyardim:"İlk Yardım",trafikadabi:"Trafik Adabı",deneme:"Deneme",premiumtrafik:"Premium Trafik",premiummotor:"Premium Motor",premiumilkyardim:"Premium İlk Yardım",premiumtrafikadabi:"Premium Trafik Adabı",premiumdeneme:"Premium Deneme"},groups={};keys.forEach(k=>{let found="Diğer";for(const p in categories)if(k.startsWith(p+"-test")){found=categories[p];break}(groups[found]??=[]).push(k)});document.getElementById("categoryCount").textContent=Object.keys(groups).length;
 const map={"trafik-test-1":"trafiktest1.html","trafik-test-2":"trafiktest2.html","trafik-test-3":"trafiktest3.html","trafik-test-4":"trafiktest4.html","trafik-test-5":"trafiktest5.html","trafik-test-6":"trafiktest6.html","trafik-test-7":"trafiktest7.html","trafik-test-8":"trafiktest8.html","motor-test-1":"motortest1.html","motor-test-2":"motortest2.html","motor-test-3":"motortest3.html","motor-test-4":"motortest4.html","motor-test-5":"motortest5.html","motor-test-6":"motortest6.html","motor-test-7":"motortest7.html","motor-test-8":"motortest8.html","ilkyardim-test-1":"ilkyardimtest1.html","ilkyardim-test-2":"ilkyardimtest2.html","ilkyardim-test-3":"ilkyardimtest3.html","ilkyardim-test-4":"ilkyardimtest4.html","ilkyardim-test-5":"ilkyardimtest5.html","ilkyardim-test-6":"ilkyardimtest6.html","ilkyardim-test-7":"ilkyardimtest7.html","ilkyardim-test-8":"ilkyardimtest8.html","trafikadabi-test-1":"trafikadabitest1.html","trafikadabi-test-2":"trafikadabitest2.html","trafikadabi-test-3":"trafikadabitest3.html","trafikadabi-test-4":"trafikadabitest4.html","trafikadabi-test-5":"trafikadabitest5.html","trafikadabi-test-6":"trafikadabitest6.html","trafikadabi-test-7":"trafikadabitest7.html","trafikadabi-test-8":"trafikadabitest8.html","deneme-test-1":"deneme1.html","deneme-test-2":"deneme2.html","deneme-test-3":"deneme3.html","deneme-test-4":"deneme4.html","deneme-test-5":"deneme5.html","deneme-test-6":"deneme6.html","deneme-test-7":"deneme7.html","deneme-test-8":"deneme8.html","premium-deneme-test-1":"premiumdenemetest1.html","premium-deneme-test-2":"premiumdenemetest2.html","premium-deneme-test-3":"premiumdenemetest3.html","premium-deneme-test-4":"premiumdenemetest4.html","premium-deneme-test-5":"premiumdenemetest5.html","premium-trafik-test-1":"premiumtrafiktest1.html","premium-trafik-test-2":"premiumtrafiktest2.html","premium-trafik-test-3":"premiumtrafiktest3.html","premium-trafik-test-4":"premiumtrafiktest4.html","premium-trafik-test-5":"premiumtrafiktest5.html","premium-ilkyardim-test-1":"premiumyardimtest1.html","premium-ilkyardim-test-2":"premiumyardimtest2.html","premium-ilkyardim-test-3":"premiumyardimtest3.html","premium-ilkyardim-test-4":"premiumyardimtest4.html","premium-ilkyardim-test-5":"premiumyardimtest5.html","premium-motor-test-1":"premiummotortest1.html","premium-motor-test-2":"premiummotortest2.html","premium-motor-test-3":"premiummotortest3.html","premium-motor-test-4":"premiummotortest4.html","premium-motor-test-5":"premiummotortest5.html","premium-trafikadabi-test-1":"premiumadaptest1.html","premium-trafikadabi-test-2":"premiumadaptest2.html","premium-trafikadabi-test-3":"premiumadaptest3.html","premium-trafikadabi-test-4":"premiumadaptest4.html","premium-trafikadabi-test-5":"premiumadaptest5.html"};
-function retry(k){if(map[k])location.href=map[k]}
+let selectedRetryTest = "";
+
+function retry(k){
+    const url = map[k];
+
+    if(!url) return;
+
+    // Premium kullanıcı → direkt teste gir
+    if(localStorage.getItem("premium") === "true"){
+        location.href = url;
+        return;
+    }
+
+    // Normal kullanıcı → mevcut premium/reklam popup'ını aç
+    selectedRetryTest = url;
+
+    const modal = document.getElementById("premiumModal");
+
+    if(modal){
+        modal.style.display = "flex";
+    }
+}
 function renderTests(){const box=document.getElementById("tests");if(!count){box.innerHTML='<div style="padding:20px;text-align:center;color:var(--muted);font-size:11px">Henüz test çözülmedi.</div>';return}Object.entries(groups).forEach(([name,list])=>{const wrap=document.createElement("div");wrap.className="test-category";const h=document.createElement("div");h.className="cat-head";h.innerHTML="<span>"+name+" ("+list.length+")</span><i class='fa-solid fa-chevron-down'></i>";const c=document.createElement("div");c.className="cat-content";h.onclick=()=>{c.classList.toggle("open");h.querySelector("i").style.transform=c.classList.contains("open")?"rotate(180deg)":""};list.sort().forEach(k=>{const t=tests[k]||{},item=document.createElement("div");item.className="test-item";item.innerHTML='<div><div class="test-name">'+k.replace(/-/g," ")+'</div><div class="test-score">Başarı: %'+(Number(t.percent)||0)+'</div></div><button class="retry">Tekrar çöz</button>';item.querySelector(".retry").onclick=()=>retry(k);c.appendChild(item)});wrap.append(h,c);box.appendChild(wrap)})}renderTests();
 const xp=Number(user.xp)||0,level=Math.floor(xp/100)+1,current=xp%100;document.getElementById("levelLabel").textContent="Seviye "+level;document.getElementById("xpLabel").textContent=current+" / 100 XP";document.getElementById("xpFill").style.width=current+"%";document.getElementById("progressPercent").textContent="%"+current;document.getElementById("nextLevel").textContent=(100-current)+" XP kaldı";
 const b=[];if(count>=1)b.push("İlk test");if(best>=80)b.push("Yüksek başarı");if(count>=3)b.push("3 test");if(user.isPremium)b.push("Premium üye");document.getElementById("badges").innerHTML=b.length?b.map(x=>'<span class="badge">'+x+"</span>").join(""):'<span style="font-size:10px;color:var(--muted)">Henüz rozet kazanılmadı.</span>';document.getElementById("testCountLabel").textContent=count+" kayıt";
-</script><nav class="bottom-nav"><button onclick="location.href='katagoriler.html'"><i class="fa-solid fa-house"></i><span>Ana</span></button><button class="active" onclick="location.href='hesabim.html'"><i class="fa-solid fa-user"></i><span>Profil</span></button><button class="premium-btn" onclick="location.href='premium.html'"><i class="fa-solid fa-crown"></i><span>Premium</span></button><button onclick="location.href='soru.html'"><i class="fa-solid fa-circle-question"></i><span>Sor</span></button><button onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i><span>Mod</span></button></nav></body></html>
+
+
+function closeRetryPopup(){
+    const modal = document.getElementById("premiumModal");
+
+    if(modal){
+        modal.style.display = "none";
+    }
+
+    selectedRetryTest = "";
+}
+
+function watchRetryAd(){
+
+    if(!selectedRetryTest) return;
+
+    // Premium olmuşsa reklama gerek yok
+    if(localStorage.getItem("premium") === "true"){
+        const url = selectedRetryTest;
+        closeRetryPopup();
+        location.href = url;
+        return;
+    }
+
+    const url = selectedRetryTest;
+
+    closeRetryPopup();
+
+    // Mevcut Android Rewarded Ad sistemi
+    if(window.Android && typeof Android.showRewardedAd === "function"){
+        Android.showRewardedAd(url);
+    }else{
+        console.log("Rewarded Ad bridge bulunamadı.");
+    }
+}
+
+function goRetryPremium(){
+    closeRetryPopup();
+    location.href = "premium.html";
+}
+
+// Android reklam tamamlandığında burası çağrılacak
+function adCompleted(url){
+
+    if(url){
+        location.href = url;
+    }
+}
+
+</script>
+
+
+<nav class="bottom-nav"><button onclick="location.href='katagoriler.html'"><i class="fa-solid fa-house"></i><span>Ana</span></button><button class="active" onclick="location.href='hesabim.html'"><i class="fa-solid fa-user"></i><span>Profil</span></button><button class="premium-btn" onclick="location.href='premium.html'"><i class="fa-solid fa-crown"></i><span>Premium</span></button><button onclick="location.href='soru.html'"><i class="fa-solid fa-circle-question"></i><span>Sor</span></button><button onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i><span>Mod</span></button></nav>
+
+
+
+<div id="premiumModal" class="premium-modal" style="display:none">
+    <div class="premium-box-modern">
+
+        <h3>Bir Seçenek Seç</h3>
+
+        <p class="desc">
+            Testi tekrar çözmek için aşağıdan bir yöntem seç.
+        </p>
+
+        <!-- REKLAM -->
+        <div class="choice-card ad" onclick="watchRetryAd()">
+
+            <div class="choice-head">
+                <i class="fa-solid fa-play"></i>
+                Reklam İzle
+            </div>
+
+            <p>
+                Kısa bir reklam izle, ardından testi tekrar çözmeye devam et.
+            </p>
+
+        </div>
+
+        <!-- PREMIUM -->
+        <div class="choice-card premium" onclick="goRetryPremium()">
+
+            <div class="choice-head">
+                <i class="fa-solid fa-crown"></i>
+                Premium Ol
+            </div>
+
+            <p>
+                Premium ile reklamları kaldır ve testlere sınırsız eriş.
+            </p>
+
+        </div>
+
+        <button class="cancel-btn" onclick="closeRetryPopup()">
+            Vazgeç
+        </button>
+
+    </div>
+</div>
+
+
+</body></html>
