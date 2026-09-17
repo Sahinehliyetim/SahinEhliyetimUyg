@@ -688,7 +688,7 @@ const questionBank = [
 {
   id: 57,
   question: "Görseldeki yaralıya ilk yardımcının, hangi uygulamayı yapması uygun değildir?",
-  image: "resimler/sorularresim/13.jpg",
+  image: "gunluksoruresimler/13.jpg",
   options: {
     A: "Boyun tespiti yapması",
     B: "Yarı oturur pozisyona alması",
@@ -1233,7 +1233,7 @@ const questionBank = [
   {
     id: 103,
     question: "Şekildeki trafik işareti neyi ifade eder?",
-    image: "images/sorularresim/19.gif",
+    image: "gunluksoruresimler/19.gif",
     options: { A: "Taşıt yolunun soldan daralacağını", B: "Taşıt yolunun sağdan daralacağını", C: "Taşıt yolunun her iki taraftan daralacağını", D: "İki yönlü yoldan tek yönlü yola yaklaşıldığını" },
     answer: "B"
   },
@@ -1374,7 +1374,7 @@ const questionBank = [
   {
     id: 123,
     question: "Resimde görülen uygulama hangi kırıkların tespiti için yapılır?",
-    image: "images/sorularresim/24.gif",
+    image: "gunluksoruresimler/24.gif",
     options: { A: "Omurga kırığı", B: "Üst kol kemiği kırığı", C: "Ön kol kemiği kırığı", D: "Köprücük kemiği kırığı" },
     answer: "C"
   },
